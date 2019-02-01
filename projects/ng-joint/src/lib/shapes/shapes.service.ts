@@ -111,7 +111,6 @@ export class ShapesService {
   setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
     const shape = component.shape;
     if (!shape) { return; } // first time changes is before shape is created
-
     const bbox = shape.element.getBBox();
 
     // detect position change
@@ -131,12 +130,12 @@ export class ShapesService {
 
     // process detected changes
     if (positionChangeDetected) {
-        component.shape.element.position(component.x, component.y);
-        console.log('onShapeChanges.position');
+      component.shape.element.position(component.x, component.y);
+      console.log('onShapeChanges.position');
     }
     if (sizeChangeDetected) {
-        component.shape.element.resize(component.width, component.height);
-        console.log('onShapeChanges.resize');
+      component.shape.element.resize(component.width, component.height);
+      console.log('onShapeChanges.resize');
     }
 
   }

@@ -203,7 +203,6 @@ export interface NgJointElement extends NgJointShape {
     y: number;
     width: number;
     height: number;
-    attrs?: {};
 }
 
 /**

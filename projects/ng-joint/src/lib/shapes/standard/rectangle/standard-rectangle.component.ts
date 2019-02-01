@@ -1,9 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { GenericElementShapeComponent } from '../../shapes';
 import { NgJointStandardElement } from '../shapes-standard';
 import { StandardRectangleService } from './standard-rectangle.service';
 import { StandardRectangle } from './standard-rectangle';
+import { initDomAdapter } from '@angular/platform-browser/src/browser';
 
 @Component({
   selector: 'dgwnu-standard-rectangle',
@@ -12,6 +13,11 @@ import { StandardRectangle } from './standard-rectangle';
     `,
 })
 export class StandardRectangleComponent extends GenericElementShapeComponent {
+  @Input() tabIndex?: number;
+  @Input() title?: string;
+  @Input() fill?: string;
+  @Input() fillOpacity?: number;
+  @Input() label?: string;
 
   constructor(private standardRectangleService: StandardRectangleService) {
     super(standardRectangleService);
