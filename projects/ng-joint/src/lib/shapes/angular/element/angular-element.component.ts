@@ -1,9 +1,5 @@
-import { Component, Input, Output, EventEmitter,
-  ElementRef, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 
-import { Subject } from 'rxjs';
-
-import { DiaGraphElement } from '../../../dia/dia-graph-element';
 import { GenericElementShapeComponent } from '../../shapes';
 import { NgJointAngularGenericElement } from '../shapes-angular';
 import { AngularElementService } from './angular-element.service';

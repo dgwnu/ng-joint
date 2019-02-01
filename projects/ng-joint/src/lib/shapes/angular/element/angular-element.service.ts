@@ -1,8 +1,7 @@
-import { Injectable, ElementRef, Renderer2, RendererFactory2, SimpleChanges } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2, SimpleChanges } from '@angular/core';
 
 import { DiaGraphElement } from '../../../dia/dia-graph-element';
 import { ElementShapeService } from '../../shapes';
-import { ShapesAngularService } from '../shapes-angular.service';
 import { AngularElement } from './angular-element';
 import { AngularElementComponent } from './angular-element.component';
 
@@ -17,9 +16,8 @@ export class AngularElementService implements ElementShapeService {
   private renderer: Renderer2;
 
   constructor(
-    private shapesService: ShapesAngularService,
     private rendererFactory: RendererFactory2
-  ) { 
+  ) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
