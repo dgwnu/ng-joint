@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/dia-graph-element';
-import { ElementShapeComponent } from '../../shapes';
+import { GenericElementShapeComponent } from '../../shapes';
 import { NgJointStandardElement } from '../shapes-standard';
 import { StandardRectangleService } from './standard-rectangle.service';
 import { StandardRectangle } from './standard-rectangle';
@@ -12,31 +11,15 @@ import { StandardRectangle } from './standard-rectangle';
     <!-- joint.shapes.standard.Rectangle  -->
     `,
 })
-export class StandardRectangleComponent implements ElementShapeComponent {
-  @Input() id: string;
-  @Input() x: number;
-  @Input() y: number;
-  @Input() width: number;
-  @Input() height: number;
+export class StandardRectangleComponent extends GenericElementShapeComponent {
   @Input() body: {};
   @Input() label: {};
 
-  constructor(private service: StandardRectangleService) { }
+  constructor(private standardRectangleService: StandardRectangleService) {
+    super(standardRectangleService);
+  }
 
   shape: StandardRectangle;
-
-  createShape(graphElement: DiaGraphElement) {
-    this.shape = this.service.createStandardRectangle(
-      graphElement,
-      this.id,
-      this.x,
-      this.y,
-      this.width,
-      this.height,
-      this.body,
-      this.label
-    );
-  }
 
 }
 
