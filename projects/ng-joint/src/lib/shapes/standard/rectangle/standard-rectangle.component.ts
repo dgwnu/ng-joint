@@ -13,15 +13,17 @@ import { initDomAdapter } from '@angular/platform-browser/src/browser';
     `,
 })
 export class StandardRectangleComponent extends GenericElementShapeComponent {
-  @Input() tabIndex?: number;
-  @Input() title?: string;
-  @Input() fill?: string;
-  @Input() fillOpacity?: number;
-  @Input() label?: string;
+  @Input() rootTabIndex?: number;
+  @Input() rootTitle?: string;
+  @Input() bodyFill?: string;
+  @Input() bodyFillOpacity?: number;
+  @Input() labelText?: string;
 
   constructor(private standardRectangleService: StandardRectangleService) {
     super(standardRectangleService);
   }
+
+  shape: StandardRectangle;
 
 }
 
@@ -29,5 +31,9 @@ export class StandardRectangleComponent extends GenericElementShapeComponent {
  * Ng Joint Standard Rectangle Interface (use this with arrays and structural directives *ngFor, ..)
  */
 export interface NgJointStandardRectangle extends NgJointStandardElement {
-
+  rootTabIndex?: number;
+  rootTitle?: string;
+  bodyFill?: string;
+  bodyFillOpacity?: number;
+  labelText?: string;
 }
