@@ -37,7 +37,7 @@ export class StandardRectangleService implements ElementShapeService {
   }
 
   setChanges(changes: SimpleChanges, component: StandardRectangleComponent) {
-    this.service.setChanges(changes, component);
+    this.service.setElementChanges(changes, component);
   }
 
 }

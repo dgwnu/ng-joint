@@ -1,4 +1,4 @@
-import { Injectable, QueryList } from '@angular/core';
+import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
 import { DiaGraphElement } from '../dia/dia-graph-element';
 import {
@@ -65,7 +65,7 @@ export class ShapesService {
 
   }
 
-  positionElement(component: ElementShapeComponent) {
+  private _positionElement(component: ElementShapeComponent) {
     const shape = component.shape;
     const xShapeElement = shape.element.getBBox().x;
     const yShapeElement = shape.element.getBBox().y;
@@ -84,7 +84,7 @@ export class ShapesService {
     }
   }
 
-  resizeElement(component: ElementShapeComponent) {
+  private _resizeElement(component: ElementShapeComponent) {
     const shape = component.shape;
     const widthShapeElement = shape.element.getBBox().width;
     const heightShapeElement = shape.element.getBBox().height;
@@ -110,8 +110,8 @@ export class ShapesService {
   ) {
 
     let thisHandlers = {
-      positionHandler: this.positionElement,
-      sizeHandler: this.resizeElement
+      positionHandler: this._positionElement,
+      sizeHandler: this._resizeElement
     };
 
     if (eventHandlers) {
@@ -130,6 +130,39 @@ export class ShapesService {
       .on('change:size', (context: any) => {
         thisHandlers.sizeHandler(component);
     });
+
+  }
+
+  setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
+    const shape = component.shape;
+    if (!shape) { return; } // first time changes is before shape is created
+
+    const bbox = shape.element.getBBox();
+
+    // detect position change
+    let positionChangeDetected = false;
+    if (changes.x) {
+      if (changes.x.currentValue !== bbox.x) { positionChangeDetected = true; }
+    } else if (changes.y) {
+      if (changes.y.currentValue !== bbox.y) { positionChangeDetected = true; }
+    }
+    // detect size change
+    let sizeChangeDetected = false;
+    if (changes.width) {
+      if (changes.width.currentValue !== bbox.width) { sizeChangeDetected = true; }
+    } else if (changes.height) {
+      if (changes.height.currentValue !== bbox.height) { sizeChangeDetected = true; }
+    }
+
+    // process detected changes
+    if (positionChangeDetected) {
+        component.shape.element.position(component.x, component.y);
+        console.log('onShapeChanges.position');
+    }
+    if (sizeChangeDetected) {
+        component.shape.element.resize(component.width, component.height);
+        console.log('onShapeChanges.resize');
+    }
 
   }
 
