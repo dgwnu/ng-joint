@@ -2,6 +2,7 @@ import { Injectable, SimpleChanges,  } from '@angular/core';
 
 import { DiaGraphElement } from '../../../dia/dia-graph-element';
 import { ElementShapeService } from '../../shapes';
+import { ShapesStandardService } from '../shapes-standard.service';
 import { StandardRectangle } from './standard-rectangle';
 import { StandardRectangleComponent } from './standard-rectangle.component';
 
@@ -9,6 +10,8 @@ import { StandardRectangleComponent } from './standard-rectangle.component';
   providedIn: 'root'
 })
 export class StandardRectangleService implements ElementShapeService {
+
+  constructor(private service: ShapesStandardService) {}
 
   createElementShape(
     graphElement: DiaGraphElement,
@@ -66,7 +69,8 @@ export class StandardRectangleService implements ElementShapeService {
   }
 
   onEvents(component: StandardRectangleComponent) {
-
+    this.service.onElementEvents(component);
+    /*
     component.shape.element
       .on('change:position', (context: any) => {
         this._positionComponent(component);
@@ -74,7 +78,7 @@ export class StandardRectangleService implements ElementShapeService {
       .on('change:size', (context: any) => {
         this._resizeComponent(component);
     } );
-
+    */
   }
 
   setChanges(changes: SimpleChanges, component: StandardRectangleComponent) {

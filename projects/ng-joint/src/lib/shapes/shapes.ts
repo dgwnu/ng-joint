@@ -27,6 +27,10 @@ export interface ShapeComponent {
  * Element Shape Component Interface
  */
 export interface ElementShapeComponent extends ShapeComponent {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
     shape: ElementShape;
 }
 
