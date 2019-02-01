@@ -16,14 +16,9 @@ export abstract class UmlLinkShape extends LinkShape {
 export type UmlNameType = string | string[];
 
 export interface NgJointUmlElement extends NgJointElement {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
     name: UmlNameType;
     attributes?: string[];
     methods?: string[];
-    attrs?: {};
 }
 
 export interface NgJointUmlLink extends NgJointLink {

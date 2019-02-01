@@ -31,6 +31,7 @@ export interface ElementShapeComponent extends ShapeComponent {
     y: number;
     width: number;
     height: number;
+    attrs?: {};
     shape: ElementShape;
 }
 
@@ -66,6 +67,9 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
   /** two-way binding height property */
   @Input() get height() { return this._height; }
   @Output() heightChange = new EventEmitter();
+
+  /** one-way binding attrs property */
+  @Input() attrs?: {};
 
   constructor(private service: ElementShapeService) {}
 
@@ -186,17 +190,26 @@ export abstract class LinkShape {
     get link(): dia.Link { return this._link; }
 }
 
+
+interface NgJointShape {
+    id: string;
+}
+
 /**
  * Generic Ng Joint Element Interface
  */
-export interface NgJointElement {
-    id: string;
+export interface NgJointElement extends NgJointShape {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    attrs?: {};
 }
 
 /**
  * Generic Ng Joint Link Interface
  */
-export interface NgJointLink extends NgJointElement {
+export interface NgJointLink extends NgJointShape {
     sourceId: string;
     targetId: string;
 }
