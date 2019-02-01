@@ -3,7 +3,6 @@
 ## Additional Bi-Directional Data Change Logic
 
 Implement multiple flexible add-on ShapeEvent-handlers in ShapeService (already tested)
-- refactor AngularElement (seperate generic and specific Event en Change handling)  
 - refactor StandardRectangle (add bi-directional body and label data functionality)
 - refactor UmlShapes (using Event and Change handling...)
 - Create test components in App (showing bi-directional Event end Change handling working fine!)

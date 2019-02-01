@@ -24,7 +24,7 @@ export class AngularElementService implements ElementShapeService {
   }
 
   // set behaviour of html (and angular specific) content within angular element
-  setNgContentStyles(contentNode: Node | ChildNode) {
+  private _setNgContentStyles(contentNode: Node | ChildNode) {
     contentNode.childNodes.forEach(childNode => {
       switch (childNode.nodeName) {
         case 'BUTTON': {

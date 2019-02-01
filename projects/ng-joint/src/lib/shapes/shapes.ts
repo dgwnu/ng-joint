@@ -77,7 +77,6 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
   set x(xValue: number) {
     if (this._x !== xValue) {
       this._x = xValue;
-      console.log('x changed', xValue);
       this.xChange.emit(this._x);
     }
   }
@@ -85,19 +84,22 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
   set y(yValue: number) {
     if (this._y !== yValue) {
       this._y = yValue;
-      console.log('y changed', yValue);
       this.yChange.emit(this._y);
     }
   }
 
   set width(widthValue: number) {
-    this._width = widthValue;
-    this.widthChange.emit(this._width);
+    if (this._width !== widthValue) {
+        this._width = widthValue;
+        this.widthChange.emit(this._width);
+    }
   }
 
   set height(heightValue: number) {
-    this._height = heightValue;
-    this.heightChange.emit(this._height);
+    if (this._height !== heightValue) {
+        this._height = heightValue;
+        this.heightChange.emit(this._height);
+    }
   }
 
   shape: ElementShape;
