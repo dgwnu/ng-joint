@@ -1,11 +1,12 @@
 import { Injectable, QueryList } from '@angular/core';
 
 import { DiaGraphElement } from '../dia/dia-graph-element';
-import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from './shapes';
-
-interface ElementShapeEventHandler {
-  (component: ElementShapeComponent);
-}
+import {
+  ShapePlugin,
+  ElementShapeComponent,
+  LinkShapeComponent,
+  ElementShapeEventHandler
+} from './shapes';
 
 /**
  * Shapes Registration Service Class

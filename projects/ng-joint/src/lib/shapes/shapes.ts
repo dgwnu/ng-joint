@@ -43,6 +43,10 @@ export interface ElementShapeService {
       setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
 }
 
+export interface ElementShapeEventHandler {
+    (component: ElementShapeComponent);
+}
+
 export abstract class GenericElementShapeComponent implements ElementShapeComponent, OnChanges {
   /** one-way binding id property */
   @Input() id: string;
