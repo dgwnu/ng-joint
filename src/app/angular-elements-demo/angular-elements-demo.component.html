@@ -1,0 +1,46 @@
+<dgwnu-dia-paper
+    [width]="1200"
+    [height]="600"
+    [gridSize]="10"
+    [drawGrid]="true">
+    <dgwnu-dia-graph>
+        <dgwnu-shapes>
+            <dgwnu-shapes-angular>
+                <dgwnu-angular-element
+                    [id]="'ng1'"
+                    [x]="400"
+                    [y]="100"
+                    [width]="250"
+                    [height]="200">
+                    <h1>Standard Angular HTML</h1>
+                    <button>Standard Button</button>
+                    <input type="text" name="fname">
+                </dgwnu-angular-element>
+                <dgwnu-angular-element
+                    [id]="'mat1'"
+                    [x]="700"
+                    [y]="50"
+                    [width]="200"
+                    [height]="150">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>
+                                Angular Material 
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-form-field>
+                                <input matInput placeholder="Input">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-footer>
+                            <button mat-mini-fab color="accent">
+                                FAB
+                            </button>
+                        </mat-card-footer>
+                    </mat-card>
+                </dgwnu-angular-element>
+            </dgwnu-shapes-angular>
+        </dgwnu-shapes>
+    </dgwnu-dia-graph>
+</dgwnu-dia-paper>

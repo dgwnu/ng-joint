@@ -1,0 +1,70 @@
+<dgwnu-dia-paper
+    [width]="1200"
+    [height]="600"
+    [gridSize]="10"
+    [drawGrid]="true">
+
+    <dgwnu-dia-graph>
+
+        <dgwnu-shapes>
+
+            <dgwnu-shapes-standard>
+
+                <dgwnu-standard-rectangle *ngFor="let rect of rects"
+                    [id]="rect.id"
+                    [x]="rect.x"
+                    [y]="rect.y"
+                    [width]="rect.width"
+                    [height]="rect.height"
+                    [body]="rect.body"
+                    [label]="rect.label">
+                </dgwnu-standard-rectangle>
+
+                <dgwnu-standard-link *ngFor="let link of links"
+                    [id]="link.id"
+                    [sourceId]="link.sourceId"
+                    [targetId]="link.targetId">
+                </dgwnu-standard-link>
+
+            </dgwnu-shapes-standard>
+
+            <dgwnu-shapes-angular>
+
+                <dgwnu-angular-element *ngFor="let customNgEl of customNgEls"
+                    [id]="customNgEl.id"
+                    [(x)]="customNgEl.x"
+                    [(y)]="customNgEl.y"
+                    [(width)]="customNgEl.width"
+                    [(height)]="customNgEl.height">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>
+                                ({{ customNgEl.id }}): {{ customNgEl.testFieldA }} 
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                ({{ customNgEl.x }}, {{ customNgEl.y }})
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-form-field>
+                                <input matInput placeholder="Input">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-footer>
+                            <button mat-mini-fab color="accent" (click)="onClickMatButtonXPlus10($event, customNgEl)">
+                                x + 10
+                            </button>
+                            <button mat-mini-fab color="accent" (click)="onClickMatButtonYPlus10($event, customNgEl)">
+                                y + 10
+                            </button>
+                        </mat-card-footer>
+                    </mat-card>
+                </dgwnu-angular-element>
+
+            </dgwnu-shapes-angular>
+
+        </dgwnu-shapes>
+
+    </dgwnu-dia-graph>
+
+</dgwnu-dia-paper>

@@ -1,0 +1,79 @@
+<dgwnu-dia-paper
+  [width]="1200"
+  [height]="600"
+  [gridSize]="10"
+  [drawGrid]="true">
+
+  <dgwnu-dia-graph>
+
+    <dgwnu-shapes>
+
+      <dgwnu-shapes-uml>
+
+        <dgwnu-uml-interface *ngFor="let umlInterface of umlInterfaces"
+          [id]="umlInterface.id"
+          [x]="umlInterface.x"
+          [y]="umlInterface.y"
+          [width]="umlInterface.width"
+          [height]="umlInterface.height"
+          [name]="umlInterface.name"
+          [attributes]="umlInterface.attributes"
+          [methods]="umlInterface.methods"
+          [attrs]="umlInterface.attrs">
+        </dgwnu-uml-interface>
+
+        <dgwnu-uml-abstract *ngFor="let umlAbstract of umlAbstracts"
+          [id]="umlAbstract.id"
+          [x]="umlAbstract.x"
+          [y]="umlAbstract.y"
+          [width]="umlAbstract.width"
+          [height]="umlAbstract.height"
+          [name]="umlAbstract.name"
+          [attributes]="umlAbstract.attributes"
+          [methods]="umlAbstract.methods"
+          [attrs]="umlAbstract.attrs">
+        </dgwnu-uml-abstract>
+
+        <dgwnu-uml-class *ngFor="let umlClass of umlClasses"
+          [id]="umlClass.id"
+          [x]="umlClass.x"
+          [y]="umlClass.y"
+          [width]="umlClass.width"
+          [height]="umlClass.height"
+          [name]="umlClass.name"
+          [attributes]="umlClass.attributes"
+          [methods]="umlClass.methods"
+          [attrs]="umlClass.attrs">
+        </dgwnu-uml-class>
+
+        <dgwnu-uml-generalization *ngFor="let umlGeneralization of umlGeneralizations"
+          [id]="umlGeneralization.id"
+          [sourceId]="umlGeneralization.sourceId"
+          [targetId]="umlGeneralization.targetId">
+        </dgwnu-uml-generalization>
+
+        <dgwnu-uml-implementation *ngFor="let umlImplementation of umlImplementations"
+          [id]="umlImplementation.id"
+          [sourceId]="umlImplementation.sourceId"
+          [targetId]="umlImplementation.targetId">
+        </dgwnu-uml-implementation>
+
+        <dgwnu-uml-aggregation *ngFor="let umlAggregation of umlAggregations"
+          [id]="umlAggregation.id"
+          [sourceId]="umlAggregation.sourceId"
+          [targetId]="umlAggregation.targetId">
+        </dgwnu-uml-aggregation>
+
+        <dgwnu-uml-composition *ngFor="let umlComposition of umlCompositions"
+          [id]="umlComposition.id"
+          [sourceId]="umlComposition.sourceId"
+          [targetId]="umlComposition.targetId">
+        </dgwnu-uml-composition>
+
+      </dgwnu-shapes-uml>
+
+    </dgwnu-shapes>
+
+  </dgwnu-dia-graph>
+
+</dgwnu-dia-paper>

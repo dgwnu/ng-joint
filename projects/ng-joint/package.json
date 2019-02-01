@@ -1,0 +1,10 @@
+{
+  "name": "@dgwnu/ng-joint",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.2.2",
+    "@angular/core": "^7.2.2",
+    "jointjs": "^2.2.1",
+    "node-cache":" ^4.2.0"
+  }
+}

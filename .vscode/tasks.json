@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Lib Build",
+            "type": "npm",
+            "script": "dev:lib",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "App Build",
+            "type": "npm",
+            "script": "start",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "Build",
+            "dependsOn": [
+                "Lib Build",
+                "App Build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
