@@ -100,23 +100,34 @@ export class ShapesService {
     }
   }
 
-  onElementEvents(component: ElementShapeComponent, handlers?: ElementShapeEventHandler[]) {
+  onElementEvents(
+    component: ElementShapeComponent,
+    positionHandlers?: ElementShapeEventHandler[],
+    sizeHandlers?: ElementShapeEventHandler[]
+  ) {
 
-    if (handlers) {
-      handlers.push(this._positionElement);
+    if (positionHandlers) {
+      positionHandlers.push(this._positionElement);
     } else {
-      handlers = [this._positionElement];
+      positionHandlers = [this._positionElement];
+    }
+
+    if (sizeHandlers) {
+      sizeHandlers.push(this._resizeElement);
+    } else {
+      sizeHandlers = [this._resizeElement];
     }
 
     component.shape.element
       .on('change:position', (context: any) => {
-        // this._positionElement(component);
-        for (const handler of handlers) {
-          handler(component);
+        for (const positionHandler of positionHandlers) {
+          positionHandler(component);
         }
     } )
       .on('change:size', (context: any) => {
-        this._resizeElement(component);
+        for (const sizeHandler of sizeHandlers) {
+          sizeHandler(component);
+        }
     } );
 
   }
