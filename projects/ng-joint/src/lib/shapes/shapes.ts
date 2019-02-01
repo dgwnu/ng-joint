@@ -15,12 +15,19 @@ export interface ShapePlugin {
 type GenericShape = ElementShape | LinkShape;
 
 /**
- * Element Shape Component Interface
+ * Shape Component Interface
  */
-export interface ElementShapeComponent {
+export interface ShapeComponent {
     id: string;
     shape: GenericShape;
     createShape(graphElement: DiaGraphElement): void;
+}
+
+/**
+ * Element Shape Component Interface
+ */
+export interface ElementShapeComponent extends ShapeComponent {
+    shape: ElementShape;
 }
 
 export interface ElementShapeService {
@@ -85,7 +92,7 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     this.heightChange.emit(this._height);
   }
 
-  shape: GenericShape;
+  shape: ElementShape;
 
   createShape(graphElement: DiaGraphElement) {
     console.log('createShape');
@@ -106,11 +113,12 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
 /**
  * Link Shape Component Interface
  */
-export interface LinkShapeComponent extends ElementShapeComponent {
+export interface LinkShapeComponent extends ShapeComponent {
     sourceId: string;
     targetId: string;
     sourceShape: GenericShape;
     targetShape: GenericShape;
+    shape: LinkShape;
 }
 
 interface ElementParms<T> {

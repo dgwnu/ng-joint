@@ -15,4 +15,15 @@ export class ShapesStandardService {
     this.service.createShapes(elements, links, graph);
   }
 
+  onElementEvents(component: ElementShapeComponent) {
+/*
+    component.shape.element
+      .on('change:position', (context: any) => {
+        this._positionComponent(component);
+    } )
+      .on('change:size', (context: any) => {
+        this._resizeComponent(component);
+    } );
+*/
+  }
 }
