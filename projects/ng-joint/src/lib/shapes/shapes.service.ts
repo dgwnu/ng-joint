@@ -65,7 +65,7 @@ export class ShapesService {
 
   }
 
-  private _positionElement(component: ElementShapeComponent) {
+  positionElement(component: ElementShapeComponent) {
     const shape = component.shape;
     const xShapeElement = shape.element.getBBox().x;
     const yShapeElement = shape.element.getBBox().y;
@@ -84,7 +84,7 @@ export class ShapesService {
     }
   }
 
-  private _resizeElement(component: ElementShapeComponent) {
+  resizeElement(component: ElementShapeComponent) {
     const shape = component.shape;
     const widthShapeElement = shape.element.getBBox().width;
     const heightShapeElement = shape.element.getBBox().height;
@@ -110,8 +110,8 @@ export class ShapesService {
   ) {
 
     let thisHandlers = {
-      positionHandler: this._positionElement,
-      sizeHandler: this._resizeElement
+      positionHandler: this.positionElement,
+      sizeHandler: this.resizeElement
     };
 
     if (eventHandlers) {

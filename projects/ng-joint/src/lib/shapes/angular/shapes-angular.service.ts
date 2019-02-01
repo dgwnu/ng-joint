@@ -1,7 +1,7 @@
 import { Injectable, QueryList } from '@angular/core';
 
 import { DiaGraphElement } from '../../dia/dia-graph-element';
-import { ElementShapeComponent, LinkShapeComponent } from '../shapes';
+import { ElementShapeComponent, LinkShapeComponent, ElementShapeEventHandler } from '../shapes';
 import { ShapesService } from '../shapes.service';
 
 @Injectable({

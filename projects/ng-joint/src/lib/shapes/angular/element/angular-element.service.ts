@@ -2,6 +2,7 @@ import { Injectable, Renderer2, RendererFactory2, SimpleChanges } from '@angular
 
 import { DiaGraphElement } from '../../../dia/dia-graph-element';
 import { ElementShapeService } from '../../shapes';
+import { ShapesAngularService } from '../shapes-angular.service';
 import { AngularElement } from './angular-element';
 import { AngularElementComponent } from './angular-element.component';
 
@@ -16,13 +17,14 @@ export class AngularElementService implements ElementShapeService {
   private renderer: Renderer2;
 
   constructor(
+    private service: ShapesAngularService,
     private rendererFactory: RendererFactory2
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
   // set behaviour of html (and angular specific) content within angular element
-  private _setNgContentStyles(contentNode: Node | ChildNode) {
+  setNgContentStyles(contentNode: Node | ChildNode) {
     contentNode.childNodes.forEach(childNode => {
       switch (childNode.nodeName) {
         case 'BUTTON': {
@@ -119,10 +121,10 @@ export class AngularElementService implements ElementShapeService {
     component.shape.element
       .on('change:position', (context: any) => {
         this._positionComponent(component);
-    } )
+    })
       .on('change:size', (context: any) => {
         this._resizeComponent(component);
-    } );
+    });
 
   }
 
