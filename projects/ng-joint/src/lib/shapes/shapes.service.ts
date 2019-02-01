@@ -65,7 +65,7 @@ export class ShapesService {
 
   }
 
-  positionElement(component: ElementShapeComponent) {
+  private _positionComponent(component: ElementShapeComponent) {
     const shape = component.shape;
     const xShapeElement = shape.element.getBBox().x;
     const yShapeElement = shape.element.getBBox().y;
@@ -84,7 +84,7 @@ export class ShapesService {
     }
   }
 
-  resizeElement(component: ElementShapeComponent) {
+  private _sizeComponent(component: ElementShapeComponent) {
     const shape = component.shape;
     const widthShapeElement = shape.element.getBBox().width;
     const heightShapeElement = shape.element.getBBox().height;
@@ -101,37 +101,11 @@ export class ShapesService {
     }
   }
 
-  onElementEvents(
-    component: ElementShapeComponent,
-    eventHandlers?: {
-      positionHandler?: ElementShapeEventHandler,
-      sizeHandler?: ElementShapeEventHandler
-      attrs?: ElementShapeEventHandler
-    }
-  ) {
-
-    if (eventHandlers) {
-      if (!eventHandlers.positionHandler) {
-        eventHandlers.positionHandler = this.positionElement;
-      }
-      if (!eventHandlers.sizeHandler) {
-        eventHandlers.sizeHandler = this.resizeElement;
-      }
-    } else {
-      eventHandlers = {
-        positionHandler: this.positionElement,
-        sizeHandler: this.resizeElement
-      };
-    }
-
+  onElementEvents(component: ElementShapeComponent) {
     component.shape.element
-      .on('change:position', (context: any) => {
-        eventHandlers.positionHandler(component);
-    })
-      .on('change:size', (context: any) => {
-        eventHandlers.sizeHandler(component);
+      .on('change:position', (context: any) => { this._positionComponent(component); })
+      .on('change:size', (context: any) => { this._sizeComponent(component);
     });
-
   }
 
   setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
