@@ -1,4 +1,7 @@
+import { OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+
 import { Subject } from 'rxjs';
+
 import { dia } from 'jointjs';
 import { DiaGraphElement } from '../dia/dia-graph-element';
 
@@ -18,6 +21,19 @@ export interface ElementShapeComponent {
     id: string;
     shape: GenericShape;
     createShape(graphElement: DiaGraphElement): void;
+}
+
+export interface ElementShapeService {
+    createElementShape(
+        graphElement: DiaGraphElement,
+        component: ElementShapeComponent
+      ): ElementShape;
+      onEvents(component: ElementShapeComponent): void;
+      setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
+}
+
+export abstract class GenericElementShapeComponent implements ElementShapeComponent, OnChanges {
+
 }
 
 /**

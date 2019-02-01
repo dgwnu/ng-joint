@@ -113,7 +113,7 @@ export class AngularElementService {
   }
 
   // Change Handler to move/resize angular element DIV-container
-  shapeEventHandlers(component: AngularElementComponent) {
+  onEvents(component: AngularElementComponent) {
 
     this._initComponent(component);
 
@@ -127,7 +127,7 @@ export class AngularElementService {
 
   }
 
-  onShapeChanges(changes: SimpleChanges, component: AngularElementComponent) {
+  setChanges(changes: SimpleChanges, component: AngularElementComponent) {
     const shape = component.shape;
     if (!shape) { return; } // first time changes is before shape is created
 
@@ -165,7 +165,7 @@ export class AngularElementService {
   /**
    * create new Angular Element (that renders Angular Element in joinjs BBOX)
    */
-  createAngularElement(
+  createElementShape(
     graphElement: DiaGraphElement,
     component: AngularElementComponent
   ): AngularElement {

@@ -41,7 +41,6 @@ export class AngularElementComponent implements ElementShapeComponent, OnChanges
   ) {
   }
 
-  isAngularChange = true;
   private _x: number;
   private _y: number;
   private _width: number;
@@ -73,22 +72,20 @@ export class AngularElementComponent implements ElementShapeComponent, OnChanges
     this.heightChange.emit(this._height);
   }
 
-  changesSubject = new Subject<SimpleChanges>();
   shape: AngularElement;
 
   createShape(graphElement: DiaGraphElement) {
     console.log('createShape');
-    this.shape = this.service.createAngularElement(
+    this.shape = this.service.createElementShape(
       graphElement,
       this
     );
 
-    this.service.shapeEventHandlers(this);
+    this.service.onEvents(this);
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges', changes);
-    this.service.onShapeChanges(changes, this);
+    this.service.setChanges(changes, this);
   }
 
 }
