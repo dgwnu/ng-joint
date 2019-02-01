@@ -102,33 +102,33 @@ export class ShapesService {
 
   onElementEvents(
     component: ElementShapeComponent,
-    positionHandlers?: ElementShapeEventHandler[],
-    sizeHandlers?: ElementShapeEventHandler[]
+    eventHandlers?: {
+      positionHandler?: ElementShapeEventHandler,
+      sizeHandler?: ElementShapeEventHandler
+    }
   ) {
 
-    if (positionHandlers) {
-      positionHandlers.push(this._positionElement);
-    } else {
-      positionHandlers = [this._positionElement];
-    }
+    let thisHandlers = {
+      positionHandler: this._positionElement,
+      sizeHandler: this._resizeElement
+    };
 
-    if (sizeHandlers) {
-      sizeHandlers.push(this._resizeElement);
-    } else {
-      sizeHandlers = [this._resizeElement];
+    if (eventHandlers) {
+      if (eventHandlers.positionHandler) {
+        thisHandlers.positionHandler = eventHandlers.positionHandler;
+      }
+      if (eventHandlers.sizeHandler) {
+        thisHandlers.sizeHandler = eventHandlers.sizeHandler;
+      }
     }
 
     component.shape.element
       .on('change:position', (context: any) => {
-        for (const positionHandler of positionHandlers) {
-          positionHandler(component);
-        }
-    } )
+        thisHandlers.positionHandler(component);
+    })
       .on('change:size', (context: any) => {
-        for (const sizeHandler of sizeHandlers) {
-          sizeHandler(component);
-        }
-    } );
+        thisHandlers.sizeHandler(component);
+    });
 
   }
 
