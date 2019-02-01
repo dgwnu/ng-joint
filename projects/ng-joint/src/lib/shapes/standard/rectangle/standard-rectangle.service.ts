@@ -22,7 +22,11 @@ export class StandardRectangleService implements ElementShapeService {
       {
         position: { x: component.x, y: component.y },
         size: { width: component.width, height: component.height },
-        attrs: component.attrs
+        attrs: {
+          root: component.root,
+          body: component.body,
+          label: component.label
+        }
       }
     );
     graphElement.addElementShape(rectangleShape);
