@@ -65,7 +65,7 @@ export class ShapesService {
 
   }
 
-  private _positionElement(component: ElementShapeComponent) {
+  positionElement(component: ElementShapeComponent) {
     const shape = component.shape;
     const xShapeElement = shape.element.getBBox().x;
     const yShapeElement = shape.element.getBBox().y;
@@ -84,7 +84,7 @@ export class ShapesService {
     }
   }
 
-  private _resizeElement(component: ElementShapeComponent) {
+  resizeElement(component: ElementShapeComponent) {
     const shape = component.shape;
     const widthShapeElement = shape.element.getBBox().width;
     const heightShapeElement = shape.element.getBBox().height;
@@ -109,26 +109,26 @@ export class ShapesService {
     }
   ) {
 
-    let thisHandlers = {
-      positionHandler: this._positionElement,
-      sizeHandler: this._resizeElement
-    };
-
     if (eventHandlers) {
-      if (eventHandlers.positionHandler) {
-        thisHandlers.positionHandler = eventHandlers.positionHandler;
+      if (!eventHandlers.positionHandler) {
+        eventHandlers.positionHandler = this.positionElement;
       }
-      if (eventHandlers.sizeHandler) {
-        thisHandlers.sizeHandler = eventHandlers.sizeHandler;
+      if (!eventHandlers.sizeHandler) {
+        eventHandlers.sizeHandler = this.resizeElement;
       }
+    } else {
+      eventHandlers = {
+        positionHandler: this.positionElement,
+        sizeHandler: this.resizeElement
+      };
     }
 
     component.shape.element
       .on('change:position', (context: any) => {
-        thisHandlers.positionHandler(component);
+        eventHandlers.positionHandler(component);
     })
       .on('change:size', (context: any) => {
-        thisHandlers.sizeHandler(component);
+        eventHandlers.sizeHandler(component);
     });
 
   }
