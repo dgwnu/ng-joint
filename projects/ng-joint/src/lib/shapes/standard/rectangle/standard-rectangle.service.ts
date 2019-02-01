@@ -22,29 +22,11 @@ export class StandardRectangleService implements ElementShapeService {
       {
         position: { x: component.x, y: component.y },
         size: { width: component.width, height: component.height },
-        attrs: {
-          body: component.body,
-          label: component.label
-        }
+        attrs: component.attrs
       }
     );
     graphElement.addElementShape(rectangleShape);
     return rectangleShape;
-  }
-
-  addStandardRectangle(component: StandardRectangleComponent) {
-    const shape = component.shape;
-    const body: {} = shape.element.get('body');
-    const label: {} = shape.element.get('label');
-    const bodyChangeDetected = (component.body !== body);
-    const labelChangedDetected = (component.label !== label);
-
-    if (bodyChangeDetected) {
-      component.body = body;
-    }
-    if (labelChangedDetected) {
-      component.label = label;
-    }
   }
 
   onEvents(component: StandardRectangleComponent) {
