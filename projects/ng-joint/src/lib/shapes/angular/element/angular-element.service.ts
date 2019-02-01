@@ -1,6 +1,7 @@
 import { Injectable, ElementRef, Renderer2, RendererFactory2, SimpleChanges } from '@angular/core';
 
 import { DiaGraphElement } from '../../../dia/dia-graph-element';
+import { ElementShapeService } from '../../shapes';
 import { ShapesAngularService } from '../shapes-angular.service';
 import { AngularElement } from './angular-element';
 import { AngularElementComponent } from './angular-element.component';
@@ -8,7 +9,7 @@ import { AngularElementComponent } from './angular-element.component';
 @Injectable({
   providedIn: 'root'
 })
-export class AngularElementService {
+export class AngularElementService implements ElementShapeService {
   /** 
    * Using Rendere2 within a service (only provided in Components)
    * @see https://stackoverflow.com/questions/43070308/using-renderer-in-angular-4 
