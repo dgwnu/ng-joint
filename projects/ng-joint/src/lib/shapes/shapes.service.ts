@@ -3,6 +3,10 @@ import { Injectable, QueryList } from '@angular/core';
 import { DiaGraphElement } from '../dia/dia-graph-element';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from './shapes';
 
+interface ElementShapeEventHandler {
+  (component: ElementShapeComponent);
+}
+
 /**
  * Shapes Registration Service Class
  * Manages LifeCycle of Shapes
@@ -96,11 +100,20 @@ export class ShapesService {
     }
   }
 
-  onElementEvents(component: ElementShapeComponent) {
+  onElementEvents(component: ElementShapeComponent, handlers?: ElementShapeEventHandler[]) {
+
+    if (handlers) {
+      handlers.push(this._positionElement);
+    } else {
+      handlers = [this._positionElement];
+    }
 
     component.shape.element
       .on('change:position', (context: any) => {
-        this._positionElement(component);
+        // this._positionElement(component);
+        for (const handler of handlers) {
+          handler(component);
+        }
     } )
       .on('change:size', (context: any) => {
         this._resizeElement(component);
