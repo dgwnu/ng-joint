@@ -106,6 +106,7 @@ export class ShapesService {
     eventHandlers?: {
       positionHandler?: ElementShapeEventHandler,
       sizeHandler?: ElementShapeEventHandler
+      attrs?: ElementShapeEventHandler
     }
   ) {
 
