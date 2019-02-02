@@ -112,6 +112,8 @@ export class ShapesService {
     const shape = component.shape;
     if (!shape) { return; } // first time changes is before shape is created
     const bbox = shape.element.getBBox();
+    const element = component.shape.element;
+    const attrs = element.attributes['attrs'];
 
     // detect position change
     let positionChangeDetected = false;
@@ -120,6 +122,7 @@ export class ShapesService {
     } else if (changes.y) {
       if (changes.y.currentValue !== bbox.y) { positionChangeDetected = true; }
     }
+
     // detect size change
     let sizeChangeDetected = false;
     if (changes.width) {
@@ -128,16 +131,33 @@ export class ShapesService {
       if (changes.height.currentValue !== bbox.height) { sizeChangeDetected = true; }
     }
 
-    // process detected changes
+    // process detected shape changes
     if (positionChangeDetected) {
-      component.shape.element.position(component.x, component.y);
+      element.position(component.x, component.y);
       console.log('onShapeChanges.position');
     }
     if (sizeChangeDetected) {
-      component.shape.element.resize(component.width, component.height);
+      element.resize(component.width, component.height);
       console.log('onShapeChanges.resize');
     }
 
+    // process attrs changes
+    for (const prop in changes) {
+      if (changes.hasOwnProperty(prop) &&
+        prop !== 'x' && prop !== 'y' && prop !== 'width' && prop !== 'height') {
+        const currentValue: {} = changes[prop].currentValue;
+        const previousValue: {} = attrs[prop];
+        if (currentValue !== previousValue) {
+          for (const attr in currentValue) {
+            if (currentValue.hasOwnProperty(attr)) {
+              element.attr(prop + '/' + attr, currentValue[attr]);
+            }
+          }
+        }
+      }
+    }
+
+    console.log(element.attributes);
   }
 
 }

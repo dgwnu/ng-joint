@@ -38,27 +38,7 @@ export class StandardRectangleService implements ElementShapeService {
   }
 
   setChanges(changes: SimpleChanges, component: StandardRectangleComponent) {
-    if (!component.shape) { return; }
     this.service.setElementChanges(changes, component);
-
-    const element = component.shape.element;
-    const attrs = element.attributes['attrs'];
-
-    for (const prop in changes) {
-      if (changes.hasOwnProperty(prop)) {
-        const currentValue: {} = changes[prop].currentValue;
-        const previousValue: {} = attrs[prop];
-        if (currentValue !== previousValue) {
-          for (const attr in currentValue) {
-            if (currentValue.hasOwnProperty(attr)) {
-              element.attr(prop + '/' + attr, currentValue[attr]);
-            }
-          }
-        }
-      }
-    }
-
-    console.log(element.attributes);
   }
 
 }
