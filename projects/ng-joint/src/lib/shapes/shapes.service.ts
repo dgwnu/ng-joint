@@ -177,25 +177,10 @@ export class ShapesService {
     const shape = component.shape;
     if (!shape) { return; } // first time changes is before shape is created
     const link = component.shape.link;
-    const attrs = link.attributes['attrs'];
 
     // process attrs changes
-    for (const prop in changes) {
-      if (changes.hasOwnProperty(prop) &&
-        prop !== 'x' && prop !== 'y' && prop !== 'width' && prop !== 'height') {
-        const currentValue: {} = changes[prop].currentValue;
-        const previousValue: {} = attrs[prop];
-        if (currentValue !== previousValue) {
-          for (const attr in currentValue) {
-            if (currentValue.hasOwnProperty(attr)) {
-              link.attr(prop + '/' + attr, currentValue[attr]);
-            }
-          }
-        }
-      }
-    }
+    this._setAttrChanges(changes, component.shape);
 
-    // console.log(link.attributes);
   }
 
 }
