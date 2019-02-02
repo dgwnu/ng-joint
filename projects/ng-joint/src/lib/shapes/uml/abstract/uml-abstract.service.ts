@@ -4,6 +4,7 @@ import { DiaGraphElement } from '../../../dia/dia-graph-element';
 import { UmlNameType } from '../shapes-uml';
 import { ShapesUmlService } from '../shapes-uml.service';
 import { UmlAbstract } from './uml-abstract';
+import { UmlAbstractComponent } from './uml-abstract.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,28 +15,17 @@ export class UmlAbstractService {
 
   createUmlAbstract(
     graphElement: DiaGraphElement,
-    id: string,
-    x: number,
-    y: number,
-    width: number,
-    height: number,
-    unformatedName: UmlNameType,
-    unformatedAttributes?: string[],
-    unfomatedMethods?: string[],
-    attrs?: {}
+    component: UmlAbstractComponent
     ): UmlAbstract {
-    const name = this.service.formatName(unformatedName);
-    const attributes = this.service.formatAttributes(unformatedAttributes);
-    const methods = this.service.formatMethods(unfomatedMethods);
     const abstractShape = new UmlAbstract(
-      id,
+      component.id,
       {
-        position: { x: x, y: y },
-        size: { width: width, height: height },
-        name,
-        attributes,
-        methods,
-        attrs
+        position: { x: component.x, y: component.y },
+        size: { width: component.width, height: component.height },
+        this.service.formatName(component.name),
+        this.service.formatName(component.attributes),
+        this.service.formatName(component.methods),
+        this.service.formatName(component.attrs)
       }
     );
     graphElement.addElementShape(abstractShape);
