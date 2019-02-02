@@ -4,12 +4,12 @@ import { DiaGraphElement } from '../dia/dia-graph-element';
 import {
   ShapePlugin,
   GenericShape,
+  DiaShape,
   ElementShape,
   LinkShape,
   ElementShapeComponent,
   LinkShapeComponent
 } from './shapes';
-import { dia } from 'jointjs';
 
 /**
  * Shapes Registration Service Class
@@ -112,26 +112,26 @@ export class ShapesService {
     ;
   }
 
-  private setAttrProp(shapeObject: dia.Link | dia.Element, prop: string, currentValue: {}) {
+  setAttrProp(diaShape: DiaShape, prop: string, currentValue: {}) {
 
     for (const attr in currentValue) {
       if (currentValue.hasOwnProperty(attr)) {
-        shapeObject.attr(prop + '/' + attr, currentValue[attr]);
+        diaShape.attr(prop + '/' + attr, currentValue[attr]);
       }
     }
 
   }
 
   private _setAttrChanges(changes: SimpleChanges, shape: GenericShape) {
-    let shapeObject: dia.Link | dia.Element;
+    let diaShape: DiaShape;
 
     if (shape instanceof ElementShape) {
-      shapeObject = shape.element;
+      diaShape = shape.element;
     } else {
-      shapeObject = shape.link;
+      diaShape = shape.link;
     }
 
-    const attrs = shapeObject.attributes['attrs'];
+    const attrs = diaShape.attributes['attrs'];
 
     for (const prop in changes) {
       if (changes.hasOwnProperty(prop) &&
@@ -139,7 +139,7 @@ export class ShapesService {
         const currentValue: {} = changes[prop].currentValue;
         const previousValue: {} = attrs[prop];
         if (currentValue !== previousValue) {
-          this.setAttrProp(shapeObject, prop, currentValue);
+          this.setAttrProp(diaShape, prop, currentValue);
         }
       }
     }

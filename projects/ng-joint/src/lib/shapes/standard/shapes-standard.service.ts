@@ -1,7 +1,7 @@
 import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
 import { DiaGraphElement } from '../../dia/dia-graph-element';
-import { ElementShapeComponent, LinkShapeComponent } from '../shapes';
+import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
 
 @Injectable({
@@ -29,6 +29,10 @@ export class ShapesStandardService {
 
   setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {
     this.service.setLinkChanges(changes, component);
+  }
+
+  setAttrProp(diaShape: DiaShape, prop: string, currentValue: {}) {
+    this.service.setAttrProp(diaShape, prop, currentValue);
   }
 
 }

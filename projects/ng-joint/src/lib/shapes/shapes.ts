@@ -74,6 +74,11 @@ export interface ShapePlugin {
 export type GenericShape = ElementShape | LinkShape;
 
 /**
+ * Generic Shape Type
+ */
+export type DiaShape = dia.Link | dia.Element;
+
+/**
  * Shape Component Interface
  */
 export interface ShapeComponent {
