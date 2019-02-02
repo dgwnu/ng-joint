@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/dia-graph-element';
 import { GenericLinkShapeComponent } from '../../shapes';
 import { NgJointStandardLink } from '../shapes-standard';
 import { StandardLink } from './standard-link';
