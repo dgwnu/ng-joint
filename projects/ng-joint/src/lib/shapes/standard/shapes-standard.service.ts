@@ -19,8 +19,16 @@ export class ShapesStandardService {
     this.service.onElementEvents(component);
   }
 
+  onLinkEvents(component: LinkShapeComponent) {
+    this.service.onLinkEvents(component);
+  }
+
   setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
     this.service.setElementChanges(changes, component);
+  }
+
+  setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {
+    this.service.setLinkChanges(changes, component);
   }
 
 }

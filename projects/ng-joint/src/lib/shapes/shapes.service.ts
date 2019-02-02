@@ -100,8 +100,15 @@ export class ShapesService {
   onElementEvents(component: ElementShapeComponent) {
     component.shape.element
       .on('change:position', (context: any) => { this._positionComponent(component); })
-      .on('change:size', (context: any) => { this._sizeComponent(component);
-    });
+      .on('change:size', (context: any) => { this._sizeComponent(component); })
+    ;
+  }
+
+  onLinkEvents(component: LinkShapeComponent) {
+    component.shape.link
+      .on('change:source', (context: any) => { console.log('change:source', context); })
+      .on('change:target', (context: any) => { console.log('change:target', context); })
+    ;
   }
 
   private _setAttrChanges(changes: SimpleChanges, shape: GenericShape) {

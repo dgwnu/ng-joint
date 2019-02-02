@@ -27,10 +27,10 @@ export class StandardLinkService implements LinkShapeService {
   }
 
   onEvents(component: StandardLinkComponent) {
-
+    this.service.onLinkEvents(component);
   }
 
   setChanges(changes: SimpleChanges, component: StandardLinkComponent) {
-    
+    this.service.setLinkChanges(changes, component);
   }
 }
