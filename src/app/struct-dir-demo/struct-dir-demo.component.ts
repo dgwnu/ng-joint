@@ -48,7 +48,7 @@ export class StructDirDemoComponent implements OnInit {
 
   links: NgJointStandardLink[] = [
     { id: 'link1', sourceId: 'rect', targetId: 'rect1', line: { stroke: '#fe854f' } },
-    { id: 'link2', sourceId: 'rect1', targetId: 'rect2' }
+    { id: 'link2', sourceId: 'rect1', targetId: 'rect2', line: { strokeWidth: 8 } }
   ];
 
   customNgEls: CustomNgEl[] = [
@@ -76,11 +76,12 @@ export class StructDirDemoComponent implements OnInit {
 
   onClickMatButtonXPlus10(event: MouseEvent, customNgEl: CustomNgEl) {
     customNgEl.x = customNgEl.x + 10;
-    this.rects[1].label = { text: 'testing' };
+    this.links[1].line = { strokeWidth: 4 };
   }
 
   onClickMatButtonYPlus10(event: MouseEvent, customNgEl: CustomNgEl) {
     customNgEl.y = customNgEl.y + 10;
+    this.links[1].line = { strokeWidth: 6 };
   }
 
 }
