@@ -1,15 +1,14 @@
-/**
- * joint.shapes.standard.Rectangle Component
- * @see https://github.com/clientIO/joint/blob/master/plugins/shapes/joint.shapes.standard.js
- */
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { GenericElementShapeComponent } from '../../shapes';
 import { NgJointStandardElement } from '../shapes-standard';
 import { StandardRectangleService } from './standard-rectangle.service';
 import { StandardRectangle } from './standard-rectangle';
-import { initDomAdapter } from '@angular/platform-browser/src/browser';
 
+/**
+ * joint.shapes.standard.Rectangle Component
+ * based on: https://github.com/clientIO/joint/blob/master/plugins/shapes/joint.shapes.standard.js
+ */
 @Component({
   selector: 'dgwnu-standard-rectangle',
   template: `

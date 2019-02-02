@@ -1,28 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SimpleChanges } from '@angular/core';
 
 import { DiaGraphElement } from '../../../dia/dia-graph-element';
+import { LinkShapeService } from '../../shapes';
 import { StandardLink } from './standard-link';
 import { ShapesStandardService } from '../shapes-standard.service';
+import { StandardLinkComponent } from './standard-link.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StandardLinkService {
+export class StandardLinkService implements LinkShapeService {
 
   constructor(private service: ShapesStandardService) { }
 
-  createStandardLink(
+  createLinkShape(
     graphElement: DiaGraphElement,
-    id: string,
-    sourceId: string,
-    targetId: string
-  ): StandardLink {
+    component: StandardLinkComponent
+    ): StandardLink {
     const linkShape = new StandardLink(
-      id,
-      sourceId,
-      targetId
+      component.id,
+      component.sourceId,
+      component.targetId
     );
     graphElement.addLinkShape(linkShape);
     return linkShape;
+  }
+
+  onEvents(component: StandardLinkComponent) {
+
+  }
+
+  setChanges(changes: SimpleChanges, component: StandardLinkComponent) {
+    
   }
 }
