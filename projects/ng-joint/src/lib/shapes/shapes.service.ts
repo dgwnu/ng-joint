@@ -4,8 +4,7 @@ import { DiaGraphElement } from '../dia/dia-graph-element';
 import {
   ShapePlugin,
   ElementShapeComponent,
-  LinkShapeComponent,
-  ElementShapeEventHandler
+  LinkShapeComponent
 } from './shapes';
 
 /**
