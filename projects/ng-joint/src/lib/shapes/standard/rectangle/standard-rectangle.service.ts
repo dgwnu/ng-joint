@@ -44,18 +44,19 @@ export class StandardRectangleService implements ElementShapeService {
     const element = component.shape.element;
     const attrs = element.attributes['attrs'];
 
-    if (changes.label) {
-      const currentLabel: {} = changes.label.currentValue;
-      const previousLabel: {} = attrs['label'];
-      if (currentLabel !== previousLabel) {
-        for (const attr in currentLabel) {
-          if (currentLabel.hasOwnProperty(attr)) {
-            element.attr('label/' + attr, currentLabel[attr]);
+    for (const prop in changes) {
+      if (changes.hasOwnProperty(prop)) {
+        const currentValue: {} = changes[prop].currentValue;
+        const previousValue: {} = attrs[prop];
+        if (currentValue !== previousValue) {
+          for (const attr in currentValue) {
+            if (currentValue.hasOwnProperty(attr)) {
+              element.attr(prop + '/' + attr, currentValue[attr]);
+            }
           }
         }
       }
     }
-
 
     console.log(element.attributes);
   }
