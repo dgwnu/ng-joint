@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { GenericElementShapeComponent } from '../../shapes';
 import { NgJointStandardElement } from '../shapes-standard';
@@ -13,7 +13,7 @@ import { initDomAdapter } from '@angular/platform-browser/src/browser';
     `,
 })
 export class StandardRectangleComponent extends GenericElementShapeComponent {
-  @Input() root?: {};
+  @Input() root: {};
   @Input() body?: {};
   @Input() label?: {};
 

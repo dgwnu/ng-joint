@@ -76,6 +76,7 @@ export class StructDirDemoComponent implements OnInit {
 
   onClickMatButtonXPlus10(event: MouseEvent, customNgEl: CustomNgEl) {
     customNgEl.x = customNgEl.x + 10;
+    this.rects[1].label = { text: 'testing' };
   }
 
   onClickMatButtonYPlus10(event: MouseEvent, customNgEl: CustomNgEl) {

@@ -38,15 +38,26 @@ export class StandardRectangleService implements ElementShapeService {
   }
 
   setChanges(changes: SimpleChanges, component: StandardRectangleComponent) {
+    if (!component.shape) { return; }
     this.service.setElementChanges(changes, component);
+
     const element = component.shape.element;
-    console.log('StandardRectangleService.setChanges', element);
-    /*
-    rootTitle?: string;
-    bodyFill?: string;
-    bodyFillOpacity?: number;
-    labelText?: string;
-    */
+    const attrs = element.attributes['attrs'];
+
+    if (changes.label) {
+      const currentLabel: {} = changes.label.currentValue;
+      const previousLabel: {} = attrs['label'];
+      if (currentLabel !== previousLabel) {
+        for (const attr in currentLabel) {
+          if (currentLabel.hasOwnProperty(attr)) {
+            element.attr('label/' + attr, currentLabel[attr]);
+          }
+        }
+      }
+    }
+
+
+    console.log(element.attributes);
   }
 
 }
