@@ -3,6 +3,9 @@ import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 import { DiaGraphElement } from '../dia/dia-graph-element';
 import {
   ShapePlugin,
+  GenericShape,
+  ElementShape,
+  LinkShape,
   ElementShapeComponent,
   LinkShapeComponent
 } from './shapes';
@@ -70,16 +73,12 @@ export class ShapesService {
     const yShapeElement = shape.element.getBBox().y;
     const xChangeDetected = (component.x !== xShapeElement);
     const yChangedDetected = (component.y !== yShapeElement);
-    console.log('_positionComponen.component.x', component.x);
-    console.log('_positionComponen.xShapeElement', xShapeElement);
 
     if (xChangeDetected) {
       component.x = xShapeElement;
-      console.log('_positionComponen.x'); 
     }
     if (yChangedDetected) {
       component.y = yShapeElement;
-      console.log('_positionComponen.y');
     }
   }
 
@@ -92,11 +91,9 @@ export class ShapesService {
 
     if (widthChangeDetected) {
       component.width = widthShapeElement;
-      console.log('_resizeComponent.width');
     }
     if (heightChangedDetected) {
       component.height = heightShapeElement;
-      console.log('_resizeComponent.height');
     }
   }
 
@@ -107,12 +104,41 @@ export class ShapesService {
     });
   }
 
+  private _setAttrChanges(changes: SimpleChanges, shape: GenericShape) {
+    let shapeObject: any;
+
+    if (shape instanceof ElementShape) {
+      shapeObject = shape.element;
+    } else {
+      shapeObject = shape.link;
+    }
+
+    const attrs = shapeObject.attributes['attrs'];
+
+    for (const prop in changes) {
+      if (changes.hasOwnProperty(prop) &&
+        prop !== 'x' && prop !== 'y' && prop !== 'width' && prop !== 'height') {
+        const currentValue: {} = changes[prop].currentValue;
+        const previousValue: {} = attrs[prop];
+        if (currentValue !== previousValue) {
+          for (const attr in currentValue) {
+            if (currentValue.hasOwnProperty(attr)) {
+              shapeObject.attr(prop + '/' + attr, currentValue[attr]);
+            }
+          }
+        }
+      }
+    }
+
+    // console.log(element.attributes);
+
+  }
+
   setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
     const shape = component.shape;
     if (!shape) { return; } // first time changes is before shape is created
     const bbox = shape.element.getBBox();
     const element = component.shape.element;
-    const attrs = element.attributes['attrs'];
 
     // detect position change
     let positionChangeDetected = false;
@@ -143,6 +169,17 @@ export class ShapesService {
     }
 
     // process attrs changes
+    this._setAttrChanges(changes, component.shape);
+
+  }
+
+  setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {
+    const shape = component.shape;
+    if (!shape) { return; } // first time changes is before shape is created
+    const link = component.shape.link;
+    const attrs = link.attributes['attrs'];
+
+    // process attrs changes
     for (const prop in changes) {
       if (changes.hasOwnProperty(prop) &&
         prop !== 'x' && prop !== 'y' && prop !== 'width' && prop !== 'height') {
@@ -151,14 +188,14 @@ export class ShapesService {
         if (currentValue !== previousValue) {
           for (const attr in currentValue) {
             if (currentValue.hasOwnProperty(attr)) {
-              element.attr(prop + '/' + attr, currentValue[attr]);
+              link.attr(prop + '/' + attr, currentValue[attr]);
             }
           }
         }
       }
     }
 
-    console.log(element.attributes);
+    // console.log(link.attributes);
   }
 
 }

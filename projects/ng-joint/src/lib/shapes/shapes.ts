@@ -68,7 +68,10 @@ export interface ShapePlugin {
     graphElement: DiaGraphElement;
 }
 
-type GenericShape = ElementShape | LinkShape;
+/**
+ * Generic Shape Type
+ */
+export type GenericShape = ElementShape | LinkShape;
 
 /**
  * Shape Component Interface
@@ -203,10 +206,10 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
     /** one-way binding id property */
     @Input() id: string;
 
-    /** one-way binding id property */
+    /** one-way binding source property */
     @Input() sourceId: string;
 
-    /** one-way binding id property */
+    /** one-way binding targerId property */
     @Input() targetId: string;
 
     constructor(private service: LinkShapeService) {}

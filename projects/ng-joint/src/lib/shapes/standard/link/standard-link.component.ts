@@ -16,6 +16,8 @@ import { StandardLinkService } from './standard-link.service';
     `,
 })
 export class StandardLinkComponent extends GenericLinkShapeComponent {
+  /** one-way binding line property */
+  @Input() line: {};
 
   constructor(private standardLinkService: StandardLinkService) {
     super(standardLinkService);

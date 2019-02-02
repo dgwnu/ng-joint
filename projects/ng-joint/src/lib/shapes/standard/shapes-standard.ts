@@ -13,5 +13,5 @@ export interface NgJointStandardElement extends NgJointElement {
 }
 
 export interface NgJointStandardLink extends NgJointLink {
-
+    line?: {};
 }
