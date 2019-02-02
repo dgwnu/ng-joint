@@ -1,3 +1,7 @@
+/**
+ * joint.shapes.standard.Rectangle Component
+ * @see https://github.com/clientIO/joint/blob/master/plugins/shapes/joint.shapes.standard.js
+ */
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { GenericElementShapeComponent } from '../../shapes';
