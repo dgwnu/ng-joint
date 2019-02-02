@@ -20,8 +20,12 @@ export class StandardLinkService implements LinkShapeService {
     const linkShape = new StandardLink(
       component.id,
       component.sourceId,
-      component.targetId
+      component.targetId,
+      {
+        line: component.line
+      }
     );
+
     graphElement.addLinkShape(linkShape);
     return linkShape;
   }

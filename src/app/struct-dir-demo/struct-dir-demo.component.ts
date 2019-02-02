@@ -47,8 +47,8 @@ export class StructDirDemoComponent implements OnInit {
   ];
 
   links: NgJointStandardLink[] = [
-    { id: 'link1', sourceId: 'rect', targetId: 'rect1', line: {strokeWidth: 4 } },
-    { id: 'link2', sourceId: 'rect1', targetId: 'rect2', line: {strokeWidth: 6 } }
+    { id: 'link1', sourceId: 'rect', targetId: 'rect1', line: { stroke: '#fe854f' } },
+    { id: 'link2', sourceId: 'rect1', targetId: 'rect2' }
   ];
 
   customNgEls: CustomNgEl[] = [

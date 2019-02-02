@@ -9,6 +9,7 @@ import {
   ElementShapeComponent,
   LinkShapeComponent
 } from './shapes';
+import { dia } from 'jointjs';
 
 /**
  * Shapes Registration Service Class
@@ -111,8 +112,18 @@ export class ShapesService {
     ;
   }
 
+  private setAttrProp(shapeObject: dia.Link | dia.Element, prop: string, currentValue: {}) {
+
+    for (const attr in currentValue) {
+      if (currentValue.hasOwnProperty(attr)) {
+        shapeObject.attr(prop + '/' + attr, currentValue[attr]);
+      }
+    }
+
+  }
+
   private _setAttrChanges(changes: SimpleChanges, shape: GenericShape) {
-    let shapeObject: any;
+    let shapeObject: dia.Link | dia.Element;
 
     if (shape instanceof ElementShape) {
       shapeObject = shape.element;
@@ -128,11 +139,7 @@ export class ShapesService {
         const currentValue: {} = changes[prop].currentValue;
         const previousValue: {} = attrs[prop];
         if (currentValue !== previousValue) {
-          for (const attr in currentValue) {
-            if (currentValue.hasOwnProperty(attr)) {
-              shapeObject.attr(prop + '/' + attr, currentValue[attr]);
-            }
-          }
+          this.setAttrProp(shapeObject, prop, currentValue);
         }
       }
     }
