@@ -131,11 +131,13 @@ export class ShapesService {
       if (changes.height.currentValue !== bbox.height) { sizeChangeDetected = true; }
     }
 
-    // process detected shape changes
+    // process position changes
     if (positionChangeDetected) {
       element.position(component.x, component.y);
       console.log('onShapeChanges.position');
     }
+
+    // process size changes
     if (sizeChangeDetected) {
       element.resize(component.width, component.height);
       console.log('onShapeChanges.resize');
