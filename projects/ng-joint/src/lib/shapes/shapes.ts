@@ -5,6 +5,62 @@ import { Subject } from 'rxjs';
 import { dia } from 'jointjs';
 import { DiaGraphElement } from '../dia/dia-graph-element';
 
+interface ElementParms<T> {
+    id: string;
+    options?: dia.Element.GenericAttributes<T>;
+}
+
+interface ShapeEvent {
+    event: string;
+    context: any;
+}
+
+/**
+ * Generic Element Shape Class
+ */
+export abstract class ElementShape {
+    protected _id: string;
+    protected _element: dia.Element;
+    eventSubject = new Subject<ShapeEvent>();
+
+    constructor(parms: ElementParms<dia.Element.Attributes>) {
+        this._id = parms.id;
+    }
+
+    get id(): string { return this._id; }
+    get element(): dia.Element { return this._element; }
+}
+
+interface LinkParms<T> {
+    id: string;
+    sourceId: string;
+    targetId: string;
+    options?: dia.Link.GenericAttributes<T>;
+}
+
+/**
+ * Generic Link Shape Class
+ */
+export abstract class LinkShape {
+    protected _id: string;
+    protected _sourceId: string;
+    protected _targetId: string;
+    protected _link: dia.Link;
+    eventSubject = new Subject<ShapeEvent>();
+
+    constructor(parms: LinkParms<dia.Link.Attributes>) {
+        this._id = parms.id;
+        this._sourceId = parms.sourceId;
+        this._targetId = parms.targetId;
+    }
+
+    get id(): string { return this._id; }
+    get sourceId(): string { return this._sourceId; }
+    get targetId(): string { return this.targetId; }
+    get link(): dia.Link { return this._link; }
+}
+
+
 /**
  * Shape Plugin Interface (group of shapes)
  */
@@ -31,10 +87,12 @@ export interface ElementShapeComponent extends ShapeComponent {
     y: number;
     width: number;
     height: number;
-    attrs?: {};
     shape: ElementShape;
 }
 
+/**
+ * Element Shape Service Interface (service for Generic Element Shape Class)
+ */
 export interface ElementShapeService {
     createElementShape(
         graphElement: DiaGraphElement,
@@ -44,6 +102,9 @@ export interface ElementShapeService {
       setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
 }
 
+/**
+ * Generic Element Shape Component Class (anchestor for all Element Shapes)
+ */
 export abstract class GenericElementShapeComponent implements ElementShapeComponent, OnChanges {
   /** one-way binding id property */
   @Input() id: string;
@@ -102,12 +163,7 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
   shape: ElementShape;
 
   createShape(graphElement: DiaGraphElement) {
-    console.log('createShape');
-    this.shape = this.service.createElementShape(
-      graphElement,
-      this
-    );
-
+    this.shape = this.service.createElementShape(graphElement, this);
     this.service.onEvents(this);
   }
 
@@ -123,64 +179,57 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
 export interface LinkShapeComponent extends ShapeComponent {
     sourceId: string;
     targetId: string;
-    sourceShape: GenericShape;
-    targetShape: GenericShape;
+    sourceShape: ElementShape;
+    targetShape: ElementShape;
     shape: LinkShape;
 }
 
-interface ElementParms<T> {
-    id: string;
-    options?: dia.Element.GenericAttributes<T>;
-}
-
-interface ShapeEvent {
-    event: string;
-    context: any;
+/**
+ * Link Shape Service Interface (service for Generic Link Shape Class)
+ */
+export interface LinkShapeService {
+    createLinkShape(
+        graphElement: DiaGraphElement,
+        component: LinkShapeComponent
+      ): LinkShape;
+      onEvents(component: LinkShapeComponent): void;
+      setChanges(changes: SimpleChanges, component: LinkShapeComponent): void;
 }
 
 /**
- * Generic Element Shape Class
+ * Generic Element Shape Component Class (anchestor for all Element Shapes)
  */
-export abstract class ElementShape {
-    protected _id: string;
-    protected _element: dia.Element;
-    eventSubject = new Subject<ShapeEvent>();
+export abstract class GenericLinkShapeComponent implements LinkShapeComponent, OnChanges {
+    /** one-way binding id property */
+    @Input() id: string;
 
-    constructor(parms: ElementParms<dia.Element.Attributes>) {
-        this._id = parms.id;
+    /** one-way binding id property */
+    @Input() sourceId: string;
+
+    /** one-way binding id property */
+    @Input() targetId: string;
+
+    constructor(private service: LinkShapeService) {}
+
+    shape: LinkShape;
+
+    set sourceShape(source: ElementShape) {
+        this.shape.link.source(source.element);
+      }
+
+    set targetShape(target: ElementShape) {
+        this.shape.link.target(target.element);
     }
 
-    get id(): string { return this._id; }
-    get element(): dia.Element { return this._element; }
-}
-
-interface LinkParms<T> {
-    id: string;
-    sourceId: string;
-    targetId: string;
-    options?: dia.Link.GenericAttributes<T>;
-}
-
-/**
- * Generic Link Shape Class
- */
-export abstract class LinkShape {
-    protected _id: string;
-    protected _sourceId: string;
-    protected _targetId: string;
-    protected _link: dia.Link;
-    eventSubject = new Subject<ShapeEvent>();
-
-    constructor(parms: LinkParms<dia.Link.Attributes>) {
-        this._id = parms.id;
-        this._sourceId = parms.sourceId;
-        this._targetId = parms.targetId;
+    createShape(graphElement: DiaGraphElement) {
+        this.shape = this.service.createLinkShape(graphElement, this);
+        this.service.onEvents(this);
     }
 
-    get id(): string { return this._id; }
-    get sourceId(): string { return this._sourceId; }
-    get targetId(): string { return this.targetId; }
-    get link(): dia.Link { return this._link; }
+    ngOnChanges(changes: SimpleChanges) {
+        this.service.setChanges(changes, this);
+    }
+
 }
 
 
