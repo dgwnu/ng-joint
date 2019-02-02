@@ -19,7 +19,7 @@ export interface NgJointUmlElement extends NgJointElement {
     name: UmlNameType;
     attributes?: string[];
     methods?: string[];
-    attrs?: {}
+    attrs?: {};
 }
 
 export interface NgJointUmlLink extends NgJointLink {
