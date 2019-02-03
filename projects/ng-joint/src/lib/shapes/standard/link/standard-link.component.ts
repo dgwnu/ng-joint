@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { GenericLinkShapeComponent } from '../../shapes';
-import { NgJointStandardLink } from '../shapes-standard';
+import { GenericStandardLinkShapeComponent } from '../shapes-standard';
 import { StandardLink } from './standard-link';
 import { StandardLinkService } from './standard-link.service';
 
@@ -15,9 +14,7 @@ import { StandardLinkService } from './standard-link.service';
     <!-- joint.shapes.standard.Link  -->
     `,
 })
-export class StandardLinkComponent extends GenericLinkShapeComponent {
-  /** one-way binding line property */
-  @Input() line: {};
+export class StandardLinkComponent extends GenericStandardLinkShapeComponent {
 
   constructor(private standardLinkService: StandardLinkService) {
     super(standardLinkService);
@@ -30,4 +27,4 @@ export class StandardLinkComponent extends GenericLinkShapeComponent {
 /**
  * Ng Joint Standard Link Interface (use this with arrays and structural directives *ngFor, ..)
  */
-export { NgJointStandardLink };
+export { NgJointGenericStandardLink as NgJointStandardLink } from '../shapes-standard';

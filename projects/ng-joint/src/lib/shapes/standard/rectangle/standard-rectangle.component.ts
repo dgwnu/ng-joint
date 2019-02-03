@@ -1,7 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { GenericElementShapeComponent } from '../../shapes';
-import { NgJointStandardElement } from '../shapes-standard';
+import { GenericStandardElementShapeComponent, NgJointGenericStandardElement } from '../shapes-standard';
 import { StandardRectangleService } from './standard-rectangle.service';
 import { StandardRectangle } from './standard-rectangle';
 
@@ -15,10 +14,9 @@ import { StandardRectangle } from './standard-rectangle';
     <!-- joint.shapes.standard.Rectangle  -->
     `,
 })
-export class StandardRectangleComponent extends GenericElementShapeComponent {
-  @Input() root: {};
-  @Input() body?: {};
-  @Input() label?: {};
+export class StandardRectangleComponent extends GenericStandardElementShapeComponent {
+  @Input() body?: SVGRectElement;
+  @Input() label?: SVGTextElement;
 
   constructor(private standardRectangleService: StandardRectangleService) {
     super(standardRectangleService);
@@ -31,8 +29,7 @@ export class StandardRectangleComponent extends GenericElementShapeComponent {
 /**
  * Ng Joint Standard Rectangle Interface (use this with arrays and structural directives *ngFor, ..)
  */
-export interface NgJointStandardRectangle extends NgJointStandardElement {
-  root?: {};
-  body?: {};
-  label?: {};
+export interface NgJointStandardRectangle extends NgJointGenericStandardElement {
+  body?: SVGRectElement;
+  label?: SVGTextElement;
 }
