@@ -6,10 +6,6 @@ import { GenericStandardElementShapeComponent, NgJointGenericStandardElement } f
 import { StandardRectangleService } from './standard-rectangle.service';
 import { StandardRectangle } from './standard-rectangle';
 
-/**
- * joint.shapes.standard.Rectangle Component
- * based on: https://github.com/clientIO/joint/blob/master/plugins/shapes/joint.shapes.standard.js
- */
 @Component({
   selector: 'dgwnu-standard-rectangle',
   template: `

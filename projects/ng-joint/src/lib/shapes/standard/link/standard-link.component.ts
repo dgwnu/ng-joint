@@ -4,10 +4,6 @@ import { GenericStandardLinkShapeComponent } from '../shapes-standard';
 import { StandardLink } from './standard-link';
 import { StandardLinkService } from './standard-link.service';
 
-/**
- * joint.shapes.standard.Link Component
- * based on: https://github.com/clientIO/joint/blob/master/plugins/shapes/joint.shapes.standard.js
- */
 @Component({
   selector: 'dgwnu-standard-link',
   template: `

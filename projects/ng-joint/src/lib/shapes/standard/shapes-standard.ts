@@ -1,3 +1,7 @@
+/**
+ * Ng Joint implementation of Plugin Shapes joint.shapes.standard
+ * based on: https://github.com/clientIO/joint/blob/master/plugins/shapes/joint.shapes.standard.js
+ */
 import { Input } from '@angular/core';
 
 import { attributes } from 'jointjs';
