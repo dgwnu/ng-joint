@@ -63,7 +63,7 @@ export class DiaPaperComponent implements AfterViewInit {
   }
 
   onElementPointerClick(cid: string) {
-    
+    this.graph.onElementPointerClick(cid);
   }
 
 }

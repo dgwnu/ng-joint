@@ -30,4 +30,8 @@ export class DiaGraphComponent {
     this.shapes.graphElement = this._graphElement;
   }
 
+  onElementPointerClick(cid: string) {
+    console.log('graph.onElementPointerClick', cid);
+  }
+
 }
