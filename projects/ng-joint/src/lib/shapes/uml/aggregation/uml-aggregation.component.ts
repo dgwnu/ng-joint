@@ -5,10 +5,6 @@ import { NgJointUmlLink } from '../shapes-uml';
 import { UmlAggregation } from './uml-aggregation';
 import { UmlAggregationService } from './uml-aggregation.service';
 
-/**
- * joint.shapes.standard.Rectangle Component
- * based on: https://github.com/clientIO/joint/blob/master/plugins/shapes/joint.shapes.uml.js
- */
 @Component({
   selector: 'dgwnu-uml-aggregation',
   template: `

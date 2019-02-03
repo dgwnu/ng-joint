@@ -1,3 +1,8 @@
+/**
+ * Ng Joint implementation of Plugin Shapes joint.shapes.uml
+ * based on: https://github.com/clientIO/joint/blob/master/plugins/shapes/joint.shapes.uml.js
+ */
+
 import { Input } from '@angular/core';
 
 import { shapes, attributes } from 'jointjs';
