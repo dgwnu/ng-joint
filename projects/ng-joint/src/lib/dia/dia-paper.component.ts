@@ -21,14 +21,9 @@ export class DiaPaperComponent implements AfterViewInit {
   @Input() gridSize?: number;
   @Input() drawGrid?: boolean;
 
-  constructor(
-    private paperService: DiaPaperService,
-    private el: ElementRef
-    ) {
-      console.log('DiaPaperComponent.el', el);
-  }
+  constructor(private service: DiaPaperService) {}
 
-  private _paperElement: DiaPaperElement;
+  paperElement: DiaPaperElement;
 
   ngAfterViewInit() {
     console.log('+----------------------------------------+');
@@ -50,7 +45,8 @@ export class DiaPaperComponent implements AfterViewInit {
 
   private _createPaper() {
     console.log('-- BEGIN: DiaPaperComponent._createPaper --');
-    this._paperElement = this.paperService.createPaper({
+
+    this.paperElement = this.service.createPaper({
       width: this.width,
       height: this.height,
       gridSize: this.gridSize,
@@ -58,8 +54,16 @@ export class DiaPaperComponent implements AfterViewInit {
       model: this.graph.graphElement.graph,
       el: this.diaPaperElRef.nativeElement
     });
+
     this.graph.addShapes();
+
+    this.service.onPaperEvents(this);
+
     console.log('-- END: DiaPaperComponent._createPaper --');
+  }
+
+  onElementPointerClick(cid: string) {
+    
   }
 
 }

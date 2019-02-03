@@ -10,10 +10,6 @@ interface ElementParms<T> {
     options?: dia.Element.GenericAttributes<T>;
 }
 
-interface ShapeEvent {
-    event: string;
-    context: any;
-}
 
 /**
  * Generic Element Shape Class
@@ -21,7 +17,6 @@ interface ShapeEvent {
 export abstract class ElementShape {
     protected _id: string;
     protected _element: dia.Element;
-    eventSubject = new Subject<ShapeEvent>();
 
     constructor(parms: ElementParms<dia.Element.Attributes>) {
         this._id = parms.id;
@@ -46,7 +41,6 @@ export abstract class LinkShape {
     protected _sourceId: string;
     protected _targetId: string;
     protected _link: dia.Link;
-    eventSubject = new Subject<ShapeEvent>();
 
     constructor(parms: LinkParms<dia.Link.Attributes>) {
         this._id = parms.id;
