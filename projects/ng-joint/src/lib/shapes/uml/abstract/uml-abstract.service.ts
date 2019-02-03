@@ -13,14 +13,8 @@ export class UmlAbstractService implements ElementShapeService {
 
   constructor(private service: ShapesUmlService) { }
 
-  createElementShape(
-    graphElement: DiaGraphElement,
-    component: UmlAbstractComponent
-    ): UmlAbstract {
-    const abstractShape = new UmlAbstract(
-      component.id,
-      this.service.umlClassAttributes(component)
-    );
+  createElementShape(graphElement: DiaGraphElement, component: UmlAbstractComponent): UmlAbstract {
+    const abstractShape = new UmlAbstract(component.id, this.service.umlClassAttributes(component));
     graphElement.addElementShape(abstractShape);
     return abstractShape;
   }

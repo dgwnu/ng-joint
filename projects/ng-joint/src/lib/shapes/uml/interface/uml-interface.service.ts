@@ -1,42 +1,30 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SimpleChanges } from '@angular/core';
 
 import { DiaGraphElement } from '../../../dia/dia-graph-element';
-import { UmlNameType } from '../shapes-uml';
+import { ElementShapeService } from '../../shapes';
 import { ShapesUmlService } from '../shapes-uml.service';
 import { UmlInterface } from './uml-interface';
+import { UmlInterfaceComponent } from './uml-interface.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UmlInterfaceService {
+export class UmlInterfaceService implements ElementShapeService {
 
   constructor(private service: ShapesUmlService) { }
 
-  createUmlInterface(
-    graphElement: DiaGraphElement,
-    id: string,
-    x: number,
-    y: number,
-    width: number,
-    height: number,
-    unformatedName: UmlNameType,
-    unformatedAttributes?: string[],
-    unfomatedMethods?: string[],
-    attrs?: {}
-    ): UmlInterface {
-    const name = this.service.formatName(unformatedName);
-    const attributes = this.service.formatAttributes(unformatedAttributes);
-    const methods = this.service.formatMethods(unfomatedMethods);
-    const interfaceShape = new UmlInterface(
-      id,
-      {
-        position: { x: x, y: y },
-        size: { width: width, height: height },
-        name, attributes, methods, attrs
-      }
-    );
+  createElementShape(graphElement: DiaGraphElement, component: UmlInterfaceComponent): UmlInterface {
+    const interfaceShape = new UmlInterface(component.id, this.service.umlClassAttributes(component));
     graphElement.addElementShape(interfaceShape);
     return interfaceShape;
+  }
+
+  onEvents(component: UmlInterfaceComponent) {
+    this.service.onElementEvents(component);
+  }
+
+  setChanges(changes: SimpleChanges, component: UmlInterfaceComponent) {
+    this.service.setElementChanges(changes, component);
   }
 
 }

@@ -18,7 +18,7 @@ export class ShapesUmlService {
     this.service.createShapes(elements, links, graph);
   }
 
-  _formatUndefinedStringArray(stringArray?: string[]): string[] {
+  private _formatUndefinedStringArray(stringArray?: string[]): string[] {
     if (stringArray) {
       return stringArray;
     } else {

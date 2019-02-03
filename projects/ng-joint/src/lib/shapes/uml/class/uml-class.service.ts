@@ -14,10 +14,7 @@ export class UmlClassService implements ElementShapeService {
   constructor(private service: ShapesUmlService) { }
 
   createElementShape(graphElement: DiaGraphElement, component: UmlClassComponent): UmlClass {
-    const classShape = new UmlClass(
-      component.id,
-      this.service.umlClassAttributes(component)
-    );
+    const classShape = new UmlClass(component.id, this.service.umlClassAttributes(component));
     graphElement.addElementShape(classShape);
     return classShape;
   }
