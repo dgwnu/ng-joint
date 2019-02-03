@@ -23,8 +23,7 @@ export class ShapesComponent implements AfterContentInit {
   @ContentChild(ShapesUmlComponent) shapesUml: ShapePlugin;
 
   constructor(
-    private shapesService: ShapesService,
-    ) { }
+    private service: ShapesService) { }
 
   private _graphElement: DiaGraphElement;
 
@@ -36,13 +35,17 @@ export class ShapesComponent implements AfterContentInit {
 
   set graphElement(value: DiaGraphElement) {
     this._graphElement = value;
-    this.shapesService.activateShapePlugins(
+    this.service.activateShapePlugins(
       [
         this.shapesStandard,
         this.shapesAngular,
         this.shapesUml
       ],
       this._graphElement);
+  }
+
+  onElementPointerClick(cid: string) {
+    console.log('shapes.onElementPointerClick', cid);
   }
 
 }
