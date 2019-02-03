@@ -1,3 +1,7 @@
+<div>
+  {{ umlClasses[0].name }}({{ umlClasses[0].x }}, {{ umlClasses[0].y }})
+</div>
+
 <dgwnu-dia-paper
   [width]="1200"
   [height]="600"
@@ -36,8 +40,8 @@
 
         <dgwnu-uml-class *ngFor="let umlClass of umlClasses"
           [id]="umlClass.id"
-          [x]="umlClass.x"
-          [y]="umlClass.y"
+          [(x)]="umlClass.x"
+          [(y)]="umlClass.y"
           [width]="umlClass.width"
           [height]="umlClass.height"
           [name]="umlClass.name"
