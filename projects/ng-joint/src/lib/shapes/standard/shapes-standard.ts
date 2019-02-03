@@ -1,5 +1,7 @@
 import { Input } from '@angular/core';
 
+import { attributes } from 'jointjs';
+
 import {
     ElementShape,
     LinkShape,
@@ -18,19 +20,19 @@ export abstract class StandardLinkShape extends LinkShape {
 }
 
 export interface NgJointGenericStandardElement extends NgJointElement {
-    root?: SVGGElement;
+    root?: attributes.SVGAttributes;
 }
 
 export abstract class GenericStandardElementShapeComponent extends GenericElementShapeComponent {
-    @Input() root?: SVGGElement;
+    @Input() root?: attributes.SVGAttributes;
 }
 
 export interface NgJointGenericStandardLink extends NgJointLink {
-    root?: SVGGElement;
-    line?: SVGPathElement;
+    root?: attributes.SVGAttributes;
+    line?: attributes.SVGPathAttributes;
 }
 
 export abstract class GenericStandardLinkShapeComponent extends GenericLinkShapeComponent {
-    @Input() root?: SVGGElement;
-    @Input() line?: SVGPathElement;
+    @Input() root?: attributes.SVGAttributes;
+    @Input() line?: attributes.SVGPathAttributes;
 }
