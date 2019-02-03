@@ -1,9 +1,11 @@
 import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
+import { shapes } from 'jointjs';
+
 import { DiaGraphElement } from '../../dia/dia-graph-element';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
-import { UmlNameType } from './shapes-uml';
+import { UmlNameType, UmlElementShapeComponent } from './shapes-uml';
 
 @Injectable({
   providedIn: 'root'
@@ -24,20 +26,23 @@ export class ShapesUmlService {
     }
   }
 
-  formatAttributes(attributes?: string[]): string[] {
-    return this._formatUndefinedStringArray(attributes);
-  }
-
-  formatMethods(methods?: string[]): string[] {
-    return this._formatUndefinedStringArray(methods);
-  }
-
-  formatName(name: UmlNameType): string[] {
+  private _formatName(name: UmlNameType): string[] {
     if (typeof name === 'string') {
       return [name];
     } else {
       return name;
     }
+  }
+
+  umlClassAttributes(component: UmlElementShapeComponent): shapes.uml.ClassAttributes {
+    return {
+      position: { x: component.x, y: component.y },
+      size: { width: component.width, height: component.height },
+      name: this._formatName(component.name),
+      attributes: this._formatUndefinedStringArray(component.attributes),
+      methods: this._formatUndefinedStringArray(component.methods),
+      attrs: component.attrs
+    };
   }
 
   onElementEvents(component: ElementShapeComponent) {

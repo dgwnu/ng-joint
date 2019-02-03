@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/dia-graph-element';
-import { ElementShapeComponent } from '../../shapes';
-import { NgJointUmlElement } from '../shapes-uml';
-import { UmlNameType } from '../shapes-uml';
+import { GenericElementShapeComponent } from '../../shapes';
+import { NgJointUmlElement, UmlNameType, UmlElementShapeComponent } from '../shapes-uml';
 import { UmlClassService } from './uml-class.service';
 import { UmlClass } from './uml-class';
 
@@ -13,35 +11,17 @@ import { UmlClass } from './uml-class';
   <!-- joint.shapes.uml.Class  -->
   `,
 })
-export class UmlClassComponent implements ElementShapeComponent {
-  @Input() id: string;
-  @Input() x: number;
-  @Input() y: number;
-  @Input() width: number;
-  @Input() height: number;
+export class UmlClassComponent extends GenericElementShapeComponent implements UmlElementShapeComponent {
   @Input() name: UmlNameType;
   @Input() attributes: string[];
   @Input() methods: string[];
   @Input() attrs?: {};
 
-  constructor(private service: UmlClassService) { }
+  constructor(private umlClassService: UmlClassService) {
+    super(umlClassService);
+  }
 
   shape: UmlClass;
-
-  createShape(graphElement: DiaGraphElement) {
-    this.shape = this.service.createUmlClass(
-      graphElement,
-      this.id,
-      this.x,
-      this.y,
-      this.width,
-      this.height,
-      this.name,
-      this.attributes,
-      this.methods,
-      this.attrs
-    );
-  }
 
 }
 
