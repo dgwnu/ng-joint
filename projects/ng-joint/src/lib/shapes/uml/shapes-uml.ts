@@ -1,4 +1,7 @@
+import { Input } from '@angular/core';
+
 import { shapes } from 'jointjs';
+
 import { ElementShape, LinkShape, NgJointElement, NgJointLink, ElementShapeComponent, GenericElementShapeComponent } from '../shapes';
 
 export abstract class UmlElementShape extends ElementShape {
@@ -23,10 +26,10 @@ export interface NgJointUmlElement extends NgJointElement {
 }
 
 export abstract class GenericUmlClassShapeComponent extends GenericElementShapeComponent {
-    name: UmlNameType;
-    attributes?: string[];
-    methods?: string[];
-    attrs?: {};
+    @Input() name: UmlNameType;
+    @Input() attributes?: string[];
+    @Input() methods?: string[];
+    @Input() attrs?: {};
 }
 
 export interface NgJointUmlLink extends NgJointLink {
