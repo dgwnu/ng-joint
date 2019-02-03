@@ -64,4 +64,4 @@ export {
   UmlImplementationComponent, NgJointUmlImplementation
 };
 
-export { GenericUmlClassShapeComponent } from './shapes-uml';
+export { GenericUmlClassShapeComponent, GenericUmlLinkShapeComponent } from './shapes-uml';

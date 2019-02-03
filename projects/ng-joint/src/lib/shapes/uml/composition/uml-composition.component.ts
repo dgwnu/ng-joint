@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/dia-graph-element';
-import { LinkShapeComponent, ElementShape } from '../../shapes';
+import { GenericUmlLinkShapeComponent } from '../shapes-uml';
 import { NgJointUmlLink } from '../shapes-uml';
 import { UmlComposition } from './uml-composition';
 import { UmlCompositionService } from './uml-composition.service';
@@ -12,31 +11,13 @@ import { UmlCompositionService } from './uml-composition.service';
     <!-- joint.shapes.uml.Composition  -->
     `,
 })
-export class UmlCompositionComponent implements LinkShapeComponent {
-  @Input() id: string;
-  @Input() sourceId: string;
-  @Input() targetId: string;
+export class UmlCompositionComponent extends GenericUmlLinkShapeComponent {
 
-  constructor(private service: UmlCompositionService) { }
+  constructor(private umlCompositionService: UmlCompositionService) { 
+    super(umlCompositionService);
+  }
 
   shape: UmlComposition;
-
-  createShape(graphElement: DiaGraphElement) {
-    this.shape = this.service.createUmlComposition(
-      graphElement,
-      this.id,
-      this.sourceId,
-      this.targetId
-    );
-  }
-
-  set sourceShape(source: ElementShape) {
-    this.shape.link.source(source.element);
-  }
-
-  set targetShape(target: ElementShape) {
-    this.shape.link.target(target.element);
-  }
 
 }
 

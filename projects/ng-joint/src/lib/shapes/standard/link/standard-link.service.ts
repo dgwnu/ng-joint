@@ -34,4 +34,5 @@ export class StandardLinkService implements LinkShapeService {
   setChanges(changes: SimpleChanges, component: StandardLinkComponent) {
     this.service.setLinkChanges(changes, component);
   }
+
 }

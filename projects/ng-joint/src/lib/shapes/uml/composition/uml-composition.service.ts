@@ -1,28 +1,34 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SimpleChanges } from '@angular/core';
 
 import { DiaGraphElement } from '../../../dia/dia-graph-element';
+import { LinkShapeService } from '../../shapes';
 import { UmlComposition } from './uml-composition';
 import { ShapesUmlService } from '../shapes-uml.service';
+import { UmlCompositionComponent } from './uml-composition.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UmlCompositionService {
+export class UmlCompositionService implements LinkShapeService {
 
   constructor(private service: ShapesUmlService) { }
 
-  createUmlComposition(
-    graphElement: DiaGraphElement,
-    id: string,
-    sourceId: string,
-    targetId: string
-  ): UmlComposition {
+  createLinkShape(graphElement: DiaGraphElement, component: UmlCompositionComponent): UmlComposition {
     const compositionShape = new UmlComposition(
-      id,
-      sourceId,
-      targetId
+      component.id,
+      component.sourceId,
+      component.targetId
     );
     graphElement.addLinkShape(compositionShape);
     return compositionShape;
   }
+
+  onEvents(component: UmlCompositionComponent) {
+    this.service.onLinkEvents(component);
+  }
+
+  setChanges(changes: SimpleChanges, component: UmlCompositionComponent) {
+    this.service.setLinkChanges(changes, component);
+  }
+
 }

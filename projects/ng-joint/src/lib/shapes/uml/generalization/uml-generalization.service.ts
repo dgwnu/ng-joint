@@ -1,28 +1,34 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SimpleChanges } from '@angular/core';
 
 import { DiaGraphElement } from '../../../dia/dia-graph-element';
+import { LinkShapeService } from '../../shapes';
 import { UmlGeneralization } from './uml-generalization';
 import { ShapesUmlService } from '../shapes-uml.service';
+import { UmlGeneralizationComponent } from './uml-generalization.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UmlGeneralizationService {
+export class UmlGeneralizationService implements LinkShapeService {
 
   constructor(private service: ShapesUmlService) { }
 
-  createUmlGeneralization(
-    graphElement: DiaGraphElement,
-    id: string,
-    sourceId: string,
-    targetId: string
-  ): UmlGeneralization {
+  createLinkShape(graphElement: DiaGraphElement, component: UmlGeneralizationComponent): UmlGeneralization {
     const generalizationShape = new UmlGeneralization(
-      id,
-      sourceId,
-      targetId
+      component.id,
+      component.sourceId,
+      component.targetId
     );
     graphElement.addLinkShape(generalizationShape);
     return generalizationShape;
   }
+
+  onEvents(component: UmlGeneralizationComponent) {
+    this.service.onLinkEvents(component);
+  }
+
+  setChanges(changes: SimpleChanges, component: UmlGeneralizationComponent) {
+    this.service.setLinkChanges(changes, component);
+  }
+
 }
