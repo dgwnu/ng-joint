@@ -46,3 +46,5 @@ export class ShapesComponent implements AfterContentInit {
   }
 
 }
+
+export { GenericElementShapeComponent, GenericLinkShapeComponent } from './shapes';

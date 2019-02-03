@@ -63,3 +63,5 @@ export {
   UmlGeneralizationComponent, NgJointUmlGeneralization,
   UmlImplementationComponent, NgJointUmlImplementation
 };
+
+export { GenericUmlClassShapeComponent } from './shapes-uml';

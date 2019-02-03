@@ -8,7 +8,6 @@
 export * from './lib/ng-joint.service';
 export * from './lib/dia/dia-paper.component';
 export * from './lib/dia/dia-graph.component';
-export * from './lib/shapes/shapes';
 export * from './lib/shapes/shapes.component';
 export * from './lib/ng-joint.module';
 

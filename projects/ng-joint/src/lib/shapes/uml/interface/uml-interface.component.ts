@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { GenericElementShapeComponent } from '../../shapes';
-import { NgJointUmlElement, UmlNameType, UmlElementShapeComponent } from '../shapes-uml';
+import { NgJointUmlElement, GenericUmlClassShapeComponent } from '../shapes-uml';
 import { UmlInterfaceService } from './uml-interface.service';
 import { UmlInterface } from './uml-interface';
 
@@ -11,11 +10,7 @@ import { UmlInterface } from './uml-interface';
   <!-- joint.shapes.uml.Interface  -->
   `,
 })
-export class UmlInterfaceComponent extends GenericElementShapeComponent implements UmlElementShapeComponent {
-  @Input() name: UmlNameType;
-  @Input() attributes: string[];
-  @Input() methods: string[];
-  @Input() attrs?: {};
+export class UmlInterfaceComponent extends GenericUmlClassShapeComponent {
 
   constructor(private umlInterfaceService: UmlInterfaceService) {
     super(umlInterfaceService);

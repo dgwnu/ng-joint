@@ -5,7 +5,7 @@ import { shapes } from 'jointjs';
 import { DiaGraphElement } from '../../dia/dia-graph-element';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
-import { UmlNameType, UmlElementShapeComponent } from './shapes-uml';
+import { UmlNameType, GenericUmlClassShapeComponent } from './shapes-uml';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class ShapesUmlService {
     }
   }
 
-  umlClassAttributes(component: UmlElementShapeComponent): shapes.uml.ClassAttributes {
+  umlClassAttributes(component: GenericUmlClassShapeComponent): shapes.uml.ClassAttributes {
     return {
       position: { x: component.x, y: component.y },
       size: { width: component.width, height: component.height },
