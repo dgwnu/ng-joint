@@ -1,6 +1,6 @@
 import { Input } from '@angular/core';
 
-import { shapes } from 'jointjs';
+import { shapes, attributes } from 'jointjs';
 
 import { ElementShape, LinkShape, NgJointElement, NgJointLink, ElementShapeComponent, GenericElementShapeComponent } from '../shapes';
 
@@ -18,18 +18,18 @@ export abstract class UmlLinkShape extends LinkShape {
 
 export type UmlNameType = string | string[];
 
-export interface NgJointUmlElement extends NgJointElement {
+export interface NgJointUmlClass extends NgJointElement {
     name: UmlNameType;
     attributes?: string[];
     methods?: string[];
-    attrs?: {};
+    attrs?: attributes.SVGRectAttributes;
 }
 
 export abstract class GenericUmlClassShapeComponent extends GenericElementShapeComponent {
     @Input() name: UmlNameType;
     @Input() attributes?: string[];
     @Input() methods?: string[];
-    @Input() attrs?: {};
+    @Input() attrs?: attributes.SVGRectAttributes;
 }
 
 export interface NgJointUmlLink extends NgJointLink {

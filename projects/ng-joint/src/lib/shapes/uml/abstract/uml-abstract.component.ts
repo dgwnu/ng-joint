@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NgJointUmlElement, GenericUmlClassShapeComponent } from '../shapes-uml';
+import {GenericUmlClassShapeComponent } from '../shapes-uml';
 import { UmlAbstractService } from './uml-abstract.service';
 import { UmlAbstract } from './uml-abstract';
 
@@ -23,6 +23,4 @@ export class UmlAbstractComponent extends GenericUmlClassShapeComponent {
 /**
  * Ng Joint UML Asbtract Interface (use this with arrays and structural directives *ngFor, ..)
  */
-export interface NgJointUmlAbstract extends NgJointUmlElement {
-
-}
+export { NgJointUmlClass as NgJointUmlAbstract } from '../shapes-uml';
