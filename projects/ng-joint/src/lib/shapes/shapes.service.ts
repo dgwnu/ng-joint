@@ -98,6 +98,10 @@ export class ShapesService {
     }
   }
 
+  /**
+   * NgJoint dia.Element.events handling
+   * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Element.events
+   */
   onElementEvents(component: ElementShapeComponent) {
     component.shape.element
       .on('change:position', (context: any) => { this._positionComponent(component); })
@@ -105,10 +109,14 @@ export class ShapesService {
     ;
   }
 
+  /**
+   * NgJoint dia.Link.events handling
+   * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Link.events
+   */
   onLinkEvents(component: LinkShapeComponent) {
     component.shape.link
-      .on('change:source', (context: any) => { console.log('change:source', context); })
-      .on('change:target', (context: any) => { console.log('change:target', context); })
+      .on('change:source', (context: any) => { /* console.log('change:source', context); */ })
+      .on('change:target', (context: any) => { /* console.log('change:target', context); */ })
     ;
   }
 
@@ -157,29 +165,27 @@ export class ShapesService {
     // detect position change
     let positionChangeDetected = false;
     if (changes.x) {
-      if (changes.x.currentValue !== bbox.x) { positionChangeDetected = true; }
+      positionChangeDetected = (changes.x.currentValue !== bbox.x);
     } else if (changes.y) {
-      if (changes.y.currentValue !== bbox.y) { positionChangeDetected = true; }
+      positionChangeDetected = (changes.y.currentValue !== bbox.y);
     }
 
     // detect size change
     let sizeChangeDetected = false;
     if (changes.width) {
-      if (changes.width.currentValue !== bbox.width) { sizeChangeDetected = true; }
+      sizeChangeDetected = (changes.width.currentValue !== bbox.width);
     } else if (changes.height) {
-      if (changes.height.currentValue !== bbox.height) { sizeChangeDetected = true; }
+      sizeChangeDetected = (changes.height.currentValue !== bbox.height);
     }
 
     // process position changes
     if (positionChangeDetected) {
       element.position(component.x, component.y);
-      console.log('onShapeChanges.position');
     }
 
     // process size changes
     if (sizeChangeDetected) {
       element.resize(component.width, component.height);
-      console.log('onShapeChanges.resize');
     }
 
     // process attrs changes
