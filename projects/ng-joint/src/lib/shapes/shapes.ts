@@ -91,6 +91,8 @@ export interface ElementShapeComponent extends ShapeComponent {
     width: number;
     height: number;
     shape: ElementShape;
+    elementPointerClick: EventEmitter<{}>;
+    emitElementPointerClick?(): void;
 }
 
 /**
@@ -114,19 +116,21 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
 
   /** two-way binding x property */
   @Input() get x() { return this._x; }
-  @Output() xChange = new EventEmitter();
+  @Output() xChange = new EventEmitter<number>();
 
   /** two-way binding y property */
   @Input() get y() { return this._y; }
-  @Output() yChange = new EventEmitter();
+  @Output() yChange = new EventEmitter<number>();
 
   /** two-way binding width property */
   @Input() get width() { return this._width; }
-  @Output() widthChange = new EventEmitter();
+  @Output() widthChange = new EventEmitter<number>();
 
   /** two-way binding height property */
   @Input() get height() { return this._height; }
-  @Output() heightChange = new EventEmitter();
+  @Output() heightChange = new EventEmitter<number>();
+
+  @Output() elementPointerClick = new EventEmitter<{}>();
 
   constructor(private service: ElementShapeService) {}
 

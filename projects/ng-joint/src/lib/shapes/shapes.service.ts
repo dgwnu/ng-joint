@@ -232,8 +232,23 @@ export class ShapesService {
    */
   onElementPointerClick(cid: string, shapePlugins: ShapePlugin[]) {
     for (const shapePlugin of shapePlugins) {
-      if (shapePlugin) {  }
+      if (shapePlugin) { shapePlugin.onElementPointerClick(cid); }
     }
   }
 
+  /**
+   * Emit Paper Element Point Click event in the Element Shape Component
+   *
+   * @comment Basic Angular Output Emittor functionality for Paper Event
+   *
+   */
+  emitElementPointerClick(cid: string, elements: QueryList<ElementShapeComponent>[]) {
+    for (const element of elements) {
+      element.forEach(elementShape => {
+        if ((elementShape.emitElementPointerClick) && (elementShape.shape.element.cid === cid)) {
+          elementShape.emitElementPointerClick();
+        }
+      });
+    }
+  }
 }
