@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, Input, ContentChildren, QueryList } from '@angular/core';
+import { Component, ContentChildren, QueryList } from '@angular/core';
 
 import { DiaGraphElement } from '../../dia/dia-graph-element';
 import { ShapePlugin, ElementShapeComponent } from '../shapes';
@@ -11,28 +11,19 @@ import { AngularElementComponent, NgJointAngularElement } from './element/angula
     <ng-content></ng-content>
     `,
 })
-export class ShapesAngularComponent implements AfterContentInit, ShapePlugin {
+export class ShapesAngularComponent implements ShapePlugin {
   @ContentChildren(AngularElementComponent) angularElements: QueryList<ElementShapeComponent>;
 
   constructor(private service: ShapesAngularService) { }
 
   private _graphElement: DiaGraphElement;
 
-  ngAfterContentInit() {
-    console.log('+----------------------------------------+');
-    console.log('| ShapesAngularComponent.ngAfterContentInit |');
-    console.log('+----------------------------------------+');
+  set graphElement(value: DiaGraphElement) {
+    this._graphElement = value;
+    this.service.createShapes([this.angularElements], [], this._graphElement);
   }
 
-  set graphElement(value: DiaGraphElement) {
-    console.log('+----------------------------------------+');
-    console.log('| ShapesAngularComponent.graphElement |');
-    console.log('+----------------------------------------+');
-
-    this._graphElement = value;
-    console.log('this._graphElement = value;', value);
-
-    this.service.createShapes([this.angularElements], [], this._graphElement);
+  onElementPointerClick(cid: string) {
 
   }
 

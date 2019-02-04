@@ -68,6 +68,9 @@ export class ShapesService {
 
   }
 
+  /**
+   * @ignore
+   */
   private _positionComponent(component: ElementShapeComponent) {
     const shape = component.shape;
     const xShapeElement = shape.element.getBBox().x;
@@ -83,6 +86,9 @@ export class ShapesService {
     }
   }
 
+  /**
+   * @ignore
+   */
   private _sizeComponent(component: ElementShapeComponent) {
     const shape = component.shape;
     const widthShapeElement = shape.element.getBBox().width;
@@ -100,6 +106,7 @@ export class ShapesService {
 
   /**
    * NgJoint dia.Element.events handling
+   *
    * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Element.events
    */
   onElementEvents(component: ElementShapeComponent) {
@@ -111,6 +118,7 @@ export class ShapesService {
 
   /**
    * NgJoint dia.Link.events handling
+   *
    * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Link.events
    */
   onLinkEvents(component: LinkShapeComponent) {
@@ -120,6 +128,9 @@ export class ShapesService {
     ;
   }
 
+  /**
+   * Set Attr Property Values on a jointjs dia shape (element or link)
+   */
   setAttrProp(diaShape: DiaShape, prop: string, currentValue: {}) {
 
     for (const attr in currentValue) {
@@ -130,6 +141,9 @@ export class ShapesService {
 
   }
 
+  /**
+   * @ignore
+   */
   private _setAttrChanges(changes: SimpleChanges, shape: GenericShape) {
     let diaShape: DiaShape;
 
@@ -156,6 +170,11 @@ export class ShapesService {
 
   }
 
+  /**
+   * Process Angular Element Component changes --> in JointJs Element Shape object
+   * 
+   * @comment To provide bi-directional functionality for position, size and attrs
+   */
   setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
     const shape = component.shape;
     if (!shape) { return; } // first time changes is before shape is created
@@ -193,6 +212,11 @@ export class ShapesService {
 
   }
 
+  /**
+   * Process Angular Link Component changes --> in JointJs Link Shape object
+   * 
+   * @comment To provide bi-directional functionality for attrs
+   */
   setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {
     const shape = component.shape;
     if (!shape) { return; } // first time changes is before shape is created
@@ -201,6 +225,15 @@ export class ShapesService {
     // process attrs changes
     this._setAttrChanges(changes, component.shape);
 
+  }
+
+  /**
+   * broadcast Element Pointer Click event to activated shape plugins
+   */
+  onElementPointerClick(cid: string, shapePlugins: ShapePlugin[]) {
+    for (const shapePlugin of shapePlugins) {
+      if (shapePlugin) {  }
+    }
   }
 
 }

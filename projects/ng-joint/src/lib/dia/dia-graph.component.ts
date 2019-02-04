@@ -31,7 +31,7 @@ export class DiaGraphComponent {
   }
 
   onElementPointerClick(cid: string) {
-    console.log('graph.onElementPointerClick', cid);
+    this.shapes.onElementPointerClick(cid);
   }
 
 }

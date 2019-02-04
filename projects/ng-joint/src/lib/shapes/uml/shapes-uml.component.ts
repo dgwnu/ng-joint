@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, ContentChildren, QueryList } from '@angular/core';
+import { Component, ContentChildren, QueryList } from '@angular/core';
 
 import { DiaGraphElement } from '../../dia/dia-graph-element';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
@@ -17,7 +17,7 @@ import { UmlImplementationComponent, NgJointUmlImplementation } from './implemen
     <ng-content></ng-content>
     `,
 })
-export class ShapesUmlComponent implements AfterContentInit, ShapePlugin {
+export class ShapesUmlComponent implements ShapePlugin {
   @ContentChildren(UmlAbstractComponent) umlAbstract: QueryList<ElementShapeComponent>;
   @ContentChildren(UmlClassComponent) umlClass: QueryList<ElementShapeComponent>;
   @ContentChildren(UmlInterfaceComponent) umlInterface: QueryList<ElementShapeComponent>;
@@ -30,25 +30,16 @@ export class ShapesUmlComponent implements AfterContentInit, ShapePlugin {
 
   private _graphElement: DiaGraphElement;
 
-  ngAfterContentInit() {
-    console.log('+----------------------------------------+');
-    console.log('| ShapesUmlComponent.ngAfterContentInit |');
-    console.log('+----------------------------------------+');
-  }
-
   set graphElement(value: DiaGraphElement) {
-    console.log('+----------------------------------------+');
-    console.log('| ShapesUmlComponent.graphElement |');
-    console.log('+----------------------------------------+');
-
     this._graphElement = value;
-    console.log('this._graphElement = value;', value);
-
     this.service.createShapes(
       [this.umlAbstract, this.umlClass, this.umlInterface],
       [this.umlAggregation, this.umlComposition, this.umlGeneralization, this.umlImplementation],
       this._graphElement
       );
+  }
+
+  onElementPointerClick(cid: string) {
 
   }
 

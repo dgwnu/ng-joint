@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, ContentChildren, QueryList } from '@angular/core';
+import { Component, ContentChildren, QueryList } from '@angular/core';
 
 import { DiaGraphElement } from '../../dia/dia-graph-element';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
@@ -12,7 +12,7 @@ import { StandardLinkComponent, NgJointStandardLink } from './link/standard-link
     <ng-content></ng-content>
     `,
 })
-export class ShapesStandardComponent implements AfterContentInit, ShapePlugin {
+export class ShapesStandardComponent implements ShapePlugin {
   @ContentChildren(StandardRectangleComponent) standardRectangles: QueryList<ElementShapeComponent>;
   @ContentChildren(StandardLinkComponent) standardLinks: QueryList<LinkShapeComponent>;
 
@@ -20,25 +20,16 @@ export class ShapesStandardComponent implements AfterContentInit, ShapePlugin {
 
   private _graphElement: DiaGraphElement;
 
-  ngAfterContentInit() {
-    console.log('+----------------------------------------+');
-    console.log('| ShapesStandardComponent.ngAfterContentInit |');
-    console.log('+----------------------------------------+');
-  }
-
   set graphElement(value: DiaGraphElement) {
-    console.log('+----------------------------------------+');
-    console.log('| ShapesStandardComponent.graphElement |');
-    console.log('+----------------------------------------+');
-
     this._graphElement = value;
-    console.log('this._graphElement = value;', value);
-
     this.service.createShapes(
       [this.standardRectangles],
       [this.standardLinks],
       this._graphElement
       );
+  }
+
+  onElementPointerClick(cid: string) {
 
   }
 

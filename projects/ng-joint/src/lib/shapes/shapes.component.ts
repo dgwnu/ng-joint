@@ -45,18 +45,14 @@ export class ShapesComponent implements AfterContentInit {
   }
 
   onElementPointerClick(cid: string) {
-    console.log('shapes.onElementPointerClick', cid);
-    // PM => zie hieronder propagate event naar beneden
-    /*
     this.service.onElementPointerClick(
-      this,
+      cid,
       [
         this.shapesStandard,
         this.shapesAngular,
         this.shapesUml
       ]
     );
-    */
   }
 
 }
