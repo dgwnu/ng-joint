@@ -91,7 +91,7 @@ export interface ElementShapeComponent extends ShapeComponent {
     width: number;
     height: number;
     shape: ElementShape;
-    elementPointerClick: EventEmitter<{}>;
+    elementPointerClick: EventEmitter<string>;
     emitElementPointerClick(): void;
 }
 
@@ -130,7 +130,7 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
   @Input() get height() { return this._height; }
   @Output() heightChange = new EventEmitter<number>();
 
-  @Output() elementPointerClick = new EventEmitter<{}>();
+  @Output() elementPointerClick = new EventEmitter<string>();
 
   constructor(private service: ElementShapeService) {}
 
@@ -178,9 +178,11 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     this.service.setChanges(changes, this);
   }
 
+  /**
+   * Emit Id of current Clicked JointJs Element
+   */
   emitElementPointerClick() {
-    console.log('emitElementPointerClick');
-    this.elementPointerClick.emit(this);
+    this.elementPointerClick.emit(this.id);
   }
 
 }

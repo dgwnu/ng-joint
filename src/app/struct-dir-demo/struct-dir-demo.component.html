@@ -11,6 +11,7 @@
             <dgwnu-shapes-standard>
 
                 <dgwnu-standard-rectangle *ngFor="let rect of rects"
+                    (elementPointerClick)="onElementPointerClick($event)"
                     [id]="rect.id"
                     [x]="rect.x"
                     [y]="rect.y"

@@ -84,4 +84,8 @@ export class StructDirDemoComponent implements OnInit {
     this.links[1].line = { strokeWidth: 6 };
   }
 
+  onElementPointerClick(event: any) {
+    console.log('onElementPointerClick');
+  }
+
 }

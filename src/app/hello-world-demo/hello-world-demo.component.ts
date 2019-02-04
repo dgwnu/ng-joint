@@ -11,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloWorldDemoComponent implements OnInit {
 
-ngOnInit() {
-}
+  ngOnInit() {
+  }
+
+  onElementPointerClick(event: any) {
+    console.log('onElementPointerClick', event);
+  }
 
 }
