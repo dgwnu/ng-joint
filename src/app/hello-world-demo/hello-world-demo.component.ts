@@ -14,8 +14,8 @@ export class HelloWorldDemoComponent implements OnInit {
   ngOnInit() {
   }
 
-  onElementPointerClick(event: any) {
-    console.log('onElementPointerClick', event);
+  onElementPointerClick(id: string) {
+    console.log('onElementPointerClick(id: ' + id + ')');
   }
 
 }
