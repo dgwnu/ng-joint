@@ -6,16 +6,21 @@ import { DiaGraphService } from './dia-graph.service';
 
 /**
  * JointNg Graph Component
- *
- * <dgwnu-paper ...>
- *
- *    <dgwnu-dia-graph>
- *
- *        ...(Shape-plugins)...
- *
- *    </<dgwnu-dia-graph>
- *
- *  </dgwnu-paper>
+```
+<dgwnu-paper
+  width=800
+  height=600
+  gridSize=2
+  drawGrid=true>
+
+    <dgwnu-shapes>
+
+    </dgwnu-shapes>
+
+  </dgwnu-dia-graph>
+
+</dgwnu-paper>
+```
  */
 @Component({
   selector: 'dgwnu-dia-graph',

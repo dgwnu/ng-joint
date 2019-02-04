@@ -7,6 +7,22 @@ import { DiaPaperElement } from './dia-paper-element';
 import { DiaPaperService } from './dia-paper.service';
 import { DiaGraphComponent } from './dia-graph.component';
 
+/**
+ * JointNg Graph Component
+```
+<dgwnu-paper
+  width=800
+  height=600
+  gridSize=2
+  drawGrid=true>
+
+  <dgwnu-dia-graph>
+
+  </dgwnu-dia-graph>
+
+</dgwnu-paper>
+```
+ */
 @Component({
   selector: 'dgwnu-dia-paper',
   templateUrl: './dia-paper.component.html',
