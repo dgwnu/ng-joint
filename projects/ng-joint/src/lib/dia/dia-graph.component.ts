@@ -1,41 +1,44 @@
 import { Component, ContentChild } from '@angular/core';
 
-import { Subject } from 'rxjs';
-
 import { ShapesComponent } from '../shapes/shapes.component';
 import { DiaGraphElement } from './dia-graph-element';
 import { DiaGraphService } from './dia-graph.service';
 
+/**
+ * JointNg Graph Component
+ *
+ * <dgwnu-paper ...>
+ *
+ *    <dgwnu-dia-graph>
+ *
+ *        ...(Shape-plugins)...
+ *
+ *    </<dgwnu-dia-graph>
+ *
+ *  </dgwnu-paper>
+ */
 @Component({
   selector: 'dgwnu-dia-graph',
   templateUrl: './dia-graph.component.html'
 })
 export class DiaGraphComponent {
+  /** Shape-plugins Component */
   @ContentChild(ShapesComponent) shapes: ShapesComponent;
 
   constructor(
     private service: DiaGraphService
   ) {
-    this._graphElement = this.service.createGraphElement();
+    this.graphElement = this.service.createGraphElement();
   }
 
-  jointEvent = new Subject<{
-    cid: string,
-    eventSource: 'element'
-    eventType: 'pointerclick'
-  }>();
-
-  private _graphElement: DiaGraphElement;
-
-  get graphElement(): DiaGraphElement {
-    return this._graphElement;
-  }
+  /**  JointNg Graph Object Instance */
+  graphElement: DiaGraphElement;
 
   /**
    * Trigger to add the Shapes to the Graph Instance
    */
   addShapes() {
-    this.shapes.graphElement = this._graphElement;
+    this.shapes.graphElement = this.graphElement;
   }
 
   onElementPointerClick(cid: string) {

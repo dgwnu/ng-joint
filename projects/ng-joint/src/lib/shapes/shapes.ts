@@ -1,7 +1,5 @@
 import { OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
-import { Subject } from 'rxjs';
-
 import { dia } from 'jointjs';
 import { DiaGraphElement } from '../dia/dia-graph-element';
 
@@ -111,63 +109,78 @@ export interface ElementShapeService {
  * Generic Element Shape Component Class (anchestor for all Element Shapes)
  */
 export abstract class GenericElementShapeComponent implements ElementShapeComponent, OnChanges {
-  /** one-way binding id property */
-  @Input() id: string;
+    /** one-way binding id property */
+    @Input() id: string;
 
-  /** two-way binding x property */
-  @Input() get x() { return this._x; }
-  @Output() xChange = new EventEmitter<number>();
+    /** two-way binding x property */
+    @Input() get x() { return this._x; }
+    /** @ignore */
+    @Output() xChange = new EventEmitter<number>();
 
-  /** two-way binding y property */
-  @Input() get y() { return this._y; }
-  @Output() yChange = new EventEmitter<number>();
+    /** two-way binding y property */
+    @Input() get y() { return this._y; }
+    /** @ignore */
+    @Output() yChange = new EventEmitter<number>();
 
-  /** two-way binding width property */
-  @Input() get width() { return this._width; }
-  @Output() widthChange = new EventEmitter<number>();
+    /** two-way binding width property */
+    @Input() get width() { return this._width; }
+    /** @ignore */
+    @Output() widthChange = new EventEmitter<number>();
 
-  /** two-way binding height property */
-  @Input() get height() { return this._height; }
-  @Output() heightChange = new EventEmitter<number>();
+    /** two-way binding height property */
+    @Input() get height() { return this._height; }
+    /** @ignore */
+    @Output() heightChange = new EventEmitter<number>();
 
-  @Output() elementPointerClick = new EventEmitter<string>();
+    /** jointjs-paper-event (element:pointer:click) */
+    @Output() elementPointerClick = new EventEmitter<string>();
 
-  constructor(private service: ElementShapeService) {}
+    constructor(private service: ElementShapeService) {}
 
-  private _x: number;
-  private _y: number;
-  private _width: number;
-  private _height: number;
+    /** @ignore */
+    private _x: number;
+    /** @ignore */
+    private _y: number;
+    /** @ignore */
+    private _width: number;
+    /** @ignore */
+    private _height: number;
 
-  set x(xValue: number) {
-    if (this._x !== xValue) {
-      this._x = xValue;
-      this.xChange.emit(this._x);
+    /** @ignore */
+    set x(xValue: number) {
+        if (this._x !== xValue) {
+        this._x = xValue;
+        this.xChange.emit(this._x);
+        }
     }
-  }
 
-  set y(yValue: number) {
-    if (this._y !== yValue) {
-      this._y = yValue;
-      this.yChange.emit(this._y);
+    /** @ignore */
+    set y(yValue: number) {
+        if (this._y !== yValue) {
+        this._y = yValue;
+        this.yChange.emit(this._y);
+        }
     }
-  }
 
-  set width(widthValue: number) {
-    if (this._width !== widthValue) {
-        this._width = widthValue;
-        this.widthChange.emit(this._width);
+    /** @ignore */
+    set width(widthValue: number) {
+        if (this._width !== widthValue) {
+            this._width = widthValue;
+            this.widthChange.emit(this._width);
+        }
     }
-  }
 
-  set height(heightValue: number) {
-    if (this._height !== heightValue) {
-        this._height = heightValue;
-        this.heightChange.emit(this._height);
+    /** @ignore */
+    set height(heightValue: number) {
+        if (this._height !== heightValue) {
+            this._height = heightValue;
+            this.heightChange.emit(this._height);
+        }
     }
-  }
 
-  shape: ElementShape;
+    shape: ElementShape;
+
+    private _graph
 
   createShape(graphElement: DiaGraphElement) {
     this.shape = this.service.createElementShape(graphElement, this);
