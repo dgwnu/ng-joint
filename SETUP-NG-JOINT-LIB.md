@@ -58,3 +58,9 @@ To preserve Shape Stylings with Material Tab:
         </ng-template>
 </mat-tab>
 ```
+
+
+## Compodoc
+
+* [Usage](https://compodoc.app/guides/usage.html)
+
