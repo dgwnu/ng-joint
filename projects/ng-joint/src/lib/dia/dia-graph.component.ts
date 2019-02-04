@@ -1,5 +1,7 @@
 import { Component, ContentChild } from '@angular/core';
 
+import { Subject } from 'rxjs';
+
 import { ShapesComponent } from '../shapes/shapes.component';
 import { DiaGraphElement } from './dia-graph-element';
 import { DiaGraphService } from './dia-graph.service';
@@ -16,6 +18,12 @@ export class DiaGraphComponent {
   ) {
     this._graphElement = this.service.createGraphElement();
   }
+
+  jointEvent = new Subject<{
+    cid: string,
+    eventSource: 'element'
+    eventType: 'pointerclick'
+  }>();
 
   private _graphElement: DiaGraphElement;
 

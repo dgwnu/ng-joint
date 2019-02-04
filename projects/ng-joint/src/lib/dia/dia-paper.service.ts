@@ -27,8 +27,17 @@ export class DiaPaperService {
    */
   onPaperEvents(component: DiaPaperComponent) {
     component.paperElement.paper
-      .on('element:pointerclick', (context: any) => { component.onElementPointerClick(context.model.cid); })
-    ;
+//      .on('element:pointerclick', (context: any) => { component.onElementPointerClick(context.model.cid); })
+      .on('element:pointerclick', (context: any) => {
+        component.graph.jointEvent.next(
+          {
+            cid: context.model.cid, 
+            eventSource: 'element',
+            eventType: 'pointerclick'
+          }
+        );
+      })
+      ;
   }
 
 }
