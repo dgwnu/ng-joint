@@ -31,7 +31,7 @@ export class DiaPaperService {
       .on('element:pointerclick', (context: any) => {
         component.graph.graphElement.jointEvent.next(
           {
-            cid: context.model.cid, 
+            cid: context.model.cid,
             eventSource: 'element',
             eventType: 'pointerclick'
           }

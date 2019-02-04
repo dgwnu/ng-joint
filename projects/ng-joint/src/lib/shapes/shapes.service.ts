@@ -110,10 +110,26 @@ export class ShapesService {
    * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Element.events
    */
   onElementEvents(component: ElementShapeComponent) {
+    // jointjs internal element event handling
+    // bi-directional data changes
     component.shape.element
       .on('change:position', (context: any) => { this._positionComponent(component); })
       .on('change:size', (context: any) => { this._sizeComponent(component); })
     ;
+
+    // jointjs internal paper event handling
+    // emit events on element level to seperate event-sources (element instances)
+    component.graph.jointEvent.subscribe(
+      event => {
+        if (event.eventSource === 'element') {
+          if (event.eventType === 'pointerclick') {
+            if ((event.cid === component.shape.element.cid)) {
+              component.elementPointerClick.emit(event.cid);
+            }
+          }
+        }
+      }
+    );
   }
 
   /**

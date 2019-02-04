@@ -88,6 +88,7 @@ export interface ElementShapeComponent extends ShapeComponent {
     y: number;
     width: number;
     height: number;
+    graph: DiaGraphElement;
     shape: ElementShape;
     elementPointerClick: EventEmitter<string>;
     emitElementPointerClick(): void;
@@ -178,25 +179,28 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
         }
     }
 
+    /** NgJoint Graph Element Instance */
+    graph: DiaGraphElement;
+    /** NgJoint Shape Element Instance */
     shape: ElementShape;
 
-    private _graph
+    /** Create Shape Element Instance and initialize event handlers */
+    createShape(graphElement: DiaGraphElement) {
+        this.graph =  graphElement;
+        this.shape = this.service.createElementShape(this.graph, this);
+        this.service.onEvents(this);
+    }
 
-  createShape(graphElement: DiaGraphElement) {
-    this.shape = this.service.createElementShape(graphElement, this);
-    this.service.onEvents(this);
-  }
+    ngOnChanges(changes: SimpleChanges) {
+        this.service.setChanges(changes, this);
+    }
 
-  ngOnChanges(changes: SimpleChanges) {
-    this.service.setChanges(changes, this);
-  }
-
-  /**
-   * Emit Id of current Clicked JointJs Element
-   */
-  emitElementPointerClick() {
-    this.elementPointerClick.emit(this.id);
-  }
+    /**
+     * Emit Id of current Clicked JointJs Element
+     */
+    emitElementPointerClick() {
+        this.elementPointerClick.emit(this.id);
+    }
 
 }
 
