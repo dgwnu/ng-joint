@@ -245,9 +245,7 @@ export class ShapesService {
   emitElementPointerClick(cid: string, elements: QueryList<ElementShapeComponent>[]) {
     for (const element of elements) {
       element.forEach(elementShape => {
-        if ((elementShape.emitElementPointerClick) && (elementShape.shape.element.cid === cid)) {
-          elementShape.emitElementPointerClick();
-        }
+        if (elementShape.shape.element.cid === cid) { elementShape.emitElementPointerClick(); }
       });
     }
   }

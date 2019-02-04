@@ -92,7 +92,7 @@ export interface ElementShapeComponent extends ShapeComponent {
     height: number;
     shape: ElementShape;
     elementPointerClick: EventEmitter<{}>;
-    emitElementPointerClick?(): void;
+    emitElementPointerClick(): void;
 }
 
 /**
@@ -176,6 +176,11 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
 
   ngOnChanges(changes: SimpleChanges) {
     this.service.setChanges(changes, this);
+  }
+
+  emitElementPointerClick() {
+    console.log('emitElementPointerClick');
+    this.elementPointerClick.emit(this);
   }
 
 }

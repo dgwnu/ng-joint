@@ -36,7 +36,7 @@ export class ShapesStandardService {
   }
 
   onElementPointerClick(cid: string, elements: QueryList<ElementShapeComponent>[]) {
-    // servive.emitElementPointerClick(cid: string, elements: QueryList<ElementShapeComponent>[]);
+    this.service.emitElementPointerClick(cid, elements);
   }
 
 }
