@@ -22,12 +22,11 @@ export class DiaPaperService {
   }
 
   /**
-   * NgJoint dia.Paper.events handling
+   * jointjs internal dia.Paper.event handling
    * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Paper.events
    */
   onPaperEvents(component: DiaPaperComponent) {
     component.paperElement.paper
-//      .on('element:pointerclick', (context: any) => { component.onElementPointerClick(context.model.cid); })
       .on('element:pointerclick', (context: any) => {
         component.graph.graphElement.jointEvent.next(
           {

@@ -44,17 +44,6 @@ export class ShapesComponent implements AfterContentInit {
       this._graphElement);
   }
 
-  onElementPointerClick(cid: string) {
-    this.service.onElementPointerClick(
-      cid,
-      [
-        this.shapesStandard,
-        this.shapesAngular,
-        this.shapesUml
-      ]
-    );
-  }
-
 }
 
 export { GenericElementShapeComponent, GenericLinkShapeComponent } from './shapes';

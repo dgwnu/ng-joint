@@ -62,8 +62,4 @@ export class DiaPaperComponent implements AfterViewInit {
     console.log('-- END: DiaPaperComponent._createPaper --');
   }
 
-  onElementPointerClick(cid: string) {
-    this.graph.onElementPointerClick(cid);
-  }
-
 }

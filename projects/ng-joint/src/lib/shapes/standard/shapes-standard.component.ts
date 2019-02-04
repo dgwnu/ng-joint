@@ -29,15 +29,6 @@ export class ShapesStandardComponent implements ShapePlugin {
       );
   }
 
-  onElementPointerClick(cid: string) {
-    this.service.onElementPointerClick(
-      cid,
-      [
-        this.standardRectangles
-      ]
-    );
-  }
-
 }
 
 export {

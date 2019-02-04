@@ -58,7 +58,6 @@ export abstract class LinkShape {
  */
 export interface ShapePlugin {
     graphElement: DiaGraphElement;
-    onElementPointerClick(cid: string): void;
 }
 
 /**

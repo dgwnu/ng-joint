@@ -41,8 +41,4 @@ export class DiaGraphComponent {
     this.shapes.graphElement = this.graphElement;
   }
 
-  onElementPointerClick(cid: string) {
-    this.shapes.onElementPointerClick(cid);
-  }
-
 }

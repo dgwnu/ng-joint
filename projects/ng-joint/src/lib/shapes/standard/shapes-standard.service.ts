@@ -35,8 +35,4 @@ export class ShapesStandardService {
     this.service.setAttrProp(diaShape, prop, currentValue);
   }
 
-  onElementPointerClick(cid: string, elements: QueryList<ElementShapeComponent>[]) {
-    this.service.emitElementPointerClick(cid, elements);
-  }
-
 }
