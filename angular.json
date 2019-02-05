@@ -139,32 +139,32 @@
       }
     },
     "ng-joint": {
-      "root": "projects/ng-joint",
-      "sourceRoot": "projects/ng-joint/src",
+      "root": "dgwnu/ng-joint",
+      "sourceRoot": "dgwnu/ng-joint/src",
       "projectType": "library",
       "prefix": "ng-joint",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ng-joint/tsconfig.lib.json",
-            "project": "projects/ng-joint/ng-package.json"
+            "tsConfig": "dgwnu/ng-joint/tsconfig.lib.json",
+            "project": "dgwnu/ng-joint/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-joint/src/test.ts",
-            "tsConfig": "projects/ng-joint/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-joint/karma.conf.js"
+            "main": "dgwnu/ng-joint/src/test.ts",
+            "tsConfig": "dgwnu/ng-joint/tsconfig.spec.json",
+            "karmaConfig": "dgwnu/ng-joint/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ng-joint/tsconfig.lib.json",
-              "projects/ng-joint/tsconfig.spec.json"
+              "dgwnu/ng-joint/tsconfig.lib.json",
+              "dgwnu/ng-joint/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
