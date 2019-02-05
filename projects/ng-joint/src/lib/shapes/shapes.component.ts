@@ -37,8 +37,13 @@ import { ShapesUmlComponent } from './uml/shapes-uml.component';
     `,
 })
 export class ShapesComponent {
+  /** NgJoint Standard Shapes Component Instance */
   @ContentChild(ShapesStandardComponent) shapesStandard: ShapePlugin;
+
+  /** NgJoint Angular Shapes Component Instance */
   @ContentChild(ShapesAngularComponent) shapesAngular: ShapePlugin;
+
+  /** NgJoint UML Shapes Component Instance */
   @ContentChild(ShapesUmlComponent) shapesUml: ShapePlugin;
 
   constructor(
