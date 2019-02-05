@@ -8,23 +8,23 @@ import { DiaPaperService } from './dia-paper.service';
 import { DiaGraphComponent } from './dia-graph.component';
 
 /**
- * JointNg Graph Component
+ * NgJoint Dia Graph Component
+ *
+ * Creates DiaPaperElement (ng-joint-dia-paper)
+ *
 ```
-<dgwnu-paper
+<ng-joint-dia-paper
   width=800
   height=600
   gridSize=2
   drawGrid=true>
 
-  <dgwnu-dia-graph>
-
-  </dgwnu-dia-graph>
 
 </dgwnu-paper>
 ```
  */
 @Component({
-  selector: 'dgwnu-dia-paper',
+  selector: 'ng-joint-dia-paper',
   templateUrl: './dia-paper.component.html',
   encapsulation: ViewEncapsulation.None
 })
@@ -42,17 +42,6 @@ export class DiaPaperComponent implements AfterViewInit {
   paperElement: DiaPaperElement;
 
   ngAfterViewInit() {
-    console.log('+----------------------------------------+');
-    console.log('| DiaPaperComponent.ngAfterViewInit      |');
-    console.log('+----------------------------------------+');
-    console.log('-- BEGIN: Attributes --');
-    console.log('DiaPaperComponent.width', this.width);
-    console.log('DiaPaperComponent.height', this.height);
-    console.log('DiaPaperComponent.gridSize', this.gridSize);
-    console.log('DiaPaperComponent.drawGrid', this.drawGrid);
-    console.log('DiaPaperComponent.graph', this.graph);
-    console.log('-- END: Attributes --');
-
     // work around (for problem 1st call ngAfterContentInit attributes are not initialized!)
     if (this.graph) {
       this._createPaper();
@@ -60,7 +49,6 @@ export class DiaPaperComponent implements AfterViewInit {
   }
 
   private _createPaper() {
-    console.log('-- BEGIN: DiaPaperComponent._createPaper --');
 
     this.paperElement = this.service.createPaper({
       width: this.width,
@@ -75,7 +63,6 @@ export class DiaPaperComponent implements AfterViewInit {
 
     this.service.onPaperEvents(this);
 
-    console.log('-- END: DiaPaperComponent._createPaper --');
   }
 
 }

@@ -12,8 +12,9 @@ import {
 } from './shapes';
 
 /**
- * Shapes Registration Service Class
- * Manages LifeCycle of Shapes
+ * NgJoint Shapes Service Class
+ *
+ * @comment Manages LifeCycle, Events and Bi-Directional Data-Binding of Plugin Shapes
  */
 @Injectable({
   providedIn: 'root'
@@ -230,7 +231,7 @@ export class ShapesService {
 
   /**
    * Process Angular Link Component changes --> in JointJs Link Shape object
-   * 
+   *
    * @comment To provide bi-directional functionality for attrs
    */
   setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {

@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "dgwnu",
+      "ng-joint",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "dgwnu",
+      "ng-joint",
       "kebab-case"
     ]
   }

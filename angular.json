@@ -142,7 +142,7 @@
       "root": "projects/ng-joint",
       "sourceRoot": "projects/ng-joint/src",
       "projectType": "library",
-      "prefix": "dgwnu",
+      "prefix": "ng-joint",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

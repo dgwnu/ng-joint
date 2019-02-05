@@ -5,25 +5,26 @@ import { DiaGraphElement } from './dia-graph-element';
 import { DiaGraphService } from './dia-graph.service';
 
 /**
- * JointNg Graph Component
+ * NgJoint Dia Graph Component
+ *
+ * Creates DiaGraphElement (ng-joint-dia-paper) instance within a DiaPaperElement (ng-joint-dia-paper)
+ *
 ```
-<dgwnu-paper
+<ng-joint-paper
   width=800
   height=600
   gridSize=2
   drawGrid=true>
 
-    <dgwnu-shapes>
+  </ng-joint-dia-graph>
 
-    </dgwnu-shapes>
+  </ng-joint-dia-graph>
 
-  </dgwnu-dia-graph>
-
-</dgwnu-paper>
+</ng-joint-paper>
 ```
  */
 @Component({
-  selector: 'dgwnu-dia-graph',
+  selector: 'ng-joint-dia-graph',
   templateUrl: './dia-graph.component.html'
 })
 export class DiaGraphComponent {
