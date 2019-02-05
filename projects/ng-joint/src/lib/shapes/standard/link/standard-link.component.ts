@@ -9,14 +9,14 @@ import { StandardLinkService } from './standard-link.service';
  *
  * JointJs Standard Link
  *
- * @comment create's StandardLink Instance
+ * Container for Standard Link (joint.shapes.standard.Link) Instance
  *
 ```
 <ng-joint-paper
-  width=800
-  height=600
-  gridSize=2
-  drawGrid=true>
+  [width]="800"
+  [height]="600"
+  [gridSize]="2"
+  [drawGrid]="true">
 
   </ng-joint-dia-graph>
 
@@ -26,12 +26,14 @@ import { StandardLinkService } from './standard-link.service';
 
         <dgwnu-standard-rectangle (elementPointerClick)="onElementPointerClick($event)"
           [id]="'rect'"
-          [x]="10" [y]="30" [width]="100" [height]="40">
+          [x]="10" [y]="30"
+          [width]="100" [height]="40">
         </dgwnu-standard-rectangle>
 
         <dgwnu-standard-rectangle 
           [id]="'rect2'"
-          [x]="310" [y]="30" [width]="100" [height]="40"> 
+          [x]="310" [y]="30"
+          [width]="100" [height]="40"> 
         </dgwnu-standard-rectangle>
 
         <dgwnu-standard-link

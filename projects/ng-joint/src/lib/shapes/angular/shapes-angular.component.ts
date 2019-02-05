@@ -9,15 +9,15 @@ import { AngularElementComponent, NgJointAngularElement } from './element/angula
  * NgJoint Shapes Angular Component
  *
  * ShapePlugin Element for Angular based Shapes 
- * 
- * @comment Plugin's to enable the use of Angular 7.x features inside jointjs shapes
+ *
+ * Plugin's to enable the use of Angular 7.x features inside jointjs shapes
  *
 ```
 <ng-joint-paper
-  width=800
-  height=600
-  gridSize=2
-  drawGrid=true>
+  [width]="800"
+  [height]="600"
+  [gridSize]="2"
+  [drawGrid]="true">
 
   </ng-joint-dia-graph>
 

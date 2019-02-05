@@ -8,15 +8,15 @@ import { AngularElement } from './angular-element';
  * NgJoint Shapes Angular Component
  *
  * Angular Element Shape
- * 
- * @comment Element Shape that is able to contain Angular based Content (structural directives, angular material, etc.)
+ *
+ * Element Shape that is able to contain Angular based Content (structural directives, angular material, etc.)
  *
 ```
 <ng-joint-paper
-  width=800
-  height=600
-  gridSize=2
-  drawGrid=true>
+  [width]="800"
+  [height]="600"
+  [gridSize]="2"
+  [drawGrid]="true">
 
   </ng-joint-dia-graph>
 
@@ -29,10 +29,8 @@ import { AngularElement } from './angular-element';
         -->
         <ng-joint-angular-element
           [id]="'ng1'"
-          [x]="400"
-          [y]="100"
-          [width]="250"
-          [height]="200">
+          [x]="400" [y]="100"
+          [width]="250" [height]="200">
 
             <h1>Standard Angular HTML</h1>
               <button>Standard Button</button>
@@ -73,10 +71,8 @@ import { AngularElement } from './angular-element';
         -->
         <ng-joint-angular-element *ngFor="let customNgEl of customNgEls"
           [id]="customNgEl.id"
-          [(x)]="customNgEl.x"
-          [(y)]="customNgEl.y"
-          [(width)]="customNgEl.width"
-          [(height)]="customNgEl.height">
+          [(x)]="customNgEl.x" [(y)]="customNgEl.y"
+          [(width)]="customNgEl.width" [(height)]="customNgEl.height">
 
             <mat-card>
               <mat-card-header>
