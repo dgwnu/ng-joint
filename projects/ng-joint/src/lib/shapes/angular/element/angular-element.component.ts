@@ -85,23 +85,21 @@ import { AngularElement } from './angular-element';
                 </mat-card-title>
                   <mat-card-subtitle>
                     ({{ customNgEl.x }}, {{ customNgEl.y }})
-                            </mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <mat-form-field>
-                                <input matInput placeholder="Input">
-                            </mat-form-field>
-                        </mat-card-content>
-                        <mat-card-footer>
-                            <button mat-mini-fab color="accent" (click)="onClickMatButtonXPlus10($event, customNgEl)">
-                                x + 10
-                            </button>
-                            <button mat-mini-fab color="accent" (click)="onClickMatButtonYPlus10($event, customNgEl)">
-                                y + 10
-                            </button>
-                        </mat-card-footer>
-                    </mat-card>
-                </ng-joint-angular-element>
+                  </mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <mat-form-field>
+                  <input matInput placeholder="Input">
+                </mat-form-field>
+              </mat-card-content>
+              <mat-card-footer>
+                <button mat-mini-fab color="accent">
+                  MatMiniButton
+                </button>
+              </mat-card-footer>
+            </mat-card>
+
+          </ng-joint-angular-element>
 
       </ng-joint-shapes-angular>
 

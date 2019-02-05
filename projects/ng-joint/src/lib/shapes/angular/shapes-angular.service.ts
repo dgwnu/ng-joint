@@ -4,6 +4,11 @@ import { DiaGraphElement } from '../../dia/dia-graph-element';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
 
+/**
+ * NgJoint Shapes Angular Service Class
+ *
+ * @comment Manages LifeCycle, Events and Bi-Directional Data-Binding Angular Shapes
+ */
 @Injectable({
   providedIn: 'root'
 })

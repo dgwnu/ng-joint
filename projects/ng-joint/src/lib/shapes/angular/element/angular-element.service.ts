@@ -6,11 +6,16 @@ import { ShapesAngularService } from '../shapes-angular.service';
 import { AngularElement } from './angular-element';
 import { AngularElementComponent } from './angular-element.component';
 
+/**
+ * NgJoint Angular Element Service Class
+ *
+ * @comment Manages LifeCycle, Events and Bi-Directional Data-Binding Angular Elements
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class AngularElementService implements ElementShapeService {
-  /** 
+  /**
    * Using Rendere2 within a service (only provided in Components)
    * @see https://stackoverflow.com/questions/43070308/using-renderer-in-angular-4 
    */
@@ -75,8 +80,6 @@ export class AngularElementService implements ElementShapeService {
     const yShapeElement = shape.element.getBBox().y;
     const xChangeDetected = (component.x !== xShapeElement);
     const yChangedDetected = (component.y !== yShapeElement);
-    console.log('_positionComponen.component.x', component.x);
-    console.log('_positionComponen.xShapeElement', xShapeElement);
 
     if (xChangeDetected || yChangedDetected) {
       this._positionNgElement(shape.ngNode, xShapeElement, yShapeElement);
@@ -84,11 +87,9 @@ export class AngularElementService implements ElementShapeService {
 
     if (xChangeDetected) {
       component.x = xShapeElement;
-      console.log('_positionComponen.x'); 
     }
     if (yChangedDetected) {
       component.y = yShapeElement;
-      console.log('_positionComponen.y');
     }
   }
 
@@ -105,11 +106,9 @@ export class AngularElementService implements ElementShapeService {
 
     if (widthChangeDetected) {
       component.width = widthShapeElement;
-      console.log('_resizeComponent.width');
     }
     if (heightChangedDetected) {
       component.height = heightShapeElement;
-      console.log('_resizeComponent.height');
     }
   }
 
@@ -153,12 +152,10 @@ export class AngularElementService implements ElementShapeService {
     if (positionChangeDetected) {
         component.shape.element.position(component.x, component.y);
         this._positionNgElement(shape.ngNode, component.x, component.y);
-        console.log('onShapeChanges.position');
     }
     if (sizeChangeDetected) {
         component.shape.element.resize(component.width, component.height);
         this._sizeNgElement(shape.ngNode, component.width, component.height);
-        console.log('onShapeChanges.resize');
     }
 
   }
