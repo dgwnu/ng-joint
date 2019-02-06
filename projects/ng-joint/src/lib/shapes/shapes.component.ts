@@ -12,23 +12,6 @@ import { ShapesUmlComponent } from './uml/shapes-uml.component';
  *
  * Container for ShapePlugin's within DiaGraphElement (ng-joint-dia-graph)
  *
-```
-<ng-joint-paper
-  width=800
-  height=600
-  gridSize=2
-  drawGrid=true>
-
-  </ng-joint-dia-graph>
-
-    <ng-joint-shapes>
-
-    </ng-joint-shapes>
-
-  </ng-joint-dia-graph>
-
-</ng-joint-paper>
-```
 */
 @Component({
   selector: 'ng-joint-shapes',

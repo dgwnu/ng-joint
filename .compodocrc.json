@@ -8,7 +8,7 @@
     "disableLifeCycleHooks": true,
     "disablePrivate": true,
     "disableProtected": true,
-    "disableInternal": true,
+    "disableInternal": false,
     "disableDomTree": true,
     "disableTemplateTab": true,
     "disableStyleTab": true,
@@ -16,5 +16,5 @@
     "hideGenerator": true,
     "disableGraph": true,
     "disableRoutesGraph": true,
-    "minimal": true
+    "minimal": false
   }
