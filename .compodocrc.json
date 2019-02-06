@@ -15,5 +15,6 @@
     "disableCoverage": true,
     "hideGenerator": true,
     "disableGraph": true,
-    "disableRoutesGraph": true
+    "disableRoutesGraph": true,
+    "minimal": true
   }
