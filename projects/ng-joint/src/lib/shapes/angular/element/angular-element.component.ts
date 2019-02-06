@@ -13,8 +13,8 @@ import { AngularElement } from './angular-element';
  *
  * Example of usage:
  *
- * <example-url>http://www.plan-k.nl</example-url>
- * 
+ * <example-url>http://www.plan-k.nl/diensten</example-url>
+ *
  */
 @Component({
   selector: 'ng-joint-angular-element',
