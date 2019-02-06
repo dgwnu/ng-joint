@@ -1,6 +1,6 @@
 # Shapes Readme
 
-Use _ng-joint-shapes_ element inside _joint-dia-graph_ element.  
+Use ng-joint-shapes element inside joint-dia-graph element.  
   
 See example:
 
