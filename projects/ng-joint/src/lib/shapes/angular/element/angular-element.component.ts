@@ -8,75 +8,84 @@ import { AngularElement } from './angular-element';
  * NgJoint Shapes Angular Component
  *
  * Angular Element Shape
- * 
- * @comment Element Shape that is able to contain Angular based Content (structural directives, angular material, etc.)
+ *
+ * Element Shape that is able to contain Angular based Content (structural directives, angular material, etc.)
+ *
+ *
+ * Code Example
+ * ----------------
+ *
+ * Example how to extend **NgJointAngularElement** interface to contain custom Fields inside the Angular Element
  *
 ```
-<ng-joint-paper
-  width=800
-  height=600
-  gridSize=2
-  drawGrid=true>
+interface CustomNgEl extends NgJointAngularElement {
+  testFieldA: string;
+}
+```
+ *
+ * Example how to code Array property in an Angular **Component** that uses Angular Elements
+ *
+```
+customNgEls: CustomNgEl[] = [
+  {
+    id: 'Element 1',
+    x: 100, y: 100,
+    height: 10, width: 200,
+    testFieldA: 'TestField1'
+  },
+  {
+    id: 'Element 2',
+    x: 200, y: 350,
+    height: 10, width: 200,
+    testFieldA: 'TestField2'
+  }
+];
+```
+ *
+ * **START: Example Angular Component Template**:
+ * - starting paper and graph elements
+ *
+```
+<ng-joint-dia-paper
+  [width]="800"
+  [height]="600"
+  [gridSize]="2"
+  [drawGrid]="true">
 
   </ng-joint-dia-graph>
 
     <ng-joint-shapes>
 
       <ng-joint-shapes-angular>
-
-        <!-- Simple example: 
-              - one-way data binding only
-        -->
+```
+ *
+ * Simple __angular-element__ example: 
+ * - one-way data binding only
+ *
+```
         <ng-joint-angular-element
           [id]="'ng1'"
-          [x]="400"
-          [y]="100"
-          [width]="250"
-          [height]="200">
+          [x]="400" [y]="100"
+          [width]="250" [height]="200">
 
             <h1>Standard Angular HTML</h1>
               <button>Standard Button</button>
               <input type="text" name="fname">
 
         </ng-joint-angular-element>
-
-        <!-- Advanced example
-              - bi-directional data-binding =[(var)]
-              - interpolation {{ var }}
-              - structural directive *ngFor
-              - angular material elements <mat-...></mat-...>
-
-              To make it work you have to create:
-              - an extend Custom NgJointAngularElement Interface like this:
-                  interface CustomNgEl extends NgJointAngularElement {
-                    testFieldA: string;
-                  }
-              - add public property to the Component like this:
-                  customNgEls: CustomNgEl[] = [
-                    {
-                      id: 'Element 1',
-                      x: 100,
-                      y: 100,
-                      height: 10,
-                      width: 200,
-                      testFieldA: 'TestField1'
-                    },
-                    {
-                      id: 'Element 2',
-                      x: 200,
-                      y: 350,
-                      height: 10,
-                      width: 200,
-                      testFieldA: 'TestField2'
-                    }
-                  ];
-        -->
+```
+ *
+ * Advanced __angular-element__ example:
+ *  - bi-directional data-binding
+ *  - interpolation
+ *  - structural directives
+ *  - Angular Material Components and Directives
+ *
+```
         <ng-joint-angular-element *ngFor="let customNgEl of customNgEls"
           [id]="customNgEl.id"
-          [(x)]="customNgEl.x"
-          [(y)]="customNgEl.y"
-          [(width)]="customNgEl.width"
-          [(height)]="customNgEl.height">
+          [(x)]="customNgEl.x" [(y)]="customNgEl.y"
+          [(width)]="customNgEl.width" [(height)]="customNgEl.height">
 
             <mat-card>
               <mat-card-header>
@@ -100,7 +109,12 @@ import { AngularElement } from './angular-element';
             </mat-card>
 
           </ng-joint-angular-element>
-
+```
+ *
+ * **END: Example Angular Component Template**:
+ * - ending paper and graph elements
+ *
+```
       </ng-joint-shapes-angular>
 
     </ng-joint-shapes>
@@ -109,6 +123,7 @@ import { AngularElement } from './angular-element';
 
 </ng-joint-paper>
 ```
+*
 */
 @Component({
   selector: 'ng-joint-angular-element',

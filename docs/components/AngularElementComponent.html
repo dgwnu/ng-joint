@@ -1,0 +1,784 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular -&gt; JointJs Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Angular -&gt; JointJs Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>AngularElementComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/ng-joint/src/lib/shapes/angular/element/angular-element.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>NgJoint Shapes Angular Component</p>
+<p>Angular Element Shape</p>
+<p>Element Shape that is able to contain Angular based Content (structural directives, angular material, etc.)</p>
+<h2 id="code-example">Code Example</h2>
+<p>Example how to extend <strong>NgJointAngularElement</strong> interface to contain custom Fields inside the Angular Element</p>
+<div><pre class="line-numbers"><code class="language-none">interface CustomNgEl extends NgJointAngularElement {
+  testFieldA: string;
+}</code></pre></div><p>Example how to code Array property in an Angular <strong>Component</strong> that uses Angular Elements</p>
+<div><pre class="line-numbers"><code class="language-none">customNgEls: CustomNgEl[] = [
+  {
+    id: &#39;Element 1&#39;,
+    x: 100, y: 100,
+    height: 10, width: 200,
+    testFieldA: &#39;TestField1&#39;
+  },
+  {
+    id: &#39;Element 2&#39;,
+    x: 200, y: 350,
+    height: 10, width: 200,
+    testFieldA: &#39;TestField2&#39;
+  }
+];</code></pre></div><p><strong>START: Example Angular Component Template</strong>:</p>
+<ul>
+<li>starting paper and graph elements</li>
+</ul>
+<div><pre class="line-numbers"><code class="language-none">&lt;ng-joint-dia-paper
+  [width]=&quot;800&quot;
+  [height]=&quot;600&quot;
+  [gridSize]=&quot;2&quot;
+  [drawGrid]=&quot;true&quot;&gt;
+
+  &lt;/ng-joint-dia-graph&gt;
+
+    &lt;ng-joint-shapes&gt;
+
+      &lt;ng-joint-shapes-angular&gt;</code></pre></div><p>Simple <strong>angular-element</strong> example: </p>
+<ul>
+<li>one-way data binding only</li>
+</ul>
+<div><pre class="line-numbers"><code class="language-none">        &lt;ng-joint-angular-element
+          [id]=&quot;&#39;ng1&#39;&quot;
+          [x]=&quot;400&quot; [y]=&quot;100&quot;
+          [width]=&quot;250&quot; [height]=&quot;200&quot;&gt;
+
+            &lt;h1&gt;Standard Angular HTML&lt;/h1&gt;
+              &lt;button&gt;Standard Button&lt;/button&gt;
+              &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;
+
+        &lt;/ng-joint-angular-element&gt;</code></pre></div><p>Advanced <strong>angular-element</strong> example:</p>
+<ul>
+<li>bi-directional data-binding</li>
+<li>interpolation</li>
+<li>structural directives</li>
+<li>Angular Material Components and Directives</li>
+</ul>
+<div><pre class="line-numbers"><code class="language-none">        &lt;ng-joint-angular-element *ngFor=&quot;let customNgEl of customNgEls&quot;
+          [id]=&quot;customNgEl.id&quot;
+          [(x)]=&quot;customNgEl.x&quot; [(y)]=&quot;customNgEl.y&quot;
+          [(width)]=&quot;customNgEl.width&quot; [(height)]=&quot;customNgEl.height&quot;&gt;
+
+            &lt;mat-card&gt;
+              &lt;mat-card-header&gt;
+                &lt;mat-card-title&gt;
+                  ({{ customNgEl.id }}): {{ customNgEl.testFieldA }} 
+                &lt;/mat-card-title&gt;
+                  &lt;mat-card-subtitle&gt;
+                    ({{ customNgEl.x }}, {{ customNgEl.y }})
+                  &lt;/mat-card-subtitle&gt;
+              &lt;/mat-card-header&gt;
+              &lt;mat-card-content&gt;
+                &lt;mat-form-field&gt;
+                  &lt;input matInput placeholder=&quot;Input&quot;&gt;
+                &lt;/mat-form-field&gt;
+              &lt;/mat-card-content&gt;
+              &lt;mat-card-footer&gt;
+                &lt;button mat-mini-fab color=&quot;accent&quot;&gt;
+                  MatMiniButton
+                &lt;/button&gt;
+              &lt;/mat-card-footer&gt;
+            &lt;/mat-card&gt;
+
+          &lt;/ng-joint-angular-element&gt;</code></pre></div><p><strong>END: Example Angular Component Template</strong>:</p>
+<ul>
+<li>ending paper and graph elements</li>
+</ul>
+<div><pre class="line-numbers"><code class="language-none">      &lt;/ng-joint-shapes-angular&gt;
+
+    &lt;/ng-joint-shapes&gt;
+
+  &lt;/ng-joint-dia-graph&gt;
+
+&lt;/ng-joint-paper&gt;</code></pre></div>
+    </p>
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+            <code><a href="../interfaces/ShapeComponent.html" target="_self" >GenericElementShapeComponent</a></code>
+    </p>
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ng-joint-angular-element</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./angular-element.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./angular-element.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngElementRef">ngElementRef</a>
+                            </li>
+                            <li>
+                                <a href="#shape">shape</a>
+                            </li>
+                            <li>
+                                <a href="#graph">graph</a>
+                            </li>
+                            <li>
+                                <a href="#shape">shape</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createShape">createShape</a>
+                            </li>
+                            <li>
+                                <a href="#emitElementPointerClick">emitElementPointerClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#height">height</a>
+                            </li>
+                            <li>
+                                <a href="#id">id</a>
+                            </li>
+                            <li>
+                                <a href="#width">width</a>
+                            </li>
+                            <li>
+                                <a href="#x">x</a>
+                            </li>
+                            <li>
+                                <a href="#y">y</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#elementPointerClick">elementPointerClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(angularElementService: <a href="../injectables/AngularElementService.html">AngularElementService</a>, ngElementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>angularElementService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AngularElementService.html" target="_self" >AngularElementService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ngElementRef</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="height"></a>
+                        <code>height</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>two-way binding height property </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="id"></a>
+                        <code>id</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>one-way binding id property </p>
+</div>
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="width"></a>
+                        <code>width</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>two-way binding width property </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="x"></a>
+                        <code>x</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>two-way binding x property </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="y"></a>
+                        <code>y</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>two-way binding y property </p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="elementPointerClick"></a>
+                        <code>elementPointerClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>jointjs-paper-event (element:pointer:click) </p>
+</div>
+                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createShape"></a>
+                        <span class="name">
+                            <b>
+                            createShape
+                            </b>
+                            <a href="#createShape"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>createShape(graphElement: <a href="../classes/DiaGraphElement.html">DiaGraphElement</a>)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Create Shape Element Instance and initialize event handlers </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>graphElement</td>
+                                                        <td>
+                                                                    <code><a href="../classes/DiaGraphElement.html" target="_self" >DiaGraphElement</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emitElementPointerClick"></a>
+                        <span class="name">
+                            <b>
+                            emitElementPointerClick
+                            </b>
+                            <a href="#emitElementPointerClick"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>emitElementPointerClick()</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Emit Id of current Clicked JointJs Element</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngElementRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            ngElementRef
+                            </b>
+                            <a href="#ngElementRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>ngElementRef:     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shape"></a>
+                        <span class="name">
+                            <b>
+                            shape
+                            </b>
+                            <a href="#shape"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>shape:     <code><a href="../classes/AngularElement.html" target="_self" >AngularElement</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/AngularElement.html" target="_self" >AngularElement</a></code>
+
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graph"></a>
+                        <span class="name">
+                            <b>
+                            graph
+                            </b>
+                            <a href="#graph"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>graph:     <code><a href="../classes/DiaGraphElement.html" target="_self" >DiaGraphElement</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/DiaGraphElement.html" target="_self" >DiaGraphElement</a></code>
+
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>NgJoint Graph Element Instance </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="shape"></a>
+                        <span class="name">
+                            <b>
+                            shape
+                            </b>
+                            <a href="#shape"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>shape:     <code><a href="../classes/ElementShape.html" target="_self" >ElementShape</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/ElementShape.html" target="_self" >ElementShape</a></code>
+
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>NgJoint Shape Element Instance </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+
+
+
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="angular-element">    <ng-content></ng-content></div></div>'
+    var COMPONENTS = [{'name': 'AngularElementComponent', 'selector': 'ng-joint-angular-element'},{'name': 'DiaGraphComponent', 'selector': 'ng-joint-dia-graph'},{'name': 'DiaPaperComponent', 'selector': 'ng-joint-dia-paper'},{'name': 'ShapesAngularComponent', 'selector': 'ng-joint-shapes-angular'},{'name': 'ShapesComponent', 'selector': 'ng-joint-shapes'},{'name': 'ShapesStandardComponent', 'selector': 'ng-joint-shapes-standard'},{'name': 'ShapesUmlComponent', 'selector': 'dgwnu-shapes-uml'},{'name': 'StandardLinkComponent', 'selector': 'ng-joint-standard-link'},{'name': 'StandardRectangleComponent', 'selector': 'dgwnu-standard-rectangle'},{'name': 'UmlAbstractComponent', 'selector': 'dgwnu-uml-abstract'},{'name': 'UmlAggregationComponent', 'selector': 'dgwnu-uml-aggregation'},{'name': 'UmlClassComponent', 'selector': 'dgwnu-uml-class'},{'name': 'UmlCompositionComponent', 'selector': 'dgwnu-uml-composition'},{'name': 'UmlGeneralizationComponent', 'selector': 'dgwnu-uml-generalization'},{'name': 'UmlImplementationComponent', 'selector': 'dgwnu-uml-implementation'},{'name': 'UmlInterfaceComponent', 'selector': 'dgwnu-uml-interface'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AngularElementComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AngularElementComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -10,10 +10,10 @@ import { StandardLinkComponent, NgJointStandardLink } from './link/standard-link
  * NgJoint Shapes Standard Component
  *
  * ShapePlugin Element for JointJs Standard Shapes 
- * 
- * @comment Container for jointjs standard shapes (jointjs.shapes.Standard)
  *
-```
+ * Container for jointjs standard shapes (jointjs.shapes.Standard)
+ *
+ ```
 <ng-joint-paper
   width=800
   height=600
@@ -24,7 +24,7 @@ import { StandardLinkComponent, NgJointStandardLink } from './link/standard-link
 
     <ng-joint-shapes>
 
-      <ng-joint-shapes-standard>
+    <ng-joint-shapes-standard>
 
       </ng-joint-shapes-standard>
 

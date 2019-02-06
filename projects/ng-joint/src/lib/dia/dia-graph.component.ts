@@ -9,19 +9,20 @@ import { DiaGraphService } from './dia-graph.service';
  *
  * Creates DiaGraphElement (ng-joint-dia-paper) instance within a DiaPaperElement (ng-joint-dia-paper)
  *
-```
-<ng-joint-paper
-  width=800
-  height=600
-  gridSize=2
-  drawGrid=true>
-
-  </ng-joint-dia-graph>
-
-  </ng-joint-dia-graph>
-
-</ng-joint-paper>
-```
+ * @example
+ *
+ * <ng-joint-dia-paper
+ *  [width]="800"
+ *  [height]="600"
+ *  [gridSize]="2"
+ *  [drawGrid]="true">
+ *
+ *  </ng-joint-dia-graph>
+ *
+ *  </ng-joint-dia-graph>
+ *
+ * </ng-joint-dia-paper>
+ *
  */
 @Component({
   selector: 'ng-joint-dia-graph',

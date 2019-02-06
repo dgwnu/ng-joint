@@ -9,7 +9,7 @@ This second pre-release version contains the starting points for fututure develo
 ### Joint JS Angular Elements
 
 Added functionality to make Angular Elements working inside a Joint JS Boundary Box. First example excepts also Input and Focus to use buttons and fields inside the box (tested with Angular Material components).  
-See Angular Elements Demo [HTML template](src/app/angular-elements-demo/angular-elements-demo.component.html).
+See Angular Elements Demo [HTML template](./src/app/angular-elements-demo/angular-elements-demo.component.html).
 
 ## Structural Directives Demo
 
