@@ -1,16 +1,16 @@
-<dgwnu-dia-paper
+<ng-joint-dia-paper
     [width]="1200"
     [height]="600"
     [gridSize]="10"
     [drawGrid]="true">
 
-    <dgwnu-dia-graph>
+    <ng-joint-dia-graph>
 
-        <dgwnu-shapes>
+        <ng-joint-shapes>
 
-            <dgwnu-shapes-standard>
+            <ng-joint-shapes-standard>
 
-                <dgwnu-standard-rectangle *ngFor="let rect of rects"
+                <ng-joint-standard-rectangle *ngFor="let rect of rects"
                     (elementPointerClick)="onElementPointerClick($event)"
                     [id]="rect.id"
                     [x]="rect.x"
@@ -19,20 +19,20 @@
                     [height]="rect.height"
                     [body]="rect.body"
                     [label]="rect.label">
-                </dgwnu-standard-rectangle>
+                </ng-joint-standard-rectangle>
 
-                <dgwnu-standard-link *ngFor="let link of links"
+                <ng-joint-standard-link *ngFor="let link of links"
                     [id]="link.id"
                     [sourceId]="link.sourceId"
                     [targetId]="link.targetId"
                     [line]="link.line">
-                </dgwnu-standard-link>
+                </ng-joint-standard-link>
 
-            </dgwnu-shapes-standard>
+            </ng-joint-shapes-standard>
 
-            <dgwnu-shapes-angular>
+            <ng-joint-shapes-angular>
 
-                <dgwnu-angular-element *ngFor="let customNgEl of customNgEls"
+                <ng-joint-angular-element *ngFor="let customNgEl of customNgEls"
                     [id]="customNgEl.id"
                     [(x)]="customNgEl.x"
                     [(y)]="customNgEl.y"
@@ -61,12 +61,12 @@
                             </button>
                         </mat-card-footer>
                     </mat-card>
-                </dgwnu-angular-element>
+                </ng-joint-angular-element>
 
-            </dgwnu-shapes-angular>
+            </ng-joint-shapes-angular>
 
-        </dgwnu-shapes>
+        </ng-joint-shapes>
 
-    </dgwnu-dia-graph>
+    </ng-joint-dia-graph>
 
-</dgwnu-dia-paper>
+</ng-joint-dia-paper>
