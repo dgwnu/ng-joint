@@ -2,8 +2,6 @@
     "$schema": "./node_modules/@compodoc/compodoc/src/config/schema.json",
     "name": "Angular -> JointJs Library",
     "output": "./docs/",
-    "watch": true,
-    "serve": true,
     "tsconfig": "./projects/ng-joint/tsconfig.lib.json",
     "customFavicon": "./src/favicon.ico",
     "disableSourceCode": true,

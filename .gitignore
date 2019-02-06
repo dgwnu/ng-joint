@@ -41,7 +41,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# compodoc generation output
-documentation
-docs
