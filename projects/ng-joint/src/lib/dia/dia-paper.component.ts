@@ -12,16 +12,16 @@ import { DiaGraphComponent } from './dia-graph.component';
  *
  * Creates DiaPaperElement (ng-joint-dia-paper)
  *
-```
-<ng-joint-dia-paper
-  width=800
-  height=600
-  gridSize=2
-  drawGrid=true>
-
-
-</dgwnu-paper>
-```
+ * @example
+ *
+ * <ng-joint-dia-paper
+ *  [width]="800"
+ *  [height]="600"
+ *  [gridSize]="2"
+ *  [drawGrid]="true">
+ *
+ * </ng-joint-dia-paper>
+ *
  */
 @Component({
   selector: 'ng-joint-dia-paper',

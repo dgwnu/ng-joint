@@ -12,28 +12,25 @@ import { AngularElementComponent, NgJointAngularElement } from './element/angula
  *
  * Plugin's to enable the use of Angular 7.x features inside jointjs shapes
  *
-```
-<ng-joint-paper
-  [width]="800"
-  [height]="600"
-  [gridSize]="2"
-  [drawGrid]="true">
-
-  </ng-joint-dia-graph>
-
-    <ng-joint-shapes>
-
-      <ng-joint-shapes-angular>
-
-      </ng-joint-shapes-angular>
-
-    </ng-joint-shapes>
-
-  </ng-joint-dia-graph>
-
-</ng-joint-paper>
-```
-*/
+ * @example
+ *
+ * <ng-joint-dia-paper
+ *  [width]="800"
+ *  [height]="600"
+ *  [gridSize]="2"
+ *  [drawGrid]="true">
+ *
+ *  </ng-joint-dia-graph>
+ *
+ *   <ng-joint-shapes-angular>
+ *
+ *   </ng-joint-shapes-angular>
+ *
+ *  </ng-joint-dia-graph>
+ *
+ * </ng-joint-dia-paper>
+ *
+ */
 @Component({
   selector: 'ng-joint-shapes-angular',
   template: `

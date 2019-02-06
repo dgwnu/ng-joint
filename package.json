@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "compodoc -p projects/ng-joint/tsconfig.lib.json --theme material --disablePrivate --disableProtected"
+    "compodoc": "compodoc"
   },
   "private": true,
   "dependencies": {
