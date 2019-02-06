@@ -3,6 +3,7 @@
     "name": "Angular -> JointJs Library",
     "output": "./docs/",
     "watch": true,
+    "serve": true,
     "tsconfig": "./projects/ng-joint/tsconfig.lib.json",
     "customFavicon": "./src/favicon.ico",
     "disableSourceCode": true,
@@ -10,6 +11,9 @@
     "disablePrivate": true,
     "disableProtected": true,
     "disableInternal": true,
+    "disableDomTree": true,
+    "disableTemplateTab": true,
+    "disableStyleTab": true,
     "disableCoverage": true,
     "hideGenerator": true
   }
