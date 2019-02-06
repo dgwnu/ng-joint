@@ -11,6 +11,13 @@
             "group": "build"
         },
         {
+            "label": "Doc Build",
+            "type": "npm",
+            "script": "compodoc",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
             "label": "App Build",
             "type": "npm",
             "script": "start",
@@ -21,7 +28,7 @@
             "label": "Build",
             "dependsOn": [
                 "Lib Build",
-                "App Build"
+                "Doc Build"
             ],
             "group": {
                 "kind": "build",

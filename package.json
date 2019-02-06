@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "compodoc"
+    "compodoc": "compodoc -s -w"
   },
   "private": true,
   "dependencies": {
