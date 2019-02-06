@@ -1,4 +1,4 @@
-# Shapes Readme
+# Shapes Component
 
 Use ng-joint-shapes element inside joint-dia-graph element.  
   
