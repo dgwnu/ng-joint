@@ -40,15 +40,18 @@
 
 <ul class="nav nav-tabs" role="tablist">
         <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+            <a href="#readme" role="tab" id="readme-tab" data-toggle="tab" data-link="readme">How to Use</a>
         </li>
         <li >
-            <a href="#readme" role="tab" id="readme-tab" data-toggle="tab" data-link="readme">README</a>
+            <a href="#example" role="tab" id="example-tab" data-toggle="tab" data-link="example">Code Example</a>
+        </li>
+        <li >
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <div class="tab-pane fade " id="c-info"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
@@ -62,6 +65,8 @@
         <p>NgJoint Shapes Angular Component</p>
 <p>Angular Element Shape</p>
 <p>Element Shape that is able to contain Angular based Content (structural directives, angular material, etc.)</p>
+<p>Example of usage:</p>
+<p><example-url><a href="http://www.plan-k.nl">http://www.plan-k.nl</a></example-url></p>
 
     </p>
 
@@ -140,75 +145,12 @@
                             <li>
                                 <a href="#shape">shape</a>
                             </li>
-                            <li>
-                                <a href="#graph">graph</a>
-                            </li>
-                            <li>
-                                <a href="#shape">shape</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#createShape">createShape</a>
-                            </li>
-                            <li>
-                                <a href="#emitElementPointerClick">emitElementPointerClick</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#height">height</a>
-                            </li>
-                            <li>
-                                <a href="#id">id</a>
-                            </li>
-                            <li>
-                                <a href="#width">width</a>
-                            </li>
-                            <li>
-                                <a href="#x">x</a>
-                            </li>
-                            <li>
-                                <a href="#y">y</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Outputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#elementPointerClick">elementPointerClick</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
@@ -272,211 +214,10 @@
         </table>
 </section>
 
-    <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="height"></a>
-                        <code>height</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>two-way binding height property </p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="id"></a>
-                        <code>id</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>one-way binding id property </p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                            </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="width"></a>
-                        <code>width</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>two-way binding width property </p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="x"></a>
-                        <code>x</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>two-way binding x property </p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="y"></a>
-                        <code>y</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>two-way binding y property </p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-    <section>
-    <h3 id="outputs">Outputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="elementPointerClick"></a>
-                        <code>elementPointerClick</code>
-                    </td>
-                    <td class="col-md-10">
-                        <div><p>jointjs-paper-event (element:pointer:click) </p>
-</div>
-                        <em><code>$event</code> Type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-
-    <section>
-    
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="createShape"></a>
-                        <span class="name">
-                            <b>
-                            createShape
-                            </b>
-                            <a href="#createShape"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>createShape(graphElement: <a href="../classes/DiaGraphElement.html">DiaGraphElement</a>)</code>
-                    </td>
-                </tr>
 
 
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Create Shape Element Instance and initialize event handlers </p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>graphElement</td>
-                                                        <td>
-                                                                    <code><a href="../classes/DiaGraphElement.html" target="_self" >DiaGraphElement</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="emitElementPointerClick"></a>
-                        <span class="name">
-                            <b>
-                            emitElementPointerClick
-                            </b>
-                            <a href="#emitElementPointerClick"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>emitElementPointerClick()</code>
-                    </td>
-                </tr>
-
-
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Emit Id of current Clicked JointJs Element</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
     <section>
     
@@ -542,81 +283,11 @@
 
             </tbody>
         </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="graph"></a>
-                        <span class="name">
-                            <b>
-                            graph
-                            </b>
-                            <a href="#graph"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>graph:     <code><a href="../classes/DiaGraphElement.html" target="_self" >DiaGraphElement</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/DiaGraphElement.html" target="_self" >DiaGraphElement</a></code>
-
-                        </td>
-                    </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>NgJoint Graph Element Instance </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="shape"></a>
-                        <span class="name">
-                            <b>
-                            shape
-                            </b>
-                            <a href="#shape"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>shape:     <code><a href="../classes/ElementShape.html" target="_self" >ElementShape</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/ElementShape.html" target="_self" >ElementShape</a></code>
-
-                        </td>
-                    </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>NgJoint Shape Element Instance </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
 </section>
 
 </div>
 
-    <div class="tab-pane fade " id="c-readme">
+    <div class="tab-pane fade active in" id="c-readme">
         <p><h1 id="angular-element-component">Angular Element Component</h1>
 <p>You can use JointNg Angular Elements with One-way or Bi-directional binding.</p>
 <h2 id="one-way-binding-example">One-way binding example</h2>
@@ -749,6 +420,11 @@ export class ExampleComponent {
 
 
 
+    <div class="tab-pane fade " id="c-example">
+            <iframe class="exampleContainer" src="http://www.plan-k.nl">
+                <p>no-iframes</p>
+            </iframe>
+    </div>
     
 </div>
 

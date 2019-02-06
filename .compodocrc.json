@@ -16,5 +16,10 @@
     "hideGenerator": true,
     "disableGraph": true,
     "disableRoutesGraph": true,
-    "minimal": false
+    "minimal": false,
+    "navTabConfig": [
+      {"id": "readme", "label": "How to Use"},
+      {"id": "example", "label": "Code Example"},
+      {"id": "info", "label": "Info"}
+     ]
   }

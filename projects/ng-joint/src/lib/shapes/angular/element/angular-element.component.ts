@@ -11,6 +11,10 @@ import { AngularElement } from './angular-element';
  *
  * Element Shape that is able to contain Angular based Content (structural directives, angular material, etc.)
  *
+ * Example of usage:
+ *
+ * <example-url>http://www.plan-k.nl</example-url>
+ * 
  */
 @Component({
   selector: 'ng-joint-angular-element',
