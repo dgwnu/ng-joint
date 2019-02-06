@@ -20,5 +20,5 @@ See Structural Directive Demo [HTML template](src/app/struct-dir-demo/struct-dir
 
 Pre-Release with working Hello World Demo.  
 See [HTML template](src/app/hello-world-demo/hello-world-demo.component.html) for the first working example based on the Joint Js Hello world demo.
-
+  
 <iframe src="http://www.plan-k.nl"></iframe>
