@@ -18,8 +18,8 @@
     "disableRoutesGraph": true,
     "minimal": false,
     "navTabConfig": [
+      {"id": "example", "label": "Live Example"},
       {"id": "readme", "label": "How to Use"},
-      {"id": "example", "label": "Code Example"},
-      {"id": "info", "label": "Info"}
+      {"id": "info", "label": "Build Info"}
      ]
   }
