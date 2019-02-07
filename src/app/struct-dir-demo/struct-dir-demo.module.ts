@@ -20,6 +20,6 @@ import { BiDirBindStandardShapesExampleComponent } from './bi-dir-bind-standard-
     MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTabsModule,
     StructDirDemoRoutingModule
   ],
-  exports: [ StructDirDemoComponent ]
+  exports: [ StructDirDemoComponent, StructDirDemoRoutingModule ]
 })
 export class StructDirDemoModule { }

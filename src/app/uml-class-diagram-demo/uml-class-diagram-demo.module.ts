@@ -12,6 +12,6 @@ import { UmlClassDiagramDemoRoutingModule } from './uml-class-diagram-demo-routi
     NgJointModule, ShapesUmlModule,
     UmlClassDiagramDemoRoutingModule
   ],
-  exports: [ UmlClassDiagramDemoComponent ]
+  exports: [ UmlClassDiagramDemoComponent, UmlClassDiagramDemoRoutingModule ]
 })
 export class UmlClassDiagramDemoModule { }

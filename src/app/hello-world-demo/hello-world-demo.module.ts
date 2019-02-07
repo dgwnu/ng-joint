@@ -10,6 +10,6 @@ import { HelloWorldDemoRoutingModule } from './hello-world-demo-routing.module';
   imports: [ NgJointModule, ShapesStandardModule,
     HelloWorldDemoRoutingModule
   ],
-  exports: [ HelloWorldDemoComponent ]
+  exports: [ HelloWorldDemoComponent, HelloWorldDemoRoutingModule ]
 })
 export class HelloWorldDemoModule { }

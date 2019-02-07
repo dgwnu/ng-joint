@@ -13,6 +13,6 @@ import { AngularElementsDemoRoutingModule } from './angular-elements-demo-routin
     MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule,
     AngularElementsDemoRoutingModule
   ],
-  exports: [ AngularElementsDemoComponent ]
+  exports: [ AngularElementsDemoComponent, AngularElementsDemoRoutingModule ]
 })
 export class AngularElementsDemoModule { }
