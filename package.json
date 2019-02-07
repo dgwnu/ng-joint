@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:app": "npm run compodoc && npm run build:app && npm run ngh",
+    "deploy:app": "npm run compodoc && npm run build:app && npm run publish:gh-pages",
     "compodoc": "compodoc",
     "build:app": "ng build --base-href \"https://dgwnu.github.io/ng-joint/\"",
     "publish:gh-pages": "ngh -d dist/ng-joint-app --repo https://github.com/dgwnu/ng-joint.git --no-silent"
