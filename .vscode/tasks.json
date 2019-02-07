@@ -11,9 +11,9 @@
             "group": "build"
         },
         {
-            "label": "Doc Build",
+            "label": "Deploy App",
             "type": "npm",
-            "script": "compodoc",
+            "script": "deploy:app",
             "problemMatcher": [],
             "group": "build"
         },
@@ -27,8 +27,7 @@
         {
             "label": "Build",
             "dependsOn": [
-                "Lib Build",
-                "Doc Build"
+                "Lib Build"
             ],
             "group": {
                 "kind": "build",
