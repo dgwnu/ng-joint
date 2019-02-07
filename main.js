@@ -3739,7 +3739,7 @@ var AngularElementsDemoModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatInputModule"],
                 _angular_elements_demo_routing_module__WEBPACK_IMPORTED_MODULE_5__["AngularElementsDemoRoutingModule"]
             ],
-            exports: [_angular_elements_demo_component__WEBPACK_IMPORTED_MODULE_4__["AngularElementsDemoComponent"]]
+            exports: [_angular_elements_demo_component__WEBPACK_IMPORTED_MODULE_4__["AngularElementsDemoComponent"], _angular_elements_demo_routing_module__WEBPACK_IMPORTED_MODULE_5__["AngularElementsDemoRoutingModule"]]
         })
     ], AngularElementsDemoModule);
     return AngularElementsDemoModule;
@@ -3783,7 +3783,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var matModules = [
-    _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTabsModule"]
+    _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTabsModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatToolbarModule"],
+    _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"]
 ];
 var AppMaterialModule = /** @class */ (function () {
     function AppMaterialModule() {
@@ -3801,6 +3803,47 @@ var AppMaterialModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/app-routing.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/app-routing.module.ts ***!
+  \***************************************/
+/*! exports provided: AppRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+var appRoutes = [
+    { path: '', redirectTo: 'hello-world-demo', pathMatch: 'full' },
+    { path: '**', redirectTo: '/', pathMatch: 'full' }
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
+                )
+            ],
+            exports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]
+            ]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.html":
 /*!************************************!*\
   !*** ./src/app/app.component.html ***!
@@ -3808,7 +3851,7 @@ var AppMaterialModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\n\n    <mat-tab label=\"Hello World Demo\">\n        <ng-template matTabContent>\n            <app-hello-world-demo></app-hello-world-demo>\n        </ng-template>\n    </mat-tab>\n\n    <mat-tab label=\"Angular Elements Demo\">\n        <ng-template matTabContent>\n            <app-angular-elements-demo></app-angular-elements-demo>\n        </ng-template>\n    </mat-tab>\n\n    <mat-tab label=\"Structural Directives Demo\">\n        <ng-template matTabContent>\n            <app-struct-dir-demo></app-struct-dir-demo>\n        </ng-template>\n    </mat-tab>\n    \n    <mat-tab label=\"UML Class Diagram Demo\">\n        <ng-template matTabContent>\n            <app-uml-class-diagram-demo></app-uml-class-diagram-demo>\n        </ng-template>\n    </mat-tab>\n\n</mat-tab-group>\n"
+module.exports = "<nav mat-tab-nav-bar [backgroundColor]=\"background\">\n    <a mat-tab-link\n        *ngFor=\"let navlink of navLinks\"\n           [routerLink]=\"navlink.path\"\n           routerLinkActive #rla=\"routerLinkActive\"\n           [active]=\"rla.isActive\">\n            {{navlink.label}}\n    </a>\n</nav>\n\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -3840,6 +3883,14 @@ __webpack_require__.r(__webpack_exports__);
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'ng-jointjs';
+        this.background = '';
+        this.navLinks = [
+            { path: 'hello-world-demo', label: 'Hello World Demo' },
+            { path: 'uml-class-diagram-demo', label: 'UML Class Diagram Demo' },
+            { path: 'angular-elements-demo', label: 'Angular Elements Label' },
+            { path: 'struct-dir-demo', label: 'Structural Directives Demo' },
+            { path: 'docs', label: 'Documentation' }
+        ];
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3869,12 +3920,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _app_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-material.module */ "./src/app/app-material.module.ts");
-/* harmony import */ var _hello_world_demo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./hello-world-demo */ "./src/app/hello-world-demo/index.ts");
-/* harmony import */ var _angular_elements_demo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./angular-elements-demo */ "./src/app/angular-elements-demo/index.ts");
-/* harmony import */ var _struct_dir_demo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./struct-dir-demo */ "./src/app/struct-dir-demo/index.ts");
-/* harmony import */ var _uml_class_diagram_demo__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./uml-class-diagram-demo */ "./src/app/uml-class-diagram-demo/index.ts");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _app_material_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-material.module */ "./src/app/app-material.module.ts");
+/* harmony import */ var _hello_world_demo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./hello-world-demo */ "./src/app/hello-world-demo/index.ts");
+/* harmony import */ var _angular_elements_demo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./angular-elements-demo */ "./src/app/angular-elements-demo/index.ts");
+/* harmony import */ var _struct_dir_demo__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./struct-dir-demo */ "./src/app/struct-dir-demo/index.ts");
+/* harmony import */ var _uml_class_diagram_demo__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./uml-class-diagram-demo */ "./src/app/uml-class-diagram-demo/index.ts");
+/* harmony import */ var _docs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./docs */ "./src/app/docs/index.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+
+
+
 
 
 
@@ -3890,22 +3947,180 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
-                _app_material_module__WEBPACK_IMPORTED_MODULE_5__["AppMaterialModule"],
-                _hello_world_demo__WEBPACK_IMPORTED_MODULE_6__["HelloWorldDemoModule"],
-                _angular_elements_demo__WEBPACK_IMPORTED_MODULE_7__["AngularElementsDemoModule"],
-                _struct_dir_demo__WEBPACK_IMPORTED_MODULE_8__["StructDirDemoModule"],
-                _uml_class_diagram_demo__WEBPACK_IMPORTED_MODULE_9__["UmlClassDiagramDemoModule"]
+                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["FlexLayoutModule"],
+                _app_material_module__WEBPACK_IMPORTED_MODULE_6__["AppMaterialModule"],
+                _hello_world_demo__WEBPACK_IMPORTED_MODULE_7__["HelloWorldDemoModule"],
+                _angular_elements_demo__WEBPACK_IMPORTED_MODULE_8__["AngularElementsDemoModule"],
+                _struct_dir_demo__WEBPACK_IMPORTED_MODULE_9__["StructDirDemoModule"],
+                _uml_class_diagram_demo__WEBPACK_IMPORTED_MODULE_10__["UmlClassDiagramDemoModule"],
+                _docs__WEBPACK_IMPORTED_MODULE_11__["DocsModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
 }());
+
+
+
+/***/ }),
+
+/***/ "./src/app/docs/docs-routing.module.ts":
+/*!*********************************************!*\
+  !*** ./src/app/docs/docs-routing.module.ts ***!
+  \*********************************************/
+/*! exports provided: DocsRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocsRoutingModule", function() { return DocsRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _docs_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./docs.component */ "./src/app/docs/docs.component.ts");
+
+
+
+
+var demoModuleRoutes = [
+    { path: 'docs', component: _docs_component__WEBPACK_IMPORTED_MODULE_3__["DocsComponent"] }
+];
+var DocsRoutingModule = /** @class */ (function () {
+    function DocsRoutingModule() {
+    }
+    DocsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(demoModuleRoutes, { enableTracing: true } // <-- debugging purposes only
+                )
+            ],
+            exports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]
+            ]
+        })
+    ], DocsRoutingModule);
+    return DocsRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/docs/docs.component.html":
+/*!******************************************!*\
+  !*** ./src/app/docs/docs.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<iframe fxLayout=\"column\" fxFlexFill [src]=\"safeDocsResourceUrl\"></iframe>"
+
+/***/ }),
+
+/***/ "./src/app/docs/docs.component.scss":
+/*!******************************************!*\
+  !*** ./src/app/docs/docs.component.scss ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RvY3MvZG9jcy5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/docs/docs.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/docs/docs.component.ts ***!
+  \****************************************/
+/*! exports provided: DocsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocsComponent", function() { return DocsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+
+
+
+var DocsComponent = /** @class */ (function () {
+    function DocsComponent(sanitizer) {
+        this.sanitizer = sanitizer;
+        this.docsResourceUrl = '../../docs/index.html';
+        this.safeDocsResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.docsResourceUrl);
+    }
+    DocsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-docs',
+            template: __webpack_require__(/*! ./docs.component.html */ "./src/app/docs/docs.component.html"),
+            styles: [__webpack_require__(/*! ./docs.component.scss */ "./src/app/docs/docs.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]])
+    ], DocsComponent);
+    return DocsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/docs/docs.module.ts":
+/*!*************************************!*\
+  !*** ./src/app/docs/docs.module.ts ***!
+  \*************************************/
+/*! exports provided: DocsModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocsModule", function() { return DocsModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _docs_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./docs.component */ "./src/app/docs/docs.component.ts");
+/* harmony import */ var _docs_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./docs-routing.module */ "./src/app/docs/docs-routing.module.ts");
+
+
+
+
+
+var DocsModule = /** @class */ (function () {
+    function DocsModule() {
+    }
+    DocsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            declarations: [_docs_component__WEBPACK_IMPORTED_MODULE_3__["DocsComponent"]],
+            imports: [_docs_routing_module__WEBPACK_IMPORTED_MODULE_4__["DocsRoutingModule"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_2__["FlexLayoutModule"]],
+            exports: [_docs_component__WEBPACK_IMPORTED_MODULE_3__["DocsComponent"], _docs_routing_module__WEBPACK_IMPORTED_MODULE_4__["DocsRoutingModule"]]
+        })
+    ], DocsModule);
+    return DocsModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/docs/index.ts":
+/*!*******************************!*\
+  !*** ./src/app/docs/index.ts ***!
+  \*******************************/
+/*! exports provided: DocsModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _docs_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./docs.module */ "./src/app/docs/docs.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DocsModule", function() { return _docs_module__WEBPACK_IMPORTED_MODULE_0__["DocsModule"]; });
+
 
 
 
@@ -4044,7 +4259,7 @@ var HelloWorldDemoModule = /** @class */ (function () {
             imports: [_dgwnu_ng_joint__WEBPACK_IMPORTED_MODULE_2__["NgJointModule"], _dgwnu_ng_joint__WEBPACK_IMPORTED_MODULE_2__["ShapesStandardModule"],
                 _hello_world_demo_routing_module__WEBPACK_IMPORTED_MODULE_4__["HelloWorldDemoRoutingModule"]
             ],
-            exports: [_hello_world_demo_component__WEBPACK_IMPORTED_MODULE_3__["HelloWorldDemoComponent"]]
+            exports: [_hello_world_demo_component__WEBPACK_IMPORTED_MODULE_3__["HelloWorldDemoComponent"], _hello_world_demo_routing_module__WEBPACK_IMPORTED_MODULE_4__["HelloWorldDemoRoutingModule"]]
         })
     ], HelloWorldDemoModule);
     return HelloWorldDemoModule;
@@ -4400,7 +4615,7 @@ var StructDirDemoModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTabsModule"],
                 _struct_dir_demo_routing_module__WEBPACK_IMPORTED_MODULE_6__["StructDirDemoRoutingModule"]
             ],
-            exports: [_struct_dir_demo_component__WEBPACK_IMPORTED_MODULE_5__["StructDirDemoComponent"]]
+            exports: [_struct_dir_demo_component__WEBPACK_IMPORTED_MODULE_5__["StructDirDemoComponent"], _struct_dir_demo_routing_module__WEBPACK_IMPORTED_MODULE_6__["StructDirDemoRoutingModule"]]
         })
     ], StructDirDemoModule);
     return StructDirDemoModule;
@@ -4780,7 +4995,7 @@ var UmlClassDiagramDemoModule = /** @class */ (function () {
                 _dgwnu_ng_joint__WEBPACK_IMPORTED_MODULE_3__["NgJointModule"], _dgwnu_ng_joint__WEBPACK_IMPORTED_MODULE_3__["ShapesUmlModule"],
                 _uml_class_diagram_demo_routing_module__WEBPACK_IMPORTED_MODULE_5__["UmlClassDiagramDemoRoutingModule"]
             ],
-            exports: [_uml_class_diagram_demo_component__WEBPACK_IMPORTED_MODULE_4__["UmlClassDiagramDemoComponent"]]
+            exports: [_uml_class_diagram_demo_component__WEBPACK_IMPORTED_MODULE_4__["UmlClassDiagramDemoComponent"], _uml_class_diagram_demo_routing_module__WEBPACK_IMPORTED_MODULE_5__["UmlClassDiagramDemoRoutingModule"]]
         })
     ], UmlClassDiagramDemoModule);
     return UmlClassDiagramDemoModule;
