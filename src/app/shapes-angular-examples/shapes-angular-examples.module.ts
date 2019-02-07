@@ -5,9 +5,9 @@ import { MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, Mat
 import { NgJointModule, ShapesAngularModule } from '@dgwnu/ng-joint';
 
 import { ShapesAngularExamplesComponent } from './shapes-angular-examples.component';
-import { ShapesAngularExamplesRoutingModule } from './shapes-angular-examples-routing.module';
 import { AngularElementTemplateOnlyComponent } from './angular-element-template-only/angular-element-template-only.component';
 import { AngularElementBiDirBindComponent } from './angular-element-bi-dir-bind/angular-element-bi-dir-bind.component';
+import { ShapesAngularExamplesRoutingModule } from './shapes-angular-examples-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +16,9 @@ import { AngularElementBiDirBindComponent } from './angular-element-bi-dir-bind/
     AngularElementBiDirBindComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule, ShapesAngularExamplesRoutingModule,
     NgJointModule, ShapesAngularModule,
-    MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule,
-    ShapesAngularExamplesRoutingModule
+    MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTabsModule,
   ],
   exports: [
     ShapesAngularExamplesRoutingModule, ShapesAngularExamplesComponent

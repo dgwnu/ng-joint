@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AngularElementTemplateOnlyComponent } from './angular-element-template-only.component';
+import { AngularTemplateOnlyComponent } from './angular-template-only.component';
 
 describe('AngularElementTemplateOnlyComponent', () => {
-  let component: AngularElementTemplateOnlyComponent;
-  let fixture: ComponentFixture<AngularElementTemplateOnlyComponent>;
+  let component: AngularTemplateOnlyComponent;
+  let fixture: ComponentFixture<AngularTemplateOnlyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AngularElementTemplateOnlyComponent ]
+      declarations: [ AngularTemplateOnlyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AngularElementTemplateOnlyComponent);
+    fixture = TestBed.createComponent(AngularTemplateOnlyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

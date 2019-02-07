@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ShapesUmlExamplesComponent } from './shapes-uml-examples.component';
-import { ShapesUmlExamplesRoutingModule } from './shapes-uml-examples-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,10 +9,10 @@ import { ShapesUmlExamplesRoutingModule } from './shapes-uml-examples-routing.mo
   ],
   imports: [
     CommonModule,
-    ShapesUmlExamplesRoutingModule
+    ShapesUmlExamplesComponent
   ],
   exports: [
-    ShapesUmlExamplesRoutingModule
+    ShapesUmlExamplesComponent
   ]
 })
 export class ShapesUmlExamplesModule { }
