@@ -12,7 +12,7 @@ import { UmlGeneralizationComponent, NgJointUmlGeneralization } from './generali
 import { UmlImplementationComponent, NgJointUmlImplementation } from './implementation/uml-implementation.component';
 
 @Component({
-  selector: 'dgwnu-shapes-uml',
+  selector: 'ng-joint-shapes-uml',
   template: `
     <ng-content></ng-content>
     `,
