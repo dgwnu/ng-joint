@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class ShapesAngularExamplesComponent {
   background = '';
   navLinks = [
-    { path: 'angular-element-bi-dir-bind', label: 'Template Only'},
-    { path: 'angular-element-template-only', label: 'Bi-directional Binding'},
+    { path: 'angular-bi-dir-bind', label: 'Template Only'},
+    { path: ' angular-template-only', label: 'Bi-directional Binding'},
   ];
 
 }
