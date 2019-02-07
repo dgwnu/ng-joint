@@ -4,13 +4,14 @@ import { MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule } fr
 import { NgJointModule, ShapesAngularModule } from '@dgwnu/ng-joint';
 
 import { AngularElementsDemoComponent } from './angular-elements-demo.component';
-
+import { AngularElementsDemoRoutingModule } from './angular-elements-demo-routing.module';
 
 @NgModule({
   declarations: [ AngularElementsDemoComponent ],
   imports: [
     NgJointModule, ShapesAngularModule,
-    MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule
+    MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule,
+    AngularElementsDemoRoutingModule
   ],
   exports: [ AngularElementsDemoComponent ]
 })
