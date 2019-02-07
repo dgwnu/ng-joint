@@ -10,7 +10,11 @@ import { BiDirBindNgElementExampleComponent } from './bi-dir-bind-ng-element-exa
 import { BiDirBindStandardShapesExampleComponent } from './bi-dir-bind-standard-shapes-example.component'; 
 
 @NgModule({
-  declarations: [ StructDirDemoComponent, BiDirBindNgElementExampleComponent, BiDirBindStandardShapesExampleComponent ],
+  declarations: [
+    StructDirDemoComponent,
+    BiDirBindNgElementExampleComponent,
+    BiDirBindStandardShapesExampleComponent
+  ],
   imports: [
     CommonModule, NgJointModule, ShapesStandardModule, ShapesAngularModule,
     MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTabsModule,

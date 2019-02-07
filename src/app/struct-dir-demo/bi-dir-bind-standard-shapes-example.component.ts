@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { NgJointStandardRectangle, NgJointStandardLink } from '@dgwnu/ng-joint';
 
 @Component({
-  selector: 'app-struct-dir-demo',
-  templateUrl: './bi-dir-bind-standard-example.component.html',
-  styleUrls: ['./bi-dir-bind-standard-example.component.scss']
+  selector: 'app-bi-dir-bind-standard-shapes-example',
+  templateUrl: './bi-dir-bind-standard-shapes-example.component.html',
+  styleUrls: ['./bi-dir-bind-standard-shapes-example.component.scss']
 })
 export class BiDirBindStandardShapesExampleComponent {
 
