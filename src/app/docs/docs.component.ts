@@ -7,7 +7,7 @@ import {  DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./docs.component.scss']
 })
 export class DocsComponent {
-  private readonly docsResourceUrl = '../../docs/index.html';
+  private readonly docsResourceUrl = 'assets/docs/index.html';
 
   constructor(private sanitizer: DomSanitizer) {
     this.safeDocsResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.docsResourceUrl);
