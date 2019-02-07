@@ -7,7 +7,7 @@ import { StandardRectangleService } from './standard-rectangle.service';
 import { StandardRectangle } from './standard-rectangle';
 
 @Component({
-  selector: 'dgwnu-standard-rectangle',
+  selector: 'ng-joint-standard-rectangle',
   template: `
     <!-- joint.shapes.standard.Rectangle  -->
     `,

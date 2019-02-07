@@ -6,7 +6,7 @@ import { UmlComposition } from './uml-composition';
 import { UmlCompositionService } from './uml-composition.service';
 
 @Component({
-  selector: 'dgwnu-uml-composition',
+  selector: 'ng-joint-uml-composition',
   template: `
     <!-- joint.shapes.uml.Composition  -->
     `,

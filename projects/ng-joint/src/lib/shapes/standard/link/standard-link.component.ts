@@ -11,7 +11,7 @@ import { StandardLinkService } from './standard-link.service';
  *
  * Container for Standard Link (joint.shapes.standard.Link) Instance
  *
-```
+```html
 <ng-joint-paper
   [width]="800"
   [height]="600"

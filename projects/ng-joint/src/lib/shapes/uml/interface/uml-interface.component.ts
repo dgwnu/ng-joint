@@ -5,7 +5,7 @@ import { UmlInterfaceService } from './uml-interface.service';
 import { UmlInterface } from './uml-interface';
 
 @Component({
-  selector: 'dgwnu-uml-interface',
+  selector: 'ng-joint-uml-interface',
   template: `
   <!-- joint.shapes.uml.Interface  -->
   `,

@@ -6,7 +6,7 @@ import { UmlAggregation } from './uml-aggregation';
 import { UmlAggregationService } from './uml-aggregation.service';
 
 @Component({
-  selector: 'dgwnu-uml-aggregation',
+  selector: 'ng-joint-uml-aggregation',
   template: `
     <!-- joint.shapes.uml.Aggregation  -->
     `,

@@ -5,7 +5,7 @@ import { UmlClassService } from './uml-class.service';
 import { UmlClass } from './uml-class';
 
 @Component({
-  selector: 'dgwnu-uml-class',
+  selector: 'ng-joint-uml-class',
   template: `
   <!-- joint.shapes.uml.Class  -->
   `,

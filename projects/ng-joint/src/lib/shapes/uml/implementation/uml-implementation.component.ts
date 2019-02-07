@@ -6,7 +6,7 @@ import { UmlImplementation } from './uml-implementation';
 import { UmlImplementationService } from './uml-implementation.service';
 
 @Component({
-  selector: 'dgwnu-uml-implementation',
+  selector: 'ng-joint-uml-implementation',
   template: `
     <!-- joint.shapes.uml.Implementation  -->
     `,

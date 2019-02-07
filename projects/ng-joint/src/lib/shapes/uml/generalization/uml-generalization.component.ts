@@ -6,7 +6,7 @@ import { UmlGeneralization } from './uml-generalization';
 import { UmlGeneralizationService } from './uml-generalization.service';
 
 @Component({
-  selector: 'dgwnu-uml-generalization',
+  selector: 'ng-joint-uml-generalization',
   template: `
     <!-- joint.shapes.uml.Generalization  -->
     `,

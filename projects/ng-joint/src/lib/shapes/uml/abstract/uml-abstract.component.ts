@@ -5,7 +5,7 @@ import { UmlAbstractService } from './uml-abstract.service';
 import { UmlAbstract } from './uml-abstract';
 
 @Component({
-  selector: 'dgwnu-uml-abstract',
+  selector: 'ng-joint-uml-abstract',
   template: `
   <!-- joint.shapes.uml.Abstract  -->
   `,
