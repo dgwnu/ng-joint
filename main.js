@@ -4054,7 +4054,7 @@ __webpack_require__.r(__webpack_exports__);
 var DocsComponent = /** @class */ (function () {
     function DocsComponent(sanitizer) {
         this.sanitizer = sanitizer;
-        this.docsResourceUrl = '../../docs/index.html';
+        this.docsResourceUrl = 'assets/docs/index.html';
         this.safeDocsResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.docsResourceUrl);
     }
     DocsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
