@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const appRoutes: Routes = [
-  { path: '',   redirectTo: 'hello-world-demo', pathMatch: 'full' },
+  { path: '',   redirectTo: 'shapes-angular-examples', pathMatch: 'full' },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

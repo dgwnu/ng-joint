@@ -5,11 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
-import { HelloWorldDemoModule } from './hello-world-demo';
-import { AngularElementsDemoModule } from './angular-elements-demo';
-import { StructDirDemoModule } from './struct-dir-demo';
-import { UmlClassDiagramDemoModule } from './uml-class-diagram-demo';
-import { DocsModule } from './docs';
+import { ShapesAngularExamplesModule } from './shapes-angular-examples';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -19,11 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     FlexLayoutModule,
     AppMaterialModule,
-    HelloWorldDemoModule,
-    AngularElementsDemoModule,
-    StructDirDemoModule,
-    UmlClassDiagramDemoModule,
-    DocsModule,
+    ShapesAngularExamplesModule,
     AppRoutingModule
   ],
   providers: [],
