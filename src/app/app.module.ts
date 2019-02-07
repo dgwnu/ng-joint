@@ -8,7 +8,8 @@ import { HelloWorldDemoModule } from './hello-world-demo';
 import { AngularElementsDemoModule } from './angular-elements-demo';
 import { StructDirDemoModule } from './struct-dir-demo';
 import { UmlClassDiagramDemoModule } from './uml-class-diagram-demo';
-import {} from './app-routing.module';
+import { DocsModule } from './docs';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,9 @@ import {} from './app-routing.module';
     HelloWorldDemoModule,
     AngularElementsDemoModule,
     StructDirDemoModule,
-    UmlClassDiagramDemoModule
+    UmlClassDiagramDemoModule,
+    DocsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
