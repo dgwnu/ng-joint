@@ -1,3 +1,11 @@
-<p>
-  shapes-angular-examples works!
-</p>
+<nav mat-tab-nav-bar [backgroundColor]="background">
+  <a mat-tab-link
+      *ngFor="let navlink of navLinks"
+         [routerLink]="navlink.path"
+         routerLinkActive #rla="routerLinkActive"
+         [active]="rla.isActive">
+          {{navlink.label}}
+  </a>
+</nav>
+
+<router-outlet></router-outlet>
