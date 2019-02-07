@@ -4,7 +4,7 @@ You can use JointNg Angular Elements with One-way or Bi-directional binding.
 
 ## One-way binding example
 
-Angular Elements with one-way binding can simply defined as elements inside the HTML-templae of the Component.  
+You can simply define Angular Elements with one-way binding inside Angular Component HTML-templates.  
 
 Example _HTML-template_ with one-way binding:
 
@@ -33,9 +33,10 @@ Example _HTML-template_ with one-way binding:
 
 ## bi-directional binding example
 
-To use Angular Elements with bi-directional binding you have to create a property Array-instance in the using Component. This should be based on the _NgJointAngularElement_ interface.
+Firstly, Define an interface based on _NgJointAngularElement_ with additional Angular Element instance properties.
+Finaly, add a property Array-instance to use the Angular Elements with structural directives and bi-directional binding.
 
-Example _Component_:
+Example _Component_ with bi-directional binding for Angular Elements:
 
 ```ts
 import { Component } from '@angular/core';
@@ -48,11 +49,11 @@ interface CustomNgEl extends NgJointAngularElement {
 }
 
 @Component({
-  selector: 'app-struct-dir-demo',
-  templateUrl: './struct-dir-demo.component.html',
-  styleUrls: ['./struct-dir-demo.component.scss']
+  selector: 'app-bi-dir-bind-ng-element-example',
+  templateUrl: './bi-dir-bind-ng-element-example.component.html',
+  styleUrls: ['./bi-dir-bind-ng-element-example.component.scss']
 })
-export class ExampleComponent {
+export class BiDirBindNgElementExampleComponent {
 
   customNgEls: CustomNgEl[] = [
     {
@@ -73,16 +74,20 @@ export class ExampleComponent {
     }
   ];
 
+  // example how to use events inside Angular Elements
   onClickMatButtonXPlus10(customNgEl: CustomNgEl) {
     customNgEl.x = customNgEl.x + 10;
     this.links[1].line = { strokeWidth: 4 };
   }
 
+  // example how to use events inside Angular Elements
   onClickMatButtonYPlus10(customNgEl: CustomNgEl) {
     customNgEl.y = customNgEl.y + 10;
     this.links[1].line = { strokeWidth: 6 };
   }
 
+  // you can handle paper:elementpointerclick events
+  // (other events will be added in later versions of this Library)
   onElementPointerClick(id: string) {
     console.log('onElementPointerClick(id: ' + id + ')');
   }
@@ -90,7 +95,7 @@ export class ExampleComponent {
 }
 ```
 
-Example _HTML-template_ with bi-directional binding:
+Example _HTML-template_ to be used as _templateUrl: './bi-dir-bind-ng-element-example.component.html'_ file in the _BiDirBindNgElementExampleComponent_
 
 ```html
 <ng-joint-dia-paper

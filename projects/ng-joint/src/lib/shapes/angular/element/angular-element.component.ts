@@ -11,7 +11,7 @@ import { AngularElement } from './angular-element';
  *
  * Element Shape that is able to contain Angular based Content (structural directives, angular material, etc.)
  *
- * Example of usage:
+ * Examples:
  *
  * <example-url>http://www.plan-k.nl/diensten</example-url>
  *
@@ -26,6 +26,7 @@ export class AngularElementComponent extends GenericElementShapeComponent {
 
   constructor(
     private angularElementService: AngularElementService,
+    /** angular element DOM or Node Element Reference */
     public ngElementRef: ElementRef
   ) {
     super(angularElementService);
