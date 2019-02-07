@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DocsComponent } from './docs.component';
+import { ShapesStandardExamplesComponent } from './shapes-standard-examples.component';
 
 const demoModuleRoutes: Routes = [
-  { path: 'docs',   component: DocsComponent }
+  { path: 'shapes-standard-examples',   component: ShapesStandardExamplesComponent }
 ];
 
 @NgModule({
@@ -18,4 +18,4 @@ const demoModuleRoutes: Routes = [
     RouterModule
   ]
 })
-export class DocsRoutingModule { }
+export class ShapesStandardExamplesRoutingModule { }
