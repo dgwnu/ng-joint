@@ -4,7 +4,7 @@
 
 <div fxLayout="row">
     <mat-card class="example-tree-container">
-        <mat-card-content>
+        <mat-card-content #menucontent >
             <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
                 <!-- This is the tree node template for leaf nodes -->
                     <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
@@ -34,7 +34,7 @@
             </mat-tree>
         </mat-card-content>
     </mat-card>
-    <mat-card>
+    <mat-card fxFlexFill="width=80">
         <mat-card-content>
             <router-outlet></router-outlet>
         </mat-card-content>

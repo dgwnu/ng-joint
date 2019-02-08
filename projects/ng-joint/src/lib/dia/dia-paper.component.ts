@@ -37,7 +37,7 @@ export class DiaPaperComponent implements AfterViewInit {
   @Input() gridSize?: number;
   @Input() drawGrid?: boolean;
 
-  constructor(private service: DiaPaperService) {}
+  constructor(private service: DiaPaperService, private el: ElementRef) { }
 
   paperElement: DiaPaperElement;
 
@@ -46,6 +46,7 @@ export class DiaPaperComponent implements AfterViewInit {
     if (this.graph) {
       this._createPaper();
     }
+    console.log('PaperComponent.offsetParent', this.el.nativeElement.offsetParent);
   }
 
   private _createPaper() {
