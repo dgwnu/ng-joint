@@ -1,6 +1,6 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/graph/dia-graph';
+import { DiaGraph } from '../../../dia/graph/dia-graph';
 import { LinkShapeService } from '../../shapes';
 import { StandardLink } from './standard-link';
 import { ShapesStandardService } from '../shapes-standard.service';
@@ -14,7 +14,7 @@ export class StandardLinkService implements LinkShapeService {
   constructor(private service: ShapesStandardService) { }
 
   createLinkShape(
-    graphElement: DiaGraphElement,
+    graphInstance: DiaGraph,
     component: StandardLinkComponent
     ): StandardLink {
     const linkShape = new StandardLink(
@@ -22,8 +22,8 @@ export class StandardLinkService implements LinkShapeService {
       component.sourceId,
       component.targetId
     );
-    this.service.setAttrProp(linkShape.link, 'line', component.line);
-    graphElement.addLinkShape(linkShape);
+    this.service.setAttrProp(linkShape.jointjsObject, 'line', component.line);
+    graphInstance.addLink(linkShape);
     return linkShape;
   }
 

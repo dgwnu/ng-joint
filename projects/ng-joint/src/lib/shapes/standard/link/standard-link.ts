@@ -10,11 +10,7 @@ export class StandardLink extends StandardLinkShape {
         options?: dia.Link.GenericAttributes<shapes.standard.LinkSelectors>
     ) {
         super({ id: id, sourceId: sourceId, targetId: targetId, options });
-        this._link = new shapes.standard.Link(options);
-    }
-
-    get standardLink(): shapes.standard.Link {
-        return this._link;
+        this._jointjsObject = new shapes.standard.Link(options);
     }
 
 }

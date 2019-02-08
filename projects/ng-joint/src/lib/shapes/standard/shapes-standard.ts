@@ -6,20 +6,20 @@ import { Input } from '@angular/core';
 
 import { attributes } from 'jointjs';
 
+import { DiaElement, DiaLink } from '../../dia';
+
 import {
-    ElementShape,
-    LinkShape,
     NgJointElement,
     NgJointLink,
     GenericElementShapeComponent,
     GenericLinkShapeComponent
 } from '../shapes';
 
-export abstract class StandardElementShape extends ElementShape {
+export abstract class StandardElementShape extends DiaElement {
 
 }
 
-export abstract class StandardLinkShape extends LinkShape {
+export abstract class StandardLinkShape extends DiaLink {
 
 }
 

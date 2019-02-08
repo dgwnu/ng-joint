@@ -1,6 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
-import { DiaGraphElement } from '../../dia/graph/dia-graph';
+import { DiaGraph } from '../../dia';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
 import { ShapesStandardService } from './shapes-standard.service';
 import { StandardRectangleComponent, NgJointStandardRectangle } from './rectangle/standard-rectangle.component';
@@ -13,7 +13,7 @@ import { StandardLinkComponent, NgJointStandardLink } from './link/standard-link
  *
  * Container for jointjs standard shapes (jointjs.shapes.Standard)
  *
- ```
+ ```html
 <ng-joint-paper
   width=800
   height=600
@@ -51,17 +51,17 @@ export class ShapesStandardComponent implements ShapePlugin {
   constructor(private service: ShapesStandardService) { }
 
   /** @ignore */
-  private _graphElement: DiaGraphElement;
+  private _graphInstance: DiaGraph;
 
   /**
    * Set Parent DiaGraphElement (ng-joint-dia-graph) and create Plugin Shapes
    */
-  set graphElement(value: DiaGraphElement) {
-    this._graphElement = value;
+  set graphInstance(graphInstance: DiaGraph) {
+    this._graphInstance = graphInstance;
     this.service.createShapes(
       [this.standardRectangles],
       [this.standardLinks],
-      this._graphElement
+      this._graphInstance
       );
   }
 
