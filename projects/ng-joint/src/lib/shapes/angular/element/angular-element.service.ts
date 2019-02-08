@@ -178,7 +178,7 @@ export class AngularElementService implements ElementShapeService {
       }
     );
 
-    graphInstance.addElementShape(elementShape);
+    graphInstance.addElement(elementShape);
 
     this._setNgContentStyles(elementShape.ngNode);
 
