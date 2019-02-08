@@ -1,5 +1,18 @@
+// Import angular matrial theming functions
+@import '~@angular/material/theming';
+// Import app custom theme
+@import '../styles.scss';
+
+.example-tree-container {
+    background-color: mat-color($ng-joint-app-warn, A100);
+}
+
 .example-tree-invisible {
   display: none;
+}
+
+.example-tree {
+  background-color: mat-color($ng-joint-app-warn, A200);
 }
 
 .example-tree ul,

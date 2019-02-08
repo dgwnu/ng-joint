@@ -16,7 +16,7 @@ $ng-joint-app-primary: mat-palette($mat-indigo);
 $ng-joint-app-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$ng-joint-app-warn: mat-palette($mat-red);
+$ng-joint-app-warn: mat-palette($mat-blue);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $ng-joint-app-theme: mat-light-theme($ng-joint-app-primary, $ng-joint-app-accent, $ng-joint-app-warn);
