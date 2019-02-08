@@ -5,16 +5,16 @@ import { ShapesAngularExamplesComponent } from './shapes-angular-examples.compon
 import { AngularTemplateOnlyComponent } from './angular-template-only/angular-template-only.component';
 import { AngularBiDirBindComponent } from './angular-bi-dir-bind/angular-bi-dir-bind.component';
 
-const demoModuleRoutes: Routes = [
+export const shapeAngularExamplesModuleRoutes: Routes = [
   { path: 'shapes-angular-examples', component: ShapesAngularExamplesComponent },
-  { path: 'angular-template-only', component: AngularTemplateOnlyComponent },
-  { path: 'angular-bi-dir-bind', component: AngularBiDirBindComponent }
+  { path: 'shapes-angular-examples/angular-template-only', component: AngularTemplateOnlyComponent },
+  { path: 'shapes-angular-examples/angular-bi-dir-bind', component: AngularBiDirBindComponent }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      demoModuleRoutes,
+      shapeAngularExamplesModuleRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],

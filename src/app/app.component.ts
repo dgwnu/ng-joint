@@ -19,11 +19,11 @@ const TREE_DATA: ExampleNode[] = [
     children: [
       {
         name: 'Angular template only',
-        route: 'angular-template-only'
+        route: 'shapes-angular-examples/angular-template-only'
       },
       {
         name: 'Angular bi-directional bind',
-        route: 'angular-bi-dir-bind'
+        route: 'shapes-angular-examples/angular-bi-dir-bind'
       }
     ]
   }
