@@ -2,7 +2,8 @@ import { dia } from 'jointjs';
 
 import { Subject } from 'rxjs';
 
-import { ElementShape, LinkShape } from '../../shapes/shapes';
+import { DiaElement } from '../element';
+import { DiaLink } from '../link';
 
 /**
  * JointNg Graph Class
@@ -28,12 +29,12 @@ export class DiaGraph {
     eventType: 'pointerclick'
   }>();
 
-  addElementShape(elementShape: ElementShape) {
-    elementShape.element.addTo(this._jointjsObject);
+  addElement(element: DiaElement) {
+    element.jointjsObject.addTo(this._jointjsObject);
   }
 
-  addLinkShape(linkShape: LinkShape) {
-    linkShape.link.addTo(this._jointjsObject);
+  addLink(link: DiaLink) {
+    link.jointjsObject.addTo(this._jointjsObject);
   }
 
 }

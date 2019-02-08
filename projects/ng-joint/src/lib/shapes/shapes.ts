@@ -194,11 +194,11 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
     shapeInstance: DiaLink;
 
     set sourceShape(source: DiaElement) {
-        this.shapeInstance.link.source(source.jointjsObject);
+        this.shapeInstance.jointjsObject.source(source.jointjsObject);
       }
 
     set targetShape(target: DiaElement) {
-        this.shapeInstance.link.target(target.jointjsObject);
+        this.shapeInstance.jointjsObject.target(target.jointjsObject);
     }
 
     createShape(graphInstance: DiaGraph) {

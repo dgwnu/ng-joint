@@ -1,6 +1,6 @@
 import { Injectable, Renderer2, RendererFactory2, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/graph/dia-graph';
+import { DiaGraph } from '../../../dia';
 import { ElementShapeService } from '../../shapes';
 import { ShapesAngularService } from '../shapes-angular.service';
 import { AngularElement } from './angular-element';
@@ -76,8 +76,8 @@ export class AngularElementService implements ElementShapeService {
 
   private _positionComponent(component: AngularElementComponent) {
     const shape = component.shape;
-    const xShapeElement = shape.element.getBBox().x;
-    const yShapeElement = shape.element.getBBox().y;
+    const xShapeElement = shape.jointjsObject.getBBox().x;
+    const yShapeElement = shape.jointjsObject.getBBox().y;
     const xChangeDetected = (component.x !== xShapeElement);
     const yChangedDetected = (component.y !== yShapeElement);
 
@@ -95,8 +95,8 @@ export class AngularElementService implements ElementShapeService {
 
   private _resizeComponent(component: AngularElementComponent) {
     const shape = component.shape;
-    const widthShapeElement = shape.element.getBBox().width;
-    const heightShapeElement = shape.element.getBBox().height;
+    const widthShapeElement = shape.jointjsObject.getBBox().width;
+    const heightShapeElement = shape.jointjsObject.getBBox().height;
     const widthChangeDetected = (component.width !== widthShapeElement);
     const heightChangedDetected = (component.height !== heightShapeElement);
 
@@ -117,7 +117,7 @@ export class AngularElementService implements ElementShapeService {
 
     this._initComponent(component);
 
-    component.shape.element
+    component.shape.jointjsObject
       .on('change:position', (context: any) => {
         this._positionComponent(component);
     })
@@ -131,30 +131,31 @@ export class AngularElementService implements ElementShapeService {
     const shape = component.shape;
     if (!shape) { return; } // first time changes is before shape is created
 
-    const bbox = shape.element.getBBox();
+    const bbox = shape.jointjsObject.getBBox();
 
     // detect position change
     let positionChangeDetected = false;
     if (changes.x) {
-      if (changes.x.currentValue !== bbox.x) { positionChangeDetected = true; }
+      positionChangeDetected = (changes.x.currentValue !== bbox.x);
     } else if (changes.y) {
-      if (changes.y.currentValue !== bbox.y) { positionChangeDetected = true; }
+      positionChangeDetected = (changes.y.currentValue !== bbox.y);
     }
+
     // detect size change
     let sizeChangeDetected = false;
     if (changes.width) {
-      if (changes.width.currentValue !== bbox.width) { sizeChangeDetected = true; }
+      sizeChangeDetected = (changes.width.currentValue !== bbox.width);
     } else if (changes.height) {
-      if (changes.height.currentValue !== bbox.height) { sizeChangeDetected = true; }
+      sizeChangeDetected = (changes.height.currentValue !== bbox.height);
     }
 
     // process detected changes
     if (positionChangeDetected) {
-        component.shape.element.position(component.x, component.y);
+        shape.jointjsObject.position(component.x, component.y);
         this._positionNgElement(shape.ngNode, component.x, component.y);
     }
     if (sizeChangeDetected) {
-        component.shape.element.resize(component.width, component.height);
+        shape.jointjsObject.resize(component.width, component.height);
         this._sizeNgElement(shape.ngNode, component.width, component.height);
     }
 
@@ -164,7 +165,7 @@ export class AngularElementService implements ElementShapeService {
    * create new Angular Element (that renders Angular Element in joinjs BBOX)
    */
   createElementShape(
-    graphElement: DiaGraphElement,
+    graphInstance: DiaGraph,
     component: AngularElementComponent
   ): AngularElement {
 
@@ -177,7 +178,7 @@ export class AngularElementService implements ElementShapeService {
       }
     );
 
-    graphElement.addElementShape(elementShape);
+    graphInstance.addElementShape(elementShape);
 
     this._setNgContentStyles(elementShape.ngNode);
 

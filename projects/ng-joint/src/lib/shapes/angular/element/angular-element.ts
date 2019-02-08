@@ -19,7 +19,7 @@ export class AngularElement extends AngularElementShape {
             rect: { stroke: 'none', 'fill-opacity': 0 },
         };
 
-        this._element = new joint.shapes.basic.Rect(options);
+        this._jointjsObject = new joint.shapes.basic.Rect(options);
         this._ngElementRef = ngElementRef;
     }
 

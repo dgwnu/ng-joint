@@ -1,6 +1,6 @@
 import { Component, ContentChild } from '@angular/core';
 
-import { DiaGraphElement } from '../dia/graph/dia-graph';
+import { DiaGraph } from '../dia';
 import { ShapePlugin } from './shapes';
 import { ShapesService } from './shapes.service';
 import { ShapesStandardComponent } from './standard/shapes-standard.component';
@@ -33,20 +33,20 @@ export class ShapesComponent {
     private service: ShapesService) { }
 
   /** @ignore */
-  private _graphElement: DiaGraphElement;
+  private _graphInstance: DiaGraph;
 
   /**
    * Set Parent DiaGraphElement (ng-joint-dia-graph) and activate declared Plugin Shapes
    */
-  set graphElement(value: DiaGraphElement) {
-    this._graphElement = value;
+  set graphInstance(graphInstance: DiaGraph) {
+    this._graphInstance = graphInstance;
     this.service.activateShapePlugins(
       [
         this.shapesStandard,
         this.shapesAngular,
         this.shapesUml
       ],
-      this._graphElement);
+      this._graphInstance);
   }
 
 }
