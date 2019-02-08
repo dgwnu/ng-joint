@@ -11,7 +11,7 @@ const demoModuleRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       demoModuleRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   exports: [

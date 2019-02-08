@@ -1,7 +1,6 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {NestedTreeControl} from '@angular/cdk/tree';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
-import { MatToolbar, MatCardContent } from '@angular/material';
 
 /**
  * Example data with nested structure.
@@ -35,8 +34,7 @@ const TREE_DATA: ExampleNode[] = [
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
-  @ViewChild('menucontent') menucontentRef: ElementRef;
+export class AppComponent {
 
   title = 'ng-jointjs';
   treeControl = new NestedTreeControl<ExampleNode>(node => node.children);
@@ -44,15 +42,10 @@ export class AppComponent implements AfterViewInit {
   paperWidth: number;
   paperHeight: number;
 
-  constructor(private el: ElementRef) {
+  constructor() {
     this.dataSource.data = TREE_DATA;
   }
 
   hasChild = (_: number, node: ExampleNode) => !!node.children && node.children.length > 0;
-
-  ngAfterViewInit() {
-    this.paperWidth = this.el.nativeElement.offsetWidth - this.menucontentRef.nativeElement.offsetWidth;
-    console.log(this.menucontentRef.nativeElement.offsetParent);
-  }
 
 }

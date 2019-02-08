@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-angular-bi-dir-bind',
   templateUrl: './angular-bi-dir-bind.component.html',
   styleUrls: ['./angular-bi-dir-bind.component.scss']
 })
-export class AngularBiDirBindComponent implements OnInit {
+export class AngularBiDirBindComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private el: ElementRef) { 
+    console.log('AngularBiDirBindComponent.el', this.el);
   }
 
 }

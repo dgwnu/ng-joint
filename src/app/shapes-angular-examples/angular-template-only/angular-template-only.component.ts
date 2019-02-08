@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-angular-template-only',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AngularTemplateOnlyComponent {
 
+  constructor(private el: ElementRef) { 
+    console.log('AngularTemplateOnlyComponent.el', this.el);
+  }
+
 }
+
+
+//     [height]="600"

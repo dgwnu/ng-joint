@@ -15,7 +15,7 @@ export const shapeAngularExamplesModuleRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       shapeAngularExamplesModuleRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   exports: [
