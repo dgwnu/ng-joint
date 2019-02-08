@@ -1,7 +1,7 @@
 import { Component, ContentChild } from '@angular/core';
 
-import { ShapesComponent } from '../shapes/shapes.component';
-import { DiaGraphElement } from './dia-graph-element';
+import { ShapesComponent } from '../../shapes/shapes.component';
+import { DiaGraph } from './dia-graph';
 import { DiaGraphService } from './dia-graph.service';
 
 /**
@@ -21,17 +21,17 @@ export class DiaGraphComponent {
   constructor(
     private service: DiaGraphService
   ) {
-    this.graphElement = this.service.createGraphElement();
+    this.graphInstance = this.service.createGraph();
   }
 
   /**  JointNg Graph Object Instance */
-  graphElement: DiaGraphElement;
+  graphInstance: DiaGraph;
 
   /**
    * Trigger to add the Shapes to the Graph Instance
    */
   addShapes() {
-    this.shapes.graphElement = this.graphElement;
+    this.shapes.graphInstance = this.graphInstance;
   }
 
 }

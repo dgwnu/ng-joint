@@ -1,12 +1,10 @@
 import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../dia/dia-graph-element';
+import { DiaGraph, DiaElement, DiaLink } from '../dia';
 import {
   ShapePlugin,
   GenericShape,
   DiaShape,
-  ElementShape,
-  LinkShape,
   ElementShapeComponent,
   LinkShapeComponent
 } from './shapes';
@@ -26,27 +24,27 @@ export class ShapesService {
   /**
    * Activate Ng Joint JS Shape Plugins (Standard, Angular, ...)
    */
-  activateShapePlugins(shapePlugins: ShapePlugin[], graphElement: DiaGraphElement) {
+  activateShapePlugins(shapePlugins: ShapePlugin[], graphInstance: DiaGraph) {
     for (const shapePlugin of shapePlugins) {
-      if (shapePlugin) { shapePlugin.graphElement = graphElement; }
+      if (shapePlugin) { shapePlugin.graphInstance = graphInstance; }
     }
   }
 
   /**
    * Create Ng Joint Js Shapes (Elements and Links) for Declared Components
    */
-  createShapes(elements: QueryList<ElementShapeComponent>[], links: QueryList<LinkShapeComponent>[], graph: DiaGraphElement) {
+  createShapes(elements: QueryList<ElementShapeComponent>[], links: QueryList<LinkShapeComponent>[], graphInstance: DiaGraph) {
     // Firstly, create elements
     for (const element of elements) {
       element.forEach(elementShape => {
-        elementShape.createShape(graph);
+        elementShape.createShape(graphInstance);
       });
     }
     // Secondly, create links and connect them between the elements
     for (const link of links) {
       link.forEach(linkShape => {
         // create link shape
-        linkShape.createShape(graph);
+        linkShape.createShape(graphInstance);
 
         // connect link to elements
         for (const element of elements) {
@@ -54,13 +52,13 @@ export class ShapesService {
           // connect source element
           const source = element.find(elementShape => elementShape.id === linkShape.sourceId);
           if (source) {
-            linkShape.sourceShape = source.shape;
+            linkShape.sourceShape = source.shapeInstance;
           }
 
           // connect target element
           const target = element.find(elementShape => elementShape.id === linkShape.targetId);
           if (target) {
-            linkShape.targetShape = target.shape;
+            linkShape.targetShape = target.shapeInstance;
           }
 
         }
@@ -73,7 +71,7 @@ export class ShapesService {
    * @ignore
    */
   private _positionComponent(component: ElementShapeComponent) {
-    const shape = component.shape;
+    const shape = component.shapeInstance;
     const xShapeElement = shape.element.getBBox().x;
     const yShapeElement = shape.element.getBBox().y;
     const xChangeDetected = (component.x !== xShapeElement);
@@ -91,7 +89,7 @@ export class ShapesService {
    * @ignore
    */
   private _sizeComponent(component: ElementShapeComponent) {
-    const shape = component.shape;
+    const shape = component.shapeInstance;
     const widthShapeElement = shape.element.getBBox().width;
     const heightShapeElement = shape.element.getBBox().height;
     const widthChangeDetected = (component.width !== widthShapeElement);
@@ -113,7 +111,7 @@ export class ShapesService {
   onElementEvents(component: ElementShapeComponent) {
     // jointjs internal element event handling
     // bi-directional data changes
-    component.shape.element
+    component.shapeInstance.element
       .on('change:position', (context: any) => { this._positionComponent(component); })
       .on('change:size', (context: any) => { this._sizeComponent(component); })
     ;

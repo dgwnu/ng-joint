@@ -2,24 +2,24 @@ import { dia } from 'jointjs';
 
 import { Subject } from 'rxjs';
 
-import { ElementShape, LinkShape } from '../shapes/shapes';
+import { ElementShape, LinkShape } from '../../shapes/shapes';
 
 /**
  * JointNg Graph Class
  */
-export class DiaGraphElement {
+export class DiaGraph {
   /** jointjs graph object instance */
-  get graph(): dia.Graph {
-    return this._graph;
+  get jointjsObject(): dia.Graph {
+    return this._jointjsObject;
   }
 
   /** @ignore */
   constructor() {
-    this._graph = new dia.Graph();
+    this._jointjsObject = new dia.Graph();
   }
 
   /** @ignore */
-  private _graph: dia.Graph;
+  private _jointjsObject: dia.Graph;
 
   /** jointjs internal events subjects */
   jointEvent = new Subject<{
@@ -29,11 +29,11 @@ export class DiaGraphElement {
   }>();
 
   addElementShape(elementShape: ElementShape) {
-    elementShape.element.addTo(this._graph);
+    elementShape.element.addTo(this._jointjsObject);
   }
 
   addLinkShape(linkShape: LinkShape) {
-    linkShape.link.addTo(this._graph);
+    linkShape.link.addTo(this._jointjsObject);
   }
 
 }

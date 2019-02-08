@@ -1,6 +1,6 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/dia-graph-element';
+import { DiaGraphElement } from '../../../dia/graph/dia-graph';
 import { LinkShapeService } from '../../shapes';
 import { StandardLink } from './standard-link';
 import { ShapesStandardService } from '../shapes-standard.service';

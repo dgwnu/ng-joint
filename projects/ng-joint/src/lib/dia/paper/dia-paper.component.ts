@@ -3,9 +3,9 @@ import {
   ContentChild, AfterViewInit
 } from '@angular/core';
 
-import { DiaPaperElement } from './dia-paper-element';
+import { DiaPaper } from './dia-paper';
 import { DiaPaperService } from './dia-paper.service';
-import { DiaGraphComponent } from './dia-graph.component';
+import { DiaGraphComponent } from '../graph/dia-graph.component';
 
 /**
  * NgJoint Dia Graph Component
@@ -39,7 +39,7 @@ export class DiaPaperComponent implements AfterViewInit {
 
   constructor(private service: DiaPaperService, private el: ElementRef) { }
 
-  paperElement: DiaPaperElement;
+  paperInstance: DiaPaper;
 
   ngAfterViewInit() {
     // work around (for problem 1st call ngAfterContentInit attributes are not initialized!)
@@ -51,12 +51,12 @@ export class DiaPaperComponent implements AfterViewInit {
 
   private _createPaper() {
 
-    this.paperElement = this.service.createPaper({
+    this.paperInstance = this.service.createPaper({
       width: this.width,
       height: this.height,
       gridSize: this.gridSize,
       drawGrid: this.drawGrid,
-      model: this.graph.graphElement.graph,
+      model: this.graph.graphInstance.jointjsObject,
       el: this.diaPaperElRef.nativeElement
     });
 

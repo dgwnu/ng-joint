@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 
-import { DiaPaperService } from './dia-paper.service';
-import { DiaPaperComponent } from './dia-paper.component';
-import { DiaGraphService } from './dia-graph.service';
-import { DiaGraphComponent } from './dia-graph.component';
+import { DiaPaperModule } from './paper';
+import { DiaGraphModule } from './graph';
+import { DiaElementModule } from './element';
+import { DiaLinkModule } from './link';
 
 @NgModule({
-  declarations: [ DiaPaperComponent, DiaGraphComponent ],
-  providers: [ DiaPaperService, DiaGraphService ],
-  exports: [ DiaPaperComponent, DiaGraphComponent ],
+  imports: [ DiaPaperModule, DiaGraphModule, DiaElementModule, DiaLinkModule ],
+  exports: [ DiaPaperModule, DiaGraphModule, DiaElementModule, DiaLinkModule ],
 })
 export class DiaModule { }

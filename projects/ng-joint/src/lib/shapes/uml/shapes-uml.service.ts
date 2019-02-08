@@ -2,7 +2,7 @@ import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
 import { shapes } from 'jointjs';
 
-import { DiaGraphElement } from '../../dia/dia-graph-element';
+import { DiaGraphElement } from '../../dia/graph/dia-graph';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
 import { UmlNameType, GenericUmlClassShapeComponent } from './shapes-uml';

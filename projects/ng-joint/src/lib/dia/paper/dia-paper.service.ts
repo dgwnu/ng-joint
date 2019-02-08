@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { dia } from 'jointjs';
 
-import { DiaPaperElement } from './dia-paper-element';
+import { DiaPaper } from './dia-paper';
 import { DiaPaperComponent } from './dia-paper.component';
 
 /**
@@ -13,12 +13,8 @@ import { DiaPaperComponent } from './dia-paper.component';
 })
 export class DiaPaperService {
 
-  constructor() { }
-
-  private _paperArray: DiaPaperElement[] = [];
-
-  createPaper(options: dia.Paper.Options): DiaPaperElement {
-    return new DiaPaperElement(options);
+  createPaper(options: dia.Paper.Options): DiaPaper {
+    return new DiaPaper(options);
   }
 
   /**
@@ -26,9 +22,9 @@ export class DiaPaperService {
    * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Paper.events
    */
   onPaperEvents(component: DiaPaperComponent) {
-    component.paperElement.paper
+    component.paperInstance.jointjsObject
       .on('element:pointerclick', (context: any) => {
-        component.graph.graphElement.jointEvent.next(
+        component.graph.graphInstance.jointEvent.next(
           {
             cid: context.model.cid,
             eventSource: 'element',

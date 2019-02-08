@@ -1,6 +1,6 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/dia-graph-element';
+import { DiaGraphElement } from '../../../dia/graph/dia-graph';
 import { ElementShapeService } from '../../shapes';
 import { ShapesUmlService } from '../shapes-uml.service';
 import { UmlAbstract } from './uml-abstract';

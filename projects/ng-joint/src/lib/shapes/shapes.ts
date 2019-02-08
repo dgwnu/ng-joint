@@ -1,72 +1,22 @@
 import { OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 import { dia } from 'jointjs';
-import { DiaGraphElement } from '../dia/dia-graph-element';
-
-interface ElementParms<T> {
-    id: string;
-    options?: dia.Element.GenericAttributes<T>;
-}
-
-
-/**
- * Generic Element Shape Class
- */
-export abstract class ElementShape {
-    protected _id: string;
-    protected _element: dia.Element;
-
-    constructor(parms: ElementParms<dia.Element.Attributes>) {
-        this._id = parms.id;
-    }
-
-    get id(): string { return this._id; }
-    get element(): dia.Element { return this._element; }
-}
-
-interface LinkParms<T> {
-    id: string;
-    sourceId: string;
-    targetId: string;
-    options?: dia.Link.GenericAttributes<T>;
-}
-
-/**
- * Generic Link Shape Class
- */
-export abstract class LinkShape {
-    protected _id: string;
-    protected _sourceId: string;
-    protected _targetId: string;
-    protected _link: dia.Link;
-
-    constructor(parms: LinkParms<dia.Link.Attributes>) {
-        this._id = parms.id;
-        this._sourceId = parms.sourceId;
-        this._targetId = parms.targetId;
-    }
-
-    get id(): string { return this._id; }
-    get sourceId(): string { return this._sourceId; }
-    get targetId(): string { return this.targetId; }
-    get link(): dia.Link { return this._link; }
-}
-
+import { DiaGraph, DiaElement, DiaLink } from '../dia';
 
 /**
  * Shape Plugin Interface (group of shapes)
  */
 export interface ShapePlugin {
-    graphElement: DiaGraphElement;
+    graphInstance: DiaGraph;
 }
 
 /**
  * Generic Shape Type
  */
-export type GenericShape = ElementShape | LinkShape;
+export type GenericShape = DiaElement | DiaLink;
 
 /**
- * Generic Shape Type
+ * JointJs Dia Shape Type
  */
 export type DiaShape = dia.Link | dia.Element;
 
@@ -75,8 +25,8 @@ export type DiaShape = dia.Link | dia.Element;
  */
 export interface ShapeComponent {
     id: string;
-    shape: GenericShape;
-    createShape(graphElement: DiaGraphElement): void;
+    shapeInstance: GenericShape;
+    createShape(graphInstance: DiaGraph): void;
 }
 
 /**
@@ -87,8 +37,8 @@ export interface ElementShapeComponent extends ShapeComponent {
     y: number;
     width: number;
     height: number;
-    graph: DiaGraphElement;
-    shape: ElementShape;
+    graphInstance: DiaGraph;
+    shapeInstance: DiaElement;
     elementPointerClick: EventEmitter<string>;
     emitElementPointerClick(): void;
 }
@@ -98,9 +48,9 @@ export interface ElementShapeComponent extends ShapeComponent {
  */
 export interface ElementShapeService {
     createElementShape(
-        graphElement: DiaGraphElement,
+        graphInstance: DiaGraph,
         component: ElementShapeComponent
-      ): ElementShape;
+      ): DiaElement;
       onEvents(component: ElementShapeComponent): void;
       setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
 }
@@ -179,14 +129,14 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     }
 
     /** NgJoint Graph Element Instance */
-    graph: DiaGraphElement;
+    graphInstance: DiaGraph;
     /** NgJoint Shape Element Instance */
-    shape: ElementShape;
+    shapeInstance: DiaElement;
 
     /** Create Shape Element Instance and initialize event handlers */
-    createShape(graphElement: DiaGraphElement) {
-        this.graph =  graphElement;
-        this.shape = this.service.createElementShape(this.graph, this);
+    createShape(graphInstance: DiaGraph) {
+        this.graphInstance =  graphInstance;
+        this.shapeInstance = this.service.createElementShape(this.graphInstance, this);
         this.service.onEvents(this);
     }
 
@@ -209,9 +159,9 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
 export interface LinkShapeComponent extends ShapeComponent {
     sourceId: string;
     targetId: string;
-    sourceShape: ElementShape;
-    targetShape: ElementShape;
-    shape: LinkShape;
+    sourceShape: DiaElement;
+    targetShape: DiaElement;
+    shapeInstance: DiaLink;
 }
 
 /**
@@ -219,9 +169,9 @@ export interface LinkShapeComponent extends ShapeComponent {
  */
 export interface LinkShapeService {
     createLinkShape(
-        graphElement: DiaGraphElement,
+        graphInstance: DiaGraph,
         component: LinkShapeComponent
-      ): LinkShape;
+      ): DiaLink;
       onEvents(component: LinkShapeComponent): void;
       setChanges(changes: SimpleChanges, component: LinkShapeComponent): void;
 }
@@ -241,18 +191,18 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
 
     constructor(private service: LinkShapeService) {}
 
-    shape: LinkShape;
+    shapeInstance: DiaLink;
 
-    set sourceShape(source: ElementShape) {
-        this.shape.link.source(source.element);
+    set sourceShape(source: DiaElement) {
+        this.shapeInstance.link.source(source.jointjsObject);
       }
 
-    set targetShape(target: ElementShape) {
-        this.shape.link.target(target.element);
+    set targetShape(target: DiaElement) {
+        this.shapeInstance.link.target(target.jointjsObject);
     }
 
-    createShape(graphElement: DiaGraphElement) {
-        this.shape = this.service.createLinkShape(graphElement, this);
+    createShape(graphInstance: DiaGraph) {
+        this.shapeInstance = this.service.createLinkShape(graphInstance, this);
         this.service.onEvents(this);
     }
 

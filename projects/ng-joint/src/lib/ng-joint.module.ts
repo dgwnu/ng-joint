@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import {  NgJointService } from './ng-joint.service';
-import { DiaModule } from './dia/dia.module';
+import { DiaModule } from './dia';
 import { ShapesModule } from './shapes/shapes.module';
 
 @NgModule({
