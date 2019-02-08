@@ -19,7 +19,7 @@ export class UmlAggregationService implements LinkShapeService {
       component.sourceId,
       component.targetId
     );
-    graphInstance.addLinkShape(aggregationShape);
+    graphInstance.addLink(aggregationShape);
     return aggregationShape;
   }
 

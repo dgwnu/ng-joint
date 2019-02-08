@@ -11,11 +11,7 @@ export class UmlImplementation extends UmlLinkShape {
     ) {
         const diaLinkAttributes =  { id: id, sourceId: sourceId, targetId: targetId, options };
         super(diaLinkAttributes);
-        this._link = new shapes.uml.Implementation(diaLinkAttributes);
-    }
-
-    get umlImplementation(): shapes.uml.Implementation {
-        return this._link;
+        this._jointjsObject = new shapes.uml.Implementation(diaLinkAttributes);
     }
 
 }

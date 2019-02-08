@@ -1,6 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
-import { DiaGraphElement } from '../../dia/graph/dia-graph';
+import { DiaGraph } from '../../dia';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
 import { ShapesUmlService } from './shapes-uml.service';
 import { UmlAbstractComponent, NgJointUmlAbstract } from './abstract/uml-abstract.component';
@@ -28,14 +28,14 @@ export class ShapesUmlComponent implements ShapePlugin {
 
   constructor(private service: ShapesUmlService) { }
 
-  private _graphElement: DiaGraphElement;
+  private _graphInstance: DiaGraph;
 
-  set graphElement(value: DiaGraphElement) {
-    this._graphElement = value;
+  set graphInstance(graphInstance: DiaGraph) {
+    this._graphInstance = graphInstance;
     this.service.createShapes(
       [this.umlAbstract, this.umlClass, this.umlInterface],
       [this.umlAggregation, this.umlComposition, this.umlGeneralization, this.umlImplementation],
-      this._graphElement
+      this._graphInstance
       );
   }
 

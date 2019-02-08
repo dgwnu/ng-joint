@@ -1,6 +1,6 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/graph/dia-graph';
+import { DiaGraph } from '../../../dia';
 import { LinkShapeService } from '../../shapes';
 import { UmlComposition } from './uml-composition';
 import { ShapesUmlService } from '../shapes-uml.service';
@@ -13,13 +13,13 @@ export class UmlCompositionService implements LinkShapeService {
 
   constructor(private service: ShapesUmlService) { }
 
-  createLinkShape(graphElement: DiaGraphElement, component: UmlCompositionComponent): UmlComposition {
+  createLinkShape(graphInstance: DiaGraph, component: UmlCompositionComponent): UmlComposition {
     const compositionShape = new UmlComposition(
       component.id,
       component.sourceId,
       component.targetId
     );
-    graphElement.addLinkShape(compositionShape);
+    graphInstance.addLink(compositionShape);
     return compositionShape;
   }
 

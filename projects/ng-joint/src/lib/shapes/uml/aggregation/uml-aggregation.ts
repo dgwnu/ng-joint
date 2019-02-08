@@ -11,11 +11,7 @@ export class UmlAggregation extends UmlLinkShape {
     ) {
         const diaLinkAttributes =  { id: id, sourceId: sourceId, targetId: targetId, options };
         super(diaLinkAttributes);
-        this._link = new shapes.uml.Aggregation(diaLinkAttributes);
-    }
-
-    get umlAggregation(): shapes.uml.Aggregation {
-        return this._link;
+        this._jointjsObject = new shapes.uml.Aggregation(diaLinkAttributes);
     }
 
 }

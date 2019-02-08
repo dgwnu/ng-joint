@@ -7,16 +7,16 @@ import { Input } from '@angular/core';
 
 import { shapes, attributes } from 'jointjs';
 
+import { DiaElement, DiaLink } from '../../dia';
+
 import {
-    ElementShape,
-    LinkShape,
     NgJointElement,
     NgJointLink, 
     GenericElementShapeComponent,
     GenericLinkShapeComponent
 } from '../shapes';
 
-export abstract class UmlElementShape extends ElementShape {
+export abstract class UmlElementShape extends DiaElement {
 
     constructor(id: string, options?: shapes.uml.ClassAttributes, extraOptions?: { [key: string]: any; }) {
         super({id: id, options });
@@ -24,7 +24,7 @@ export abstract class UmlElementShape extends ElementShape {
 
 }
 
-export abstract class UmlLinkShape extends LinkShape {
+export abstract class UmlLinkShape extends DiaLink {
 
 }
 

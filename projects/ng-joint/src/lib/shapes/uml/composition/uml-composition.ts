@@ -11,11 +11,7 @@ export class UmlComposition extends UmlLinkShape {
     ) {
         const diaLinkAttributes =  { id: id, sourceId: sourceId, targetId: targetId, options };
         super(diaLinkAttributes);
-        this._link = new shapes.uml.Composition(diaLinkAttributes);
-    }
-
-    get umlComposition(): shapes.uml.Composition {
-        return this._link;
+        this._jointjsObject = new shapes.uml.Composition(diaLinkAttributes);
     }
 
 }

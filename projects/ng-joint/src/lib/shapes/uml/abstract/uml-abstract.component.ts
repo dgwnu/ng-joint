@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import {GenericUmlClassShapeComponent } from '../shapes-uml';
+import { GenericUmlClassShapeComponent } from '../shapes-uml';
 import { UmlAbstractService } from './uml-abstract.service';
 import { UmlAbstract } from './uml-abstract';
 

@@ -1,6 +1,6 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/graph/dia-graph';
+import { DiaGraph } from '../../../dia';
 import { ElementShapeService } from '../../shapes';
 import { ShapesUmlService } from '../shapes-uml.service';
 import { UmlInterface } from './uml-interface';
@@ -13,9 +13,9 @@ export class UmlInterfaceService implements ElementShapeService {
 
   constructor(private service: ShapesUmlService) { }
 
-  createElementShape(graphElement: DiaGraphElement, component: UmlInterfaceComponent): UmlInterface {
+  createElementShape(graphInstance: DiaGraph, component: UmlInterfaceComponent): UmlInterface {
     const interfaceShape = new UmlInterface(component.id, this.service.umlClassAttributes(component));
-    graphElement.addElementShape(interfaceShape);
+    graphInstance.addElement(interfaceShape);
     return interfaceShape;
   }
 

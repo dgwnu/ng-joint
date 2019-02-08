@@ -1,6 +1,6 @@
 import { Injectable, SimpleChanges,  } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/graph/dia-graph';
+import { DiaGraph } from '../../../dia';
 import { ElementShapeService } from '../../shapes';
 import { ShapesStandardService } from '../shapes-standard.service';
 import { StandardRectangle } from './standard-rectangle';
@@ -14,7 +14,7 @@ export class StandardRectangleService implements ElementShapeService {
   constructor(private service: ShapesStandardService) {}
 
   createElementShape(
-    graphElement: DiaGraphElement,
+    graphInstance: DiaGraph,
     component: StandardRectangleComponent
   ): StandardRectangle {
     const rectangleShape = new StandardRectangle(
@@ -29,7 +29,7 @@ export class StandardRectangleService implements ElementShapeService {
         }
       }
     );
-    graphElement.addElementShape(rectangleShape);
+    graphInstance.addElement(rectangleShape);
     return rectangleShape;
   }
 

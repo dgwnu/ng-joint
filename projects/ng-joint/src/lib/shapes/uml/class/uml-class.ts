@@ -8,7 +8,7 @@ export class UmlClass extends UmlElementShape {
 
     constructor(id: string, options?: shapes.uml.ClassAttributes, extraOptions?: { [key: string]: any; }) {
         super(id, options, extraOptions);
-        this._element = new shapes.uml.Class(options, extraOptions);
+        this._jointjsObject = new shapes.uml.Class(options, extraOptions);
     }
 
 }

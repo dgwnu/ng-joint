@@ -1,6 +1,6 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../../../dia/graph/dia-graph';
+import { DiaGraph } from '../../../dia';
 import { ElementShapeService } from '../../shapes';
 import { ShapesUmlService } from '../shapes-uml.service';
 import { UmlAbstract } from './uml-abstract';
@@ -13,9 +13,9 @@ export class UmlAbstractService implements ElementShapeService {
 
   constructor(private service: ShapesUmlService) { }
 
-  createElementShape(graphElement: DiaGraphElement, component: UmlAbstractComponent): UmlAbstract {
+  createElementShape(graphInstance: DiaGraph, component: UmlAbstractComponent): UmlAbstract {
     const abstractShape = new UmlAbstract(component.id, this.service.umlClassAttributes(component));
-    graphElement.addElementShape(abstractShape);
+    graphInstance.addElement(abstractShape);
     return abstractShape;
   }
 

@@ -11,11 +11,7 @@ export class UmlGeneralization extends UmlLinkShape {
     ) {
         const diaLinkAttributes =  { id: id, sourceId: sourceId, targetId: targetId, options };
         super(diaLinkAttributes);
-        this._link = new shapes.uml.Generalization(diaLinkAttributes);
-    }
-
-    get umlGeneralization(): shapes.uml.Generalization {
-        return this._link;
+        this._jointjsObject = new shapes.uml.Generalization(diaLinkAttributes);
     }
 
 }
