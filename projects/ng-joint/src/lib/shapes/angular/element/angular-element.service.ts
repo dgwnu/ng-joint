@@ -69,13 +69,14 @@ export class AngularElementService implements ElementShapeService {
 
   // initialize initial component position and size
   private _initComponent(component: AngularElementComponent) {
-    const elementNode = component.shape.ngNode;
+    console.log('_initComponent', component);
+    const elementNode = component.shapeInstance.ngNode;
     this._positionNgElement(elementNode, component.x, component.y);
     this._sizeNgElement(elementNode, component.width, component.height);
   }
 
   private _positionComponent(component: AngularElementComponent) {
-    const shape = component.shape;
+    const shape = component.shapeInstance;
     const xShapeElement = shape.jointjsObject.getBBox().x;
     const yShapeElement = shape.jointjsObject.getBBox().y;
     const xChangeDetected = (component.x !== xShapeElement);
@@ -94,7 +95,7 @@ export class AngularElementService implements ElementShapeService {
   }
 
   private _resizeComponent(component: AngularElementComponent) {
-    const shape = component.shape;
+    const shape = component.shapeInstance;
     const widthShapeElement = shape.jointjsObject.getBBox().width;
     const heightShapeElement = shape.jointjsObject.getBBox().height;
     const widthChangeDetected = (component.width !== widthShapeElement);
@@ -117,7 +118,7 @@ export class AngularElementService implements ElementShapeService {
 
     this._initComponent(component);
 
-    component.shape.jointjsObject
+    component.shapeInstance.jointjsObject
       .on('change:position', (context: any) => {
         this._positionComponent(component);
     })
@@ -128,7 +129,7 @@ export class AngularElementService implements ElementShapeService {
   }
 
   setChanges(changes: SimpleChanges, component: AngularElementComponent) {
-    const shape = component.shape;
+    const shape = component.shapeInstance;
     if (!shape) { return; } // first time changes is before shape is created
 
     const bbox = shape.jointjsObject.getBBox();

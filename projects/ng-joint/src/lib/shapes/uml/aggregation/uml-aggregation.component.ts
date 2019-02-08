@@ -17,7 +17,7 @@ export class UmlAggregationComponent extends GenericUmlLinkShapeComponent {
     super(umlAggregationService);
   }
 
-  shape: UmlAggregation;
+  shapeInstance: UmlAggregation;
 
 }
 

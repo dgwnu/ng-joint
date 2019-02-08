@@ -63,7 +63,7 @@ export class StandardLinkComponent extends GenericStandardLinkShapeComponent {
     super(standardLinkService);
   }
 
-  shape: StandardLink;
+  shapeInstance: StandardLink;
 
 }
 

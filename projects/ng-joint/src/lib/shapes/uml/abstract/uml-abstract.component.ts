@@ -16,7 +16,7 @@ export class UmlAbstractComponent extends GenericUmlClassShapeComponent {
     super(umlAbstractService);
   }
 
-  shape: UmlAbstract;
+  shapeInstance: UmlAbstract;
 
 }
 

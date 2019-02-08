@@ -20,7 +20,7 @@ export class StandardRectangleComponent extends GenericStandardElementShapeCompo
     super(standardRectangleService);
   }
 
-  shape: StandardRectangle;
+  shapeInstance: StandardRectangle;
 
 }
 

@@ -17,7 +17,7 @@ export class UmlGeneralizationComponent extends GenericUmlLinkShapeComponent {
     super(umlGeneralizationService);
   }
 
-  shape: UmlGeneralization;
+  shapeInstance: UmlGeneralization;
 
 }
 

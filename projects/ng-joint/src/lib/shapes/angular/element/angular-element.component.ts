@@ -32,7 +32,7 @@ export class AngularElementComponent extends GenericElementShapeComponent {
     super(angularElementService);
   }
 
-  shape: AngularElement;
+  shapeInstance: AngularElement;
 
 }
 

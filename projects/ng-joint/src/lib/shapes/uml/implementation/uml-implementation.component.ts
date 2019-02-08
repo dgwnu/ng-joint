@@ -17,7 +17,7 @@ export class UmlImplementationComponent extends GenericUmlLinkShapeComponent {
     super(umlImplementationService);
   }
 
-  shape: UmlImplementation;
+  shapeInstance: UmlImplementation;
 
 }
 
