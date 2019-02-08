@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import {
-    MatTabsModule,
-    MatToolbarModule,
-    MatButtonModule
+    MatCardModule,
+    MatTreeModule,
+    MatIconModule
 } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const matModules = [
-    MatTabsModule,
-    MatToolbarModule,
-    MatButtonModule
+    MatCardModule,
+    MatTreeModule,
+    MatIconModule
 ];
 
 @NgModule({

@@ -1,0 +1,24 @@
+.example-container {
+    margin: 10px;
+    border: 1px solid #555;
+}
+
+.example-tree-invisible {
+    display: none;
+  }
+  
+  .example-tree ul,
+  .example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+
+  .example-sidenav-content {
+    flex-wrap: initial;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: left;
+    justify-content: top;
+  }
