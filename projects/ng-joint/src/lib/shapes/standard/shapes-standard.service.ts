@@ -1,6 +1,6 @@
 import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
-import { DiaGraph } from '../../dia';
+import { DiaGraph } from '../../dia/graph';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
 

@@ -1,6 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
-import { DiaGraph } from '../../dia';
+import { DiaGraph } from '../../dia/graph';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
 import { ShapesUmlService } from './shapes-uml.service';
 import { UmlAbstractComponent, NgJointUmlAbstract } from './abstract/uml-abstract.component';

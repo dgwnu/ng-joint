@@ -1,6 +1,6 @@
 import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
-import { DiaGraph, DiaElement, DiaLink } from '../dia';
+import { DiaGraph } from '../dia/graph';
 import {
   ShapePlugin,
   GenericShape,

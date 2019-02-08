@@ -1,6 +1,6 @@
 import { Injectable, Renderer2, RendererFactory2, SimpleChanges } from '@angular/core';
 
-import { DiaGraph } from '../../../dia';
+import { DiaGraph } from '../../../dia/graph';
 import { ElementShapeService } from '../../shapes';
 import { ShapesAngularService } from '../shapes-angular.service';
 import { AngularElement } from './angular-element';

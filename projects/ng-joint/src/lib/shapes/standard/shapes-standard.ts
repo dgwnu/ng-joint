@@ -6,7 +6,8 @@ import { Input } from '@angular/core';
 
 import { attributes } from 'jointjs';
 
-import { DiaElement, DiaLink } from '../../dia';
+import { DiaElement } from '../../dia/element';
+import { DiaLink } from '../../dia/link';
 
 import {
     NgJointElement,

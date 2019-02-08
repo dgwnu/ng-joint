@@ -1,6 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
-import { DiaGraph } from '../../dia';
+import { DiaGraph } from '../../dia/graph';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
 import { ShapesStandardService } from './shapes-standard.service';
 import { StandardRectangleComponent, NgJointStandardRectangle } from './rectangle/standard-rectangle.component';

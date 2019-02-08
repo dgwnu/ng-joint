@@ -1,6 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
-import { DiaGraph } from '../../dia';
+import { DiaGraph } from '../../dia/graph';
 import { ShapePlugin, ElementShapeComponent } from '../shapes';
 import { ShapesAngularService } from './shapes-angular.service';
 import { AngularElementComponent, NgJointAngularElement } from './element/angular-element.component';

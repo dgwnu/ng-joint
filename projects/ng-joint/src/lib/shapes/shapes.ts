@@ -1,7 +1,9 @@
 import { OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 import { dia } from 'jointjs';
-import { DiaGraph, DiaElement, DiaLink } from '../dia';
+import { DiaGraph } from '../dia/graph';
+import { DiaElement } from '../dia/element';
+import { DiaLink } from '../dia/link';
 
 /**
  * Shape Plugin Interface (group of shapes)

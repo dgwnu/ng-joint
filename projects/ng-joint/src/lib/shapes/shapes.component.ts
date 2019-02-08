@@ -1,6 +1,6 @@
 import { Component, ContentChild } from '@angular/core';
 
-import { DiaGraph } from '../dia';
+import { DiaGraph } from '../dia/graph';
 import { ShapePlugin } from './shapes';
 import { ShapesService } from './shapes.service';
 import { ShapesStandardComponent } from './standard/shapes-standard.component';
