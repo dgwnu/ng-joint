@@ -35,8 +35,8 @@ const TREE_DATA: ExampleNode[] = [
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   title = 'ng-jointjs';
+  
   treeControl = new NestedTreeControl<ExampleNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<ExampleNode>();
   paperWidth: number;

@@ -12,6 +12,3 @@ export class AngularTemplateOnlyComponent {
   }
 
 }
-
-
-//     [height]="600"
