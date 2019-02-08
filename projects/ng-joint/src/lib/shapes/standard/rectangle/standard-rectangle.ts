@@ -8,7 +8,7 @@ export class StandardRectangle extends StandardElementShape {
 
     constructor(id: string, options?: dia.Element.GenericAttributes<shapes.standard.RectangleSelectors>) {
         super({id: id, options });
-        this._element = new shapes.standard.Rectangle(options);
+        this._jointjsObject = new shapes.standard.Rectangle(options);
     }
 
 }
