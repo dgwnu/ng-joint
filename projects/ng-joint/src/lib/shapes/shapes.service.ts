@@ -72,8 +72,8 @@ export class ShapesService {
    */
   private _positionComponent(component: ElementShapeComponent) {
     const shape = component.shapeInstance;
-    const xShapeElement = shape.element.getBBox().x;
-    const yShapeElement = shape.element.getBBox().y;
+    const xShapeElement = shape.jointjsObject.getBBox().x;
+    const yShapeElement = shape.jointjsObject.getBBox().y;
     const xChangeDetected = (component.x !== xShapeElement);
     const yChangedDetected = (component.y !== yShapeElement);
 
@@ -90,8 +90,8 @@ export class ShapesService {
    */
   private _sizeComponent(component: ElementShapeComponent) {
     const shape = component.shapeInstance;
-    const widthShapeElement = shape.element.getBBox().width;
-    const heightShapeElement = shape.element.getBBox().height;
+    const widthShapeElement = shape.jointjsObject.getBBox().width;
+    const heightShapeElement = shape.jointjsObject.getBBox().height;
     const widthChangeDetected = (component.width !== widthShapeElement);
     const heightChangedDetected = (component.height !== heightShapeElement);
 
@@ -111,18 +111,18 @@ export class ShapesService {
   onElementEvents(component: ElementShapeComponent) {
     // jointjs internal element event handling
     // bi-directional data changes
-    component.shapeInstance.element
+    component.shapeInstance.jointjsObject
       .on('change:position', (context: any) => { this._positionComponent(component); })
       .on('change:size', (context: any) => { this._sizeComponent(component); })
     ;
 
     // jointjs internal paper event handling
     // emit events on element level to seperate event-sources (element instances)
-    component.graph.jointEvent.subscribe(
+    component.graphInstance.jointEvent.subscribe(
       event => {
         if (event.eventSource === 'element') {
           if (event.eventType === 'pointerclick') {
-            if ((event.cid === component.shape.element.cid)) {
+            if ((event.cid === component.shapeInstance.jointjsObject.cid)) {
               component.elementPointerClick.emit(event.cid);
             }
           }
@@ -137,7 +137,7 @@ export class ShapesService {
    * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Link.events
    */
   onLinkEvents(component: LinkShapeComponent) {
-    component.shape.link
+    component.shapeInstance.jointjsObject
       .on('change:source', (context: any) => { /* console.log('change:source', context); */ })
       .on('change:target', (context: any) => { /* console.log('change:target', context); */ })
     ;
@@ -160,14 +160,7 @@ export class ShapesService {
    * @ignore
    */
   private _setAttrChanges(changes: SimpleChanges, shape: GenericShape) {
-    let diaShape: DiaShape;
-
-    if (shape instanceof ElementShape) {
-      diaShape = shape.element;
-    } else {
-      diaShape = shape.link;
-    }
-
+    const diaShape: DiaShape = shape.jointjsObject;
     const attrs = diaShape.attributes['attrs'];
 
     for (const prop in changes) {
@@ -191,10 +184,10 @@ export class ShapesService {
    * @comment To provide bi-directional functionality for position, size and attrs
    */
   setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
-    const shape = component.shape;
+    const shape = component.shapeInstance;
     if (!shape) { return; } // first time changes is before shape is created
-    const bbox = shape.element.getBBox();
-    const element = component.shape.element;
+    const bbox = shape.jointjsObject.getBBox();
+    const element = shape.jointjsObject;
 
     // detect position change
     let positionChangeDetected = false;
@@ -223,7 +216,7 @@ export class ShapesService {
     }
 
     // process attrs changes
-    this._setAttrChanges(changes, component.shape);
+    this._setAttrChanges(changes, shape);
 
   }
 
@@ -233,12 +226,12 @@ export class ShapesService {
    * @comment To provide bi-directional functionality for attrs
    */
   setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {
-    const shape = component.shape;
+    const shape = component.shapeInstance;
     if (!shape) { return; } // first time changes is before shape is created
-    const link = component.shape.link;
+    const link = shape.jointjsObject;
 
     // process attrs changes
-    this._setAttrChanges(changes, component.shape);
+    this._setAttrChanges(changes, shape);
 
   }
 

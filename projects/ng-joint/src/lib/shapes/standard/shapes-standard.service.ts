@@ -1,6 +1,6 @@
 import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
-import { DiaGraphElement } from '../../dia/graph/dia-graph';
+import { DiaGraph } from '../../dia';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
 
@@ -11,8 +11,8 @@ export class ShapesStandardService {
 
   constructor(private service: ShapesService) { }
 
-  createShapes(elements: QueryList<ElementShapeComponent>[], links: QueryList<LinkShapeComponent>[], graph: DiaGraphElement) {
-    this.service.createShapes(elements, links, graph);
+  createShapes(elements: QueryList<ElementShapeComponent>[], links: QueryList<LinkShapeComponent>[], graphInstance: DiaGraph) {
+    this.service.createShapes(elements, links, graphInstance);
   }
 
   onElementEvents(component: ElementShapeComponent) {
