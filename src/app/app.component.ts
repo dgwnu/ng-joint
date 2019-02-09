@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
@@ -9,22 +9,22 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
  */
 interface ExampleNode {
   name: string;
-  route: string;
+  route: string[];
   children?: ExampleNode[];
 }
 
 const TREE_DATA: ExampleNode[] = [
   {
     name: 'Shapes Angular Examples',
-    route: 'shapes-angular-examples',
+    route: ['shapes-angular-examples'],
     children: [
       {
         name: 'Angular template only',
-        route: 'shapes-angular-examples/angular-template-only'
+        route: ['shapes-angular-examples', 'angular-template-only']
       },
       {
         name: 'Angular bi-directional bind',
-        route: 'shapes-angular-examples/angular-bi-dir-bind'
+        route: ['shapes-angular-examples', 'angular-bi-dir-bind']
       }
     ]
   }
@@ -37,20 +37,22 @@ const TREE_DATA: ExampleNode[] = [
 })
 export class AppComponent {
   title = 'ng-jointjs';
+  isTreeNode = true;
+  selectedExampleNode = TREE_DATA[0];
 
   treeControl = new NestedTreeControl<ExampleNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<ExampleNode>();
-  paperWidth: number;
-  paperHeight: number;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.dataSource.data = TREE_DATA;
+    this.routeTreeNode(this.selectedExampleNode);
   }
 
   hasChild = (_: number, node: ExampleNode) => !!node.children && node.children.length > 0;
 
   /** Route Navigivation to Example */
-  onExampleNodeClicked(exampleNode: ExampleNode) {
-    this.router.navigate([exampleNode.route]);
+  routeTreeNode(exampleNode: ExampleNode) {
+    this.router.navigate(exampleNode.route);
+    this.selectedExampleNode = exampleNode;
   }
 }

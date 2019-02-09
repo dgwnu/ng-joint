@@ -6,9 +6,20 @@ import { AngularTemplateOnlyComponent } from './angular-template-only/angular-te
 import { AngularBiDirBindComponent } from './angular-bi-dir-bind/angular-bi-dir-bind.component';
 
 export const shapeAngularExamplesModuleRoutes: Routes = [
-  { path: 'shapes-angular-examples', component: ShapesAngularExamplesComponent },
-  { path: 'shapes-angular-examples/angular-template-only', component: AngularTemplateOnlyComponent },
-  { path: 'shapes-angular-examples/angular-bi-dir-bind', component: AngularBiDirBindComponent }
+  {
+    path: 'shapes-angular-examples',
+    component: ShapesAngularExamplesComponent,
+    children: [
+      {
+        path: 'angular-template-only',
+        component: AngularTemplateOnlyComponent 
+      },
+      {
+        path: 'angular-bi-dir-bind',
+        component: AngularBiDirBindComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({
