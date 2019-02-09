@@ -3,7 +3,7 @@ import { Component, ContentChildren, QueryList } from '@angular/core';
 import { DiaGraph } from '../../dia/graph';
 import { ShapePlugin, ElementShapeComponent } from '../shapes';
 import { ShapesAngularService } from './shapes-angular.service';
-import { AngularElementComponent, NgJointAngularElement } from './element/angular-element.component';
+import { AngularElementComponent, NgJointAngularElement } from './element';
 
 /**
  * NgJoint Shapes Angular Component
@@ -56,6 +56,4 @@ export class ShapesAngularComponent implements ShapePlugin {
 
 }
 
-export {
-  AngularElementComponent, NgJointAngularElement
-};
+export { AngularElementComponent, NgJointAngularElement };

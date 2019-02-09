@@ -44,7 +44,6 @@ export class AppComponent {
 
   constructor(private router: Router) {
     this.dataSource.data = TREE_DATA;
-    this.routeTreeNode(this.selectedExampleNode);
   }
 
   hasChild = (_: number, node: ExampleNode) => !!node.children && node.children.length > 0;

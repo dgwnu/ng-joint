@@ -21,5 +21,5 @@ export * from './shapes/uml/shapes-uml.module';
 /**
  * Angular Shapes API (to support Angular based Components and Directives inside jointjs)
  */
-export * from './shapes/angular/shapes-angular.component';
-export * from './shapes/angular/shapes-angular.module';
+export * from './shapes/angular';
+

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { ShapesAngularService } from './shapes-angular.service';
 import { ShapesAngularComponent } from './shapes-angular.component';
-import { AngularElementModule } from './element/angular-element.module';
+import { AngularElementModule } from './element';
 
 @NgModule({
   providers: [ ShapesAngularService ],
