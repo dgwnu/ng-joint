@@ -1,0 +1,9 @@
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ng-joint-app-primary: mat-palette($mat-indigo);
+$ng-joint-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$ng-joint-app-warn: mat-palette($mat-blue); // The warn palette is optional (defaults to red).
+
+// Create the theme object (a Sass map containing all of the palettes).
+$ng-joint-app-theme: mat-light-theme($ng-joint-app-primary, $ng-joint-app-accent, $ng-joint-app-warn);
