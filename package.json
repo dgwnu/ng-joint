@@ -9,8 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:app": "npm run compodoc && npm run build:app && npm run publish:gh-pages",
-    "compodoc": "compodoc",
+    "deploy:app": "npm run build:app && npm run publish:gh-pages",
     "build:app": "ng build --base-href \"https://dgwnu.github.io/ng-joint/\"",
     "publish:gh-pages": "ngh -d dist/ng-joint-app --repo https://github.com/dgwnu/ng-joint.git --no-silent"
   },
@@ -44,7 +43,6 @@
     "@angular/cli": "~7.2.3",
     "@angular/compiler-cli": "~7.2.2",
     "@angular/language-service": "~7.2.2",
-    "@schematics/angular": "^7.3.0",
     "@types/backbone": "^1.3.45",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
