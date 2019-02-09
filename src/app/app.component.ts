@@ -37,13 +37,12 @@ const TREE_DATA: ExampleNode[] = [
 })
 export class AppComponent {
   title = 'ng-jointjs';
-  isTreeNode = true;
   selectedExampleNode = TREE_DATA[0];
 
   treeControl = new NestedTreeControl<ExampleNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<ExampleNode>();
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router) {
     this.dataSource.data = TREE_DATA;
     this.routeTreeNode(this.selectedExampleNode);
   }
