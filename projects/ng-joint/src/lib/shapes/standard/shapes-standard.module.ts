@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 
 import { ShapesStandardService } from './shapes-standard.service';
 import { ShapesStandardComponent } from './shapes-standard.component';
-import { StandardRectangleModule } from './rectangle/standard-rectangle.module';
-import { StandardLinkModule } from './link/standard-link.module';
+import { StandardRectangleModule } from './rectangle';
+import { StandardLinkModule } from './link';
 
 @NgModule({
   providers: [ ShapesStandardService ],

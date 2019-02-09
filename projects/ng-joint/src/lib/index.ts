@@ -10,8 +10,7 @@ export * from './ng-joint.module';
 /**
  * Standard Shapes API (to support jointjs Package Standard Plugin)
  */
-export * from './shapes/standard/shapes-standard.component';
-export * from './shapes/standard/shapes-standard.module';
+export * from './shapes/standard';
 
 /**
  * UML Shapes API (to support jointjs Package UML Plugin)

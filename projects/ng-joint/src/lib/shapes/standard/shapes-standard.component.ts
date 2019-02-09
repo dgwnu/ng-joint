@@ -3,8 +3,8 @@ import { Component, ContentChildren, QueryList } from '@angular/core';
 import { DiaGraph } from '../../dia/graph';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
 import { ShapesStandardService } from './shapes-standard.service';
-import { StandardRectangleComponent, NgJointStandardRectangle } from './rectangle/standard-rectangle.component';
-import { StandardLinkComponent, NgJointStandardLink } from './link/standard-link.component';
+import { StandardRectangleComponent, NgJointStandardRectangle } from './rectangle';
+import { StandardLinkComponent, NgJointStandardLink } from './link';
 
 /**
  * NgJoint Shapes Standard Component
