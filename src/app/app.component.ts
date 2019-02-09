@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {NestedTreeControl} from '@angular/cdk/tree';
-import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { Router } from '@angular/router';
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 /**
  * Example data with nested structure.
@@ -42,10 +43,14 @@ export class AppComponent {
   paperWidth: number;
   paperHeight: number;
 
-  constructor() {
+  constructor(private router: Router) {
     this.dataSource.data = TREE_DATA;
   }
 
   hasChild = (_: number, node: ExampleNode) => !!node.children && node.children.length > 0;
 
+  /** Route Navigivation to Example */
+  onExampleNodeClicked(exampleNode: ExampleNode) {
+    this.router.navigate([exampleNode.route]);
+  }
 }
