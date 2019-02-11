@@ -2,12 +2,14 @@ import { Component, ContentChildren, QueryList } from '@angular/core';
 
 import { DiaGraph } from '../../dia/graph';
 import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
-import { ShapesStandardService } from './shapes-standard.service';
+import { ShapesStandardService } from './shapes-standardv2.service';
 
 // To-Do-Schematics
 // 1 - update existing shapes component with standard shape element and links imports
 // 2 - add standard shape or link as @ContentChildren
-// 2 - add to this.service.createShapes(parms) in set graphInstance(..)
+// 3 - add to this.service.createShapes(parms) in set graphInstance(..)
+// 4 - add NgJoint.. interface exports (with additional @Input props..)
+//
 // import { StandardRectangleComponent, NgJointStandardRectangle } from './rectangle';
 // import { StandardLinkComponent, NgJointStandardLink } from './link';
 

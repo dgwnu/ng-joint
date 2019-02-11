@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
-import { ShapesStandardService } from './shapes-standard.service';
-import { ShapesStandardComponent } from './shapes-standard.component';
+import { ShapesStandardService } from './shapes-standardv2.service';
+import { ShapesStandardComponent } from './shapes-standardv2.component';
 // To-Do-Schematics
 // 1 - update standard shape element and links module imports
 // 2 - add standard shape or link module in imports and exports list

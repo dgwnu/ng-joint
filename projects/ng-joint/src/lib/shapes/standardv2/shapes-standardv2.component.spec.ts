@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShapesStandardComponent } from './shapes-standard.component';
+import { ShapesStandardComponent } from './shapes-standardv2.component';
 
 describe('ShapesStandardComponent', () => {
   let component: ShapesStandardComponent;

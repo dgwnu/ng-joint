@@ -1,2 +1,2 @@
-export * from './shapes-standard.component';
-export * from './shapes-standard.module';
+export * from './shapes-standardv2.component';
+export * from './shapes-standardv2.module';
