@@ -8,17 +8,15 @@
                     }
                 }
             },
-            "elements": [
-                {
-                    "circle": {
-                        "properties": {
-                            "attrs": {
-                                "body": "SVGPathElement"
-                            }
+            "elements": {
+                "circle": {
+                    "properties": {
+                        "attrs": {
+                            "body": "SVGPathElement"
                         }
                     }
                 }
-            ],
+            },
             "links": [
 
             ]
