@@ -1,0 +1,27 @@
+{
+    "shapes" : {
+        "standard": {
+            "generic": {
+                "properties": {
+                    "attrs": {
+                        "root": "SVGGElement"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "circle": {
+                        "properties": {
+                            "attrs": {
+                                "body": "SVGPathElement"
+                            }
+                        }
+                    }
+                }
+            ],
+            "links": [
+
+            ]
+        }
+    }
+}
