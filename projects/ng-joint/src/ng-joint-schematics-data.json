@@ -12,7 +12,7 @@
                 "circle": {
                     "properties": {
                         "attrs": {
-                            "body": "SVGPathElement"
+                            "body": "SVGPathAttributes"
                         }
                     }
                 }
