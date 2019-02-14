@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
 import { ShapesAngularExamplesModule } from './shapes-angular-examples';
+import { HelloWorldDemoModule } from './hello-world-demo';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     FlexLayoutModule,
     AppMaterialModule,
+    HelloWorldDemoModule, 
     ShapesAngularExamplesModule,
     AppRoutingModule
   ],
