@@ -1,6 +1,6 @@
 import { OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
-import { dia } from 'jointjs';
+import { dia, attributes } from 'jointjs';
 import { DiaGraph } from '../dia/graph';
 import { DiaElement } from '../dia/element';
 import { DiaLink } from '../dia/link';
@@ -235,14 +235,4 @@ export interface NgJointElement extends NgJointShape {
 export interface NgJointLink extends NgJointShape {
     sourceId: string;
     targetId: string;
-}
-
-/**
- * All Required Element Properies
- */
-export interface ElementProperties {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
 }

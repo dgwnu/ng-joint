@@ -13,8 +13,7 @@ import {
     NgJointElement,
     NgJointLink,
     GenericElementShapeComponent,
-    GenericLinkShapeComponent,
-    ElementProperties
+    GenericLinkShapeComponent
 } from '../shapes';
 
 export abstract class StandardElementShape extends DiaElement {
@@ -41,13 +40,4 @@ export interface NgJointGenericStandardLink extends NgJointLink {
 export abstract class GenericStandardLinkShapeComponent extends GenericLinkShapeComponent {
     @Input() root?: attributes.SVGAttributes;
     @Input() line?: attributes.SVGPathAttributes;
-}
-
-/**
- * All Required and Optional Standard Element Properties
- */
-export interface StandardElementProperties extends ElementProperties {
-    root?: attributes.SVGAttributes;
-    label?: attributes.SVGTextAttributes;
-    body?: attributes.SVGRectAttributes | attributes.SVGCircleAttributes;
 }

@@ -1,9 +1,9 @@
 import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
+import { attributes } from 'jointjs';
 import { DiaGraph } from '../../dia/graph';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
-import { StandardElementProperties } from './shapes-standard';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,12 @@ export class ShapesStandardService {
     this.service.setAttrProp(diaShape, prop, currentValue);
   }
 
-  buildElementOptions(properties: StandardElementProperties) {
+  buildElementOptions(properties: {
+    x: number, y: number, width: number, height: number,
+    root?: attributes.SVGAttributes;
+    label?: attributes.SVGTextAttributes;
+    body?: attributes.SVGRectAttributes | attributes.SVGCircleAttributes;
+  }) {
     return {
       position: { x: properties.x, y: properties.y },
       size: { width: properties.width, height: properties.height },
