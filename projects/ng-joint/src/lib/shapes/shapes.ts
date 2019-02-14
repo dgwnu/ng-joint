@@ -236,3 +236,13 @@ export interface NgJointLink extends NgJointShape {
     sourceId: string;
     targetId: string;
 }
+
+/**
+ * All Required Element Properies
+ */
+export interface ElementProperties {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+}
