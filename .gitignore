@@ -42,5 +42,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# test artifacts
-projects/ng-joint/src/lib/shapes/standard/circle
+# generated schematic
+_generate_
