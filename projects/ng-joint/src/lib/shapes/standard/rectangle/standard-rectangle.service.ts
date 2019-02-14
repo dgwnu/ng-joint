@@ -18,7 +18,8 @@ export class StandardRectangleService implements ElementShapeService {
     component: StandardRectangleComponent
   ): StandardRectangle {
     const rectangleShape = new StandardRectangle(
-      component.id,
+      component.id, this.service.buildElementOptions(component)
+/*
       {
         position: { x: component.x, y: component.y },
         size: { width: component.width, height: component.height },
@@ -28,6 +29,7 @@ export class StandardRectangleService implements ElementShapeService {
           label: component.label
         }
       }
+*/
     );
     graphInstance.addElement(rectangleShape);
     return rectangleShape;
