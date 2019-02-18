@@ -13,6 +13,33 @@ export interface ShapePlugin {
 }
 
 /**
+ * Services needed to maintain Plugin Shapes
+ */
+export interface ShapePluginService {
+    initShapePluginComponent(component: ShapePlugin): void;
+}
+
+/**
+ * Generic Shape Plugin Component Class (anchestor for all Shape Plugin Components)
+ */
+export abstract class GenericShapePluginComponent implements ShapePlugin {
+
+    constructor(private service: ShapePluginService) {}
+
+    private _graphInstance: DiaGraph;
+
+    set graphInstance(graphInstance: DiaGraph) {
+      this._graphInstance = graphInstance;
+      this.service.initShapePluginComponent(this);
+    }
+
+    get graphInstance() {
+      return this._graphInstance;
+    }
+
+}
+
+/**
  * Generic Shape Type
  */
 export type GenericShape = DiaElement | DiaLink;
