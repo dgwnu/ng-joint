@@ -3,6 +3,8 @@ import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 import { DiaGraph } from '../../dia/graph';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
 import { ShapesService } from '../shapes.service';
+import { GenericStandardElementShapeComponent, GenericStandardLinkShapeComponent } from './shapes-standard';
+import { ShapesStandardComponent } from './shapes-standard.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,32 @@ export class ShapesStandardService {
 
   constructor(private service: ShapesService) { }
 
-  createShapes(elements: QueryList<ElementShapeComponent>[], links: QueryList<LinkShapeComponent>[], graphInstance: DiaGraph) {
+  initShapes(component: ShapesStandardComponent) {
+    const elements: QueryList<GenericStandardElementShapeComponent>[] = [];
+    const links: QueryList<GenericStandardLinkShapeComponent>[] = [];
+
+    for (const key in component) {
+      if (component[key] instanceof QueryList) {
+        const listObject = component[key]['first'];
+        if (listObject) {
+          if (listObject instanceof GenericStandardElementShapeComponent) {
+            elements.push(component[key]);
+          }
+          if (listObject instanceof GenericStandardLinkShapeComponent) {
+            links.push(component[key]);
+          }
+        }
+      }
+    }
+    console.log('elements', elements);
+    console.log('links', links);
+  }
+
+  createShapes(
+    elements: QueryList<GenericStandardElementShapeComponent>[],
+    links: QueryList<GenericStandardLinkShapeComponent>[],
+    graphInstance: DiaGraph
+  ) {
     this.service.createShapes(elements, links, graphInstance);
   }
 

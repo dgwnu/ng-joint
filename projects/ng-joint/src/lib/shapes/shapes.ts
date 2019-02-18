@@ -52,9 +52,9 @@ export interface ElementShapeService {
     createElementShape(
         graphInstance: DiaGraph,
         component: ElementShapeComponent
-      ): DiaElement;
-      onEvents(component: ElementShapeComponent): void;
-      setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
+    ): DiaElement;
+    onEvents(component: ElementShapeComponent): void;
+    setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
 }
 
 /**
