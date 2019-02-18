@@ -1,8 +1,8 @@
-import { Injectable, QueryList, SimpleChanges } from '@angular/core';
+import { Injectable, SimpleChanges } from '@angular/core';
 
-import { DiaGraph } from '../../dia/graph';
-import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
+import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
 import { ShapesService } from '../shapes.service';
+import { ShapesAngularComponent } from './shapes-angular.component';
 
 /**
  * NgJoint Shapes Angular Service Class
@@ -12,12 +12,12 @@ import { ShapesService } from '../shapes.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ShapesAngularService {
+export class ShapesAngularService implements ShapePluginService {
 
   constructor(private service: ShapesService) { }
 
-  createShapes(elements: QueryList<ElementShapeComponent>[], links: QueryList<LinkShapeComponent>[], graphInstance: DiaGraph) {
-    this.service.createShapes(elements, links, graphInstance);
+  initShapePluginComponent(component: ShapesAngularComponent) {
+    this.service.initShapePluginComponent(component);
   }
 
   setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {

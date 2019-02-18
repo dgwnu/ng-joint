@@ -1,7 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
-import { DiaGraph } from '../../dia/graph';
-import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
+import { ElementShapeComponent, LinkShapeComponent, GenericShapePluginComponent } from '../shapes';
 import { ShapesUmlService } from './shapes-uml.service';
 import { UmlAbstractComponent, NgJointUmlAbstract } from './abstract/uml-abstract.component';
 import { UmlClassComponent, NgJointUmlClass } from './class/uml-class.component';
@@ -17,7 +16,7 @@ import { UmlImplementationComponent, NgJointUmlImplementation } from './implemen
     <ng-content></ng-content>
     `,
 })
-export class ShapesUmlComponent implements ShapePlugin {
+export class ShapesUmlComponent extends GenericShapePluginComponent {
   @ContentChildren(UmlAbstractComponent) umlAbstract: QueryList<ElementShapeComponent>;
   @ContentChildren(UmlClassComponent) umlClass: QueryList<ElementShapeComponent>;
   @ContentChildren(UmlInterfaceComponent) umlInterface: QueryList<ElementShapeComponent>;
@@ -26,21 +25,8 @@ export class ShapesUmlComponent implements ShapePlugin {
   @ContentChildren(UmlGeneralizationComponent) umlGeneralization: QueryList<LinkShapeComponent>;
   @ContentChildren(UmlImplementationComponent) umlImplementation: QueryList<LinkShapeComponent>;
 
-  constructor(private service: ShapesUmlService) { }
-
-  private _graphInstance: DiaGraph;
-
-  set graphInstance(graphInstance: DiaGraph) {
-    this._graphInstance = graphInstance;
-    this.service.createShapes(
-      [this.umlAbstract, this.umlClass, this.umlInterface],
-      [this.umlAggregation, this.umlComposition, this.umlGeneralization, this.umlImplementation],
-      this._graphInstance
-      );
-  }
-
-  onElementPointerClick(cid: string) {
-
+  constructor(private shapesUmlService: ShapesUmlService) {
+    super(shapesUmlService);
   }
 
 }

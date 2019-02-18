@@ -1,7 +1,7 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
-import { DiaGraph } from '../../dia/graph';
-import { ShapePlugin, ElementShapeComponent } from '../shapes';
+import { GenericShapePluginComponent } from '../shapes';
+import { ElementShapeComponent } from '../shapes';
 import { ShapesAngularService } from './shapes-angular.service';
 import { AngularElementComponent, NgJointAngularElement } from './element';
 
@@ -37,21 +37,12 @@ import { AngularElementComponent, NgJointAngularElement } from './element';
     <ng-content></ng-content>
     `,
 })
-export class ShapesAngularComponent implements ShapePlugin {
+export class ShapesAngularComponent extends GenericShapePluginComponent {
   /** NgJoint Angular Element Shape Component Instance(s) */
   @ContentChildren(AngularElementComponent) angularElements: QueryList<ElementShapeComponent>;
 
-  constructor(private service: ShapesAngularService) { }
-
-  /** @ignore */
-  private _graphInstance: DiaGraph;
-
-  /**
-   * Set Parent DiaGraphElement (ng-joint-dia-graph) and create Plugin Shapes
-   */
-  set graphInstance(graphInstance: DiaGraph) {
-    this._graphInstance = graphInstance;
-    this.service.createShapes([this.angularElements], [], this._graphInstance);
+  constructor(private shapesAngularService: ShapesAngularService) {
+    super(shapesAngularService);
   }
 
 }

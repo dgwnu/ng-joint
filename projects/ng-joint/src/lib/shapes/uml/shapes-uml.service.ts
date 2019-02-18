@@ -1,21 +1,21 @@
-import { Injectable, QueryList, SimpleChanges } from '@angular/core';
+import { Injectable, SimpleChanges } from '@angular/core';
 
 import { shapes } from 'jointjs';
 
-import { DiaGraph } from '../../dia/graph';
-import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
+import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
 import { ShapesService } from '../shapes.service';
 import { UmlNameType, GenericUmlClassShapeComponent } from './shapes-uml';
+import { ShapesUmlComponent } from './shapes-uml.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ShapesUmlService {
+export class ShapesUmlService implements ShapePluginService {
 
   constructor(private service: ShapesService) { }
 
-  createShapes(elements: QueryList<ElementShapeComponent>[], links: QueryList<LinkShapeComponent>[], graphInstance: DiaGraph) {
-    this.service.createShapes(elements, links, graphInstance);
+  initShapePluginComponent(component: ShapesUmlComponent) {
+    this.service.initShapePluginComponent(component);
   }
 
   private _formatUndefinedStringArray(stringArray?: string[]): string[] {

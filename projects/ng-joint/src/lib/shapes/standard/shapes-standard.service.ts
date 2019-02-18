@@ -1,14 +1,13 @@
-import { Injectable, QueryList, SimpleChanges } from '@angular/core';
+import { Injectable, SimpleChanges } from '@angular/core';
 
-import { ElementShapeComponent, LinkShapeComponent, DiaShape } from '../shapes';
+import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
 import { ShapesService } from '../shapes.service';
-import { GenericStandardElementShapeComponent, GenericStandardLinkShapeComponent } from './shapes-standard';
 import { ShapesStandardComponent } from './shapes-standard.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ShapesStandardService {
+export class ShapesStandardService implements ShapePluginService {
 
   constructor(private service: ShapesService) { }
 
