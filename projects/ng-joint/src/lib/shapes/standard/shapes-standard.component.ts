@@ -1,7 +1,7 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
 import { DiaGraph } from '../../dia/graph';
-import { ShapePlugin, ElementShapeComponent, LinkShapeComponent } from '../shapes';
+import { ShapePlugin } from '../shapes';
 import { GenericStandardElementShapeComponent, GenericStandardLinkShapeComponent } from './shapes-standard';
 import { ShapesStandardService } from './shapes-standard.service';
 import { StandardRectangleComponent, NgJointStandardRectangle } from './rectangle';
@@ -51,7 +51,6 @@ export class ShapesStandardComponent implements ShapePlugin {
 
   constructor(private service: ShapesStandardService) { }
 
-  /** @ignore */
   private _graphInstance: DiaGraph;
 
   /**
@@ -59,12 +58,11 @@ export class ShapesStandardComponent implements ShapePlugin {
    */
   set graphInstance(graphInstance: DiaGraph) {
     this._graphInstance = graphInstance;
-    this.service.initShapes(this);
-    this.service.createShapes(
-      [this.standardRectangles],
-      [this.standardLinks],
-      this._graphInstance
-      );
+    this.service.initShapePluginComponent(this);
+  }
+
+  get graphInstance() {
+    return this._graphInstance;
   }
 
 }

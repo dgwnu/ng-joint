@@ -6,7 +6,9 @@ import {
   GenericShape,
   DiaShape,
   ElementShapeComponent,
-  LinkShapeComponent
+  LinkShapeComponent,
+  GenericElementShapeComponent,
+  GenericLinkShapeComponent
 } from './shapes';
 
 /**
@@ -28,6 +30,31 @@ export class ShapesService {
     for (const shapePlugin of shapePlugins) {
       if (shapePlugin) { shapePlugin.graphInstance = graphInstance; }
     }
+  }
+
+  /**
+   * Create Shapes from ContentChildren QueryLists on ShapePlugin Component
+   * @param component any shape Plugin Component
+   */
+  initShapePluginComponent(component: any) {
+    const elements: QueryList<GenericElementShapeComponent>[] = [];
+    const links: QueryList<GenericLinkShapeComponent>[] = [];
+
+    for (const key in component) {
+      if (component[key] instanceof QueryList) {
+        const listObject = component[key]['first'];
+        if (listObject) {
+          if (listObject instanceof GenericElementShapeComponent) {
+            elements.push(component[key]);
+          }
+          if (listObject instanceof GenericLinkShapeComponent) {
+            links.push(component[key]);
+          }
+        }
+      }
+    }
+
+    this.createShapes(elements, links, component.graphInstance);
   }
 
   /**
