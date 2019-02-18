@@ -1,7 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 
-import { DiaGraph } from '../../dia/graph';
-import { ShapePlugin } from '../shapes';
+import { GenericShapePluginComponent } from '../shapes';
 import { GenericStandardElementShapeComponent, GenericStandardLinkShapeComponent } from './shapes-standard';
 import { ShapesStandardService } from './shapes-standard.service';
 import { StandardRectangleComponent, NgJointStandardRectangle } from './rectangle';
@@ -42,27 +41,15 @@ import { StandardLinkComponent, NgJointStandardLink } from './link';
     <ng-content></ng-content>
     `,
 })
-export class ShapesStandardComponent implements ShapePlugin {
+export class ShapesStandardComponent extends GenericShapePluginComponent {
   /** NgJoint Angular Standard Rectangle Component Instance(s) */
   @ContentChildren(StandardRectangleComponent) standardRectangles: QueryList<GenericStandardElementShapeComponent>;
 
   /** NgJoint Angular Standard Link Component Instance(s) */
   @ContentChildren(StandardLinkComponent) standardLinks: QueryList<GenericStandardLinkShapeComponent>;
 
-  constructor(private service: ShapesStandardService) { }
-
-  private _graphInstance: DiaGraph;
-
-  /**
-   * Set Parent DiaGraphElement (ng-joint-dia-graph) and create Plugin Shapes
-   */
-  set graphInstance(graphInstance: DiaGraph) {
-    this._graphInstance = graphInstance;
-    this.service.initShapePluginComponent(this);
-  }
-
-  get graphInstance() {
-    return this._graphInstance;
+  constructor(private shapesStandardService: ShapesStandardService) {
+    super(shapesStandardService);
   }
 
 }
