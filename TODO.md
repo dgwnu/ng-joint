@@ -4,10 +4,18 @@
 
 ## Changes
 
-### Prefix from dgwnu to ng-joint
-
-- standard retangle (incl. documentation)
-
-- all uml shapes (incl. documentation)
-
 ## Features
+
+### Schematic Generation (@dgwnu/ng-joint-schematics)
+
+#### Schematics Generation for jointjs standard Shapes
+
+[] Reactangle
+
+[] Link
+
+#### Schematics Generation for ng-joint Angular Shapes
+
+#### Schematics Generation for joinjs uml Shapes
+
+#### Schematic Generation for additional uml Shapes
