@@ -10,9 +10,21 @@
 
 #### Schematics Generation for jointjs standard Shapes
 
-[] Reactangle
+[X] standard/(shape)/standard-(shape)
 
-[] Link
+[X] standard/(shape)/standard-(shape).component
+
+[X] standard/(shape)/standard-(shape).service
+
+[X] standard/(shape)/standard/standard-(shape).module
+
+[ ] standard-(shape).component
+
+[ ] standard-(shape).module
+
+[ ] Reactangle
+
+[ ] Link
 
 #### Schematics Generation for ng-joint Angular Shapes
 
