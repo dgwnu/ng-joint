@@ -1,6 +1,9 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
+import { attributes } from 'jointjs';
+
 import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
+import { StandardElementShape, StandardLinkShape } from './shapes-standard';
 import { ShapesService } from '../shapes.service';
 import { ShapesStandardComponent } from './shapes-standard.component';
 
@@ -35,7 +38,7 @@ export class ShapesStandardService implements ShapePluginService {
     this.service.setAttrProp(diaShape, prop, currentValue);
   }
 
-  buildElementOptions(properties: {
+  elementShapeOptions(properties: {
     x: number, y: number, width: number, height: number,
     root?: {},
     label?: {},
@@ -50,6 +53,18 @@ export class ShapesStandardService implements ShapePluginService {
         label: properties.label
       }
     };
+  }
+
+  configElementShape(elementShape: StandardElementShape, properties: {}) {
+    if (elementShape && properties) {
+      // PM (additional config...)
+    }
+  }
+
+  configLinkShape(linkShape: StandardLinkShape, properties: { line?: attributes.SVGPathAttributes }) {
+    if (properties.line) {
+      this.service.setAttrProp(linkShape.jointjsObject, 'line', properties.line);
+    }
   }
 
 }

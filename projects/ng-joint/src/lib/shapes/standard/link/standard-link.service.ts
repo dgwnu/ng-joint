@@ -13,16 +13,9 @@ export class StandardLinkService implements LinkShapeService {
 
   constructor(private service: ShapesStandardService) { }
 
-  createLinkShape(
-    graphInstance: DiaGraph,
-    component: StandardLinkComponent
-    ): StandardLink {
-    const linkShape = new StandardLink(
-      component.id,
-      component.sourceId,
-      component.targetId
-    );
-    this.service.setAttrProp(linkShape.jointjsObject, 'line', component.line);
+  createLinkShape(graphInstance: DiaGraph, component: StandardLinkComponent): StandardLink {
+    const linkShape = new StandardLink(component.id, component.sourceId, component.targetId);
+    this.service.configLinkShape(linkShape, component);
     graphInstance.addLink(linkShape);
     return linkShape;
   }
