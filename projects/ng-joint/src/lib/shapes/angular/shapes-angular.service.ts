@@ -5,6 +5,10 @@ import { AngularElementShape } from './shapes-angular';
 import { ShapesService } from '../shapes.service';
 import { ShapesAngularComponent } from './shapes-angular.component';
 
+interface AngularElementShapeComponent extends ElementShapeComponent {
+  shapeInstance: AngularElementShape;
+}
+
 /**
  * NgJoint Shapes Angular Service Class
  *
@@ -67,14 +71,14 @@ export class ShapesAngularService implements ShapePluginService {
   }
 
   // initialize initial component position and size
-  private _initComponent(component: AngularElementComponent) {
+  private _initComponent(component: AngularElementShapeComponent) {
     console.log('_initComponent', component);
     const elementNode = component.shapeInstance.ngNode;
     this._positionNgElement(elementNode, component.x, component.y);
     this._sizeNgElement(elementNode, component.width, component.height);
   }
 
-  private _positionComponent(component: AngularElementComponent) {
+  private _positionComponent(component: AngularElementShapeComponent) {
     const shape = component.shapeInstance;
     const xShapeElement = shape.jointjsObject.getBBox().x;
     const yShapeElement = shape.jointjsObject.getBBox().y;
@@ -93,7 +97,7 @@ export class ShapesAngularService implements ShapePluginService {
     }
   }
 
-  private _resizeComponent(component: AngularElementComponent) {
+  private _resizeComponent(component: AngularElementShapeComponent) {
     const shape = component.shapeInstance;
     const widthShapeElement = shape.jointjsObject.getBBox().width;
     const heightShapeElement = shape.jointjsObject.getBBox().height;
@@ -113,7 +117,7 @@ export class ShapesAngularService implements ShapePluginService {
   }
 
   // Change Handler to move/resize angular element DIV-container
-  onEvents(component: AngularElementComponent) {
+  onElementEvents(component: AngularElementShapeComponent) {
 
     this._initComponent(component);
 
@@ -143,17 +147,16 @@ export class ShapesAngularService implements ShapePluginService {
     this.service.setAttrProp(diaShape, prop, currentValue);
   }
 
-  elementShapeOptions(properties: {x: number, y: number, width: number, height: number}) {
+  elementShapeOptions(component: AngularElementShapeComponent) {
     return {
-      position: { x: properties.x, y: properties.y },
-      size: { width: properties.width, height: properties.height }
+      position: { x: component.x, y: component.y },
+      size: { width: component.width, height: component.height }
     };
   }
 
-  configElementShape(elementShape: AngularElementShape, properties: {}) {
-    if (elementShape && properties) {
-      // PM (additional config...)
-    }
+  configElementShape(component: AngularElementShapeComponent) {
+    this._setNgContentStyles(component.shapeInstance.ngNode);
+    component.graphInstance.addElement(component.shapeInstance);
   }
 
 }
