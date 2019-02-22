@@ -4,7 +4,6 @@ import { attributes } from 'jointjs';
 
 import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
 import {
-  StandardElementShape,
   StandardLinkShape,
   GenericStandardElementShapeComponent,
   GenericStandardLinkShapeComponent
@@ -60,10 +59,12 @@ export class ShapesStandardService implements ShapePluginService {
     component.graphInstance.addElement(component.shapeInstance);
   }
 
-  configLinkShape(linkShape: StandardLinkShape, properties: { line?: attributes.SVGPathAttributes }) {
-    if (properties.line) {
-      this.service.setAttrProp(linkShape.jointjsObject, 'line', properties.line);
+  configLinkShape<T extends GenericStandardLinkShapeComponent>(component: T) {
+    if (component.line) {
+      this.service.setAttrProp(component.shapeInstance.jointjsObject, 'line', component.line);
     }
+
+    component.graphInstance.addLink(component.shapeInstance);
   }
 
 }

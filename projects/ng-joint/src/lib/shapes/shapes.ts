@@ -54,6 +54,7 @@ export type DiaShape = dia.Link | dia.Element;
  */
 export interface ShapeComponent {
     id: string;
+    graphInstance: DiaGraph;
     shapeInstance: GenericShape;
     createShape(graphInstance: DiaGraph): void;
 }
@@ -66,7 +67,6 @@ export interface ElementShapeComponent extends ShapeComponent {
     y: number;
     width: number;
     height: number;
-    graphInstance: DiaGraph;
     shapeInstance: DiaElement;
     elementPointerClick: EventEmitter<string>;
     emitElementPointerClick(): void;
@@ -157,7 +157,7 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
         }
     }
 
-    /** NgJoint Graph Element Instance */
+    /** NgJoint Graph Instance */
     graphInstance: DiaGraph;
     /** NgJoint Shape Element Instance */
     shapeInstance: DiaElement;
@@ -220,6 +220,9 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
 
     constructor(private service: LinkShapeService) {}
 
+    /** NgJoint Graph Instance */
+    graphInstance: DiaGraph;
+    /** NgJoint Shape Link Instance */
     shapeInstance: DiaLink;
 
     set sourceShape(source: DiaElement) {
