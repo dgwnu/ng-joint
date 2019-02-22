@@ -3,7 +3,12 @@ import { Injectable, SimpleChanges } from '@angular/core';
 import { attributes } from 'jointjs';
 
 import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
-import { StandardElementShape, StandardLinkShape } from './shapes-standard';
+import {
+  StandardElementShape,
+  StandardLinkShape,
+  GenericStandardElementShapeComponent,
+  GenericStandardLinkShapeComponent
+} from './shapes-standard';
 import { ShapesService } from '../shapes.service';
 import { ShapesStandardComponent } from './shapes-standard.component';
 
@@ -26,11 +31,11 @@ export class ShapesStandardService implements ShapePluginService {
     this.service.onLinkEvents(component);
   }
 
-  setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
+  setElementChanges(changes: SimpleChanges, component: GenericStandardElementShapeComponent) {
     this.service.setElementChanges(changes, component);
   }
 
-  setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {
+  setLinkChanges(changes: SimpleChanges, component: GenericStandardLinkShapeComponent) {
     this.service.setLinkChanges(changes, component);
   }
 
@@ -51,10 +56,8 @@ export class ShapesStandardService implements ShapePluginService {
     };
   }
 
-  configElementShape(elementShape: StandardElementShape, properties: {}) {
-    if (elementShape && properties) {
-      // PM (additional config...)
-    }
+  configElementShape<T extends GenericStandardElementShapeComponent>(component: T) {
+    component.graphInstance.addElement(component.shapeInstance);
   }
 
   configLinkShape(linkShape: StandardLinkShape, properties: { line?: attributes.SVGPathAttributes }) {

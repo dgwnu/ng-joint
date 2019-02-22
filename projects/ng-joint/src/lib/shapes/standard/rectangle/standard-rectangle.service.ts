@@ -21,8 +21,7 @@ export class StandardRectangleService implements ElementShapeService {
       component.id,
       this.service.elementShapeOptions(component)
     );
-    this.service.configElementShape(rectangleShape, component);
-    graphInstance.addElement(rectangleShape);
+    this.service.configElementShape(component);
     return rectangleShape;
   }
 
