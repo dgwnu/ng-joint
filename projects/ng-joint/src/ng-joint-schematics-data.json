@@ -1,13 +1,6 @@
 {
     "shapes" : {
         "standard": {
-            "generic": {
-                "properties": {
-                    "attrs": {
-                        "root": "SVGGElement"
-                    }
-                }
-            },
             "elements": {
                 "circle": {
                     "properties": {
