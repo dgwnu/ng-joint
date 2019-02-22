@@ -1,13 +1,10 @@
 import { Injectable, SimpleChanges, Renderer2, RendererFactory2 } from '@angular/core';
 
 import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
-import { AngularElementShape } from './shapes-angular';
+import { GenericAngularElementShapeComponent } from './shapes-angular';
 import { ShapesService } from '../shapes.service';
 import { ShapesAngularComponent } from './shapes-angular.component';
 
-interface AngularElementShapeComponent extends ElementShapeComponent {
-  shapeInstance: AngularElementShape;
-}
 
 /**
  * NgJoint Shapes Angular Service Class
@@ -29,6 +26,10 @@ export class ShapesAngularService implements ShapePluginService {
     private rendererFactory: RendererFactory2
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
+  }
+
+  initShapePluginComponent(component: ShapesAngularComponent) {
+    this.service.initShapePluginComponent(component);
   }
 
   // set behaviour of html (and angular specific) content within angular element
@@ -71,14 +72,14 @@ export class ShapesAngularService implements ShapePluginService {
   }
 
   // initialize initial component position and size
-  private _initComponent(component: AngularElementShapeComponent) {
+  private _initComponent(component: GenericAngularElementShapeComponent) {
     console.log('_initComponent', component);
     const elementNode = component.shapeInstance.ngNode;
     this._positionNgElement(elementNode, component.x, component.y);
     this._sizeNgElement(elementNode, component.width, component.height);
   }
 
-  private _positionComponent(component: AngularElementShapeComponent) {
+  private _positionComponent(component: GenericAngularElementShapeComponent) {
     const shape = component.shapeInstance;
     const xShapeElement = shape.jointjsObject.getBBox().x;
     const yShapeElement = shape.jointjsObject.getBBox().y;
@@ -97,7 +98,7 @@ export class ShapesAngularService implements ShapePluginService {
     }
   }
 
-  private _resizeComponent(component: AngularElementShapeComponent) {
+  private _resizeComponent(component: GenericAngularElementShapeComponent) {
     const shape = component.shapeInstance;
     const widthShapeElement = shape.jointjsObject.getBBox().width;
     const heightShapeElement = shape.jointjsObject.getBBox().height;
@@ -116,8 +117,42 @@ export class ShapesAngularService implements ShapePluginService {
     }
   }
 
+  // Bi-Directional processing of changes (moving and resizing jointjs and angular BOX in sync)
+  setElementChanges(changes: SimpleChanges, component: GenericAngularElementShapeComponent) {
+    const shape = component.shapeInstance;
+    if (!shape) { return; } // first time changes is before shape is created
+
+    const bbox = shape.jointjsObject.getBBox();
+
+    // detect position change
+    let positionChangeDetected = false;
+    if (changes.x) {
+      positionChangeDetected = (changes.x.currentValue !== bbox.x);
+    } else if (changes.y) {
+      positionChangeDetected = (changes.y.currentValue !== bbox.y);
+    }
+
+    // detect size change
+    let sizeChangeDetected = false;
+    if (changes.width) {
+      sizeChangeDetected = (changes.width.currentValue !== bbox.width);
+    } else if (changes.height) {
+      sizeChangeDetected = (changes.height.currentValue !== bbox.height);
+    }
+
+    // process detected changes
+    if (positionChangeDetected) {
+        shape.jointjsObject.position(component.x, component.y);
+        this._positionNgElement(shape.ngNode, component.x, component.y);
+    }
+    if (sizeChangeDetected) {
+        shape.jointjsObject.resize(component.width, component.height);
+        this._sizeNgElement(shape.ngNode, component.width, component.height);
+    }
+  }
+
   // Change Handler to move/resize angular element DIV-container
-  onElementEvents(component: AngularElementShapeComponent) {
+  onElementEvents(component: GenericAngularElementShapeComponent) {
 
     this._initComponent(component);
 
@@ -131,30 +166,14 @@ export class ShapesAngularService implements ShapePluginService {
 
   }
 
-  initShapePluginComponent(component: ShapesAngularComponent) {
-    this.service.initShapePluginComponent(component);
-  }
-
-  setElementChanges(changes: SimpleChanges, component: ElementShapeComponent) {
-    this.service.setElementChanges(changes, component);
-  }
-
-  setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {
-    this.service.setLinkChanges(changes, component);
-  }
-
-  setAttrProp(diaShape: DiaShape, prop: string, currentValue: {}) {
-    this.service.setAttrProp(diaShape, prop, currentValue);
-  }
-
-  elementShapeOptions(component: AngularElementShapeComponent) {
+  elementShapeOptions(component: GenericAngularElementShapeComponent) {
     return {
       position: { x: component.x, y: component.y },
       size: { width: component.width, height: component.height }
     };
   }
 
-  configElementShape(component: AngularElementShapeComponent) {
+  configElementShape(component: GenericAngularElementShapeComponent) {
     this._setNgContentStyles(component.shapeInstance.ngNode);
     component.graphInstance.addElement(component.shapeInstance);
   }

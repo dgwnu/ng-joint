@@ -1,6 +1,6 @@
 import { Component, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 
-import { GenericElementShapeComponent } from '../../shapes';
+import { GenericAngularElementShapeComponent } from '../shapes-angular';
 import { AngularElementService } from './angular-element.service';
 import { AngularElement } from './angular-element';
 
@@ -22,7 +22,7 @@ import { AngularElement } from './angular-element';
   styleUrls: [ './angular-element.component.css' ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AngularElementComponent extends GenericElementShapeComponent {
+export class AngularElementComponent extends GenericAngularElementShapeComponent {
 
   constructor(
     private angularElementService: AngularElementService,
