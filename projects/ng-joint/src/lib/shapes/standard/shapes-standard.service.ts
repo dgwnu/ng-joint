@@ -1,13 +1,9 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
-import { attributes } from 'jointjs';
+// import { attributes } from 'jointjs';
 
-import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
-import {
-  StandardLinkShape,
-  GenericStandardElementShapeComponent,
-  GenericStandardLinkShapeComponent
-} from './shapes-standard';
+import { ElementShapeComponent, LinkShapeComponent, ShapePluginService } from '../shapes';
+import { GenericStandardElementShapeComponent, GenericStandardLinkShapeComponent } from './shapes-standard';
 import { ShapesService } from '../shapes.service';
 import { ShapesStandardComponent } from './shapes-standard.component';
 
