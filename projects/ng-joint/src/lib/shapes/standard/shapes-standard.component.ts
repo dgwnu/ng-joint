@@ -42,10 +42,7 @@ import { StandardLinkComponent, NgJointStandardLink } from './link';
     `,
 })
 export class ShapesStandardComponent extends GenericShapePluginComponent {
-  /** NgJoint Angular Standard Rectangle Component Instance(s) */
   @ContentChildren(StandardRectangleComponent) standardRectangles: QueryList<GenericStandardElementShapeComponent>;
-
-  /** NgJoint Angular Standard Link Component Instance(s) */
   @ContentChildren(StandardLinkComponent) standardLinks: QueryList<GenericStandardLinkShapeComponent>;
 
   constructor(private shapesStandardService: ShapesStandardService) {

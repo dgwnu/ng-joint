@@ -34,10 +34,6 @@ export class ShapesStandardService implements ShapePluginService {
     this.service.setLinkChanges(changes, component);
   }
 
-  setAttrProp(diaShape: DiaShape, prop: string, currentValue: {}) {
-    this.service.setAttrProp(diaShape, prop, currentValue);
-  }
-
   elementShapeOptions(properties: {
     x: number, y: number, width: number, height: number,
     root?: {},
