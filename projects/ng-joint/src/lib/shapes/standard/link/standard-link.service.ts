@@ -13,7 +13,7 @@ export class StandardLinkService implements LinkShapeService {
 
   constructor(private service: ShapesStandardService) { }
 
-  createLinkShape(graphInstance: DiaGraph, component: StandardLinkComponent): StandardLink {
+  createLinkShape(component: StandardLinkComponent): StandardLink {
     const linkShape = new StandardLink(
       component.id, component.sourceId, component.targetId,
       this.service.linkShapeOptions(component)

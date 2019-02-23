@@ -13,10 +13,7 @@ export class StandardRectangleService implements ElementShapeService {
 
   constructor(private service: ShapesStandardService) {}
 
-  createElementShape(
-    graphInstance: DiaGraph,
-    component: StandardRectangleComponent
-  ): StandardRectangle {
+  createElementShape(component: StandardRectangleComponent): StandardRectangle {
     const rectangleShape = new StandardRectangle(
       component.id,
       this.service.elementShapeOptions(component)
