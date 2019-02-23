@@ -76,10 +76,7 @@ export interface ElementShapeComponent extends ShapeComponent {
  * Element Shape Service Interface (service for Generic Element Shape Class)
  */
 export interface ElementShapeService {
-    createElementShape(
-        graphInstance: DiaGraph,
-        component: ElementShapeComponent
-    ): DiaElement;
+    createElementShape(component: ElementShapeComponent): DiaElement;
     onEvents(component: ElementShapeComponent): void;
     setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
 }
@@ -165,7 +162,7 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     /** Create Shape Element Instance and initialize event handlers */
     createShape(graphInstance: DiaGraph) {
         this.graphInstance =  graphInstance;
-        this.shapeInstance = this.service.createElementShape(this.graphInstance, this);
+        this.shapeInstance = this.service.createElementShape(this);
         this.service.onEvents(this);
     }
 
@@ -197,12 +194,9 @@ export interface LinkShapeComponent extends ShapeComponent {
  * Link Shape Service Interface (service for Generic Link Shape Class)
  */
 export interface LinkShapeService {
-    createLinkShape(
-        graphInstance: DiaGraph,
-        component: LinkShapeComponent
-      ): DiaLink;
-      onEvents(component: LinkShapeComponent): void;
-      setChanges(changes: SimpleChanges, component: LinkShapeComponent): void;
+    createLinkShape(component: LinkShapeComponent): DiaLink;
+    onEvents(component: LinkShapeComponent): void;
+    setChanges(changes: SimpleChanges, component: LinkShapeComponent): void;
 }
 
 /**
@@ -234,7 +228,8 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
     }
 
     createShape(graphInstance: DiaGraph) {
-        this.shapeInstance = this.service.createLinkShape(graphInstance, this);
+        this.graphInstance = graphInstance;
+        this.shapeInstance = this.service.createLinkShape(this);
         this.service.onEvents(this);
     }
 
