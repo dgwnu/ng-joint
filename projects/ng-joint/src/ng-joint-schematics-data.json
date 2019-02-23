@@ -10,9 +10,15 @@
                     }
                 }
             },
-            "links": [
-
-            ]
+            "links": {
+                "double-link": {
+                    "properties": {
+                        "attrs": {
+                            "outline": "SVGPathAttributes"
+                        }
+                    }
+                }
+            }
         }
     }
 }

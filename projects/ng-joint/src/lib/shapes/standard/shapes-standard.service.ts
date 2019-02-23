@@ -63,6 +63,9 @@ export class ShapesStandardService implements ShapePluginService {
     if (component.line) {
       this.service.setAttrProp(component.shapeInstance.jointjsObject, 'line', component.line);
     }
+    if (component['outline']) {
+      this.service.setAttrProp(component.shapeInstance.jointjsObject, 'outline', component['outline']);
+    }
 
     component.graphInstance.addLink(component.shapeInstance);
   }
