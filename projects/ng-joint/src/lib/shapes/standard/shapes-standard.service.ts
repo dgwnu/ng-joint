@@ -34,6 +34,10 @@ export class ShapesStandardService implements ShapePluginService {
     this.service.setLinkChanges(changes, component);
   }
 
+  linkShapeOptions(properties: {}) {
+    return {};
+  }
+
   elementShapeOptions(properties: {
     x: number, y: number, width: number, height: number,
     root?: {},
