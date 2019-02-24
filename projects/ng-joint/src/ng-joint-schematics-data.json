@@ -1,6 +1,6 @@
 {
     "defaults": {
-        "importMapping": [
+        "importMappings": [
             {
                 "importSymbols": ["shapes", "attributes"],
                 "fromPath": "jointjs"
