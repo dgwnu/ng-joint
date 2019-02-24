@@ -1,4 +1,12 @@
 {
+    "defaults": {
+        "nameSpaceImports": [
+            {
+                "nameSpace": "attributes",
+                "importPath": "jointjs"
+            }
+        ]
+    },
     "shapes" : {
         "standard": {
             "elements": {
