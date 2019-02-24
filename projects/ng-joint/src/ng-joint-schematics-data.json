@@ -5,7 +5,7 @@
                 "circle": {
                     "properties": {
                         "attrs": {
-                            "body": "SVGPathAttributes"
+                            "body": "attributes.SVGPathAttributes"
                         }
                     }
                 }
@@ -14,7 +14,7 @@
                 "double-link": {
                     "properties": {
                         "attrs": {
-                            "outline": "SVGPathAttributes"
+                            "outline": "attributes.SVGPathAttributes"
                         }
                     }
                 }
