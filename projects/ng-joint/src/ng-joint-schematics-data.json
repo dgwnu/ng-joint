@@ -1,9 +1,9 @@
 {
     "defaults": {
-        "nameSpaceImports": [
+        "importMapping": [
             {
-                "nameSpace": "attributes",
-                "importPath": "jointjs"
+                "importSymbols": ["shapes", "attributes"],
+                "fromPath": "jointjs"
             }
         ]
     },
