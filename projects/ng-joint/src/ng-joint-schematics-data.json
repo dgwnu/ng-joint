@@ -13,7 +13,10 @@
                 "circle": {
                     "properties": {
                         "attrs": {
-                            "body": "attributes.SVGPathAttributes"
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGPathAttributes"
+                            }
                         }
                     }
                 }
@@ -22,7 +25,10 @@
                 "double-link": {
                     "properties": {
                         "attrs": {
-                            "outline": "attributes.SVGPathAttributes"
+                            "outline": {
+                                "nameSpace": "attributes",
+                                "class": "SVGPathAttributes"
+                            }
                         }
                     }
                 }
