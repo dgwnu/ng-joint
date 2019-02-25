@@ -18,7 +18,7 @@
                     "shapeOptionsClass": {
                         "nameSpace": "dia",
                         "class": "Element.GenericAttributes",
-                        "type": "shapes.standard.__name@clasify__Selectors"
+                        "type": "shapes.standard.__name@classify__Selectors"
                     }
                 },
                 "links": {
@@ -29,7 +29,7 @@
                     "shapeOptionsClass": {
                         "nameSpace": "dia",
                         "class": "Link.GenericAttributes",
-                        "type": "shapes.standard.__name@clasify__Selectors"
+                        "type": "shapes.standard.__name@classify__Selectors"
                     }
                 }
             },
