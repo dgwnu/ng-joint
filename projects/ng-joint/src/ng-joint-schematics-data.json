@@ -13,7 +13,7 @@
                 "elements": {
                     "shapeObjectClass": {
                         "nameSpace": "shapes",
-                        "class": "standard.__name@clasify__"
+                        "class": "standard.__name@classify__"
                     },
                     "shapeOptionsClass": {
                         "nameSpace": "dia",
