@@ -2,13 +2,37 @@
     "defaults": {
         "importMappings": [
             {
-                "importSymbols": ["shapes", "attributes"],
+                "importSymbols": ["shapes", "attributes", "dia"],
                 "fromPath": "jointjs"
             }
         ]
     },
     "shapes" : {
         "standard": {
+            "defaults": {
+                "elements": {
+                    "shapeObjectClass": {
+                        "nameSpace": "shapes",
+                        "class": "standard.__name@clasify__"
+                    },
+                    "shapeOptionsClass": {
+                        "nameSpace": "dia",
+                        "class": "Element.GenericAttributes",
+                        "type": "shapes.standard.__name@clasify__Selectors"
+                    }
+                },
+                "links": {
+                    "shapeObjectClass": {
+                        "nameSpace": "shapes",
+                        "class": "standard.__name@clasify__"
+                    },
+                    "shapeOptionsClass": {
+                        "nameSpace": "dia",
+                        "class": "Link.GenericAttributes",
+                        "type": "shapes.standard.__name@clasify__Selectors"
+                    }
+                }
+            },
             "elements": {
                 "circle": {
                     "properties": {
