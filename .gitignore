@@ -42,5 +42,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# generated schematic
-_generate_
+# schematic generated
+schematic-generated
