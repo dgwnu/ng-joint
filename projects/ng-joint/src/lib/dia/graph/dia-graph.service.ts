@@ -9,8 +9,6 @@ export class DiaGraphService {
 
   constructor() { }
 
-  private _graphArray: DiaGraph[] = [];
-
   createGraph(): DiaGraph {
     return new DiaGraph();
   }
