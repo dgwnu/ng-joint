@@ -43,6 +43,21 @@
                             }
                         }
                     }
+                },
+                "rectangle": {
+                    "properties": {
+                        "attrs": {
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGRectAttributes"
+                            },
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+
+                        }
+                    }
                 }
             },
             "links": {
@@ -54,6 +69,10 @@
                                 "class": "SVGPathAttributes"
                             }
                         }
+                    }
+                },
+                "link": {
+                    "properties": {
                     }
                 }
             }
