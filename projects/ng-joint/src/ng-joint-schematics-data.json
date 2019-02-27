@@ -96,8 +96,7 @@
                     },
                     "shapeOptionsClass": {
                         "nameSpace": "dia",
-                        "class": "Link.GenericAttributes",
-                        "type": "shapes.standard.LinkSelectors"
+                        "class": "Link.Attributes"
                     }
                 }
             },
