@@ -6,6 +6,7 @@ import { AngularElementShape } from '../shapes-angular';
  */
 export class AngularElement extends AngularElementShape {
     constructor(id: string, options: dia.Element.GenericAttributes<shapes.basic.RectSelectors>) {
-        super(id, options);
+        super({ id: id, options});
+        this._jointjsObject = new shapes.basic.Rect(options);
     }
 }

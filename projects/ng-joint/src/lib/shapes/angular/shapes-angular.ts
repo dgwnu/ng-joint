@@ -14,14 +14,13 @@ import { NgJointElement, GenericElementShapeComponent } from '../shapes';
 export abstract class AngularElementShape extends DiaElement {
     private _ngElementRef: ElementRef;
 
-    constructor(id: string, options: dia.Element.GenericAttributes<shapes.basic.RectSelectors>) {
-        super({ id: id, options });
+    constructor(parms: {id: string, options: dia.Element.GenericAttributes<shapes.basic.RectSelectors>}) {
+        super({id: parms.id, options: parms.options});
 
-        options.attrs = {
+        parms.options.attrs = {
             rect: { stroke: 'none', 'fill-opacity': 0 },
         };
 
-        this._jointjsObject = new shapes.basic.Rect(options);
     }
 
     set ngElementRef(value: ElementRef) {
