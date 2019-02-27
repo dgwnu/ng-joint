@@ -19,10 +19,6 @@ import {
 
 export abstract class UmlElementShape extends DiaElement {
 
-    constructor(id: string, options?: shapes.uml.ClassAttributes, extraOptions?: { [key: string]: any; }) {
-        super({id: id, options });
-    }
-
 }
 
 export abstract class UmlLinkShape extends DiaLink {
