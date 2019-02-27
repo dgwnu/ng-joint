@@ -76,6 +76,63 @@
                     }
                 }
             }
+        },
+        "uml": {
+            "defaults": {
+                "elements": {
+                    "shapeObjectClass": {
+                        "nameSpace": "shapes",
+                        "class": "uml.__name@classify__"
+                    },
+                    "shapeOptionsClass": {
+                        "nameSpace": "shapes",
+                        "class": "uml.ClassAttributes"
+                    }
+                },
+                "links": {
+                    "shapeObjectClass": {
+                        "nameSpace": "shapes",
+                        "class": "uml.__name@classify__"
+                    },
+                    "shapeOptionsClass": {
+                        "nameSpace": "dia",
+                        "class": "Link.GenericAttributes",
+                        "type": "shapes.standard.LinkSelectors"
+                    }
+                }
+            },
+            "elements": {
+                "abstract": {
+                    "properties": {
+                    }
+                },
+                "class": {
+                    "properties": {
+                    }
+                },
+                "interface": {
+                    "properties": {
+                    }
+                }
+            },
+            "links": {
+                "aggregation": {
+                    "properties": {
+                    }
+                },
+                "composition": {
+                    "properties": {
+                    }
+                },
+                "generalization": {
+                    "properties": {
+                    }
+                },
+                "implementation": {
+                    "properties": {
+                    }
+                }
+            }
         }
     }
 }
