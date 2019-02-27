@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { GenericUmlClassShapeComponent } from '../shapes-uml';
+import { GenericUmlElementShapeComponent } from '../shapes-uml';
 import { UmlClassService } from './uml-class.service';
 import { UmlClass } from './uml-class';
 
@@ -10,7 +10,7 @@ import { UmlClass } from './uml-class';
   <!-- joint.shapes.uml.Class  -->
   `,
 })
-export class UmlClassComponent extends GenericUmlClassShapeComponent {
+export class UmlClassComponent extends GenericUmlElementShapeComponent {
 
   constructor(private umlClassService: UmlClassService) {
     super(umlClassService);
