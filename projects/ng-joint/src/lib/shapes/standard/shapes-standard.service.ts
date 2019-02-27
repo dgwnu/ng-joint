@@ -5,7 +5,7 @@ import { Injectable, SimpleChanges } from '@angular/core';
 import { ElementShapeComponent, LinkShapeComponent, ShapePluginService } from '../shapes';
 import { GenericStandardElementShapeComponent, GenericStandardLinkShapeComponent } from './shapes-standard';
 import { ShapesService } from '../shapes.service';
-import { ShapesStandardComponent } from './shapes-standard.component';
+import { ShapesStandardComponent } from '../../schematic-generated/standard';
 
 @Injectable({
   providedIn: 'root'
@@ -38,19 +38,14 @@ export class ShapesStandardService implements ShapePluginService {
     return {};
   }
 
-  elementShapeOptions(properties: {
-    x: number, y: number, width: number, height: number,
-    root?: {},
-    label?: {},
-    body?: {};
-  }) {
+  elementShapeOptions<T extends GenericStandardElementShapeComponent>(component: T) {
     return {
-      position: { x: properties.x, y: properties.y },
-      size: { width: properties.width, height: properties.height },
+      position: { x: component.x, y: component.y },
+      size: { width: component.width, height: component.height },
       attrs: {
-        root: properties.root,
-        body: properties.body,
-        label: properties.label
+        root: component.root,
+        body: component['body'],
+        label: component['label']
       }
     };
   }

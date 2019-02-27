@@ -38,7 +38,7 @@ export interface NgJointUmlClass extends NgJointElement {
     attrs?: attributes.SVGRectAttributes;
 }
 
-export abstract class GenericUmlClassShapeComponent extends GenericElementShapeComponent {
+export abstract class GenericUmlElementShapeComponent extends GenericElementShapeComponent {
     @Input() name: UmlNameType;
     @Input() attributes?: string[];
     @Input() methods?: string[];

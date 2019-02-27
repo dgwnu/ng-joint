@@ -24,7 +24,7 @@ export class AngularElementService implements ElementShapeService {
   /**
    * create new Angular Element (that renders Angular Element in joinjs BBOX)
    */
-  createElementShape(graphInstance: DiaGraph, component: AngularElementComponent): AngularElement {
+  createElementShape(component: AngularElementComponent): AngularElement {
     const elementShape = new AngularElement(
       component.id,
       this.service.elementShapeOptions(component)

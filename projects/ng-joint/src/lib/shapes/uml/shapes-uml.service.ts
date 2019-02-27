@@ -4,7 +4,7 @@ import { shapes } from 'jointjs';
 
 import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
 import { ShapesService } from '../shapes.service';
-import { UmlNameType, GenericUmlClassShapeComponent } from './shapes-uml';
+import { UmlNameType, GenericUmlElementShapeComponent } from './shapes-uml';
 import { ShapesUmlComponent } from './shapes-uml.component';
 
 @Injectable({
@@ -34,7 +34,7 @@ export class ShapesUmlService implements ShapePluginService {
     }
   }
 
-  umlClassAttributes(component: GenericUmlClassShapeComponent): shapes.uml.ClassAttributes {
+  elementShapeOptions<T extends GenericUmlElementShapeComponent>(component: T): shapes.uml.ClassAttributes {
     return {
       position: { x: component.x, y: component.y },
       size: { width: component.width, height: component.height },
@@ -43,6 +43,10 @@ export class ShapesUmlService implements ShapePluginService {
       methods: this._formatUndefinedStringArray(component.methods),
       attrs: component.attrs
     };
+  }
+
+  configElementShape<T extends GenericUmlElementShapeComponent>(component: T) {
+    component.graphInstance.addElement(component.shapeInstance);
   }
 
   onElementEvents(component: ElementShapeComponent) {
