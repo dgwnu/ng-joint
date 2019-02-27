@@ -44,4 +44,4 @@ Thumbs.db
 
 # schematic generated
 schematic-generated
-ng-joint-build*.ts
+schematic-build
