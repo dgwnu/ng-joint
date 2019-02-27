@@ -27,13 +27,6 @@ export abstract class UmlLinkShape extends DiaLink {
 
 export type UmlNameType = string | string[];
 
-export interface NgJointUmlClass extends NgJointElement {
-    name: UmlNameType;
-    attributes?: string[];
-    methods?: string[];
-    attrs?: attributes.SVGRectAttributes;
-}
-
 export abstract class GenericUmlElementShapeComponent extends GenericElementShapeComponent {
     @Input() name: UmlNameType;
     @Input() attributes?: string[];
@@ -41,10 +34,17 @@ export abstract class GenericUmlElementShapeComponent extends GenericElementShap
     @Input() attrs?: attributes.SVGRectAttributes;
 }
 
-export interface NgJointUmlLink extends NgJointLink {
+export abstract class GenericUmlLinkShapeComponent extends GenericLinkShapeComponent {
 
 }
 
-export abstract class GenericUmlLinkShapeComponent extends GenericLinkShapeComponent {
+export interface NgJointGenericUmlElement extends NgJointElement {
+    name: UmlNameType;
+    attributes?: string[];
+    methods?: string[];
+    attrs?: attributes.SVGRectAttributes;
+}
+
+export interface NgJointGenericUmlLink extends NgJointLink {
 
 }

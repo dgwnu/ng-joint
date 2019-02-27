@@ -5,7 +5,7 @@ import { shapes } from 'jointjs';
 import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
 import { ShapesService } from '../shapes.service';
 import { UmlNameType, GenericUmlElementShapeComponent } from './shapes-uml';
-import { ShapesUmlComponent } from './shapes-uml.component';
+import { ShapesUmlComponent } from '../../schematic-generated/uml';
 
 @Injectable({
   providedIn: 'root'
