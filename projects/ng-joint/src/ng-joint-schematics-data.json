@@ -132,6 +132,40 @@
                     }
                 }
             }
+        },
+        "angular": {
+            "defaults": {
+                "elements": {
+                    "shapeObjectClass": {
+                        "nameSpace": "shapes",
+                        "class": "basic.Rect"
+                    },
+                    "shapeOptionsClass": {
+                        "nameSpace": "dia",
+                        "class": "Element.GenericAttributes<shapes.basic.RectSelectors>"
+                    },
+                    "ngElementRef": true
+                },
+                "links": {
+                    "shapeObjectClass": {
+                        "nameSpace": "shapes",
+                        "class": "standard.Link"
+                    },
+                    "shapeOptionsClass": {
+                        "nameSpace": "dia",
+                        "class": "Link.GenericAttributes",
+                        "type": "shapes.standard.LinkSelectors"
+                    }
+                }
+            },
+            "elements": {
+                "element": {
+                    "properties": {
+                    }
+                }
+            },
+            "links": {
+            }
         }
     }
 }
