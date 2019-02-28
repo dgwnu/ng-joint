@@ -3,7 +3,12 @@ import { ElementRef } from '@angular/core';
 import { dia, shapes } from 'jointjs';
 
 import { DiaElement } from '../../dia/element';
-import { NgJointElement, GenericElementShapeComponent } from '../shapes';
+import { DiaLink } from '../../dia/link';
+import {
+    NgJointElement,
+    GenericElementShapeComponent,
+    GenericLinkShapeComponent
+} from '../shapes';
 
 /**
  * Generic Angular Element Shape
@@ -32,6 +37,13 @@ export abstract class AngularElementShape extends DiaElement {
 }
 
 /**
+ * Generic Angular Link Shape
+ */
+export abstract class AngularLinkShape extends DiaLink {
+
+}
+
+/**
  * Generic Angular Element Shapoe Component
  *
  * Contains Angular specific instances
@@ -39,6 +51,10 @@ export abstract class AngularElementShape extends DiaElement {
  */
 export abstract class GenericAngularElementShapeComponent extends GenericElementShapeComponent {
     shapeInstance: AngularElementShape;
+}
+
+export abstract class GenericAngularLinkShapeComponent extends GenericLinkShapeComponent {
+    shapeInstance: AngularLinkShape;
 }
 
 export interface NgJointGenericAngularElement extends NgJointElement {
