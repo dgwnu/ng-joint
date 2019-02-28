@@ -8,8 +8,6 @@ export * from './ng-joint.service';
 export * from './ng-joint.module';
 
 /**
- * Schematic Generated Shapes
+ * Schematic Generated Components and Modules
  */
-export * from './schematic-generated/standard';
-export * from './schematic-generated/uml';
-export * from './schematic-generated/angular';
+export * from './schematic-generated';
