@@ -4,8 +4,8 @@ import { DiaGraph } from '../dia/graph';
 import { ShapePlugin } from './shapes';
 import { ShapesService } from './shapes.service';
 import { ShapesStandardComponent } from '../schematic-generated/standard';
-import { ShapesAngularComponent } from './angular/shapes-angular.component';
-import { ShapesUmlComponent } from './uml/shapes-uml.component';
+import { ShapesAngularComponent } from '../schematic-generated/angular';
+import { ShapesUmlComponent } from '../schematic-generated/uml';
 
 /**
  * NgJoint Shapes Component
