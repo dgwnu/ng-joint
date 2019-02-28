@@ -41,6 +41,6 @@ export abstract class GenericAngularElementShapeComponent extends GenericElement
     shapeInstance: AngularElementShape;
 }
 
-export interface NgJointAngularGenericElement extends NgJointElement {
+export interface NgJointGenericAngularElement extends NgJointElement {
 
 }
