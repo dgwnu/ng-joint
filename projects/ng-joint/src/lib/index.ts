@@ -1,5 +1,5 @@
 /**
-  * Core API ng-joint (basic element layers)
+  * Core ng-joint Api
   */
 export { DiaPaperComponent } from './dia/paper';
 export { DiaGraphComponent } from './dia/graph';
@@ -8,18 +8,8 @@ export * from './ng-joint.service';
 export * from './ng-joint.module';
 
 /**
- * Standard Shapes API (to support jointjs Package Standard Plugin)
+ * Schematic Generated Shapes
  */
 export * from './schematic-generated/standard';
-
-/**
- * UML Shapes API (to support jointjs Package UML Plugin)
- */
-export * from './shapes/uml/shapes-uml.component';
-export * from './shapes/uml/shapes-uml.module';
-
-/**
- * Angular Shapes API (to support Angular based Components and Directives inside jointjs)
- */
-export * from './shapes/angular';
-
+export * from './schematic-generated/uml';
+export * from './schematic-generated/angular';
