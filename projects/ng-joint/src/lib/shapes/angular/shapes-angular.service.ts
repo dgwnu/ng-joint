@@ -2,8 +2,7 @@ import {
   Injectable,
   SimpleChanges,
   Renderer2,
-  RendererFactory2,
-  RendererStyleFlags2
+  RendererFactory2
 } from '@angular/core';
 
 import { ShapePluginService } from '../shapes';
@@ -12,7 +11,7 @@ import { ShapesService } from '../shapes.service';
 import { ShapesAngularComponent } from '../../schematic-generated/angular';
 
 // definition of angular content behaviour
-const _CONTENT_NODES_ = ['BUTTON', 'INPUT', 'SELECT'];
+const _NODE_NAMES_ = ['BUTTON', 'INPUT', 'SELECT'];
 const _CONTENT_STYLE_ = 'pointer-events';
 const _STYLE_VALUE_ = 'auto';
 
@@ -45,20 +44,11 @@ export class ShapesAngularService implements ShapePluginService {
   // set behaviour of html (and angular specific) content within angular element
   private _setNgContentStyles(contentNode: Node | ChildNode) {
     contentNode.childNodes.forEach(childNode => {
-      switch (childNode.nodeName) {
-        case 'BUTTON': {
-          this.renderer.setStyle(childNode, _CONTENT_STYLE_, _STYLE_VALUE_);
-          break;
-        }
-        case 'INPUT': {
-          this.renderer.setStyle(childNode, _CONTENT_STYLE_, _STYLE_VALUE_);
-          break;
-        }
-        case 'SELECT': {
-          this.renderer.setStyle(childNode, _CONTENT_STYLE_, _STYLE_VALUE_);
-          break;
-        }
+
+      if (_NODE_NAMES_.find(nodeName => nodeName === childNode.nodeName)) {
+        this.renderer.setStyle(childNode, _CONTENT_STYLE_, _STYLE_VALUE_);
       }
+
       // process child nodes (until no more)
       if (childNode.hasChildNodes) { this._setNgContentStyles(childNode); }
     });
