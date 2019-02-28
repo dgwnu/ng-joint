@@ -12,6 +12,7 @@ import { ShapesService } from '../shapes.service';
 import { ShapesAngularComponent } from '../../schematic-generated/angular';
 
 // definition of angular content behaviour
+const _CONTENT_NODES_ = ['BUTTON', 'INPUT', 'SELECT'];
 const _CONTENT_STYLE_ = 'pointer-events';
 const _STYLE_VALUE_ = 'auto';
 
