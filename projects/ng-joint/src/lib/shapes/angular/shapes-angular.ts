@@ -18,7 +18,7 @@ export abstract class AngularElementShape extends DiaElement {
         super({id: parms.id, options: parms.options});
 
         parms.options.attrs = {
-            rect: { stroke: 'none', 'fill-opacity': 0 },
+            rect: { stroke: 'none', 'fill-opacity': 0 }
         };
 
     }

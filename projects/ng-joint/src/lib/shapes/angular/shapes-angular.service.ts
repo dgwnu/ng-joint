@@ -1,10 +1,19 @@
-import { Injectable, SimpleChanges, Renderer2, RendererFactory2 } from '@angular/core';
+import { 
+  Injectable,
+  SimpleChanges,
+  Renderer2,
+  RendererFactory2,
+  RendererStyleFlags2
+} from '@angular/core';
 
-import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
+import { ShapePluginService } from '../shapes';
 import { GenericAngularElementShapeComponent } from './shapes-angular';
 import { ShapesService } from '../shapes.service';
-import { ShapesAngularComponent } from './shapes-angular.component';
+import { ShapesAngularComponent } from '../../schematic-generated/angular';
 
+// definition of angular content behaviour
+const _CONTENT_STYLE_ = 'pointer-events';
+const _STYLE_VALUE_ = 'auto';
 
 /**
  * NgJoint Shapes Angular Service Class
@@ -37,15 +46,15 @@ export class ShapesAngularService implements ShapePluginService {
     contentNode.childNodes.forEach(childNode => {
       switch (childNode.nodeName) {
         case 'BUTTON': {
-          this.renderer.setStyle(childNode, 'pointer-events', 'auto');
+          this.renderer.setStyle(childNode, _CONTENT_STYLE_, _STYLE_VALUE_);
           break;
         }
         case 'INPUT': {
-          this.renderer.setStyle(childNode, 'pointer-events', 'auto');
+          this.renderer.setStyle(childNode, _CONTENT_STYLE_, _STYLE_VALUE_);
           break;
         }
         case 'SELECT': {
-          this.renderer.setStyle(childNode, 'pointer-events', 'auto');
+          this.renderer.setStyle(childNode, _CONTENT_STYLE_, _STYLE_VALUE_);
           break;
         }
       }
