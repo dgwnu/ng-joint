@@ -10,24 +10,16 @@
 
 #### Schematics Generation for jointjs standard Shapes
 
-[X] standard/(shape)/standard-(shape)
-
-[X] standard/(shape)/standard-(shape).component
-
-[X] standard/(shape)/standard-(shape).service
-
-[X] standard/(shape)/standard/standard-(shape).module
-
-[ ] standard-(shape).component
-
-[ ] standard-(shape).module
-
-[ ] Reactangle
-
-[ ] Link
+[ ] Schematic Data for all jointjs standard shapes
 
 #### Schematics Generation for ng-joint Angular Shapes
 
+[ ] Angular Link Schematic
+
 #### Schematics Generation for joinjs uml Shapes
 
+[ ] Schematic Data for all jointjs uml shapes
+
 #### Schematic Generation for additional uml Shapes
+
+[ ] Schematic Data for additional uml Use Case shapes

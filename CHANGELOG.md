@@ -1,6 +1,6 @@
 # ChangeLog Ng-Joint-Lib
 
-## [Unreleased]
+## 0.0.1
 
 ### Changed
 
@@ -9,3 +9,5 @@
 ### Added
 
 - Dia Paper elementPointerClicked event handling in GenericElementShapeComponent
+
+- @dgwnu/ng-joint-schematics: ng-joint Shapes Component Generation using @angular/cli
