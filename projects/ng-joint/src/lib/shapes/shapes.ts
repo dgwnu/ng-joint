@@ -1,6 +1,13 @@
-import { OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import {
+    OnChanges,
+    Input,
+    Output,
+    EventEmitter,
+    SimpleChanges,
+    ElementRef
+} from '@angular/core';
 
-import { dia, attributes } from 'jointjs';
+import { dia } from 'jointjs';
 import { DiaGraph } from '../dia/graph';
 import { DiaElement } from '../dia/element';
 import { DiaLink } from '../dia/link';
@@ -56,6 +63,7 @@ export interface ShapeComponent {
     id: string;
     graphInstance: DiaGraph;
     shapeInstance: GenericShape;
+    ngElementRef?: ElementRef;
     createShape(graphInstance: DiaGraph): void;
 }
 
@@ -113,7 +121,7 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     /** jointjs-paper-event (element:pointer:click) */
     @Output() elementPointerClick = new EventEmitter<string>();
 
-    constructor(private service: ElementShapeService) {}
+    constructor(private service: ElementShapeService, public ngElementRef?: ElementRef) {}
 
     /** @ignore */
     private _x: number;
