@@ -73,10 +73,8 @@ export class ShapesAngularService implements ShapePluginService {
 
   // initialize initial component position and size
   private _initComponent(component: GenericAngularElementShapeComponent) {
-    console.log('_initComponent', component);
-    const elementNode = component.shapeInstance.ngNode;
-    this._positionNgElement(elementNode, component.x, component.y);
-    this._sizeNgElement(elementNode, component.width, component.height);
+    this._positionNgElement(component.ngNode, component.x, component.y);
+    this._sizeNgElement(component.ngNode, component.width, component.height);
   }
 
   private _positionComponent(component: GenericAngularElementShapeComponent) {
@@ -87,7 +85,7 @@ export class ShapesAngularService implements ShapePluginService {
     const yChangedDetected = (component.y !== yShapeElement);
 
     if (xChangeDetected || yChangedDetected) {
-      this._positionNgElement(shape.ngNode, xShapeElement, yShapeElement);
+      this._positionNgElement(component.ngNode, xShapeElement, yShapeElement);
     }
 
     if (xChangeDetected) {
@@ -106,7 +104,7 @@ export class ShapesAngularService implements ShapePluginService {
     const heightChangedDetected = (component.height !== heightShapeElement);
 
     if (widthChangeDetected || heightChangedDetected) {
-      this._sizeNgElement(shape.ngNode, widthShapeElement, heightShapeElement);
+      this._sizeNgElement(component.ngNode, widthShapeElement, heightShapeElement);
     }
 
     if (widthChangeDetected) {
@@ -143,11 +141,11 @@ export class ShapesAngularService implements ShapePluginService {
     // process detected changes
     if (positionChangeDetected) {
         shape.jointjsObject.position(component.x, component.y);
-        this._positionNgElement(shape.ngNode, component.x, component.y);
+        this._positionNgElement(component.ngNode, component.x, component.y);
     }
     if (sizeChangeDetected) {
         shape.jointjsObject.resize(component.width, component.height);
-        this._sizeNgElement(shape.ngNode, component.width, component.height);
+        this._sizeNgElement(component.ngNode, component.width, component.height);
     }
   }
 
@@ -175,9 +173,7 @@ export class ShapesAngularService implements ShapePluginService {
 
   configElementShape(component: GenericAngularElementShapeComponent) {
     component.graphInstance.addElement(component.shapeInstance);
-    component.shapeInstance.ngElementRef = component.ngElementRef;
-    console.log('component.ngElementRef.nativeElement', component.ngElementRef.nativeElement);
-    this._setNgContentStyles(component.ngElementRef.nativeElement);
+    this._setNgContentStyles(component.ngNode);
   }
 
 }

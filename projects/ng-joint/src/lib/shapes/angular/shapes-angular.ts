@@ -7,6 +7,7 @@ import { DiaLink } from '../../dia/link';
 import {
     NgJointElement,
     GenericElementShapeComponent,
+    ElementShapeService,
     GenericLinkShapeComponent
 } from '../shapes';
 
@@ -17,7 +18,6 @@ import {
  *
  */
 export abstract class AngularElementShape extends DiaElement {
-    private _ngElementRef: ElementRef;
 
     constructor(parms: {id: string, options: dia.Element.GenericAttributes<shapes.basic.RectSelectors>}) {
         super({id: parms.id, options: parms.options});
@@ -27,12 +27,6 @@ export abstract class AngularElementShape extends DiaElement {
         };
 
     }
-
-    set ngElementRef(value: ElementRef) {
-        this._ngElementRef = value;
-    }
-
-    get ngNode(): Node { return this._ngElementRef.nativeElement; }
 
 }
 
@@ -51,6 +45,12 @@ export abstract class AngularLinkShape extends DiaLink {
  */
 export abstract class GenericAngularElementShapeComponent extends GenericElementShapeComponent {
     shapeInstance: AngularElementShape;
+
+    constructor(private genericAngularElementService: ElementShapeService, private ngElementRef: ElementRef) {
+        super(genericAngularElementService);
+    }
+
+    get ngNode(): Node { return this.ngElementRef.nativeElement; }
 }
 
 export abstract class GenericAngularLinkShapeComponent extends GenericLinkShapeComponent {

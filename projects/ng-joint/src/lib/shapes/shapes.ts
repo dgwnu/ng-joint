@@ -3,8 +3,7 @@ import {
     Input,
     Output,
     EventEmitter,
-    SimpleChanges,
-    ElementRef
+    SimpleChanges
 } from '@angular/core';
 
 import { dia } from 'jointjs';
@@ -63,7 +62,6 @@ export interface ShapeComponent {
     id: string;
     graphInstance: DiaGraph;
     shapeInstance: GenericShape;
-    ngElementRef?: ElementRef;
     createShape(graphInstance: DiaGraph): void;
 }
 
@@ -121,7 +119,7 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     /** jointjs-paper-event (element:pointer:click) */
     @Output() elementPointerClick = new EventEmitter<string>();
 
-    constructor(private service: ElementShapeService, public ngElementRef?: ElementRef) {}
+    constructor(private service: ElementShapeService) {}
 
     /** @ignore */
     private _x: number;
@@ -228,7 +226,7 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
     /** one-way binding targerId property */
     @Input() targetId: string;
 
-    constructor(private service: LinkShapeService, public ngElementRef?: ElementRef) {}
+    constructor(private service: LinkShapeService) {}
 
     /** NgJoint Graph Instance */
     graphInstance: DiaGraph;
