@@ -54,6 +54,8 @@ export class ShapesService {
       }
     }
 
+    console.log('elements', elements);
+    console.log('links', links);
     this.createShapes(elements, links, component.graphInstance);
   }
 

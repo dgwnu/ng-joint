@@ -76,9 +76,11 @@ export interface ElementShapeComponent extends ShapeComponent {
  * Element Shape Service Interface (service for Generic Element Shape Class)
  */
 export interface ElementShapeService {
-    createElementShape(component: ElementShapeComponent): DiaElement;
-    onEvents(component: ElementShapeComponent): void;
-    setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
+    shapeOptions<T extends ElementShapeComponent>(component: T): {};
+    createElementShape<T extends DiaElement>(id: string, options: {}): T;
+    configShape<T extends ElementShapeComponent>(component: T): void;
+    onEvents<T extends ElementShapeComponent>(component: T): void;
+    setChanges<T extends ElementShapeComponent>(changes: SimpleChanges, component: T): void;
 }
 
 /**
@@ -161,8 +163,12 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
 
     /** Create Shape Element Instance and initialize event handlers */
     createShape(graphInstance: DiaGraph) {
+        console.log('PRE: createShape.shapeInstance', this.shapeInstance);
         this.graphInstance =  graphInstance;
-        this.shapeInstance = this.service.createElementShape(this);
+        const shapeOptions = this.service.shapeOptions(this);
+        this.shapeInstance = this.service.createElementShape(this.id, shapeOptions);
+        this.service.configShape(this);
+        console.log('POST: createShape.shapeInstance', this.shapeInstance);
         this.service.onEvents(this);
     }
 
