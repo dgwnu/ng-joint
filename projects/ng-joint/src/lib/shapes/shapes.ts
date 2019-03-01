@@ -201,7 +201,7 @@ export interface LinkShapeComponent extends ShapeComponent {
  */
 export interface LinkShapeService {
     shapeOptions<T extends LinkShapeComponent>(component: T): {};
-    createLinkShape<T extends DiaLink>(id: string, options: {}): T;
+    createLinkShape<T extends DiaLink>(id: string, sourceId: string, targetId: string, options: {}): T;
     configShape<T extends LinkShapeComponent>(component: T): void;
     onEvents(component: LinkShapeComponent): void;
     setChanges(changes: SimpleChanges, component: LinkShapeComponent): void;
@@ -239,7 +239,8 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
         console.log('PRE: createShape.shapeInstance', this.shapeInstance);
         this.graphInstance =  graphInstance;
         const shapeOptions = this.service.shapeOptions(this);
-        this.shapeInstance = this.service.createLinkShape(this.id, shapeOptions);
+        this.shapeInstance = this.service.createLinkShape(
+            this.id, this.sourceId, this.targetId, shapeOptions);
         this.service.configShape(this);
         console.log('POST: createShape.shapeInstance', this.shapeInstance);
         this.service.onEvents(this);
