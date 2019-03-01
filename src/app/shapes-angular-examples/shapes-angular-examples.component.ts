@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./shapes-angular-examples.component.scss']
 })
 export class ShapesAngularExamplesComponent {
-  background = '';
-  navLinks = [
-    { path: 'angular-bi-dir-bind', label: 'Template Only'},
-    { path: ' angular-template-only', label: 'Bi-directional Binding'},
-  ];
 
 }
