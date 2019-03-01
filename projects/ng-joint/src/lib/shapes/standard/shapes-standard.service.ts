@@ -34,10 +34,6 @@ export class ShapesStandardService implements ShapePluginService {
     this.service.setLinkChanges(changes, component);
   }
 
-  linkShapeOptions(properties: {}) {
-    return {};
-  }
-
   elementShapeOptions<T extends GenericStandardElementShapeComponent>(component: T) {
     return {
       position: { x: component.x, y: component.y },
@@ -52,6 +48,10 @@ export class ShapesStandardService implements ShapePluginService {
 
   configElementShape<T extends GenericStandardElementShapeComponent>(component: T) {
     component.graphInstance.addElement(component.shapeInstance);
+  }
+
+  linkShapeOptions<T extends GenericStandardLinkShapeComponent>(component: T) {
+    return undefined;
   }
 
   configLinkShape<T extends GenericStandardLinkShapeComponent>(component: T) {

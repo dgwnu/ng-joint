@@ -4,7 +4,7 @@ import { shapes } from 'jointjs';
 
 import { ElementShapeComponent, LinkShapeComponent, DiaShape, ShapePluginService } from '../shapes';
 import { ShapesService } from '../shapes.service';
-import { UmlNameType, GenericUmlElementShapeComponent } from './shapes-uml';
+import { UmlNameType, GenericUmlElementShapeComponent, GenericUmlLinkShapeComponent } from './shapes-uml';
 import { ShapesUmlComponent } from '../../schematic-generated/uml';
 
 @Injectable({
@@ -49,6 +49,14 @@ export class ShapesUmlService implements ShapePluginService {
     component.graphInstance.addElement(component.shapeInstance);
   }
 
+  linkShapeOptions<T extends GenericUmlLinkShapeComponent>(component: T) {
+    return undefined;
+  }
+
+  configLinkShape<T extends GenericUmlLinkShapeComponent>(component: T) {
+    component.graphInstance.addLink(component.shapeInstance);
+  }
+
   onElementEvents(component: ElementShapeComponent) {
     this.service.onElementEvents(component);
   }
@@ -63,10 +71,6 @@ export class ShapesUmlService implements ShapePluginService {
 
   setLinkChanges(changes: SimpleChanges, component: LinkShapeComponent) {
     this.service.setLinkChanges(changes, component);
-  }
-
-  setAttrProp(diaShape: DiaShape, prop: string, currentValue: {}) {
-    this.service.setAttrProp(diaShape, prop, currentValue);
   }
 
 }
