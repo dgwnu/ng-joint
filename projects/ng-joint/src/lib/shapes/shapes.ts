@@ -76,11 +76,11 @@ export interface ElementShapeComponent extends ShapeComponent {
  * Element Shape Service Interface (service for Generic Element Shape Class)
  */
 export interface ElementShapeService {
-    shapeOptions<T extends ElementShapeComponent>(component: T): {};
-    createElementShape<T extends DiaElement>(id: string, options: {}): T;
-    configShape<T extends ElementShapeComponent>(component: T): void;
-    onEvents<T extends ElementShapeComponent>(component: T): void;
-    setChanges<T extends ElementShapeComponent>(changes: SimpleChanges, component: T): void;
+    shapeOptions(component: ElementShapeComponent): {};
+    createElementShape(id: string, options: {}): DiaElement;
+    configShape(component: ElementShapeComponent): void;
+    onEvents(component: ElementShapeComponent): void;
+    setChanges(changes: SimpleChanges, component: ElementShapeComponent): void;
 }
 
 /**
@@ -200,9 +200,9 @@ export interface LinkShapeComponent extends ShapeComponent {
  * Link Shape Service Interface (service for Generic Link Shape Class)
  */
 export interface LinkShapeService {
-    shapeOptions<T extends LinkShapeComponent>(component: T): {};
-    createLinkShape<T extends DiaLink>(id: string, sourceId: string, targetId: string, options: {}): T;
-    configShape<T extends LinkShapeComponent>(component: T): void;
+    shapeOptions(component: LinkShapeComponent): {};
+    createLinkShape(id: string, sourceId: string, targetId: string, options: {}): DiaLink;
+    configShape(component: LinkShapeComponent): void;
     onEvents(component: LinkShapeComponent): void;
     setChanges(changes: SimpleChanges, component: LinkShapeComponent): void;
 }
