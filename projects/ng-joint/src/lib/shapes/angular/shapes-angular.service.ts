@@ -176,7 +176,8 @@ export class ShapesAngularService implements ShapePluginService {
   configElementShape(component: GenericAngularElementShapeComponent) {
     component.graphInstance.addElement(component.shapeInstance);
     component.shapeInstance.ngElementRef = component.ngElementRef;
-    this._setNgContentStyles(component.shapeInstance.ngNode);
+    console.log('component.ngElementRef.nativeElement', component.ngElementRef.nativeElement);
+    this._setNgContentStyles(component.ngElementRef.nativeElement);
   }
 
 }
