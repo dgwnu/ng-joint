@@ -228,7 +228,7 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
     /** one-way binding targerId property */
     @Input() targetId: string;
 
-    constructor(private service: LinkShapeService) {}
+    constructor(private service: LinkShapeService, public ngElementRef?: ElementRef) {}
 
     /** NgJoint Graph Instance */
     graphInstance: DiaGraph;
