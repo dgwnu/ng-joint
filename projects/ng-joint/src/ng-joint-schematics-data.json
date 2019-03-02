@@ -164,7 +164,7 @@
                     "properties": {
                     },
                     "template": "    <div class=\"angular-element\">\r\n      <ng-content><\/ng-content>\r\n    <\/div>",
-                    "style": "  .angular-element {\r\n    pointer-events: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    -webkit-user-select: none;\r\n    position: absolute;\r\n    z-index: 2\r\n  }"
+                    "style": "   .angular-element {\r\n     pointer-events: none;\r\n     -moz-user-select: none;\r\n     -ms-user-select: none;\r\n     user-select: none;\r\n     -webkit-user-select: none;\r\n     position: absolute;\r\n     z-index: 2\r\n   }"
                 }
             },
             "links": {
