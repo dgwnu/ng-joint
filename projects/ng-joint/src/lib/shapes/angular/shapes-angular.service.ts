@@ -56,6 +56,7 @@ export class ShapesAngularService implements ShapePluginService {
 
   // set NgStyle in DIV-container (first child node)
   private _setNgElPxStyleProp(elementNode: Node, prop: string, px: number) {
+    console.log('_setNgElPxStyleProp', elementNode.firstChild);
     this.renderer.setStyle(elementNode.firstChild, prop, px.toString() + 'px');
   }
 
