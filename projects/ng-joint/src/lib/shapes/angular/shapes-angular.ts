@@ -46,11 +46,11 @@ export abstract class AngularLinkShape extends DiaLink {
 export abstract class GenericAngularElementShapeComponent extends GenericElementShapeComponent {
     shapeInstance: AngularElementShape;
 
-    constructor(private genericAngularElementService: ElementShapeService, private ngElementRef: ElementRef) {
+    constructor(private genericAngularElementService: ElementShapeService, private genericNgElementRef: ElementRef) {
         super(genericAngularElementService);
     }
 
-    get ngNode(): Node { return this.ngElementRef.nativeElement; }
+    get ngNode(): Node { return this.genericNgElementRef.nativeElement; }
 }
 
 export abstract class GenericAngularLinkShapeComponent extends GenericLinkShapeComponent {
