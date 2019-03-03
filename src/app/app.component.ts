@@ -8,6 +8,18 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'ng-jointjs';
+  examplesList = [
+    {
+      examples: 'shapes-standard',
+      pages: [
+        {
+          title: 'Standard Elements',
+          path: 'standard-elements'
+        }
+      ]
+  ];
+
+
 
   constructor(private router: Router) {}
 
