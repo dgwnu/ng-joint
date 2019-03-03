@@ -21,7 +21,7 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <mat-action-row *ngFor="let sub of examples.subs">
-                        <a mat-button routerLink="buildSubLink(examples.main, sub)"> {{sub}} </a>
+                        <a mat-button routerLink="/shapes-{{examples.main}}-examples/{{examples.main}}-{{sub}}"> {{sub}} </a>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>
