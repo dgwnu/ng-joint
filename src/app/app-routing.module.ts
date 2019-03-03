@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { OverviewComponent } from './overview.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: OverviewComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -18,6 +18,6 @@ const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  declarations: [PageNotFoundComponent]
+  declarations: [PageNotFoundComponent, OverviewComponent]
 })
 export class AppRoutingModule {}

@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
-import { OverviewModule } from './overview';
+
 import { ShapesStandardExamplesModule } from './shapes-standard-examples';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,7 +18,6 @@ import { AppRoutingModule } from './app-routing.module';
     CommonModule,
     FlexLayoutModule,
     AppMaterialModule,
-    OverviewModule,
     ShapesStandardExamplesModule,
     AppRoutingModule
   ],
