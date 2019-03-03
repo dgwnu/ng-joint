@@ -6,22 +6,27 @@
 <div fxLayout="row">
 
     <mat-card class="accordion-container">
-        <mat-card-title>
-            Shapes
-        </mat-card-title>
         <mat-card-content>
             <mat-accordion>
-                <mat-expansion-panel *ngFor="let examples of examplesList">
+                <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                <a mat-button routerLink="/" > Overview </a>
+                        </mat-expansion-panel-header>
+                </mat-expansion-panel>
+                <mat-expansion-panel *ngFor="let examples of examplesList"
+                    (afterCollapse)="onOverview(examples.main)"
+                    (afterExpand)="onOverview(examples.main)"
+                >
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{main}}
+                            {{getMainTitle(examples.main) | titlecase}}
                         </mat-panel-title>
                         <mat-panel-description>
                             (jointjs)
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <mat-action-row *ngFor="let sub of examples.subs">
-                        <a mat-button routerLink="/shapes-{{examples.main}}-examples/{{examples.main}}-{{sub}}"> {{sub}} </a>
+                        <a mat-button routerLink="/{{examples.main}}/{{sub}}"> {{getSubTitle(sub) | titlecase}} </a>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>

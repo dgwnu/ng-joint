@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { strings } from '@angular-devkit/core';
 
 interface ExamplesInterface {
   main: string;
@@ -17,10 +16,10 @@ export class AppComponent implements OnInit {
   title = 'ng-jointjs';
   examplesList: ExamplesInterface[] = [
     {
-      main: 'standard',
+      main: 'shapes-standard-examples',
       subs: [
-        'elements',
-        'links'
+        'standard-elements',
+        'standard-links'
       ]
     }
   ];
@@ -33,18 +32,16 @@ export class AppComponent implements OnInit {
     this.initialized = true;
   }
 
-  onExamplesMain(main: string) {
-    const mainLink = [this.buildMainLink(main)];
-    this.router.navigate(mainLink);
+  onOverview(main: string) {
+    this.router.navigate([main]);
   }
 
-  buildMainLink(main: string): string {
-    return main + '-examples';
+  getMainTitle(main: string): string {
+    return main.split('-')[0];
   }
 
-  buildSubLink(main: string, sub: string): string {
-    console.log(main, sub);
-    return this.buildMainLink(main) + '/' + main + '-' + sub; 
+  getSubTitle(sub: string): string {
+    return sub.split('-')[1];
   }
 
 }

@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { NgJointModule, ShapesStandardModule } from '@dgwnu/ng-joint';
+
 import { ShapesStandardExamplesComponent } from './shapes-standard-examples.component';
-import { ShapesStandardExamplesRoutingModule } from './shapes-standard-examples-routing.module';
 import { StandardElementsComponent } from './standard-elements';
 import { StandardLinksComponent } from './standard-links';
+import { ShapesStandardExamplesRoutingModule } from './shapes-standard-examples-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +17,7 @@ import { StandardLinksComponent } from './standard-links';
   ],
   imports: [
     CommonModule,
+    NgJointModule, ShapesStandardModule,
     ShapesStandardExamplesRoutingModule
   ],
   exports: [
