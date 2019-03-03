@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { strings } from '@angular-devkit/core';
 
 interface ExamplesInterface {
   main: string;
@@ -20,14 +21,25 @@ export class AppComponent {
         'elements',
         'links'
       ]
+    }
   ];
 
 
 
   constructor(private router: Router) {}
 
-  onExamplesOverviewPage(examples: string) {
-    this.router.navigate([examples + '-examples']);
+  onExamplesMain(main: string) {
+    const mainLink = [this.buildMainLink(main)];
+    this.router.navigate(mainLink);
+  }
+
+  buildMainLink(main: string): string {
+    return main + '-examples';
+  }
+
+  buildSubLink(main: string, sub: string): string {
+    console.log(main, sub);
+    return this.buildMainLink(main) + '/' + main + '-' + sub; 
   }
 
 }

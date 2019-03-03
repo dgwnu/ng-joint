@@ -11,23 +11,17 @@
         </mat-card-title>
         <mat-card-content>
             <mat-accordion>
-                <mat-expansion-panel 
-                    (afterExpand)="onExamplesOverviewPage('shapes-standard')" 
-                    (afterCollapse)="onExamplesOverviewPage('shapes-standard')"
-                >
+                <mat-expansion-panel *ngFor="let examples of examplesList">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Standard
+                            {{main}}
                         </mat-panel-title>
                         <mat-panel-description>
                             (jointjs)
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <mat-action-row>
-                        <a mat-button routerLink="/shapes-standard-examples/standard-elements"> Elements </a>
-                    </mat-action-row>
-                    <mat-action-row>
-                        <button mat-button> Links </button>
+                    <mat-action-row *ngFor="let sub of examples.subs">
+                        <a mat-button routerLink="buildSubLink(examples.main, sub)"> {{sub}} </a>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>
