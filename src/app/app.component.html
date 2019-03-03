@@ -3,15 +3,36 @@
     {{title}}
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
+<div fxLayout="row">
 
-    <mat-sidenav class="sidenav-content" mode="side" opened>
-        Sidenav content
+    <mat-card>
+        <mat-card-title>
+            Shapes
+        </mat-card-title>
+        <mat-card-content>
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Standard
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            (jointjs package)
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-action-list>
+                        <button mat-list-item> Elements </button>
+                        <button mat-list-item> Links </button>
+                    </mat-action-list>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card-content>
+    </mat-card>
 
-    </mat-sidenav>
+    <mat-card class="main-content" fxFlex>
+        <mat-card-content>
+            Main content
+        </mat-card-content>
+    </mat-card>
 
-    <mat-sidenav-content class="main-content">
-        Main content
-    </mat-sidenav-content>
-
-  </mat-sidenav-container>
+</div>
