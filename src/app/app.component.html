@@ -1,50 +1,17 @@
 
 <mat-toolbar color="primary">
-    {{selectedExampleNode.name}}
+    {{title}}
 </mat-toolbar>
 
-<div fxLayout="row">
-    <mat-card class="example-tree-container">
-        <mat-card-content #menucontent >
-            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-                <!-- This is the tree node template for leaf nodes -->
-                <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-                    <li class="mat-tree-node">
-                        <!-- use a disabled button to provide padding for tree leaf -->
-                        <button mat-icon-button disabled></button>
-                        <!-- node click handling (routing etc.) -->
-                        <button mat-button (click)="routeTreeNode(node)">
-                            {{node.name}}
-                        </button>
-                    </li>
-                </mat-tree-node>
-                <!-- This is the tree node template for expandable nodes -->
-                <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
-                    <li>
-                        <div class="mat-tree-node">
-                            <button mat-icon-button matTreeNodeToggle
-                                [attr.aria-label]="'toggle ' + node.name">
-                                <mat-icon class="mat-icon-rtl-mirror">
-                                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                                </mat-icon>
-                            </button>
-                            <!-- node click handling (routing etc.) -->
-                            <button mat-button (click)="routeTreeNode(node)">
-                                {{node.name}}
-                            </button>
-                        </div>
-                        <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
-                            <ng-container matTreeNodeOutlet></ng-container>
-                        </ul>
-                    </li>
-                </mat-nested-tree-node>
-            </mat-tree>
-        </mat-card-content>
-    </mat-card>
-    <mat-card fxFlex>
-        <mat-card-content>
-            <router-outlet></router-outlet>
-        </mat-card-content>
-    </mat-card>
-</div>
+<mat-sidenav-container class="sidenav-container">
 
+    <mat-sidenav class="sidenav-content" mode="side" opened>
+        Sidenav content
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="main-content">
+        Main content
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
