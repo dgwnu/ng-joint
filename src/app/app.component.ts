@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+interface ExamplesInterface {
+  main: string;
+  subs: string[];
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,14 +13,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'ng-jointjs';
-  examplesList = [
+  examplesList: ExamplesInterface[] = [
     {
-      examples: 'shapes-standard',
-      pages: [
-        {
-          title: 'Standard Elements',
-          path: 'standard-elements'
-        }
+      main: 'standard',
+      subs: [
+        'elements',
+        'links'
       ]
   ];
 
