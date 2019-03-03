@@ -29,7 +29,7 @@
     </mat-card>
 
     <mat-card class="main-content" fxFlex>
-        <mat-card-content>
+        <mat-card-content *ngIf="initialized">
             <router-outlet></router-outlet>
         </mat-card-content>
     </mat-card>

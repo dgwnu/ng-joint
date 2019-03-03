@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { strings } from '@angular-devkit/core';
 
@@ -12,7 +12,8 @@ interface ExamplesInterface {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  initialized = false;
   title = 'ng-jointjs';
   examplesList: ExamplesInterface[] = [
     {
@@ -27,6 +28,10 @@ export class AppComponent {
 
 
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.initialized = true;
+  }
 
   onExamplesMain(main: string) {
     const mainLink = [this.buildMainLink(main)];
