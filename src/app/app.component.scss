@@ -3,11 +3,11 @@
 // Import app custom theme
 @import '../styles.scss';
 
-.sidenav-container {
+.accordion-container {
     background-color: mat-color($ng-joint-app-warn, A100);
 }
 
-.sidenav-content {
+.accordion-content {
   background-color: mat-color($ng-joint-app-warn, A200);
 }
 

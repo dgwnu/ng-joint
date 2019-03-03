@@ -5,25 +5,30 @@
 
 <div fxLayout="row">
 
-    <mat-card>
+    <mat-card class="accordion-container">
         <mat-card-title>
             Shapes
         </mat-card-title>
         <mat-card-content>
             <mat-accordion>
-                <mat-expansion-panel>
+                <mat-expansion-panel 
+                    (afterExpand)="onExamplesOverviewPage('shapes-standard')" 
+                    (afterCollapse)="onExamplesOverviewPage('shapes-standard')"
+                >
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Standard
                         </mat-panel-title>
                         <mat-panel-description>
-                            (jointjs package)
+                            (jointjs)
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <mat-action-list>
-                        <button mat-list-item> Elements </button>
-                        <button mat-list-item> Links </button>
-                    </mat-action-list>
+                    <mat-action-row>
+                        <a mat-button routerLink="/shapes-standard-examples"> Elements </a>
+                    </mat-action-row>
+                    <mat-action-row>
+                        <button mat-button> Links </button>
+                    </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-card-content>
@@ -31,7 +36,7 @@
 
     <mat-card class="main-content" fxFlex>
         <mat-card-content>
-            Main content
+            <router-outlet></router-outlet>
         </mat-card-content>
     </mat-card>
 

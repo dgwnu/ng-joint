@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   title = 'ng-jointjs';
+
+  constructor(private router: Router) {}
+
+  onExamplesOverviewPage(examples: string) {
+    this.router.navigate([examples + '-examples']);
+  }
 
 }
