@@ -47,6 +47,16 @@ export class ShapesStandardService implements ShapePluginService {
   }
 
   configElementShape<T extends GenericStandardElementShapeComponent>(component: T) {
+    // shape extra config
+
+    if (component.shapeInstance.jointjsObject instanceof shapes.standard.Cylinder && component['topRy']) {
+      // jointjs.shapes.Cylinder extra config
+      const t: string | number = component['topRy'];
+      const cylinder = component.shapeInstance.jointjsObject as shapes.standard.Cylinder;
+      cylinder.topRy(t);
+    }
+
+    // shape generic config
     component.graphInstance.addElement(component.shapeInstance);
   }
 
