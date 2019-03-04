@@ -57,6 +57,26 @@
                         }
                     }
                 },
+                "embedded-image": {
+                    "properties": {
+                        "attrs": {
+                            "image": {
+                                "nameSpace": "attributes",
+                                "class": "SVGImageAttributes"
+                            },
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGRectAttributes"
+                            },
+
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
+
                 "circle": {
                     "properties": {
                         "attrs": {

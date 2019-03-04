@@ -52,10 +52,22 @@
             [width]="150"
             [height]="100"
             [root]="{ title: 'standard.BorderedImage' }"
-            [label]="{ text: 'Embedded\nImage' }"
+            [label]="{ text: 'Bordered\nImage' }"
             [border]="{ rx: '5' }"
             [image]="{ xlinkHref: 'assets/image.png' }">
           </ng-joint-standard-bordered-image>
+
+          <ng-joint-standard-embedded-image
+            [id]="'bordered-image'"
+            [x]="425"
+            [y]="340"
+            [width]="150"
+            [height]="100"
+            [root]="{ title: 'standard.EmbededImage' }"
+            [label]="{ text: 'Embedded\nImage' }"
+            [body]="{ fill: '#fe854f', fillOpacity: '0.5', stroke: '#fe854f' }"
+            [image]="{ xlinkHref: 'assets/image.png' }">
+          </ng-joint-standard-embedded-image>
 
           <ng-joint-standard-ellipse
             [id]="'ellipse'"
