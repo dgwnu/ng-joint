@@ -8,7 +8,7 @@ import { ShapesService } from '../shapes.service';
 import { ShapesStandardComponent } from '../../schematic-generated/standard';
 
 const _STANDARD_SHAPE_ATTRS = [
-  'root', 'body', 'label', 'border', 'image'
+  'root', 'body', 'label', 'border', 'image', 'header', 'headerText', 'bodyText'
 ];
 
 @Injectable({

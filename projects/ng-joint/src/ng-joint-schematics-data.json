@@ -57,26 +57,6 @@
                         }
                     }
                 },
-                "embedded-image": {
-                    "properties": {
-                        "attrs": {
-                            "image": {
-                                "nameSpace": "attributes",
-                                "class": "SVGImageAttributes"
-                            },
-                            "body": {
-                                "nameSpace": "attributes",
-                                "class": "SVGRectAttributes"
-                            },
-
-                            "label": {
-                                "nameSpace": "attributes",
-                                "class": "SVGTextAttributes"
-                            }
-                        }
-                    }
-                },
-
                 "circle": {
                     "properties": {
                         "attrs": {
@@ -122,6 +102,47 @@
                                 "class": "SVGEllipseAttributes"
                             },
                             "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
+                "embedded-image": {
+                    "properties": {
+                        "attrs": {
+                            "image": {
+                                "nameSpace": "attributes",
+                                "class": "SVGImageAttributes"
+                            },
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGRectAttributes"
+                            },
+
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
+                "headered-rectangle": {
+                    "properties": {
+                        "attrs": {
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGRectAttributes"
+                            },
+                            "header": {
+                                "nameSpace": "attributes",
+                                "class": "SVGRectAttributes"
+                            },
+                            "headerText": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            },
+                            "bodyText": {
                                 "nameSpace": "attributes",
                                 "class": "SVGTextAttributes"
                             }
