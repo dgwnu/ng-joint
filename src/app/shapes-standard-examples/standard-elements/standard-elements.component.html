@@ -9,7 +9,7 @@
       <ng-joint-shapes>
 
         <ng-joint-shapes-standard>
-
+          
           <ng-joint-standard-rectangle
             [id]="'rectangle'"
             [x]="50"
@@ -44,6 +44,18 @@
             [label]="{ text: 'Cylinder' }"
             [topRy]="'10%'">
           </ng-joint-standard-cylinder>
+
+          <ng-joint-standard-bordered-image
+            [id]="'bordered-image'"
+            [x]="225"
+            [y]="410"
+            [width]="150"
+            [height]="100"
+            [root]="{ title: 'standard.BorderedImage' }"
+            [label]="{ text: 'Embedded\nImage' }"
+            [border]="{ rx: '5' }"
+            [image]="{ placeholderURL: 'http://via.placeholder.com/150x100' }">
+          </ng-joint-standard-bordered-image>
 
           <ng-joint-standard-ellipse
             [id]="'ellipse'"
