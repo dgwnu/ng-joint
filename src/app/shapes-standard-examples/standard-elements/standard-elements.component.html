@@ -10,7 +10,7 @@
 
         <ng-joint-shapes-standard>
 
-          <ng-joint-standard-rectangle (elementPointerClick)="onElementPointerClick($event)"
+          <ng-joint-standard-rectangle
                     [id]="'rectangle'"
                     [x]="50"
                     [y]="10"
@@ -20,6 +20,15 @@
                     [label]="{ text: 'Rectangle' }">
           </ng-joint-standard-rectangle>
 
+          <ng-joint-standard-circle
+                    [id]="'circle'"
+                    [x]="200"
+                    [y]="10"
+                    [width]="100"
+                    [height]="100"
+                    [body]="{ fill: '#30d0c6', fillOpacity: '0,5' }"
+                    [label]="{ text: 'Circle' }">
+          </ng-joint-standard-circle>
 
         </ng-joint-shapes-standard>
 

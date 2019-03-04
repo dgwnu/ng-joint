@@ -40,6 +40,10 @@
                             "body": {
                                 "nameSpace": "attributes",
                                 "class": "SVGPathAttributes"
+                            },
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
                             }
                         }
                     }
@@ -55,7 +59,6 @@
                                 "nameSpace": "attributes",
                                 "class": "SVGTextAttributes"
                             }
-
                         }
                     }
                 }
