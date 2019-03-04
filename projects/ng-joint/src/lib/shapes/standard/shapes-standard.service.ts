@@ -1,6 +1,6 @@
 import { Injectable, SimpleChanges } from '@angular/core';
 
-// import { attributes } from 'jointjs';
+import { shapes } from 'jointjs';
 
 import { ElementShapeComponent, LinkShapeComponent, ShapePluginService } from '../shapes';
 import { GenericStandardElementShapeComponent, GenericStandardLinkShapeComponent } from './shapes-standard';
@@ -47,6 +47,17 @@ export class ShapesStandardService implements ShapePluginService {
   }
 
   configElementShape<T extends GenericStandardElementShapeComponent>(component: T) {
+    // Specific Config Settings
+
+    if (component['topRy']) {
+      // cylinder with topRy property set
+      const shapeInstance = component.shapeInstance as any;
+      const cyclinderInstance = shapeInstance as shapes.standard.Cylinder;
+      const topRyValue: string | number = component['topRy'] as any;
+      cyclinderInstance.topRy(topRyValue);
+    }
+
+    // Global Config Settings
     component.graphInstance.addElement(component.shapeInstance);
   }
 
