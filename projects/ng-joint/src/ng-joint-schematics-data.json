@@ -48,6 +48,24 @@
                         }
                     }
                 },
+                "cylinder": {
+                    "properties": {
+                        "attrs": {
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGPathAttributes"
+                            },
+                            "top": {
+                                "nameSpace": "attributes",
+                                "class": "SVGEllipseAttributes"
+                            },
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
                 "ellipse": {
                     "properties": {
                         "attrs": {
