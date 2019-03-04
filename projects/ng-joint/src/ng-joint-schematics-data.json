@@ -48,6 +48,20 @@
                         }
                     }
                 },
+                "ellipse": {
+                    "properties": {
+                        "attrs": {
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGEllipseAttributes"
+                            },
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
                 "rectangle": {
                     "properties": {
                         "attrs": {
