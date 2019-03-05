@@ -59,7 +59,7 @@
           </ng-joint-standard-ellipse>
 
           <ng-joint-standard-embedded-image
-            [id]="'bordered-image'"
+            [id]="'embedded-image'"
             [x]="425"
             [y]="340"
             [width]="150"
@@ -71,7 +71,7 @@
           </ng-joint-standard-embedded-image>
 
           <ng-joint-standard-headered-rectangle
-            [id]="'bordered-image'"
+            [id]="'headered-rectangle'"
             [x]="25"
             [y]="610"
             [width]="150"
@@ -81,6 +81,17 @@
             [headerText]="{ text: 'Header' }"
             [bodyText]="{ text: 'Headered\nRectangle' }">
           </ng-joint-standard-headered-rectangle>
+
+          <ng-joint-standard-image
+            [id]="'image'"
+            [x]="25"
+            [y]="410"
+            [width]="150"
+            [height]="100"
+            [root]="{ title: 'standard.Image' }"
+            [label]="{ text: 'Image' }"
+            [image]="{ xlinkHref: 'assets/image.png' }">
+          </ng-joint-standard-image>
           
           <ng-joint-standard-path
             [id]="'path'"

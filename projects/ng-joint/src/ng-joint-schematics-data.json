@@ -119,7 +119,6 @@
                                 "nameSpace": "attributes",
                                 "class": "SVGRectAttributes"
                             },
-
                             "label": {
                                 "nameSpace": "attributes",
                                 "class": "SVGTextAttributes"
@@ -143,6 +142,20 @@
                                 "class": "SVGTextAttributes"
                             },
                             "bodyText": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
+                "image": {
+                    "properties": {
+                        "attrs": {
+                            "image": {
+                                "nameSpace": "attributes",
+                                "class": "SVGImageAttributes"
+                            },
+                            "label": {
                                 "nameSpace": "attributes",
                                 "class": "SVGTextAttributes"
                             }
