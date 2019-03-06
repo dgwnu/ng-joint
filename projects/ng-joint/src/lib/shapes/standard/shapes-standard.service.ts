@@ -7,10 +7,6 @@ import { GenericStandardElementShapeComponent, GenericStandardLinkShapeComponent
 import { ShapesService } from '../shapes.service';
 import { ShapesStandardComponent } from '../../schematic-generated/standard';
 
-const _STANDARD_SHAPE_ATTRS = [
-  'root', 'body', 'label', 'border', 'image', 'header', 'headerText', 'bodyText'
-];
-
 @Injectable({
   providedIn: 'root'
 })
@@ -44,10 +40,10 @@ export class ShapesStandardService implements ShapePluginService {
       size: { width: component.width, height: component.height },
       attrs: { }
     };
-    for (const key of _STANDARD_SHAPE_ATTRS) {
-      if (component[key]) {
-        options.attrs[key] = component[key];
-      }
+    const attrsMetaData = component.shapePropertiesMetaData.filter(dataEl => dataEl['type'] === 'attrs');
+    for (const attrDataEl of attrsMetaData) {
+      const key: string = attrDataEl['key'];
+      options.attrs[key] = component[key];
     }
     return options;
   }

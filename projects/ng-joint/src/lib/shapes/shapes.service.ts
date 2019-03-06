@@ -5,6 +5,7 @@ import {
   ShapePlugin,
   GenericShape,
   DiaShape,
+  ShapeComponent,
   ElementShapeComponent,
   LinkShapeComponent,
   GenericElementShapeComponent,

@@ -62,6 +62,7 @@ export interface ShapeComponent {
     id: string;
     graphInstance: DiaGraph;
     shapeInstance: GenericShape;
+    shapePropertiesMetaData: any;
     createShape(graphInstance: DiaGraph): void;
 }
 
@@ -166,6 +167,8 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     graphInstance: DiaGraph;
     /** NgJoint Shape Element Instance */
     shapeInstance: DiaElement;
+    /** MetaData of generated properties */
+    shapePropertiesMetaData: any;
 
     /** Create Shape Element Instance and initialize event handlers */
     createShape(graphInstance: DiaGraph) {
@@ -232,6 +235,8 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
     graphInstance: DiaGraph;
     /** NgJoint Shape Link Instance */
     shapeInstance: DiaLink;
+    /** MetaData of generated properties */
+    shapePropertiesMetaData: any;
 
     set sourceShape(source: DiaElement) {
         this.shapeInstance.jointjsObject.source(source.jointjsObject);
