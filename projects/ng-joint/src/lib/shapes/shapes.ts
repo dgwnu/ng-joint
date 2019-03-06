@@ -76,7 +76,6 @@ export interface ElementShapeComponent extends ShapeComponent {
     height: number;
     shapeInstance: DiaElement;
     elementPointerClick: EventEmitter<string>;
-    emitElementPointerClick(): void;
 }
 
 /**
@@ -183,13 +182,6 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
 
     ngOnChanges(changes: SimpleChanges) {
         this.service.setChanges(changes, this);
-    }
-
-    /**
-     * Emit Id of current Clicked JointJs Element
-     */
-    emitElementPointerClick() {
-        this.elementPointerClick.emit(this.id);
     }
 
 }
