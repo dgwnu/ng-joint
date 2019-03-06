@@ -23,7 +23,7 @@
             [image]="{ xlinkHref: 'assets/image.png' }">
           </ng-joint-standard-bordered-image>
 
-          <ng-joint-standard-circle
+          <ng-joint-standard-circle (elementPointerClick)="onElementPointerClick('circle')"
             [id]="'circle'"
             [x]="200"
             [y]="10"

@@ -12,4 +12,8 @@ export class StandardElementsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onElementPointerClick(id: string) {
+    console.log('onElementPointerClick.id', id);
+  }
+
 }
