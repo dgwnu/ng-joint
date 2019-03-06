@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/dgwnu/ng-joint-schematics/ng73x/src/data/ng-joint-schematic-data-schema.json",
+    "$schema": "https://raw.githubusercontent.com/dgwnu/ng-joint-schematics/master/src/ng-joint-schematics/data/ng-joint-schematic-data-schema.json",
     "defaults": {
         "importMappings": [
             {
