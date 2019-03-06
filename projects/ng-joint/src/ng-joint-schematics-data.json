@@ -116,9 +116,13 @@
                                 "nameSpace": "attributes",
                                 "class": "SVGImageAttributes"
                             },
-                            "body": {
+                            "border": {
                                 "nameSpace": "attributes",
-                                "class": "SVGRectAttributes"
+                                "class": "SVGEllipseAttributes"
+                            },
+                            "background": {
+                                "nameSpace": "attributes",
+                                "class": "SVGEllipseAttributes"
                             },
                             "label": {
                                 "nameSpace": "attributes",
@@ -150,6 +154,20 @@
                     }
                 },
                 "image": {
+                    "properties": {
+                        "attrs": {
+                            "image": {
+                                "nameSpace": "attributes",
+                                "class": "SVGImageAttributes"
+                            },
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
+                "inscribed-image": {
                     "properties": {
                         "attrs": {
                             "image": {
