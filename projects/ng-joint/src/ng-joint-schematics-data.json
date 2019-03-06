@@ -1,4 +1,5 @@
 {
+    "$schema": "../../../../ng-joint-schematics/src/data/ng-joint-schematic-data-schema.json",
     "defaults": {
         "importMappings": [
             {
