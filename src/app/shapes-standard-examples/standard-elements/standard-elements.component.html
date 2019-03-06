@@ -92,6 +92,19 @@
             [label]="{ text: 'Image' }"
             [image]="{ xlinkHref: 'assets/image.png' }">
           </ng-joint-standard-image>
+
+          <ng-joint-standard-inscribed-image
+            [id]="'inscribed-image'"
+            [x]="225"
+            [y]="410"
+            [width]="150"
+            [height]="100"
+            [root]="{ title: 'standard.Image' }"
+            [image]="{ xlinkHref: 'assets/image.png' }"
+            [border]="{ strokeWidth: '5' }"
+            [background]="{ fill: 'lightgray' }"
+            [label]="{ text: 'Inscribed Image' }">
+          </ng-joint-standard-inscribed-image>
           
           <ng-joint-standard-path
             [id]="'path'"

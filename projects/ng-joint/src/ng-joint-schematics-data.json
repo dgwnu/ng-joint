@@ -112,17 +112,13 @@
                 "embedded-image": {
                     "properties": {
                         "attrs": {
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGRectAttributes"
+                            },
                             "image": {
                                 "nameSpace": "attributes",
                                 "class": "SVGImageAttributes"
-                            },
-                            "border": {
-                                "nameSpace": "attributes",
-                                "class": "SVGEllipseAttributes"
-                            },
-                            "background": {
-                                "nameSpace": "attributes",
-                                "class": "SVGEllipseAttributes"
                             },
                             "label": {
                                 "nameSpace": "attributes",
@@ -173,6 +169,14 @@
                             "image": {
                                 "nameSpace": "attributes",
                                 "class": "SVGImageAttributes"
+                            },
+                            "border": {
+                                "nameSpace": "attributes",
+                                "class": "SVGEllipseAttributes"
+                            },
+                            "background": {
+                                "nameSpace": "attributes",
+                                "class": "SVGEllipseAttributes"
                             },
                             "label": {
                                 "nameSpace": "attributes",
