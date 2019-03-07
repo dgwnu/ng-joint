@@ -199,6 +199,34 @@
                         }
                     }
                 },
+                "polygon": {
+                    "properties": {
+                        "attrs": {
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGPolygonAttributes"
+                            },
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
+                "polyline": {
+                    "properties": {
+                        "attrs": {
+                            "body": {
+                                "nameSpace": "attributes",
+                                "class": "SVGPolylineAttributes"
+                            },
+                            "label": {
+                                "nameSpace": "attributes",
+                                "class": "SVGTextAttributes"
+                            }
+                        }
+                    }
+                },
                 "rectangle": {
                     "properties": {
                         "attrs": {
