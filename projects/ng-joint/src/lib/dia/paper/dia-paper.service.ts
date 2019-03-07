@@ -24,20 +24,20 @@ export class DiaPaperService {
    *
    * Event-handling routings:
    *
-   *      onPaperEvents
+   *      onPaperEvents(..)
    *
    *             |
-   *             ? -> DiaGPaperComponent(Output->EventEmitter)
+   *             ? -> DiaGPaperComponent -> EventEmitter..
    *             |
    *             V
-   * DiaGraph.jointEvent.Subject(cid, eventSource, eventType)
+   * DiaGraph.jointEvent.next(..)
    *
    *             |
-   *             ? -> DiaGraphComponent(Output->EventEmitter)
+   *             ? -> DiaGraphComponent -> EventEmitter..
    *             |
-   *             ? -> GenericElementShapeComponent(Output->EventEmitter)
+   *             ? -> GenericElementShapeComponent -> EventEmitter..
    *             |
-   *             ? -> GenericLinkShapeComponent(Output->EventEmitter)
+   *             ? -> GenericLinkShapeComponent -> EventEmitter..
    *
    */
   onPaperEvents(component: DiaPaperComponent) {
