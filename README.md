@@ -11,6 +11,17 @@ This second pre-release version contains the starting points for fututure develo
 Added functionality to make Angular Elements working inside a Joint JS Boundary Box. First example excepts also Input and Focus to use buttons and fields inside the box (tested with Angular Material components).  
 See Angular Elements Demo [HTML template](./src/app/angular-elements-demo/angular-elements-demo.component.html).
 
+### Requirements
+
+#### Import joinjs style-sheet
+
+Add this import at the end of the styles.(s)css of youre angular app.
+
+```css
+@import '~jointjs/dist/joint.css';  
+```
+
+_This contains jointjs packacge delivered background, grid-styles, ... etc._
 ## Structural Directives Demo
 
 Added Interfaces to use Standard Rectangle and Link (from Hello World Demo) with angular structural directive capabilities like *ngFor, *ngIf, ..etc..  

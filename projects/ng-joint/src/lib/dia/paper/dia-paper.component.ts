@@ -45,14 +45,14 @@ export class DiaPaperComponent implements AfterViewInit {
 
     // work around (for problem 1st call ngAfterContentInit attributes are not initialized!)
     if (this.graph) {
-      console.log('offsetParent', this.el.nativeElement.offsetParent);
+      // console.log('offsetParent', this.el.nativeElement.offsetParent);
       this._createPaper();
     }
 
   }
 
   private _createPaper() {
-    console.log('graph', this.graph);
+   // console.log('graph', this.graph);
 
     this.paperInstance = this.service.createPaper({
       width: this.width,
@@ -62,7 +62,7 @@ export class DiaPaperComponent implements AfterViewInit {
       model: this.graph.graphInstance.jointjsObject,
       el: this.diaPaperElRef.nativeElement
     });
-    console.log('paperInstance', this.paperInstance);
+    // console.log('paperInstance', this.paperInstance);
 
     this.graph.addShapes();
 
