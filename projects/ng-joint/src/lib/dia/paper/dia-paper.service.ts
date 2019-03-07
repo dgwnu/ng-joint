@@ -19,25 +19,27 @@ export class DiaPaperService {
 
   /**
    * jointjs internal dia.Paper.event handling
-   * 
-   * see {https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Paper.events}
    *
-   * Event-handling routings:
+   * Based on: https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Paper.events
    *
-   *      onPaperEvents(..)
-   *
+   *    onPaperEvents(..)
    *             |
-   *             ? -> DiaGPaperComponent -> EventEmitter..
+   *             ? -> DiaGPaperComponent -> emit(..)
    *             |
    *             V
-   * DiaGraph.jointEvent.next(..)
-   *
+   *    DiaGraph.jointEvent.next(..)
    *             |
-   *             ? -> DiaGraphComponent -> EventEmitter..
+   *             ? -> DiaGraphComponent -> emit(..)
    *             |
-   *             ? -> GenericElementShapeComponent -> EventEmitter..
-   *             |
-   *             ? -> GenericLinkShapeComponent -> EventEmitter..
+   *             + -> ShapeService
+   *                     |
+   *                     + onElementEvents(..)
+   *                     |    |
+   *                     |    ?-> GenericElementShapeComponent -> emit(..)
+   *                     |
+   *                     + onLinkEvents(..)
+   *                          |
+   *                          ? -> GenericLinkShapeComponent -> emit(..)
    *
    */
   onPaperEvents(component: DiaPaperComponent) {
