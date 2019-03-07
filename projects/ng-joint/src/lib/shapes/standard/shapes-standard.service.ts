@@ -35,12 +35,16 @@ export class ShapesStandardService implements ShapePluginService {
   }
 
   elementShapeOptions<T extends GenericStandardElementShapeComponent>(component: T) {
+    // generic shape options
     const options = {
       position: { x: component.x, y: component.y },
       size: { width: component.width, height: component.height },
-      attrs: { }
+      attrs: { root: component.root }
     };
+
+    // custom shape options
     const attrsMetaData = component.shapePropertiesMetaData.filter(dataEl => dataEl['type'] === 'attrs');
+
     for (const attrDataEl of attrsMetaData) {
       const key: string = attrDataEl['key'];
       options.attrs[key] = component[key];
@@ -56,6 +60,7 @@ export class ShapesStandardService implements ShapePluginService {
       const t: string | number = component['topRy'];
       const cylinder = component.shapeInstance.jointjsObject as shapes.standard.Cylinder;
       cylinder.topRy(t);
+      console.log('cylinder', cylinder);
     }
 
     // shape generic config
