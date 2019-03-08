@@ -44,16 +44,27 @@ export class ShapesStandardService implements ShapePluginService {
 
     // custom shape options
     const attrsMetaData = component.shapePropertiesMetaData.filter(dataEl => dataEl['type'] === 'attrs');
-
+    /*
     for (const attrDataEl of attrsMetaData) {
       const key: string = attrDataEl['key'];
       options.attrs[key] = component[key];
     }
+    */
     return options;
   }
 
   configElementShape<T extends GenericStandardElementShapeComponent>(component: T) {
+    // shape attrs config
+    const shape = component.shapeInstance.jointjsObject;
+
+    for (const prop in shape.attributes.attrs) {
+      if (component[prop]) {
+        this.service.setAttrProp(shape, prop, component[prop]);
+      }
+    }
+
     // shape extra config
+    console.log('attributes', component.shapeInstance.jointjsObject.attributes.attrs);
 
     if (component.shapeInstance.jointjsObject instanceof shapes.standard.Cylinder && component['topRy']) {
       // jointjs.shapes.Cylinder extra config
