@@ -173,6 +173,17 @@ export class ShapesService {
     ;
   }
 
+  configShapeAttrs<T extends ShapeComponent>(component: T) {
+    // shape attrs config
+    const shape = component.shapeInstance.jointjsObject;
+
+    for (const prop in shape.attributes.attrs) {
+      if (component[prop]) {
+        this.setAttrProp(shape, prop, component[prop]);
+      }
+    }
+  }
+
   /**
    * Set Attr Property Values on a jointjs dia shape (element or link)
    */

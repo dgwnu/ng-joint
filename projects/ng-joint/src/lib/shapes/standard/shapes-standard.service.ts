@@ -38,34 +38,16 @@ export class ShapesStandardService implements ShapePluginService {
     // generic shape options
     const options = {
       position: { x: component.x, y: component.y },
-      size: { width: component.width, height: component.height },
-      attrs: { root: component.root }
+      size: { width: component.width, height: component.height }
     };
-
-    // custom shape options
-    const attrsMetaData = component.shapePropertiesMetaData.filter(dataEl => dataEl['type'] === 'attrs');
-    /*
-    for (const attrDataEl of attrsMetaData) {
-      const key: string = attrDataEl['key'];
-      options.attrs[key] = component[key];
-    }
-    */
     return options;
   }
 
   configElementShape<T extends GenericStandardElementShapeComponent>(component: T) {
     // shape attrs config
-    const shape = component.shapeInstance.jointjsObject;
+    this.service.configShapeAttrs(component);
 
-    for (const prop in shape.attributes.attrs) {
-      if (component[prop]) {
-        this.service.setAttrProp(shape, prop, component[prop]);
-      }
-    }
-
-    // shape extra config
-    console.log('attributes', component.shapeInstance.jointjsObject.attributes.attrs);
-
+    // Cylinder shape extra config
     if (component.shapeInstance.jointjsObject instanceof shapes.standard.Cylinder && component['topRy']) {
       // jointjs.shapes.Cylinder extra config
       const t: string | number = component['topRy'];
