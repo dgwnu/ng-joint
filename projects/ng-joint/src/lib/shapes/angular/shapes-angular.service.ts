@@ -166,10 +166,7 @@ export class ShapesAngularService implements ShapePluginService {
   }
 
   elementShapeOptions(component: GenericAngularElementShapeComponent) {
-    return {
-      position: { x: component.x, y: component.y },
-      size: { width: component.width, height: component.height }
-    };
+    return this.service.elementShapeOptions(component);
   }
 
   configElementShape(component: GenericAngularElementShapeComponent) {

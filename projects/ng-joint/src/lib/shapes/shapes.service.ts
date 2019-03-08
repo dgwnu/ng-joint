@@ -173,7 +173,20 @@ export class ShapesService {
     ;
   }
 
-  configShapeAttrs<T extends ShapeComponent>(component: T) {
+  /**
+   * returns al generic dia element options
+   */
+  elementShapeOptions(component: ElementShapeComponent) {
+    return {
+      position: { x: component.x, y: component.y },
+      size: { width: component.width, height: component.height }
+    };
+  }
+
+  /**
+   * configure al generic dia shape (element or link) settings
+   */
+  configShapeAttrs(component: ShapeComponent) {
     // shape attrs config
     const shape = component.shapeInstance.jointjsObject;
 

@@ -34,13 +34,8 @@ export class ShapesStandardService implements ShapePluginService {
     this.service.setLinkChanges(changes, component);
   }
 
-  elementShapeOptions<T extends GenericStandardElementShapeComponent>(component: T) {
-    // generic shape options
-    const options = {
-      position: { x: component.x, y: component.y },
-      size: { width: component.width, height: component.height }
-    };
-    return options;
+  elementShapeOptions(component: GenericStandardElementShapeComponent) {
+    return this.service.elementShapeOptions(component);
   }
 
   configElementShape<T extends GenericStandardElementShapeComponent>(component: T) {
