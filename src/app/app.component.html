@@ -14,20 +14,22 @@
                     </mat-expansion-panel-header>
                 </mat-expansion-panel>
                 <mat-expansion-panel *ngFor="let examples of examplesList"
-                    (afterCollapse)="onOverview(examples.main)"
-                    (afterExpand)="onOverview(examples.main)"
+                    (afterCollapse)="onOverview('dummy')"
+                    (afterExpand)="onOverview('dummy')"
                 >
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{buildMainTitle(examples.main) | titlecase}}
+                            {{examples.title | titlecase}}
                         </mat-panel-title>
                         <mat-panel-description>
-                            (jointjs)
+                            {{examples.description}}
                         </mat-panel-description>
                     </mat-expansion-panel-header>
 
-                    <mat-action-row *ngFor="let sub of examples.subs">
-                        <a mat-button routerLink="/{{examples.main}}/{{sub}}"> {{buildSubTitle(examples.main, sub) | titlecase}} </a>
+                    <mat-action-row *ngFor="let child of examples.childs">
+                        <a mat-button routerLink="/{{examples.path}}/{{child.path}}">
+                            {{child.title | titlecase}} 
+                        </a>
                     </mat-action-row>
 
                 </mat-expansion-panel>

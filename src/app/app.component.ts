@@ -48,8 +48,8 @@ export class AppComponent implements OnInit {
     this.initialized = true;
   }
 
-  onOverview(main: string) {
-    this.router.navigate([main]);
+  onOverview(title: string) {
+    // this.router.navigate([main]);
   }
 
   buildMainTitle(main: string): string {
