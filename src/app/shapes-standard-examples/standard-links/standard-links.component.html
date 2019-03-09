@@ -7,6 +7,7 @@
     <ng-joint-dia-graph>
         <ng-joint-shapes>
             <ng-joint-shapes-standard>
+
                 <ng-joint-standard-rectangle (elementPointerClick)="onElementPointerClick($event)"
                     [id]="'rect'"
                     [x]="10"
@@ -15,7 +16,8 @@
                     [height]="40"
                     [body]="{ fill: 'blue' }"
                     [label]="{ text: 'Hello', fill: 'white' }">
-                </ng-joint-standard-rectangle>
+                    </ng-joint-standard-rectangle>
+
                 <ng-joint-standard-rectangle 
                     [id]="'rect2'"
                     [x]="310"
@@ -25,13 +27,43 @@
                     [body]="{ fill: 'red' }"
                     [label]="{ text: 'World!', fill: 'white' }">
                 </ng-joint-standard-rectangle>
+
                 <ng-joint-standard-link
                     [id]="'link'"
                     [sourceId]="'rect'"
                     [targetId]="'rect2'"
                     [line]="{ stroke: '#fe854f' }">
-                    <!-- link(rect => rec2)  -->
                 </ng-joint-standard-link>
+
+                <ng-joint-standard-embedded-image
+                    [id]="'embedded-image'"
+                    [x]="425" [y]="340"
+                    [width]="150" [height]="100"
+                    [root]="{ title: 'standard.EmbededImage' }"
+                    [label]="{ text: 'Embedded\nImage' }"
+                    [body]="{ fill: '#fe854f', fillOpacity: '0.5', stroke: '#fe854f' }"
+                    [image]="{ xlinkHref: 'assets/image.png' }">
+                </ng-joint-standard-embedded-image>
+    
+                <ng-joint-standard-headered-rectangle
+                    [id]="'headered-rectangle'"
+                    [x]="25" [y]="610"
+                    [width]="150" [height]="100"
+                    [root]="{ title: 'standard.HeaderedRectangle' }"
+                    [header]="{ fill: '#000000', fillOpacity: '0.1' }"
+                    [headerText]="{ text: 'Header' }"
+                    [body]="{ fill: '#fe854f', fillOpacity: '0.5' }"
+                    [bodyText]="{ text: 'Headered\nRectangle' }">
+                </ng-joint-standard-headered-rectangle>
+
+                <ng-joint-standard-double-link
+                    [id]="'double-link'"
+                    [sourceId]="'embedded-image'"
+                    [targetId]="'headered-rectangle'"
+                    [root]="{ title: 'standard.DoubleLink' }"
+                    [line]="{ stroke: '#30d0c6' }">
+                </ng-joint-standard-double-link>
+
             </ng-joint-shapes-standard>
         </ng-joint-shapes>
     </ng-joint-dia-graph>
