@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AppGenericService {
   readonly mainTitle = 'ng-joint';
-  subTittle = '<<not initialzied>>'
+  subTitle = '<<not initialzied>>';
 
   constructor() { }
 }

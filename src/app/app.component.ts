@@ -21,6 +21,11 @@ export class AppComponent implements OnInit {
 
   menuOptions: MenuOptionInterface[] = [
     {
+      title: 'Overview Library',
+      description: 'ng-joint',
+      path: '',
+    },
+    {
       title: 'shapes.Standard',
       description: 'jointjs',
       path: 'shapes-standard-examples',
