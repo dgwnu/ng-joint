@@ -32,7 +32,8 @@
                     [id]="'link'"
                     [sourceId]="'rect'"
                     [targetId]="'rect2'"
-                    [line]="{ stroke: '#fe854f' }">
+                    [line]="{ stroke: '#222138', sourceMarker: { fill: '#31d0c6', stroke: 'none', d: 'M 5 -10 L -15 0 L 5 10 Z' } }"
+                    >
                 </ng-joint-standard-link>
 
                 <ng-joint-standard-embedded-image
@@ -42,7 +43,8 @@
                     [root]="{ title: 'standard.EmbededImage' }"
                     [label]="{ text: 'Embedded\nImage' }"
                     [body]="{ fill: '#fe854f', fillOpacity: '0.5', stroke: '#fe854f' }"
-                    [image]="{ xlinkHref: 'assets/image.png' }">
+                    [image]="{ xlinkHref: 'assets/image.png' }"
+                    >
                 </ng-joint-standard-embedded-image>
     
                 <ng-joint-standard-headered-rectangle
