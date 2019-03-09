@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AppGenericService } from './app-generic.service';
+
 interface ExamplesInterface {
-  main: string;
-  subs: string[];
+  title: string;
+  description?: string;
+  path: string;
+  childs?: ExamplesInterface[];
 }
 
 
@@ -14,39 +18,46 @@ interface ExamplesInterface {
 })
 export class AppComponent implements OnInit {
   initialized = false;
-  readonly mainTitle = 'ng-joint';
-  subTitle = '<Initial>';
+
   examplesList: ExamplesInterface[] = [
     {
-      main: 'shapes-standard-examples',
-      subs: [
-        'standard-elements',
-        'standard-links'
+      title: 'shapes.Standard',
+      description: '(jointjs)',
+      path: 'shapes-standard-examples',
+      childs: [
+        {
+          title: 'Elements',
+          path: 'standard-elements'
+        },
+        {
+          title: 'Links',
+          path: 'standard-links'
+        }
       ]
     }
   ];
 
 
 
-  constructor(private router: Router) {}
+  constructor(
+    public service: AppGenericService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.initialized = true;
   }
 
   onOverview(main: string) {
-    this.subTitle = 'Overview';
     this.router.navigate([main]);
   }
 
-  getMainTitle(main: string): string {
-    this.subTitle = main;
+  buildMainTitle(main: string): string {
     const mainWords = main.split('-');
     return mainWords[0] + ' ' + mainWords[1];
   }
 
-  getSubTitle(main: string, sub: string): string {
-    this.subTitle = main + ' / ' + sub;
+  buildSubTitle(sub: string): string {
     return sub.split('-')[1];
   }
 

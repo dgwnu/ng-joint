@@ -1,16 +1,17 @@
 <mat-toolbar color="primary">
-    {{mainTitle}} {{subTitle}} 
+    {{service.mainTitle}} {{service.subTitle}} 
 </mat-toolbar>
 
 <div fxLayout="row">
 
     <mat-card class="menu-card">
         <mat-card-content>
+
             <mat-accordion>
                 <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                <a mat-button routerLink="/" > Overview </a>
-                        </mat-expansion-panel-header>
+                    <mat-expansion-panel-header>
+                        <a mat-button routerLink="/" > Overview </a>
+                    </mat-expansion-panel-header>
                 </mat-expansion-panel>
                 <mat-expansion-panel *ngFor="let examples of examplesList"
                     (afterCollapse)="onOverview(examples.main)"
@@ -18,17 +19,21 @@
                 >
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{getMainTitle(examples.main) | titlecase}}
+                            {{buildMainTitle(examples.main) | titlecase}}
                         </mat-panel-title>
                         <mat-panel-description>
                             (jointjs)
                         </mat-panel-description>
                     </mat-expansion-panel-header>
+
                     <mat-action-row *ngFor="let sub of examples.subs">
-                        <a mat-button routerLink="/{{examples.main}}/{{sub}}"> {{getSubTitle(examples.main, sub) | titlecase}} </a>
+                        <a mat-button routerLink="/{{examples.main}}/{{sub}}"> {{buildSubTitle(examples.main, sub) | titlecase}} </a>
                     </mat-action-row>
+
                 </mat-expansion-panel>
+
             </mat-accordion>
+
         </mat-card-content>
     </mat-card>
 
