@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   examplesList: ExamplesInterface[] = [
     {
       title: 'shapes.Standard',
-      description: '(jointjs)',
+      description: 'jointjs',
       path: 'shapes-standard-examples',
       childs: [
         {
