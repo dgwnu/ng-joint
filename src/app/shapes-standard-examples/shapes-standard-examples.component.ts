@@ -12,7 +12,7 @@ export class ShapesStandardExamplesComponent implements OnInit {
   constructor(private appService: AppGenericService) { }
 
   ngOnInit() {
-    this.appService.subTittle = 'Standard Examples';
+    this.appService.subTitle = 'Standard Examples';
   }
 
 }
