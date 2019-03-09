@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AppGenericService } from '../../app-generic.service';
+
+
 @Component({
   selector: 'app-standard-elements',
   templateUrl: './standard-elements.component.html',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StandardElementsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppGenericService) { }
 
   ngOnInit() {
+    this.appService.subTitle = 'Standard Elements Examples';
   }
 
   onElementPointerClick(id: string) {
