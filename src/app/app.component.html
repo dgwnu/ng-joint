@@ -9,22 +9,22 @@
 
             <mat-accordion>
 
-                <mat-expansion-panel *ngFor="let examples of examplesList"
-                    (afterCollapse)="onOverview(examples)"
-                    (afterExpand)="onOverview(examples)"
+                <mat-expansion-panel *ngFor="let menuOption of menuOptions"
+                    (afterCollapse)="onOverview(menuOption)"
+                    (afterExpand)="onOverview(menuOption)"
                 >
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            {{examples.title}}
+                            {{menuOption.title}}
                         </mat-panel-title>
                         <mat-panel-description>
-                            ({{examples.description}})
+                            ({{menuOption.description}})
                         </mat-panel-description>
                     </mat-expansion-panel-header>
 
-                    <mat-action-row *ngFor="let child of examples.childs">
-                        <a mat-button routerLink="/{{examples.path}}/{{child.path}}">
-                            {{child.title | titlecase}} 
+                    <mat-action-row *ngFor="let child of menuOption.childs">
+                        <a mat-button routerLink="/{{menuOption.path}}/{{child.path}}">
+                            {{child.title}} 
                         </a>
                     </mat-action-row>
 

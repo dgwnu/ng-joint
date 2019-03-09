@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 
 import { AppGenericService } from './app-generic.service';
 
-interface ExamplesInterface {
+interface MenuOptionInterface {
   title: string;
   description?: string;
   path: string;
-  childs?: ExamplesInterface[];
+  childs?: MenuOptionInterface[];
 }
 
 
@@ -19,7 +19,7 @@ interface ExamplesInterface {
 export class AppComponent implements OnInit {
   initialized = false;
 
-  examplesList: ExamplesInterface[] = [
+  menuOptions: MenuOptionInterface[] = [
     {
       title: 'shapes.Standard',
       description: 'jointjs',
@@ -48,8 +48,8 @@ export class AppComponent implements OnInit {
     this.initialized = true;
   }
 
-  onOverview(examples: ExamplesInterface) {
-    this.router.navigate([examples.path]);
+  onOverview(menuOption: MenuOptionInterface) {
+    this.router.navigate([menuOption.path]);
   }
 
 }
