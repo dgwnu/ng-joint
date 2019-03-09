@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ShapesUmlExamplesComponent } from './shapes-uml-examples.component';
-import { UmlClassDiagramDemoComponent } from './uml-class-diagram';
+import { UmlClassDiagramComponent } from './uml-class-diagram';
 
 const demoModuleRoutes: Routes = [
   { path: 'shapes-uml-examples', component: ShapesUmlExamplesComponent,
       children: [
-        { path: 'uml-class-diagram', component: UmlClassDiagramDemoComponent }
+        { path: 'uml-class-diagram', component: UmlClassDiagramComponent }
       ]
   }
 ];
