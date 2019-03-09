@@ -2,7 +2,7 @@
  * Angular Component supported by NgJoint Library: JointJs UML Class Diagram Demo
  * Based on @see https://resources.jointjs.com/demos/joint/demo/umlcd/src/umlcd.js
  */
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AppGenericService } from '../../app-generic.service';
 
@@ -21,7 +21,7 @@ import {
   templateUrl: './uml-class-diagram.component.html',
   styleUrls: ['./uml-class-diagram.component.scss']
 })
-export class UmlClassDiagramComponent implements OnInit, OnDestroy {
+export class UmlClassDiagramComponent implements OnInit {
 
     constructor(private appService: AppGenericService) { }
 
@@ -233,10 +233,7 @@ export class UmlClassDiagramComponent implements OnInit, OnDestroy {
     ];
 
     ngOnInit() {
-      this.appService.subTitle = 'UML Class Diagram Example'
-    }
-
-    ngOnDestroy() {
+      this.appService.subTitle = 'UML Class Diagram Example';
     }
 
 }
