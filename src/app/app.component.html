@@ -1,11 +1,10 @@
-
 <mat-toolbar color="primary">
-    {{title}}
+    {{mainTitle}} {{subTitle}} 
 </mat-toolbar>
 
 <div fxLayout="row">
 
-    <mat-card class="accordion-container">
+    <mat-card class="menu-card">
         <mat-card-content>
             <mat-accordion>
                 <mat-expansion-panel>
@@ -26,14 +25,14 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <mat-action-row *ngFor="let sub of examples.subs">
-                        <a mat-button routerLink="/{{examples.main}}/{{sub}}"> {{getSubTitle(sub) | titlecase}} </a>
+                        <a mat-button routerLink="/{{examples.main}}/{{sub}}"> {{getSubTitle(examples.main, sub) | titlecase}} </a>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-card-content>
     </mat-card>
 
-    <mat-card class="main-content" fxFlex>
+    <mat-card class="main-card" fxFlex>
         <mat-card-content *ngIf="initialized">
             <router-outlet></router-outlet>
         </mat-card-content>

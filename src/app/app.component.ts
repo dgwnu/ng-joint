@@ -6,6 +6,7 @@ interface ExamplesInterface {
   subs: string[];
 }
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +14,8 @@ interface ExamplesInterface {
 })
 export class AppComponent implements OnInit {
   initialized = false;
-  title = 'ng-jointjs';
+  readonly mainTitle = 'ng-joint';
+  subTitle = '<Initial>';
   examplesList: ExamplesInterface[] = [
     {
       main: 'shapes-standard-examples',
@@ -33,15 +35,18 @@ export class AppComponent implements OnInit {
   }
 
   onOverview(main: string) {
+    this.subTitle = 'Overview';
     this.router.navigate([main]);
   }
 
   getMainTitle(main: string): string {
+    this.subTitle = main;
     const mainWords = main.split('-');
     return mainWords[0] + ' ' + mainWords[1];
   }
 
-  getSubTitle(sub: string): string {
+  getSubTitle(main: string, sub: string): string {
+    this.subTitle = main + ' / ' + sub;
     return sub.split('-')[1];
   }
 

@@ -3,14 +3,18 @@
 // Import app custom theme
 @import '../styles.scss';
 
-.accordion-container {
+.menu-card {
     background-color: mat-color($ng-joint-app-warn, A100);
 }
 
-.accordion-content {
-  background-color: mat-color($ng-joint-app-warn, A200);
+.main-card {
+  background-color: mat-color($ng-joint-app-primary, 50);
 }
 
-.main-content {
-  background-color: mat-color($ng-joint-app-primary, 50);
+/deep/ .mat-expansion-panel-header {
+  background-color: mat-color($ng-joint-app-warn, A100);
+}
+
+/deep/ .mat-expansion-panel-content {
+  background-color: mat-color($ng-joint-app-warn, 50);
 }
