@@ -48,17 +48,8 @@ export class AppComponent implements OnInit {
     this.initialized = true;
   }
 
-  onOverview(title: string) {
-    // this.router.navigate([main]);
-  }
-
-  buildMainTitle(main: string): string {
-    const mainWords = main.split('-');
-    return mainWords[0] + ' ' + mainWords[1];
-  }
-
-  buildSubTitle(sub: string): string {
-    return sub.split('-')[1];
+  onOverview(examples: ExamplesInterface) {
+    this.router.navigate([examples.path]);
   }
 
 }
