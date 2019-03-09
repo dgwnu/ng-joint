@@ -39,6 +39,17 @@ export class AppComponent implements OnInit {
           path: 'standard-links'
         }
       ]
+    },
+    {
+      title: 'shapes.uml',
+      description: 'jointjs',
+      path: 'shapes-uml-examples',
+      childs: [
+        {
+          title: 'UML Class Diagram',
+          path: 'uml-class-diagram'
+        }
+      ]
     }
   ];
 

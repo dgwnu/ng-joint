@@ -245,7 +245,6 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
         this.shapeInstance = this.service.createLinkShape(
             this.id, this.sourceId, this.targetId, shapeOptions);
         this.service.configShape(this);
-        console.log('POST: createShape.shapeInstance', this.shapeInstance);
         this.service.onEvents(this);
     }
 

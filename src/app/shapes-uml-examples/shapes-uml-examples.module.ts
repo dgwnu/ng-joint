@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { NgJointModule, ShapesUmlModule } from '@dgwnu/ng-joint';
+
+import { ShapesUmlExamplesRoutingModule } from './shapes-uml-examples-routing.module';
 import { ShapesUmlExamplesComponent } from './shapes-uml-examples.component';
+import { UmlClassDiagramComponent } from './uml-class-diagram';
 
 @NgModule({
   declarations: [
-    ShapesUmlExamplesComponent
+    ShapesUmlExamplesComponent,
+    UmlClassDiagramComponent
   ],
   imports: [
     CommonModule,
-    ShapesUmlExamplesComponent
+    NgJointModule, ShapesUmlModule,
+    ShapesUmlExamplesRoutingModule,
   ],
   exports: [
-    ShapesUmlExamplesComponent
+    ShapesUmlExamplesRoutingModule
   ]
 })
 export class ShapesUmlExamplesModule { }
