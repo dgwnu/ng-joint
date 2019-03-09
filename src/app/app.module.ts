@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
 
 import { ShapesStandardExamplesModule } from './shapes-standard-examples';
+import { ShapesUmlExamplesModule } from './shapes-uml-examples';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
     FlexLayoutModule,
     AppMaterialModule,
     ShapesStandardExamplesModule,
+    ShapesUmlExamplesModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
