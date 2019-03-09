@@ -37,7 +37,8 @@ export class AppComponent implements OnInit {
   }
 
   getMainTitle(main: string): string {
-    return main.split('-')[0];
+    const mainWords = main.split('-');
+    return mainWords[0] + ' ' + mainWords[1];
   }
 
   getSubTitle(sub: string): string {
