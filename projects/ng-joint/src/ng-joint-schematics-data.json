@@ -255,6 +255,12 @@
                 },
                 "link": {
                     "properties": {
+                        "attrs": {
+                            "wrapper": {
+                                "nameSpace": "attributes",
+                                "class": "SVGPathAttributes"
+                            }
+                        }
                     }
                 }
             }
