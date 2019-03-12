@@ -62,7 +62,6 @@ export interface ShapeComponent {
     id: string;
     graphInstance: DiaGraph;
     shapeInstance: GenericShape;
-    shapePropertiesMetaData: any;
     createShape(graphInstance: DiaGraph): void;
 }
 
@@ -116,7 +115,7 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     /** @ignore */
     @Output() heightChange = new EventEmitter<number>();
 
-    /** jointjs-paper-event (element:pointer:click) */
+    /** jointjs.dia.Paper event (element:pointer:click) */
     @Output() elementPointerClick = new EventEmitter<string>();
 
     constructor(private service: ElementShapeService) {}
@@ -166,8 +165,6 @@ export abstract class GenericElementShapeComponent implements ElementShapeCompon
     graphInstance: DiaGraph;
     /** NgJoint Shape Element Instance */
     shapeInstance: DiaElement;
-    /** MetaData of generated properties */
-    shapePropertiesMetaData: any;
 
     /** Create Shape Element Instance and initialize event handlers */
     createShape(graphInstance: DiaGraph) {
@@ -195,6 +192,7 @@ export interface LinkShapeComponent extends ShapeComponent {
     sourceShape: DiaElement;
     targetShape: DiaElement;
     shapeInstance: DiaLink;
+    linkPointerClick: EventEmitter<string>;
 }
 
 /**
@@ -220,6 +218,9 @@ export abstract class GenericLinkShapeComponent implements LinkShapeComponent, O
 
     /** one-way binding targerId property */
     @Input() targetId: string;
+
+    /** jointjs.dia.Paper event (link:pointer:click) */
+    @Output() linkPointerClick = new EventEmitter<string>();
 
     constructor(private service: LinkShapeService) {}
 
