@@ -20,4 +20,8 @@ export class StandardElementsComponent implements OnInit {
     console.log('onElementPointerClick.id', id);
   }
 
+  onGraphAdd(id: string) {
+    console.log('onGraphAdd.id', id);
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { dia } from 'jointjs';
+
 import { DiaGraph } from './dia-graph';
 import { DiaGraphComponent } from './dia-graph.component';
 
@@ -20,9 +22,9 @@ export class DiaGraphService {
   onEvents(component: DiaGraphComponent) {
 
     component.graphInstance.jointjsObject
-      .on('change', (context: any) => component.graphChange.emit(context.model.cid))
-      .on('add', (context: any) => component.graphAdd.emit(context.model.cid))
-      .on('remove', (context: any) => component.graphRemove.emit(context.model.cid))
+      .on('change', (context: any) => component.graphChange.emit(context))
+      .on('add', (cell: dia.Cell) => component.graphAdd.emit(cell.cid))
+      .on('remove', (cell: dia.Cell) => component.graphRemove.emit(cell.cid))
     ;
 
   }

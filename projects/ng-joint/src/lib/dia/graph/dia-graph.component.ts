@@ -29,7 +29,7 @@ export class DiaGraphComponent {
   graphInstance: DiaGraph;
 
   /** jointjs.dia.Graph event (add) */
-  @Output() graphChange = new EventEmitter<string>();
+  @Output() graphChange = new EventEmitter<any>();
 
   /** jointjs.dia.Graph event (add) */
   @Output() graphAdd = new EventEmitter<string>();

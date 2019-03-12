@@ -5,7 +5,7 @@
     [gridSize]="10"
     [drawGrid]="true">
 
-    <ng-joint-dia-graph>
+    <ng-joint-dia-graph (graphAdd)="onGraphAdd($event)">
 
       <ng-joint-shapes>
 
