@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { dia } from 'jointjs';
 
+import { NgJointService } from '../../ng-joint.service';
 import { DiaPaper } from './dia-paper';
 import { DiaPaperComponent } from './dia-paper.component';
 
@@ -13,36 +14,17 @@ import { DiaPaperComponent } from './dia-paper.component';
 })
 export class DiaPaperService {
 
+  constructor(private service: NgJointService) {}
+
   createPaper(options: dia.Paper.Options): DiaPaper {
     return new DiaPaper(options);
   }
 
   /**
-   * jointjs internal dia.Paper.event handling
-   *
-   * Based on: https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Paper.events
-   *
-   *    onPaperEvents(..)
-   *             |
-   *             ? -> DiaGPaperComponent -> emit(..)
-   *             |
-   *             V
-   *    DiaGraph.jointEvent.next(..)
-   *             |
-   *             ? -> DiaGraphComponent -> emit(..)
-   *             |
-   *             + -> ShapeService
-   *                     |
-   *                     + onElementEvents(..)
-   *                     |    |
-   *                     |    ?-> GenericElementShapeComponent -> emit(..)
-   *                     |
-   *                     + onLinkEvents(..)
-   *                          |
-   *                          ? -> GenericLinkShapeComponent -> emit(..)
-   *
+   * NgJoint Component Event handling
    */
-  onPaperEvents(component: DiaPaperComponent) {
+  onComponentEvents(component: DiaPaperComponent) {
+    /*
     component.paperInstance.jointjsObject
       .on('element:pointerclick', (context: any) => {
         component.graph.graphInstance.jointEvent.next(
@@ -54,6 +36,10 @@ export class DiaPaperService {
         );
       })
       ;
+      */
+
+    // handling of internal joinjs dia.Paper object events => Angular Emitors
+    this.service.onDiaPaperEvents(component.paperInstance.jointjsObject);
   }
 
 }
