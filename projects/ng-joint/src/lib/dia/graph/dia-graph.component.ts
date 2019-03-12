@@ -29,7 +29,13 @@ export class DiaGraphComponent {
   graphInstance: DiaGraph;
 
   /** jointjs.dia.Graph event (add) */
+  @Output() graphChange = new EventEmitter<string>();
+
+  /** jointjs.dia.Graph event (add) */
   @Output() graphAdd = new EventEmitter<string>();
+
+  /** jointjs.dia.Graph event (add) */
+  @Output() graphRemove = new EventEmitter<string>();
 
   /**
    * Trigger to add the Shapes to the Graph Instance
