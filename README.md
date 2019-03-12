@@ -10,7 +10,7 @@ This second pre-release version contains the starting points for fututure develo
 ### Joint JS Angular Elements
 
 Added functionality to make Angular Elements working inside a Joint JS Boundary Box. First example excepts also Input and Focus to use buttons and fields inside the box (tested with Angular Material components).  
-See [Angular Elements Template only source](./src/app/shapes-angular-examples/angular-template-only.component.html).   
+See [Angular Elements Template only source](https://github.com/dgwnu/ng-joint/tree/master/src/app/shapes-angular-examples/angular-template-only).   
 And [Angular Template only example page](https://dgwnu.github.io/ng-joint/shapes-angular-examples/angular-template-only).  
 
 ### Requirements
