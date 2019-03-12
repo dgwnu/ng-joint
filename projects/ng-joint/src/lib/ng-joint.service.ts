@@ -62,11 +62,19 @@ export class NgJointService {
    */
   onDiaPaperEvents(jointjsPaperObject: dia.Paper) {
     jointjsPaperObject
+
       .on('element:pointerclick', (context: any) => {
         this.jointEventSubject.next(
           { cid: context.model.cid, eventSource: 'element', eventType: 'pointerclick' }
         );
       })
+
+      .on('link:pointerclick', (context: any) => {
+        this.jointEventSubject.next(
+          { cid: context.model.cid, eventSource: 'link', eventType: 'pointerclick' }
+        );
+      })
+
       ;
   }
 
