@@ -1,6 +1,26 @@
-<div>
-  {{ umlClasses[0].name }}({{ umlClasses[0].x }}, {{ umlClasses[0].y }})
-</div>
+<mat-accordion>
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+      <mat-panel-title>
+        TS
+      </mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-action-row>
+  </mat-action-row>
+</mat-expansion-panel>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+          HTML
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-action-row>
+        {{ umlClasses[0].name }}({{ umlClasses[0].x }}, {{ umlClasses[0].y }})
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<iframe [src]="safeUmlTs"></iframe>
 
 <ng-joint-dia-paper
   [width]="800"

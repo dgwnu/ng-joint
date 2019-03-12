@@ -3,6 +3,7 @@
  * Based on @see https://resources.jointjs.com/demos/joint/demo/umlcd/src/umlcd.js
  */
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { AppGenericService } from '../../app-generic.service';
 
@@ -16,6 +17,10 @@ import {
     NgJointUmlComposition
 } from '@dgwnu/ng-joint';
 
+const appUrl = 'https://github.com/dgwnu/ng-joint/blob/master/src/app';
+const umlComponentUrl = appUrl + '/shapes-uml-examples/uml-class-diagram';
+const umlTsUrl = umlComponentUrl + '/uml-class-diagram.component.ts';
+
 @Component({
   selector: 'app-uml-class-diagram',
   templateUrl: './uml-class-diagram.component.html',
@@ -23,7 +28,11 @@ import {
 })
 export class UmlClassDiagramComponent implements OnInit {
 
-    constructor(private appService: AppGenericService) { }
+    constructor(private appService: AppGenericService, private sanitizer: DomSanitizer) {
+        this.safeUmlTs = this.sanitizer.bypassSecurityTrustResourceUrl(umlTsUrl);
+    }
+
+    safeUmlTs: SafeResourceUrl;
 
     umlInterfaces: NgJointUmlInterface[] = [
         {
