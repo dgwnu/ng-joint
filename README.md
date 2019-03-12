@@ -26,7 +26,7 @@ Add this import at the end of the styles.(s)css of youre angular app.
 _This contains jointjs packacge delivered background, grid-styles, ... etc._
 ## Structural Directives Demo
 
-Added Interfaces to use Standard Rectangle and Link (from Hello World Demo) with angular structural directive capabilities like *ngFor, *ngIf, ..etc..  
+Added Interfaces to use jointjs Elements and Links with angular structural directive capabilities like *ngFor, *ngIf, ..etc..  
 See [Angular Bi-Directional source](./src/app/shapes-angular-examples/) and [Component Class Typescript Code](src/app/struct-dir-demo/struct-dir-demo.component.ts).
 
 ## Version 0.0.0
