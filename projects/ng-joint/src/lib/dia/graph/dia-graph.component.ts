@@ -1,4 +1,4 @@
-import { Component, ContentChild } from '@angular/core';
+import { Component, ContentChild, Output, EventEmitter } from '@angular/core';
 
 import { ShapesComponent } from '../../shapes/shapes.component';
 import { DiaGraph } from './dia-graph';
@@ -22,10 +22,14 @@ export class DiaGraphComponent {
     private service: DiaGraphService
   ) {
     this.graphInstance = this.service.createGraph();
+    this.service.onEvents(this);
   }
 
   /**  JointNg Graph Object Instance */
   graphInstance: DiaGraph;
+
+  /** jointjs.dia.Graph event (add) */
+  @Output() graphAdd = new EventEmitter<string>();
 
   /**
    * Trigger to add the Shapes to the Graph Instance
