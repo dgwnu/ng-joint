@@ -7,6 +7,7 @@ import { NgJointModule, ShapesAngularModule } from '@dgwnu/ng-joint';
 import { ShapesAngularExamplesComponent } from './shapes-angular-examples.component';
 import { AngularTemplateOnlyComponent } from './angular-template-only/angular-template-only.component';
 import { AngularBiDirBindComponent } from './angular-bi-dir-bind/angular-bi-dir-bind.component';
+import { ShapesAngularExamplesRoutingModule } from './shapes-angular-examples-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,17 +16,13 @@ import { AngularBiDirBindComponent } from './angular-bi-dir-bind/angular-bi-dir-
     AngularBiDirBindComponent
   ],
   imports: [
-    // import to use structural directives
     CommonModule,
-    // imports to use ng-joint shapes angular components
     NgJointModule, ShapesAngularModule,
-    // imports to use some angular material components
-    MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTabsModule, MatSidenavModule
+    MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatTabsModule, MatSidenavModule,
+    ShapesAngularExamplesRoutingModule
   ],
   exports: [
-    ShapesAngularExamplesComponent,
-    AngularTemplateOnlyComponent,
-    AngularBiDirBindComponent
+    ShapesAngularExamplesRoutingModule
   ]
 })
 export class ShapesAngularExamplesModule { }

@@ -50,6 +50,21 @@ export class AppComponent implements OnInit {
           path: 'uml-class-diagram'
         }
       ]
+    },
+    {
+      title: 'shapes.Angular',
+      description: 'ng-joint',
+      path: 'shapes-angular-examples',
+      childs: [
+        {
+          title: 'Template Only',
+          path: 'angular-template-only'
+        },
+        {
+          title: 'Bi-Directional Bind',
+          path: 'angular-bi-dir-bind'
+        }
+      ]
     }
   ];
 

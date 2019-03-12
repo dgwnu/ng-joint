@@ -10,6 +10,7 @@ import { AppMaterialModule } from './app-material.module';
 
 import { ShapesStandardExamplesModule } from './shapes-standard-examples';
 import { ShapesUmlExamplesModule } from './shapes-uml-examples';
+import { ShapesAngularExamplesModule } from './shapes-angular-examples';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppMaterialModule,
     ShapesStandardExamplesModule,
     ShapesUmlExamplesModule,
+    ShapesAngularExamplesModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

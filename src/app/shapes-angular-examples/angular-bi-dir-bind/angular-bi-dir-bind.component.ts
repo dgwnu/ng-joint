@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { NgJointAngularElement } from '@dgwnu/ng-joint';
+
+import { AppGenericService } from '../../app-generic.service';
 
 // add fields to use inside the Angular Element Box-instances
 interface CustomNgEl extends NgJointAngularElement {
@@ -12,7 +14,9 @@ interface CustomNgEl extends NgJointAngularElement {
   templateUrl: './angular-bi-dir-bind.component.html',
   styleUrls: ['./angular-bi-dir-bind.component.scss']
 })
-export class AngularBiDirBindComponent {
+export class AngularBiDirBindComponent implements OnInit {
+
+  constructor(private appService: AppGenericService) { }
 
   customNgEls: CustomNgEl[] = [
     {
@@ -32,6 +36,10 @@ export class AngularBiDirBindComponent {
       testFieldA: 'TestField2'
     }
   ];
+
+  ngOnInit() {
+    this.appService.subTitle = 'Angular Bi-Directional Bind Example';
+  }
 
   // example how to use events inside Angular Elements
   onClickMatButtonXPlus10(customNgEl: CustomNgEl) {
