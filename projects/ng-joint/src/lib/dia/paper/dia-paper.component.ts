@@ -66,7 +66,7 @@ export class DiaPaperComponent implements AfterViewInit {
 
     this.graph.addShapes();
 
-    this.service.onComponentEvents(this);
+    this.service.onEvents(this);
 
   }
 

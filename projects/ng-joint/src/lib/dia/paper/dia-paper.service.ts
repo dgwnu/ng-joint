@@ -23,21 +23,7 @@ export class DiaPaperService {
   /**
    * NgJoint Component Event handling
    */
-  onComponentEvents(component: DiaPaperComponent) {
-    /*
-    component.paperInstance.jointjsObject
-      .on('element:pointerclick', (context: any) => {
-        component.graph.graphInstance.jointEvent.next(
-          {
-            cid: context.model.cid,
-            eventSource: 'element',
-            eventType: 'pointerclick'
-          }
-        );
-      })
-      ;
-      */
-
+  onEvents(component: DiaPaperComponent) {
     // handling of internal joinjs dia.Paper object events => Angular Emitors
     this.service.onDiaPaperEvents(component.paperInstance.jointjsObject);
   }
