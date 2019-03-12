@@ -1,5 +1,7 @@
 import { Injectable, QueryList, SimpleChanges } from '@angular/core';
 
+import { NgJointService } from '../ng-joint.service';
+
 import { DiaGraph } from '../dia/graph';
 import {
   ShapePlugin,
@@ -22,7 +24,7 @@ import {
 })
 export class ShapesService {
 
-  constructor() {}
+  constructor(private service: NgJointService) {}
 
   /**
    * Activate Ng Joint JS Shape Plugins (Standard, Angular, ...)
@@ -148,7 +150,7 @@ export class ShapesService {
 
     // jointjs internal paper event handling
     // emit events on element level to seperate event-sources (element instances)
-    component.graphInstance.jointEvent.subscribe(
+    this.service.jointEventSubject.subscribe(
       event => {
         if (event.eventSource === 'element') {
           if (event.eventType === 'pointerclick') {
