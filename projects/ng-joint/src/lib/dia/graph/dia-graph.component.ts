@@ -28,14 +28,14 @@ export class DiaGraphComponent {
   /**  JointNg Graph Object Instance */
   graphInstance: DiaGraph;
 
-  /** jointjs.dia.Graph event (add) */
-  @Output() graphChange = new EventEmitter<any>();
+  /** jointjs.dia.Graph event (change) */
+  @Output() anyChange = new EventEmitter<any>();
 
   /** jointjs.dia.Graph event (add) */
-  @Output() graphAdd = new EventEmitter<string>();
+  @Output() cellAdd = new EventEmitter<string>();
 
-  /** jointjs.dia.Graph event (add) */
-  @Output() graphRemove = new EventEmitter<string>();
+  /** jointjs.dia.Graph event (remove) */
+  @Output() cellRemove = new EventEmitter<string>();
 
   /**
    * Trigger to add the Shapes to the Graph Instance

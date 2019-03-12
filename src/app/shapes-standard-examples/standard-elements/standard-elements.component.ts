@@ -16,12 +16,12 @@ export class StandardElementsComponent implements OnInit {
     this.appService.subTitle = 'Standard Elements Examples';
   }
 
-  onElementPointerClick(id: string) {
-    console.log('onElementPointerClick.id', id);
+  onElementPointerClick(cid: string) {
+    console.log('onElementPointerClick.cid', cid);
   }
 
-  onGraphAdd(id: string) {
-    console.log('onGraphAdd.id', id);
+  onCellAdd(cid: string) {
+    console.log('onCellAdd.cid', cid);
   }
 
 }

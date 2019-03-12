@@ -22,9 +22,9 @@ export class DiaGraphService {
   onEvents(component: DiaGraphComponent) {
 
     component.graphInstance.jointjsObject
-      .on('change', (context: any) => component.graphChange.emit(context))
-      .on('add', (cell: dia.Cell) => component.graphAdd.emit(cell.cid))
-      .on('remove', (cell: dia.Cell) => component.graphRemove.emit(cell.cid))
+      .on('change', (context: any) => component.anyChange.emit(context))
+      .on('add', (cell: dia.Cell) => component.cellAdd.emit(cell.cid))
+      .on('remove', (cell: dia.Cell) => component.cellRemove.emit(cell.cid))
     ;
 
   }
