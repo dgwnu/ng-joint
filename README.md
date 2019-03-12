@@ -27,7 +27,8 @@ _This contains jointjs packacge delivered background, grid-styles, ... etc._
 ## Structural Directives Demo
 
 Added Interfaces to use jointjs Elements and Links with angular structural directive capabilities like *ngFor, *ngIf, ..etc..  
-See [Angular Bi-Directional source](./src/app/shapes-angular-examples/) and [Component Class Typescript Code](src/app/struct-dir-demo/struct-dir-demo.component.ts).
+See [Angular Bi-Directional Bind source](https://github.com/dgwnu/ng-joint/tree/master/src/app/shapes-angular-examples/angular-bi-dir-bind)  
+And [Angular Bi-Directional Bind example page](https://dgwnu.github.io/ng-joint/shapes-angular-examples/angular-bi-dir-bind).
 
 ## Version 0.0.0
 
