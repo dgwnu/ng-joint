@@ -6,6 +6,7 @@ Library to make JoinJs fantastic Diagram features working in an Angular 7 Declar
 
 This second pre-release version contains the starting points for fututure developments. The library is organised make it extendable and conform to angular standards.
 * added demo application in ghpages see [Standard Elements page](https://dgwnu.github.io/ng-joint/shapes-standard-examples/standard-elements)  
+TEST<a href="https://dgwnu.github.io/ng-joint/shapes-standard-examples/standard-elements" target="_blank">Go</a>
 
 ### Joint JS Angular Elements
 
