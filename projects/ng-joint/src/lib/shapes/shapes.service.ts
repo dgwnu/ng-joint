@@ -57,8 +57,8 @@ export class ShapesService {
       }
     }
 
-    console.log('elements', elements);
-    console.log('links', links);
+    // console.log('elements', elements);
+    // console.log('links', links);
     this.createShapes(elements, links, component.graphInstance);
   }
 
@@ -149,7 +149,8 @@ export class ShapesService {
     ;
 
     // jointjs internal paper event handling
-    // emit events on element level to seperate event-sources (element instances)
+    // emit events on element level. Does seperate event-sources (element instances)
+    // on the angular HTML-template
     this.service.jointEventSubject.subscribe(
       event => {
         if (event.eventSource === 'element') {
@@ -169,10 +170,27 @@ export class ShapesService {
    * see https://resources.jointjs.com/docs/jointjs/v2.2/joint.html#dia.Link.events
    */
   onLinkEvents(component: LinkShapeComponent) {
+    // jointjs internal link event handling
+    // bi-directional data changes
     component.shapeInstance.jointjsObject
       .on('change:source', (context: any) => { /* console.log('change:source', context); */ })
       .on('change:target', (context: any) => { /* console.log('change:target', context); */ })
     ;
+
+    // jointjs internal paper event handling
+    // emit events on link level. Does seperate event-sources (element instances)
+    // on the angular HTML-template
+    this.service.jointEventSubject.subscribe(
+      event => {
+        if (event.eventSource === 'link') {
+          if (event.eventType === 'pointerclick') {
+            if ((event.cid === component.shapeInstance.jointjsObject.cid)) {
+              component.linkPointerClick.emit(event.cid);
+            }
+          }
+        }
+      }
+    );
   }
 
   /**
