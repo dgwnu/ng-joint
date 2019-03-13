@@ -2,8 +2,17 @@
  * Angular Component supported by NgJoint Library: JointJs UML Class Diagram Demo
  * Based on @see https://resources.jointjs.com/demos/joint/demo/umlcd/src/umlcd.js
  */
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    ViewChild,
+    ViewEncapsulation,
+    ElementRef,
+    AfterViewInit
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatAccordion } from '@angular/material';
+
 import { AppGenericService } from '../../app-generic.service';
 
 import {
@@ -24,7 +33,8 @@ const htmlTextUrl = umlClassDiagramFolderUrl + '/uml-class-diagram.component.htm
   templateUrl: './uml-class-diagram.component.html',
   styleUrls: ['./uml-class-diagram.component.scss']
 })
-export class UmlClassDiagramComponent implements OnInit {
+export class UmlClassDiagramComponent implements OnInit, AfterViewInit {
+    @ViewChild('accordion') accordion: MatAccordion;
 
     constructor(private appService: AppGenericService, private http: HttpClient) {}
 
@@ -246,6 +256,11 @@ export class UmlClassDiagramComponent implements OnInit {
             error => console.log('http.error = ', error),
             () => console.log(this.htmlText.split('</'))
         );
+    }
+
+    ngAfterViewInit() {
+        console.log('accordion', this.accordion);
+        this.accordion.openAll();
     }
 
 }

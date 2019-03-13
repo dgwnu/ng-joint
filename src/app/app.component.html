@@ -7,7 +7,7 @@
     <mat-card class="menu-card">
         <mat-card-content>
 
-            <mat-accordion>
+            <mat-accordion [multi]="true">
 
                 <mat-expansion-panel *ngFor="let menuOption of menuOptions"
                     (afterCollapse)="onOverview(menuOption)"
