@@ -242,11 +242,9 @@ export class UmlClassDiagramComponent implements OnInit {
 
       this.http.get(htmlTextUrl, { responseType: 'text' })
         .subscribe(
-            htmlText => {
-                this.htmlText = htmlText;
-                console.log(this.htmlText);
-            },
-            error => console.log('http.error = ', error)
+            htmlText => this.htmlText = htmlText,
+            error => console.log('http.error = ', error),
+            () => console.log(this.htmlText.split('</'))
         );
     }
 

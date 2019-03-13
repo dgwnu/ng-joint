@@ -23,7 +23,7 @@
                     </mat-expansion-panel-header>
 
                     <mat-action-row *ngFor="let child of menuOption.childs">
-                        <a mat-button routerLink="/{{menuOption.path}}/{{child.path}}">
+                        <a mat-button [routerLink]="'/' + menuOption.path + '/' + child.path">
                             {{child.title}}
                         </a>
                     </mat-action-row>
