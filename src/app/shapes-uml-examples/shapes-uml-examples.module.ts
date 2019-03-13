@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -15,7 +16,7 @@ import { UmlClassDiagramComponent } from './uml-class-diagram';
     UmlClassDiagramComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule, HttpClientModule,
     FlexLayoutModule,
     MatExpansionModule,
     NgJointModule, ShapesUmlModule,

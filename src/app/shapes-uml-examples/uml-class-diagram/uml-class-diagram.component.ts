@@ -3,8 +3,7 @@
  * Based on @see https://resources.jointjs.com/demos/joint/demo/umlcd/src/umlcd.js
  */
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
+import { HttpClient } from '@angular/common/http';
 import { AppGenericService } from '../../app-generic.service';
 
 import {
@@ -17,9 +16,8 @@ import {
     NgJointUmlComposition
 } from '@dgwnu/ng-joint';
 
-const appUrl = 'https://github.com/dgwnu/ng-joint/blob/master/src/app';
-const umlComponentUrl = appUrl + '/shapes-uml-examples/uml-class-diagram';
-const umlTsUrl = umlComponentUrl + '/uml-class-diagram.component.ts';
+const umlClassDiagramFolderUrl = 'https://raw.githubusercontent.com/dgwnu/ng-joint/master/src/app/shapes-uml-examples/uml-class-diagram';
+const htmlTextUrl = umlClassDiagramFolderUrl + '/uml-class-diagram.component.html';
 
 @Component({
   selector: 'app-uml-class-diagram',
@@ -28,11 +26,9 @@ const umlTsUrl = umlComponentUrl + '/uml-class-diagram.component.ts';
 })
 export class UmlClassDiagramComponent implements OnInit {
 
-    constructor(private appService: AppGenericService, private sanitizer: DomSanitizer) {
-        this.safeUmlTs = this.sanitizer.bypassSecurityTrustResourceUrl(umlTsUrl);
-    }
+    constructor(private appService: AppGenericService, private http: HttpClient) {}
 
-    safeUmlTs: SafeResourceUrl;
+    htmlText: string;
 
     umlInterfaces: NgJointUmlInterface[] = [
         {
@@ -243,6 +239,15 @@ export class UmlClassDiagramComponent implements OnInit {
 
     ngOnInit() {
       this.appService.subTitle = 'UML Class Diagram Example';
+
+      this.http.get(htmlTextUrl, { responseType: 'text' })
+        .subscribe(
+            htmlText => {
+                this.htmlText = htmlText;
+                console.log(this.htmlText);
+            },
+            error => console.log('http.error = ', error)
+        );
     }
 
 }
