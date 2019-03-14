@@ -18,7 +18,10 @@
                     (afterCollapse)="onOverview(menuOption)"
                     (afterExpand)="onOverview(menuOption)"
                 >
-                    <mat-expansion-panel-header>
+                    <mat-expansion-panel-header
+                        [collapsedHeight]="expensionPanelHeaderCollapsedHeight"
+                        [expandedHeight]="expensionPanelHeaderExpandedHeight"
+                    >
                         <mat-panel-title>
                             {{menuOption.title}}
                         </mat-panel-title>

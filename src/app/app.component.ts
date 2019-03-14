@@ -33,6 +33,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   accordionDisplayMode: MatAccordionDisplayMode = 'flat';
   accordionHideToggle = false;
 
+  expensionPanelHeaderCollapsedHeight = '40px';
+  expensionPanelHeaderExpandedHeight = '30px';
+
   menuOptions: MenuOptionInterface[] = [
     {
       title: 'Overview Library',
