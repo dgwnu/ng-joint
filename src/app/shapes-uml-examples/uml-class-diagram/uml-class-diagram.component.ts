@@ -6,8 +6,7 @@ import {
     Component,
     OnInit,
     ViewChild,
-    ViewEncapsulation,
-    ElementRef,
+    ChangeDetectionStrategy,
     AfterViewInit
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -31,7 +30,8 @@ const htmlTextUrl = umlClassDiagramFolderUrl + '/uml-class-diagram.component.htm
 @Component({
   selector: 'app-uml-class-diagram',
   templateUrl: './uml-class-diagram.component.html',
-  styleUrls: ['./uml-class-diagram.component.scss']
+  styleUrls: ['./uml-class-diagram.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UmlClassDiagramComponent implements OnInit, AfterViewInit {
     @ViewChild('accordion') accordion: MatAccordion;
