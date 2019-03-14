@@ -6,7 +6,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatAccordion } from '@angular/material';
+import { MatAccordion, MatAccordionDisplayMode } from '@angular/material';
 
 import { AppGenericService } from './app-generic.service';
 
@@ -21,14 +21,17 @@ interface MenuOptionInterface {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('accordion') accordion: MatAccordion;
 
   initialized = false;
 
   accordionMulti = true;
+  accordionDisplayMode: MatAccordionDisplayMode = 'flat';
+  accordionHideToggle = false;
 
   menuOptions: MenuOptionInterface[] = [
     {
@@ -88,6 +91,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.initialized = true;
+  }
+
+  ngAfterViewInit() {
+    this.accordion.openAll();
   }
 
   onOverview(menuOption: MenuOptionInterface) {

@@ -7,8 +7,12 @@
     <mat-card class="menu-card">
         <mat-card-content>
 
-            <mat-accordion #accordion="matAccordion" 
-                [multi]="accordionMulti">
+            <mat-accordion
+                [displayMode]="accordionDisplayMode"
+                [hideToggle]="accordionHideToggle"
+                [multi]="accordionMulti"
+                #accordion="matAccordion"
+            >
 
                 <mat-expansion-panel *ngFor="let menuOption of menuOptions"
                     (afterCollapse)="onOverview(menuOption)"
