@@ -15,6 +15,7 @@
             >
 
                 <mat-expansion-panel *ngFor="let menuOption of menuOptions"
+                    [expanded]="expansionPanelExpanded"
                     (afterCollapse)="onOverview(menuOption)"
                     (afterExpand)="onOverview(menuOption)"
                 >

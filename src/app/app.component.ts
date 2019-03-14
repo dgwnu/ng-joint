@@ -27,11 +27,11 @@ interface MenuOptionInterface {
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('accordion') accordion: MatAccordion;
 
-  initialized = false;
-
   accordionMulti = true;
   accordionDisplayMode: MatAccordionDisplayMode = 'flat';
   accordionHideToggle = false;
+
+  expansionPanelExpanded = true;
 
   expensionPanelHeaderCollapsedHeight = '40px';
   expensionPanelHeaderExpandedHeight = '40px';
@@ -93,11 +93,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.initialized = true;
+    console.log('AppComponent.ngOnInit');
   }
 
   ngAfterViewInit() {
-    this.accordion.openAll();
+    console.log('AppComponent.ngAfterViewInit');
+    // this.accordion.openAll();
   }
 
   onOverview(menuOption: MenuOptionInterface) {
