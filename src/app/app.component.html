@@ -32,7 +32,7 @@
                     </mat-expansion-panel-header>
 
                     <mat-action-row *ngFor="let child of menuOption.childs">
-                        <a mat-button [routerLink]="'/' + menuOption.path + '/' + child.path">
+                        <a mat-button routerLink="/{{menuOption.path}}/{{child.path}}">
                             {{child.title}}
                         </a>
                     </mat-action-row>
@@ -45,7 +45,7 @@
     </mat-card>
 
     <mat-card class="main-card" fxFlex>
-        <mat-card-content *ngIf="initialized">
+        <mat-card-content>
             <router-outlet></router-outlet>
         </mat-card-content>
     </mat-card>
