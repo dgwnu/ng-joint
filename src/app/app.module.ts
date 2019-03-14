@@ -23,7 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     CommonModule,
     FlexLayoutModule,
     AppMaterialModule,
-    OverviewModule,
+//    OverviewModule,
     ShapesStandardExamplesModule,
     ShapesUmlExamplesModule,
     ShapesAngularExamplesModule,

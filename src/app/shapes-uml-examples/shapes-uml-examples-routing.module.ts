@@ -14,9 +14,8 @@ const demoModuleRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(
-      demoModuleRoutes,
-      { enableTracing: false } // <-- debugging purposes only
+    RouterModule.forChild(
+      demoModuleRoutes
     )
   ],
   exports: [
