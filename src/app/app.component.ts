@@ -101,8 +101,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     // this.accordion.openAll();
   }
 
-  onOverview(menuOption: MenuOptionInterface) {
-    this.router.navigate([menuOption.path]);
+  afterCollapse(menuOption: MenuOptionInterface) {
+    // PM
+  }
+
+  afterExpand(menuOption: MenuOptionInterface) {
+    // PM
   }
 
 }

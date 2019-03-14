@@ -10,9 +10,9 @@ export class HowToUseDocComponent implements OnInit {
   constructor() { }
 
   navLinks = [
-    'how-to-use-doc-overview',
-    'how-to-use-doc-api',
-    'how-to-use-doc-examples'
+    { path: 'how-to-use-doc-overview', label: 'OVERVIEW'},
+    { path: 'how-to-use-doc-api', label: 'API'},
+    { path: 'how-to-use-doc-examples', label: 'EXAMPLES'}
   ];
 
   ngOnInit() {

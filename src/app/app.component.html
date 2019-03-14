@@ -16,8 +16,8 @@
 
                 <mat-expansion-panel *ngFor="let menuOption of menuOptions"
                     [expanded]="expansionPanelExpanded"
-                    (afterCollapse)="onOverview(menuOption)"
-                    (afterExpand)="onOverview(menuOption)"
+                    (afterCollapse)="afterCollapse(menuOption)"
+                    (afterExpand)="afterExpand(menuOption)"
                 >
                     <mat-expansion-panel-header
                         [collapsedHeight]="expensionPanelHeaderCollapsedHeight"

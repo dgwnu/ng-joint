@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AppGenericService } from './app-generic.service';
+import { AppGenericService } from '../app-generic.service';
 
 @Component({
   selector: 'app-overview',
