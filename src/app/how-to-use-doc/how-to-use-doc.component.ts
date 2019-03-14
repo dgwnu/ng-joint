@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-how-to-use-doc',
@@ -6,14 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./how-to-use-doc.component.scss']
 })
 export class HowToUseDocComponent implements OnInit {
+  @Input() greet: TemplateRef<any>;
 
   constructor() { }
-
-  navLinks = [
-    { path: '/how-to-use-doc/overview', label: 'OVERVIEW'},
-    { path: '/how-to-use-doc/api', label: 'API'},
-    { path: '/how-to-use-doc/examples', label: 'EXAMPLES'}
-  ];
 
   ngOnInit() {
   }
