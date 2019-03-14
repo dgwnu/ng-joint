@@ -1,15 +1,14 @@
-<ng-container *ngTemplateOutlet="greet"></ng-container>
 <mat-tab-group>
   <mat-tab label="OVERVIEW">
-    <app-how-to-use-doc-overview>
+    <app-how-to-use-doc-overview [overview]="overview">
     </app-how-to-use-doc-overview>
   </mat-tab>
   <mat-tab label="API">
-      <app-how-to-use-doc-api>
+      <app-how-to-use-doc-api [api]="api">
       </app-how-to-use-doc-api>
   </mat-tab>
   <mat-tab label="EXAMPLES">
-      <app-how-to-use-doc-examples>
+      <app-how-to-use-doc-examples [examples]="examples">
       </app-how-to-use-doc-examples>
   </mat-tab>
 </mat-tab-group>

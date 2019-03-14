@@ -6,7 +6,9 @@ import { Component, OnInit, Input, TemplateRef } from '@angular/core';
   styleUrls: ['./how-to-use-doc.component.scss']
 })
 export class HowToUseDocComponent implements OnInit {
-  @Input() greet: TemplateRef<any>;
+  @Input() overview: TemplateRef<any>;
+  @Input() api: TemplateRef<any>;
+  @Input() examples: TemplateRef<any>;
 
   constructor() { }
 

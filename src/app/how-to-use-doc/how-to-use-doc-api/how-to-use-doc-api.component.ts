@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef  } from '@angular/core';
 
 @Component({
   selector: 'app-how-to-use-doc-api',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./how-to-use-doc-api.component.scss']
 })
 export class HowToUseDocApiComponent implements OnInit {
+  @Input() api: TemplateRef<any>;
 
   constructor() { }
 
