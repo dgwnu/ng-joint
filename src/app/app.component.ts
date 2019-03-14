@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   accordionHideToggle = false;
 
   expensionPanelHeaderCollapsedHeight = '40px';
-  expensionPanelHeaderExpandedHeight = '30px';
+  expensionPanelHeaderExpandedHeight = '40px';
 
   menuOptions: MenuOptionInterface[] = [
     {
