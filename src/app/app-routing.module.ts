@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { environment } from '../environments/environment';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/overview', pathMatch: 'full' },
-//  { path: '**', component: PageNotFoundComponent }
+  { path: '**', redirectTo: '/page-not-found', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: environment.traceRoutes } // <-- debugging purposes only
     )
   ],
   exports: [

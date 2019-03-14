@@ -12,6 +12,7 @@ import { OverviewModule } from './overview';
 import { ShapesStandardExamplesModule } from './shapes-standard-examples';
 import { ShapesUmlExamplesModule } from './shapes-uml-examples';
 import { ShapesAngularExamplesModule } from './shapes-angular-examples';
+import { PageNotFoundModule } from './page-not-found';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     ShapesStandardExamplesModule,
     ShapesUmlExamplesModule,
     ShapesAngularExamplesModule,
+    PageNotFoundModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
