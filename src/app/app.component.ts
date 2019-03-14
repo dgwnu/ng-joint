@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ChangeDetectionStrategy,
+  AfterViewInit
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { MatAccordion } from '@angular/material';
 
 import { AppGenericService } from './app-generic.service';
 
@@ -17,7 +24,11 @@ interface MenuOptionInterface {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  @ViewChild('accordion') accordion: MatAccordion;
+
   initialized = false;
+
+  accordionMulti = true;
 
   menuOptions: MenuOptionInterface[] = [
     {

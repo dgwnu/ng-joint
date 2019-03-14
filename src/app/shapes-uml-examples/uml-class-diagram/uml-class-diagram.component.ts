@@ -2,15 +2,7 @@
  * Angular Component supported by NgJoint Library: JointJs UML Class Diagram Demo
  * Based on @see https://resources.jointjs.com/demos/joint/demo/umlcd/src/umlcd.js
  */
-import {
-    Component,
-    OnInit,
-    ViewChild,
-    ChangeDetectionStrategy,
-    AfterViewInit
-} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { MatAccordion } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
 
 import { AppGenericService } from '../../app-generic.service';
 
@@ -30,13 +22,11 @@ const htmlTextUrl = umlClassDiagramFolderUrl + '/uml-class-diagram.component.htm
 @Component({
   selector: 'app-uml-class-diagram',
   templateUrl: './uml-class-diagram.component.html',
-  styleUrls: ['./uml-class-diagram.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./uml-class-diagram.component.scss']
 })
-export class UmlClassDiagramComponent implements OnInit, AfterViewInit {
-    @ViewChild('accordion') accordion: MatAccordion;
+export class UmlClassDiagramComponent implements OnInit {
 
-    constructor(private appService: AppGenericService, private http: HttpClient) {}
+    constructor(private appService: AppGenericService) {}
 
     htmlText: string;
 
@@ -250,17 +240,6 @@ export class UmlClassDiagramComponent implements OnInit, AfterViewInit {
     ngOnInit() {
       this.appService.subTitle = 'UML Class Diagram Example';
 
-      this.http.get(htmlTextUrl, { responseType: 'text' })
-        .subscribe(
-            htmlText => this.htmlText = htmlText,
-            error => console.log('http.error = ', error),
-            () => console.log(this.htmlText.split('</'))
-        );
-    }
-
-    ngAfterViewInit() {
-        console.log('accordion', this.accordion);
-        this.accordion.openAll();
     }
 
 }
