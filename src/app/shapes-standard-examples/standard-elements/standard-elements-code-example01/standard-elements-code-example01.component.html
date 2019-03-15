@@ -1,0 +1,137 @@
+<!-- Based on https://resources.jointjs.com/docs/jointjs/v2.2/demo/shapes/shapes.standard.js -->
+<ng-joint-dia-paper
+[width]="650"
+[height]="800"
+[gridSize]="10"
+[drawGrid]="true">
+
+<ng-joint-dia-graph (cellAdd)="onCellAdd($event)">
+
+  <ng-joint-shapes>
+
+    <ng-joint-shapes-standard>
+
+      <ng-joint-standard-bordered-image
+        [id]="'bordered-image'"
+        [x]="225" [y]="410"
+        [width]="150" [height]="100"
+        [root]="{ title: 'standard.BorderedImage' }"
+        [label]="{ text: 'Bordered\nImage' }"
+        [border]="{ rx: '5' }"
+        [image]="{ xlinkHref: 'assets/image.png' }">
+      </ng-joint-standard-bordered-image>
+
+      <ng-joint-standard-circle (elementPointerClick)="onElementPointerClick('circle')"
+        [id]="'circle'"
+        [x]="200" [y]="10"
+        [width]="100" [height]="100"
+        [root]="{ title: 'standard.Circle' }"
+        [body]="{ fill: '#30d0c6', fillOpacity: '0.5' }"
+        [label]="{ text: 'Circle' }">
+      </ng-joint-standard-circle>
+
+      <ng-joint-standard-cylinder
+        [id]="'cylinder'"
+        [x]="525" [y]="75"
+        [width]="100" [height]="200"
+        [root]="{ title: 'standard.Cylinder', tabindex: '7' }"
+        [body]="{ fill: 'fe854f', fillOpacity: '0.5' }"
+        [top]="{ fill: 'fe854f', fillOpacity: '0.8' }"
+        [label]="{ text: 'Cylinder' }"
+        [topRy]="'10%'">
+      </ng-joint-standard-cylinder>
+
+      <ng-joint-standard-ellipse
+        [id]="'ellipse'"
+        [x]="350" [y]="10"
+        [width]="150" [height]="100"
+        [root]="{ title: 'standard.Ellipse' }"
+        [body]="{ fill: '#30d0c6', fillOpacity: '0.5' }"
+        [label]="{ text: 'Ellipse' }">
+      </ng-joint-standard-ellipse>
+
+      <ng-joint-standard-embedded-image
+        [id]="'embedded-image'"
+        [x]="425" [y]="340"
+        [width]="150" [height]="100"
+        [root]="{ title: 'standard.EmbededImage' }"
+        [label]="{ text: 'Embedded\nImage' }"
+        [body]="{ fill: '#fe854f', fillOpacity: '0.5', stroke: '#fe854f' }"
+        [image]="{ xlinkHref: 'assets/image.png' }">
+      </ng-joint-standard-embedded-image>
+
+      <ng-joint-standard-headered-rectangle
+        [id]="'headered-rectangle'"
+        [x]="25" [y]="610"
+        [width]="150" [height]="100"
+        [root]="{ title: 'standard.HeaderedRectangle' }"
+        [header]="{ fill: '#000000', fillOpacity: '0.1' }"
+        [headerText]="{ text: 'Header' }"
+        [body]="{ fill: '#fe854f', fillOpacity: '0.5' }"
+        [bodyText]="{ text: 'Headered\nRectangle' }">
+      </ng-joint-standard-headered-rectangle>
+
+      <ng-joint-standard-image
+        [id]="'image'"
+        [x]="25" [y]="410"
+        [width]="150" [height]="100"
+        [root]="{ title: 'standard.Image' }"
+        [label]="{ text: 'Image' }"
+        [image]="{ xlinkHref: 'assets/image.png' }">
+      </ng-joint-standard-image>
+
+      <ng-joint-standard-inscribed-image
+        [id]="'inscribed-image'"
+        [x]="450" [y]="450"
+        [width]="100" [height]="100"
+        [root]="{ title: 'standard.Image' }"
+        [image]="{ xlinkHref: 'assets/image.png' }"
+        [border]="{ strokeWidth: '5' }"
+        [background]="{ fill: 'lightgray' }"
+        [label]="{ text: 'Inscribed Image' }">
+      </ng-joint-standard-inscribed-image>
+      
+      <ng-joint-standard-path
+        [id]="'path'"
+        [x]="50" [y]="210"
+        [width]="100"
+        [height]="100"
+        [root]="{ title: 'standard.Path' }"
+        [body]="{ fill: '#30d0c6', fillOpacity: '0.5', refD: 'M 0 5 10 0 C 20 0 20 20 10 20 L 0 15 Z' }"
+        [label]="{ text: 'Path' }">
+      </ng-joint-standard-path>
+
+      <ng-joint-standard-polygon
+        [id]="'polygon'"
+        [x]="200" [y]="210" 
+        [width]="100" [height]="100"
+        [root]="{ title: 'standard.Polygon' }"
+        [body]="{ fill: '#30d0c6', fillOpacity: 0.5, refPoints: '0,10 10,0 20,10 10,20' }"
+        [label]="{ text: 'Polygon' }">
+      </ng-joint-standard-polygon>
+
+      <ng-joint-standard-polyline
+        [id]="'polyline'"
+        [x]="375" [y]="210"
+        [width]="100" [height]="100"
+        [root]="{ title: 'standard.Polyline' }"
+        [body]="{ fill: '#30d0c6', fillOpacity: 0.5, refPoints: '0,0 0,10 10,10 10,0' }"
+        [label]="{ text: 'Polyline' }">
+      </ng-joint-standard-polyline>
+
+      <ng-joint-standard-rectangle
+        [id]="'rectangle'"
+        [x]="50" [y]="10"
+        [width]="100" [height]="100"
+        [root]="{ title: 'standard.Rectangle' }"
+        [body]="{ fill: '#30d0c6', fillOpacity: '0.5' }"
+        [label]="{ text: 'Rectangle' }">
+      </ng-joint-standard-rectangle>
+
+    </ng-joint-shapes-standard>
+
+  </ng-joint-shapes>
+
+</ng-joint-dia-graph>
+
+</ng-joint-dia-paper>

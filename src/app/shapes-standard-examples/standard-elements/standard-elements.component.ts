@@ -16,12 +16,4 @@ export class StandardElementsComponent implements OnInit {
     this.appService.subTitle = 'Standard Elements Examples';
   }
 
-  onElementPointerClick(cid: string) {
-    console.log('onElementPointerClick.cid', cid);
-  }
-
-  onCellAdd(cid: string) {
-    console.log('onCellAdd.cid', cid);
-  }
-
 }
