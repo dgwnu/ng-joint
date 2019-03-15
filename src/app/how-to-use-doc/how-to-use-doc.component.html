@@ -1,14 +1,12 @@
+<h1>HOW TO USE?</h1>
 <mat-tab-group>
   <mat-tab label="OVERVIEW">
-    <app-how-to-use-doc-overview [overview]="overview">
-    </app-how-to-use-doc-overview>
+    <ng-container *ngTemplateOutlet="overview"></ng-container>
   </mat-tab>
   <mat-tab label="API">
-      <app-how-to-use-doc-api [api]="api">
-      </app-how-to-use-doc-api>
+    <ng-container *ngTemplateOutlet="api"></ng-container>
   </mat-tab>
   <mat-tab label="EXAMPLES">
-      <app-how-to-use-doc-examples [examples]="examples">
-      </app-how-to-use-doc-examples>
+    <ng-container *ngTemplateOutlet="examples"></ng-container>
   </mat-tab>
 </mat-tab-group>
