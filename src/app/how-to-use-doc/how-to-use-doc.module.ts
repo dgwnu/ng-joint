@@ -8,7 +8,7 @@ import { HowToUseDocComponent } from './how-to-use-doc.component';
   declarations: [
     HowToUseDocComponent],
   imports: [
-    CommonModule,
+    CommonModule, // for supporting ngTemplate.. functionality
     MatTabsModule
   ],
   exports: [
