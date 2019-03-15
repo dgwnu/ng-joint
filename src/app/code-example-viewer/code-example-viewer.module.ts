@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatToolbarModule,
   MatTabsModule,
@@ -15,7 +16,7 @@ import { CodeExampleViewerComponent } from './code-example-viewer.component';
     CodeExampleViewerComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule, HttpClientModule,
     MatToolbarModule, MatTabsModule, MatButtonModule, MatCardModule,
     FlexLayoutModule
   ],

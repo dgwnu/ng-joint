@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  TemplateRef
+} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-code-example-viewer',
@@ -9,11 +16,12 @@ export class CodeExampleViewerComponent implements OnInit {
   @Input() codeExample: TemplateRef<any>;
   @Input() codeSourceUrl?: string;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   viewCodeEnabled = false;
 
   ngOnInit() {
+
   }
 
   toggleViewCodeEnabled() {
