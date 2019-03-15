@@ -22,8 +22,7 @@ import { ShapesStandardExamplesRoutingModule } from './shapes-standard-examples-
     StandardElementsComponent,
     StandardElementsCodeExample01Component,
     StandardLinksComponent,
-    StandardLinksCodeExample01Component,
-    StandardLinksCodeExample01Component,
+    StandardLinksCodeExample01Component
   ],
   imports: [
     CommonModule,
