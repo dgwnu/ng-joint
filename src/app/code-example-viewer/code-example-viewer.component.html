@@ -14,10 +14,10 @@
 
   <mat-tab-group *ngIf="viewCodeEnabled">
     <mat-tab label="HTML">
-      (PM HTML)
+        <ngx-md [path]="codeSourceUrl + '.html'"></ngx-md>
     </mat-tab>
     <mat-tab label="TS">
-      (PM TS)
+      <ngx-md [path]="codeSourceUrl + '.ts'"></ngx-md>
     </mat-tab>
     <mat-tab label="STYLES">
       (PM STYLES)
@@ -36,5 +36,3 @@
 <ngx-md>
     ## Markdown h2 content
 </ngx-md>
-
-<ngx-md [path]="'https://raw.githubusercontent.com/dgwnu/ng-joint/master/src/app/app-generic.service.ts'"></ngx-md>
