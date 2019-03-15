@@ -6,10 +6,7 @@ import { NgJointModule, ShapesStandardModule } from '@dgwnu/ng-joint';
 import { CodeExampleViewerModule } from '../code-example-viewer';
 import { HowToUseDocModule } from '../how-to-use-doc';
 import { ShapesStandardExamplesComponent } from './shapes-standard-examples.component';
-import {
-  StandardElementsComponent,
-  StandardElementsCodeExample01Component
-} from './standard-elements';
+import { StandardElementsModule } from './standard-elements';
 import {
   StandardLinksComponent,
   StandardLinksCodeExample01Component
@@ -19,8 +16,6 @@ import { ShapesStandardExamplesRoutingModule } from './shapes-standard-examples-
 @NgModule({
   declarations: [
     ShapesStandardExamplesComponent,
-    StandardElementsComponent,
-    StandardElementsCodeExample01Component,
     StandardLinksComponent,
     StandardLinksCodeExample01Component
   ],
@@ -28,6 +23,7 @@ import { ShapesStandardExamplesRoutingModule } from './shapes-standard-examples-
     CommonModule,
     NgJointModule, ShapesStandardModule,
     CodeExampleViewerModule, HowToUseDocModule,
+    StandardElementsModule,
     ShapesStandardExamplesRoutingModule
   ],
   exports: [
