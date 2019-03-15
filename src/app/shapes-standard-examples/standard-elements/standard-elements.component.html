@@ -1,4 +1,7 @@
-<app-how-to-use-doc [overview]="overview" [api]="api" [examples]="examples">
+<app-how-to-use-doc
+  [overview]="overview"
+  [api]="api"
+  [examples]="examples">
 </app-how-to-use-doc>
   
 <ng-template #overview>
@@ -8,10 +11,10 @@
 <ng-template #api>
   Test api template
 </ng-template>
-  
+
+<!-- Based on https://resources.jointjs.com/docs/jointjs/v2.2/demo/shapes/shapes.standard.js -->
 <ng-template #examples>
 
-  <!-- Based on https://resources.jointjs.com/docs/jointjs/v2.2/demo/shapes/shapes.standard.js -->
   <ng-joint-dia-paper
       [width]="650"
       [height]="800"
