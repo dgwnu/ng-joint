@@ -13,13 +13,15 @@
 </ng-template>
 
 <ng-template #examples>
-  Test Code Example Viewer
+  <p>Example with all standard <b>joinjs</b> pavkage delivered shapes in the <b>@dwgu/ng-joint</b> angular HTML-template definition format.</p>
+
   <app-code-example-viewer
     [codeExample]="codeexample01"
     [codeSourceUrl]="'https://raw.githubusercontent.com/dgwnu/ng-joint/master/src/app/app.component'">
   </app-code-example-viewer>
-</ng-template>
 
-<ng-template #codeexample01>
-  <app-standard-elements-code-example01></app-standard-elements-code-example01>
+  <ng-template #codeexample01>
+    <app-standard-elements-code-example01></app-standard-elements-code-example01>
+  </ng-template>
+
 </ng-template>
