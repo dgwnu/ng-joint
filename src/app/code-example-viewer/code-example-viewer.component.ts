@@ -7,6 +7,7 @@ import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 })
 export class CodeExampleViewerComponent implements OnInit {
   @Input() codeExample: TemplateRef<any>;
+  @Input() codeSourceUrl?: string;
 
   constructor() { }
 

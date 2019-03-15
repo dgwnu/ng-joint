@@ -4,7 +4,9 @@
     <span fxFlex>CODE EXAMPLE</span>
     <span fxFlex></span>
     <span fxFlex>
-      <button mat-stroked-button (click)="toggleViewCodeEnabled()">
+      <button mat-stroked-button 
+        *ngIf="codeSourceUrl"
+        (click)="toggleViewCodeEnabled()">
         View Code
       </button>
     </span>
