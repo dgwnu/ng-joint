@@ -8,12 +8,14 @@ import { AppGenericService } from './app-generic.service';
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
 
+import { CodeExampleViewerModule } from './code-example-viewer';
 import { OverviewModule } from './overview';
 import { ShapesStandardExamplesModule } from './shapes-standard-examples';
 import { ShapesUmlExamplesModule } from './shapes-uml-examples';
 import { ShapesAngularExamplesModule } from './shapes-angular-examples';
 import { PageNotFoundModule } from './page-not-found';
 import { AppRoutingModule } from './app-routing.module';
+import { from } from 'rxjs';
 
 @NgModule({
   providers: [AppGenericService],
@@ -24,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     CommonModule,
     FlexLayoutModule,
     AppMaterialModule,
+    CodeExampleViewerModule,
     OverviewModule,
     ShapesStandardExamplesModule,
     ShapesUmlExamplesModule,

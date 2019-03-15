@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-code-example-viewer',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code-example-viewer.component.scss']
 })
 export class CodeExampleViewerComponent implements OnInit {
+  @Input() codeExample: TemplateRef<any>;
 
   constructor() { }
 
