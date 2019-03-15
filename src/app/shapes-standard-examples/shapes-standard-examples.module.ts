@@ -10,10 +10,11 @@ import {
   StandardElementsComponent,
   StandardElementsCodeExample01Component
 } from './standard-elements';
-import { StandardLinksComponent } from './standard-links';
+import {
+  StandardLinksComponent,
+  StandardLinksCodeExample01Component
+} from './standard-links';
 import { ShapesStandardExamplesRoutingModule } from './shapes-standard-examples-routing.module';
-import {  } from './standard-elements/standard-elements-code-example01';
-
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import {  } from './standard-elements/standard-elements-code-example01';
     StandardElementsComponent,
     StandardElementsCodeExample01Component,
     StandardLinksComponent,
+    StandardLinksCodeExample01Component,
+    StandardLinksCodeExample01Component,
   ],
   imports: [
     CommonModule,
