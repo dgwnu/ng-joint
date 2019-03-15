@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NgJointModule, ShapesStandardModule } from '@dgwnu/ng-joint';
 
+import { CodeExampleViewerModule } from '../code-example-viewer';
 import { HowToUseDocModule } from '../how-to-use-doc';
 import { ShapesStandardExamplesComponent } from './shapes-standard-examples.component';
 import { StandardElementsComponent } from './standard-elements';
@@ -19,7 +20,7 @@ import { ShapesStandardExamplesRoutingModule } from './shapes-standard-examples-
   imports: [
     CommonModule,
     NgJointModule, ShapesStandardModule,
-    HowToUseDocModule,
+    CodeExampleViewerModule, HowToUseDocModule,
     ShapesStandardExamplesRoutingModule
   ],
   exports: [
