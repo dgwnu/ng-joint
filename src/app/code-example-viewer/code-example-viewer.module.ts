@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material';
+
 import { CodeExampleViewerComponent } from './code-example-viewer.component';
 
 @NgModule({
@@ -7,7 +9,8 @@ import { CodeExampleViewerComponent } from './code-example-viewer.component';
     CodeExampleViewerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTabsModule
   ],
   exports: [
     CodeExampleViewerComponent

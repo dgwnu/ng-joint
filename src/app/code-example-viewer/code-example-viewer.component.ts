@@ -11,6 +11,7 @@ export class CodeExampleViewerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('codeExample', this.codeExample);
   }
 
 }
