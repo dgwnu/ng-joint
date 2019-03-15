@@ -10,8 +10,13 @@ export class CodeExampleViewerComponent implements OnInit {
 
   constructor() { }
 
+  viewCodeEnabled = false;
+
   ngOnInit() {
-    console.log('codeExample', this.codeExample);
+  }
+
+  toggleViewCodeEnabled() {
+    this.viewCodeEnabled = !this.viewCodeEnabled;
   }
 
 }

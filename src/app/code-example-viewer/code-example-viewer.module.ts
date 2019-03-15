@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTabsModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatTabsModule,
+  MatButtonModule,
+  MatCardModule
+} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { CodeExampleViewerComponent } from './code-example-viewer.component';
 
@@ -10,7 +16,8 @@ import { CodeExampleViewerComponent } from './code-example-viewer.component';
   ],
   imports: [
     CommonModule,
-    MatTabsModule
+    MatToolbarModule, MatTabsModule, MatButtonModule, MatCardModule,
+    FlexLayoutModule
   ],
   exports: [
     CodeExampleViewerComponent

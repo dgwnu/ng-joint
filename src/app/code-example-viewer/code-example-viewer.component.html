@@ -1,15 +1,27 @@
-<h1>CODE EXAMPLE</h1>
+<mat-card>
 
-<mat-tab-group>
-  <mat-tab label="HTML">
-    (PM HTML)
-  </mat-tab>
-  <mat-tab label="TS">
-    (PM TS)
-  </mat-tab>
-  <mat-tab label="STYLES">
-    (PM STYLES)
-  </mat-tab>
-</mat-tab-group>
+  <mat-toolbar fxLayout="row">
+    <span fxFlex>CODE EXAMPLE</span>
+    <span fxFlex></span>
+    <span fxFlex>
+      <button mat-stroked-button (click)="toggleViewCodeEnabled()">
+        View Code
+      </button>
+    </span>
+  </mat-toolbar>
 
-<ng-container *ngTemplateOutlet="codeExample"></ng-container>
+  <mat-tab-group *ngIf="viewCodeEnabled">
+    <mat-tab label="HTML">
+      (PM HTML)
+    </mat-tab>
+    <mat-tab label="TS">
+      (PM TS)
+    </mat-tab>
+    <mat-tab label="STYLES">
+      (PM STYLES)
+    </mat-tab>
+  </mat-tab-group>
+
+  <ng-container *ngTemplateOutlet="codeExample"></ng-container>
+
+</mat-card>
