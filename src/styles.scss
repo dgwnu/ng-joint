@@ -26,4 +26,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 // jointjs library styles import
-@import '~jointjs/dist/joint.css'; 
+@import '~jointjs/dist/joint.css';
+
+// ngx-md styles import
+@import '~prismjs/themes/prism-okaidia.css';
