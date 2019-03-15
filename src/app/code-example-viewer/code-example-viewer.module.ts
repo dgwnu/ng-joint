@@ -10,6 +10,8 @@ import {
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { NgxMdModule } from 'ngx-md';
+
 import { CodeExampleViewerComponent } from './code-example-viewer.component';
 
 @NgModule({
@@ -19,7 +21,8 @@ import { CodeExampleViewerComponent } from './code-example-viewer.component';
   imports: [
     CommonModule, HttpClientModule,
     MatToolbarModule, MatTabsModule, MatButtonModule, MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgxMdModule
   ],
   exports: [
     CodeExampleViewerComponent

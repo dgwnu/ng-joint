@@ -8,8 +8,6 @@ import { AppGenericService } from './app-generic.service';
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
 
-import { NgxMdModule } from 'ngx-md';
-
 import { OverviewModule } from './overview';
 import { ShapesStandardExamplesModule } from './shapes-standard-examples';
 import { ShapesUmlExamplesModule } from './shapes-uml-examples';
@@ -25,7 +23,6 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     CommonModule,
     FlexLayoutModule,
-    NgxMdModule.forRoot(),
     AppMaterialModule,
     OverviewModule,
     ShapesStandardExamplesModule,
