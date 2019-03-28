@@ -27,7 +27,7 @@ interface MenuOptionInterface {
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('accordion') accordion: MatAccordion;
 
-  accordionMulti = true;
+  accordionMulti = false;
   accordionDisplayMode: MatAccordionDisplayMode = 'flat';
   accordionHideToggle = false;
 
